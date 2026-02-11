@@ -1,0 +1,59 @@
+{
+  "method": "Dual-channel [x+y, x-y] vs standard [x,y,r] inputs",
+  "hypothesis": "Alternative coordinate transforms yield lower eff_dim with \u22652\u00d7 speedup",
+  "target_order": 0.5,
+  "n_live": 100,
+  "cppn_per_variant": 40,
+  "baseline_variant": {
+    "name": "standard",
+    "n_inputs": 4,
+    "eff_dim": 3.7583271845452275,
+    "mean_samples": 37812.5,
+    "success_rate": 0.1,
+    "mean_order": 0.44386585840877224
+  },
+  "dual_sum_diff": {
+    "n_inputs": 3,
+    "initial_eff_dim_pr": 3.750035594609592,
+    "initial_eff_dim_90": 4,
+    "mean_samples": 38852.5,
+    "std_samples": 4864.976233241022,
+    "median_samples": 40000.0,
+    "success_rate": 0.1,
+    "mean_order": 0.4369307021124843,
+    "max_order": 0.5413885592572714,
+    "n_trials": 40
+  },
+  "dual_abs_diff": {
+    "n_inputs": 3,
+    "initial_eff_dim_pr": 3.4044819510433717,
+    "initial_eff_dim_90": 4,
+    "mean_samples": 39252.5,
+    "std_samples": 4668.136003802802,
+    "median_samples": 40000.0,
+    "success_rate": 0.025,
+    "mean_order": 0.4617321732108074,
+    "max_order": 0.5021586421630805,
+    "n_trials": 40
+  },
+  "dual_interaction": {
+    "n_inputs": 4,
+    "initial_eff_dim_pr": 4.009630738055811,
+    "initial_eff_dim_90": 4,
+    "mean_samples": 37740.0,
+    "std_samples": 7219.619103526169,
+    "median_samples": 40000.0,
+    "success_rate": 0.125,
+    "mean_order": 0.44048764267681034,
+    "max_order": 0.5133842662191007,
+    "n_trials": 40
+  },
+  "best_variant": null,
+  "best_eff_dim": null,
+  "best_speedup": 0.0,
+  "conclusion": "refute",
+  "interpretation": "Dual-channel architectures CANNOT achieve lower effective dimensionality with improved sampling efficiency. All variants underperformed.",
+  "status": "invalid",
+  "invalid_reason": "Sample counting bug (baseline multiplies by n_live) inflates sample counts and speedup; requires fix and rerun.",
+  "needs_rerun": true
+}

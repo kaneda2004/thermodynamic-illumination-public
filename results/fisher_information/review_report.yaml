@@ -1,0 +1,228 @@
+# Review Report: RES-049 Fisher Information Geometry
+# Reviewer: Scientific Review Agent
+# Date: 2025-12-18
+
+experiment_id: RES-049
+title: Fisher Information Geometry of Order Landscape
+status_before: validated
+status_after: needs_reclassification
+
+# ============================================================================
+# SUMMARY
+# ============================================================================
+executive_summary: |
+  RES-049 reports a strong correlation (rho=0.899) between order and Hessian
+  Frobenius norm, with high-order regions having "157x higher curvature." While
+  the reported statistics are computed correctly, the experiment has critical
+  methodological issues that inflate the effect size and misinterpret the results.
+
+  Key problems:
+  1. 46% of samples are uniform images with zero Hessian (confound)
+  2. Frobenius norm of Hessian is NOT Fisher information (misnomer)
+  3. The 157x ratio conflates "has structure" vs "has no structure"
+  4. The interpretation connecting curvature to GD failure is speculative
+
+  Excluding uniform samples, correlation drops from 0.899 to 0.625, and effect
+  size from d=1.55 to d=0.90. The finding is still statistically significant
+  but the mechanistic claim is overstated.
+
+recommendation: reclassify
+new_status: validated_with_caveats
+suggested_summary: |
+  Hessian Frobenius norm correlates with order (rho=0.625, d=0.90 excluding
+  uniform samples). The 157x headline figure conflates "patterned vs uniform"
+  rather than measuring continuous curvature variation. Does not explain GD
+  failure - that is better explained by non-differentiability (RES-185) and
+  order barriers (RES-137).
+
+# ============================================================================
+# ISSUES
+# ============================================================================
+issues:
+  - id: ISS-001
+    type: methodology
+    severity: critical
+    title: 46% of samples are degenerate (uniform images)
+    description: |
+      23 of 50 samples produce uniform (all-black or all-white) images with
+      exactly zero Hessian norm. These are not "low curvature regions" - they
+      are points where the order metric is constant by construction.
+
+      The binary nature of rendered images means small weight perturbations
+      cannot change the output when all pixels are already saturated at 0 or 1.
+      This is not meaningful information about the order landscape geometry.
+    evidence:
+      - Zero Frobenius count: 23/50 (46%)
+      - All zero-Frobenius samples have order in [0.0041, 0.0043]
+      - All non-zero-Frobenius samples have order in [0.0085, 0.5198]
+    impact: |
+      The strong correlation is driven by the binary split between
+      "uniform images" (zero curvature) and "patterned images" (non-zero).
+      Excluding uniform samples drops correlation from 0.899 to 0.625.
+    remediation: |
+      Either stratified sampling to ensure non-uniform images, or explicitly
+      acknowledge the binary nature of the correlation.
+
+  - id: ISS-002
+    type: assumption
+    severity: critical
+    title: Frobenius norm of Hessian is NOT Fisher information
+    description: |
+      The code computes the Hessian of order(weights), but calls this
+      "Fisher information". Fisher information is defined as:
+
+        F_ij = E[(d log p(x|theta) / d theta_i)(d log p(x|theta) / d theta_j)]
+
+      This requires a probabilistic model p(x|theta). The order metric is a
+      deterministic function, not a probability distribution. The Hessian of
+      a deterministic function measures local curvature, not Fisher information.
+    evidence:
+      - Code computes numerical Hessian of order metric
+      - No probability model is defined
+      - Fisher information definition requires likelihood function
+    impact: |
+      The title and interpretation are misleading. "Hessian curvature" would
+      be accurate; "Fisher information" is a misnomer.
+    remediation: |
+      Rename to "Hessian curvature" or "local curvature" to avoid confusion.
+
+  - id: ISS-003
+    type: interpretation
+    severity: warning
+    title: High curvature does not explain gradient descent failure
+    description: |
+      The experiment claims high curvature "explains why gradient methods fail."
+      However:
+
+      1. GD uses first derivatives (gradients), not second (Hessian)
+      2. High curvature means gradients change quickly, not that they are zero
+      3. RES-145 shows gradients INCREASE at high order (37x higher)
+      4. RES-185 shows the real issue: gradients are ZERO at low order
+      5. RES-137 shows order barriers exist between optima
+
+      The actual explanation for GD failure is the non-differentiability of
+      the thresholded order metric, not high Hessian curvature.
+    evidence:
+      - RES-145: "Gradient magnitude increases 37x during NS progression"
+      - RES-185: "Order metric gradient is exactly zero in low-order regions"
+      - RES-137: "Linear interpolation passes through low-order barriers"
+    impact: |
+      The mechanistic claim is not supported. GD fails due to zero gradients
+      and non-convexity, not high curvature per se.
+    remediation: |
+      Remove or soften the claim about explaining GD failure. Cite RES-185
+      and RES-137 for actual explanations.
+
+  - id: ISS-004
+    type: statistics
+    severity: warning
+    title: 157x ratio is misleading
+    description: |
+      The headline finding "157x higher Frobenius norm" compares:
+      - Low order mean: 0.63 (includes all 23 zeros)
+      - High order mean: 99.7
+
+      This ratio is mostly driven by 0 vs non-zero, not continuous variation.
+      Within non-zero samples, high-order mean is only ~2x low-order mean.
+    evidence:
+      - Low order group includes all 23 uniform samples (Frobenius=0)
+      - Mean Frobenius among non-uniform: 92.88 +/- 90.00
+      - Effect size excluding zeros: d=0.90 (still significant)
+    impact: |
+      The 157x figure gives a false impression of effect magnitude.
+    remediation: |
+      Report analysis excluding uniform samples, or use ranks/medians.
+
+  - id: ISS-005
+    type: data_quality
+    severity: info
+    title: Numerical Hessian stability not verified
+    description: |
+      The numerical Hessian uses eps=0.01 for finite differences. No
+      verification that this step size is appropriate for the order metric's
+      nonlinearity. The order metric involves thresholding (>0.5) which
+      creates discontinuities.
+    evidence:
+      - Step size eps=0.01 is hardcoded
+      - Order metric includes threshold at 0.5 (non-smooth)
+      - No convergence check with different eps values
+    impact: |
+      Possible numerical artifacts in Hessian computation.
+    remediation: |
+      Test with multiple eps values or use automatic differentiation.
+
+# ============================================================================
+# STRENGTHS
+# ============================================================================
+strengths:
+  - id: STR-001
+    description: |
+      The underlying observation is valid: non-uniform images do show higher
+      Hessian norms, indicating the order landscape is more sensitive to
+      weight changes in structured regions.
+
+  - id: STR-002
+    description: |
+      Statistical analysis uses appropriate non-parametric tests (Spearman
+      correlation, Mann-Whitney U) which are robust to non-normality.
+
+  - id: STR-003
+    description: |
+      The Hessian computation uses the correct four-point stencil formula
+      for mixed second derivatives.
+
+# ============================================================================
+# OPPORTUNITIES
+# ============================================================================
+opportunities:
+  - id: OPP-001
+    type: follow_up
+    title: Stratified sampling to ensure non-uniform images
+    description: |
+      Repeat experiment with rejection sampling to exclude uniform images.
+      This would give cleaner measurement of curvature variation within
+      the interesting (structured) region of the order landscape.
+    priority: high
+
+  - id: OPP-002
+    type: follow_up
+    title: Connect to actual optimization dynamics
+    description: |
+      Test whether high curvature actually predicts optimization difficulty.
+      E.g., measure correlation between local Hessian norm and number of
+      GD iterations to reach a target, or ESS contraction rate.
+    priority: medium
+
+  - id: OPP-003
+    type: follow_up
+    title: Compute proper Fisher information with probabilistic model
+    description: |
+      Define a proper probabilistic model (e.g., Gaussian noise on weights)
+      and compute true Fisher information. This would make the "information
+      geometry" framing accurate.
+    priority: low
+
+# ============================================================================
+# VERDICT
+# ============================================================================
+verdict:
+  confirmed: false
+  needs_reclassification: true
+  issues_count:
+    critical: 2
+    warning: 2
+    info: 1
+  opportunities_count: 3
+
+final_assessment: |
+  RES-049 makes a meaningful observation (Hessian norm correlates with order)
+  but overstates it through methodological issues. The 157x headline figure
+  and "Fisher information" terminology are misleading. The interpretation
+  connecting curvature to GD failure is not supported by the evidence.
+
+  Recommend:
+  1. Change status to "validated_with_caveats"
+  2. Update summary to exclude uniform samples (rho=0.625, d=0.90)
+  3. Remove "Fisher information" terminology (use "Hessian curvature")
+  4. Remove mechanistic claim about GD failure (cite RES-185/137 instead)
+  5. Note that 157x conflates uniform vs non-uniform distinction

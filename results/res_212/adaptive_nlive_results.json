@@ -1,0 +1,368 @@
+{
+  "adaptive": [
+    {
+      "seed": 2000,
+      "strategy": "adaptive",
+      "runtime_sec": 0.24352526664733887,
+      "samples_to_target": {
+        "0.3": 288.0,
+        "0.5": 338.0
+      },
+      "final_n_live": 30,
+      "final_order": 0.5086706671119355,
+      "success": true
+    },
+    {
+      "seed": 2001,
+      "strategy": "adaptive",
+      "runtime_sec": 0.3268299102783203,
+      "samples_to_target": {
+        "0.3": 76.0,
+        "0.5": 481.0
+      },
+      "final_n_live": 30,
+      "final_order": 0.5271619670585508,
+      "success": true
+    },
+    {
+      "seed": 2002,
+      "strategy": "adaptive",
+      "runtime_sec": 0.23316502571105957,
+      "samples_to_target": {
+        "0.3": 0.0,
+        "0.5": 332.0
+      },
+      "final_n_live": 30,
+      "final_order": 0.5256892877716314,
+      "success": true
+    },
+    {
+      "seed": 2003,
+      "strategy": "adaptive",
+      "runtime_sec": 0.4165060520172119,
+      "samples_to_target": {
+        "0.3": 153.0,
+        "0.5": 657.0
+      },
+      "final_n_live": 30,
+      "final_order": 0.5104396934414775,
+      "success": true
+    },
+    {
+      "seed": 2004,
+      "strategy": "adaptive",
+      "runtime_sec": 0.23417401313781738,
+      "samples_to_target": {
+        "0.3": 0.0,
+        "0.5": 332.0
+      },
+      "final_n_live": 30,
+      "final_order": 0.5117607143032746,
+      "success": true
+    },
+    {
+      "seed": 2005,
+      "strategy": "adaptive",
+      "runtime_sec": 0.11152529716491699,
+      "samples_to_target": {
+        "0.3": 22.0,
+        "0.5": 121.0
+      },
+      "final_n_live": 30,
+      "final_order": 0.5139713163440746,
+      "success": true
+    },
+    {
+      "seed": 2006,
+      "strategy": "adaptive",
+      "runtime_sec": 0.5989840030670166,
+      "samples_to_target": {
+        "0.3": 126.0,
+        "0.5": 980.0
+      },
+      "final_n_live": 30,
+      "final_order": 0.5109355272191132,
+      "success": true
+    },
+    {
+      "seed": 2007,
+      "strategy": "adaptive",
+      "runtime_sec": 0.38532400131225586,
+      "samples_to_target": {
+        "0.3": 54.0,
+        "0.5": 595.0
+      },
+      "final_n_live": 30,
+      "final_order": 0.5405475652981223,
+      "success": true
+    },
+    {
+      "seed": 2008,
+      "strategy": "adaptive",
+      "runtime_sec": 0.1150519847869873,
+      "samples_to_target": {
+        "0.3": 3.0,
+        "0.5": 130.0
+      },
+      "final_n_live": 30,
+      "final_order": 0.5352123232758386,
+      "success": true
+    },
+    {
+      "seed": 2009,
+      "strategy": "adaptive",
+      "runtime_sec": 0.26458120346069336,
+      "samples_to_target": {
+        "0.3": 0.0,
+        "0.5": 373.0
+      },
+      "final_n_live": 30,
+      "final_order": 0.511424913142305,
+      "success": true
+    }
+  ],
+  "fixed_15": [
+    {
+      "seed": 2000,
+      "strategy": "fixed_15",
+      "runtime_sec": 0.3241438865661621,
+      "samples_to_target": {
+        "0.3": 84.0,
+        "0.5": 536.0
+      },
+      "final_n_live": 15,
+      "final_order": 0.5040490063229378,
+      "success": true
+    },
+    {
+      "seed": 2001,
+      "strategy": "fixed_15",
+      "runtime_sec": 0.4833567142486572,
+      "samples_to_target": {
+        "0.3": 300.0,
+        "0.5": 803.0
+      },
+      "final_n_live": 15,
+      "final_order": 0.5087915333140356,
+      "success": true
+    },
+    {
+      "seed": 2002,
+      "strategy": "fixed_15",
+      "runtime_sec": 0.11566996574401855,
+      "samples_to_target": {
+        "0.3": 0.0,
+        "0.5": 168.0
+      },
+      "final_n_live": 15,
+      "final_order": 0.5435111562759048,
+      "success": true
+    },
+    {
+      "seed": 2003,
+      "strategy": "fixed_15",
+      "runtime_sec": 0.28067994117736816,
+      "samples_to_target": {
+        "0.3": 199.0,
+        "0.5": 422.0
+      },
+      "final_n_live": 15,
+      "final_order": 0.5125063091280538,
+      "success": true
+    },
+    {
+      "seed": 2004,
+      "strategy": "fixed_15",
+      "runtime_sec": 0.0760498046875,
+      "samples_to_target": {
+        "0.3": 0.0,
+        "0.5": 89.0
+      },
+      "final_n_live": 15,
+      "final_order": 0.5106958492549909,
+      "success": true
+    },
+    {
+      "seed": 2005,
+      "strategy": "fixed_15",
+      "runtime_sec": 0.3574638366699219,
+      "samples_to_target": {
+        "0.3": 57.0,
+        "0.5": 602.0
+      },
+      "final_n_live": 15,
+      "final_order": 0.525695632599807,
+      "success": true
+    },
+    {
+      "seed": 2006,
+      "strategy": "fixed_15",
+      "runtime_sec": 0.11548590660095215,
+      "samples_to_target": {
+        "0.3": 8.0,
+        "0.5": 157.0
+      },
+      "final_n_live": 15,
+      "final_order": 0.5033018154707064,
+      "success": true
+    },
+    {
+      "seed": 2007,
+      "strategy": "fixed_15",
+      "runtime_sec": 0.3788328170776367,
+      "samples_to_target": {
+        "0.3": 82.0,
+        "0.5": 630.0
+      },
+      "final_n_live": 15,
+      "final_order": 0.5037295651605824,
+      "success": true
+    },
+    {
+      "seed": 2008,
+      "strategy": "fixed_15",
+      "runtime_sec": 0.17225098609924316,
+      "samples_to_target": {
+        "0.3": 12.0,
+        "0.5": 255.0
+      },
+      "final_n_live": 15,
+      "final_order": 0.5233366636553543,
+      "success": true
+    },
+    {
+      "seed": 2009,
+      "strategy": "fixed_15",
+      "runtime_sec": 0.20019197463989258,
+      "samples_to_target": {
+        "0.3": 0.0,
+        "0.5": 316.0
+      },
+      "final_n_live": 15,
+      "final_order": 0.5058695335842543,
+      "success": true
+    }
+  ],
+  "fixed_30": [
+    {
+      "seed": 2000,
+      "strategy": "fixed_30",
+      "runtime_sec": 0.5997622013092041,
+      "samples_to_target": {
+        "0.3": 19.0,
+        "0.5": 999.0
+      },
+      "final_n_live": 30,
+      "final_order": 0.5190946993874813,
+      "success": true
+    },
+    {
+      "seed": 2001,
+      "strategy": "fixed_30",
+      "runtime_sec": 0.34664201736450195,
+      "samples_to_target": {
+        "0.3": 80.0,
+        "0.5": 530.0
+      },
+      "final_n_live": 30,
+      "final_order": 0.5386592156409681,
+      "success": true
+    },
+    {
+      "seed": 2002,
+      "strategy": "fixed_30",
+      "runtime_sec": 0.27740979194641113,
+      "samples_to_target": {
+        "0.3": 0.0,
+        "0.5": 401.0
+      },
+      "final_n_live": 30,
+      "final_order": 0.5104145439527122,
+      "success": true
+    },
+    {
+      "seed": 2003,
+      "strategy": "fixed_30",
+      "runtime_sec": 0.6766982078552246,
+      "samples_to_target": {
+        "0.3": 75.0,
+        "0.5": 1114.0
+      },
+      "final_n_live": 30,
+      "final_order": 0.5097056515915341,
+      "success": true
+    },
+    {
+      "seed": 2004,
+      "strategy": "fixed_30",
+      "runtime_sec": 0.034809112548828125,
+      "samples_to_target": {
+        "0.3": 0.0,
+        "0.5": 13.0
+      },
+      "final_n_live": 30,
+      "final_order": 0.5149055961769167,
+      "success": true
+    },
+    {
+      "seed": 2005,
+      "strategy": "fixed_30",
+      "runtime_sec": 0.493816614151001,
+      "samples_to_target": {
+        "0.3": 303.0,
+        "0.5": 769.0
+      },
+      "final_n_live": 30,
+      "final_order": 0.5009963755428336,
+      "success": true
+    },
+    {
+      "seed": 2006,
+      "strategy": "fixed_30",
+      "runtime_sec": 0.24982595443725586,
+      "samples_to_target": {
+        "0.3": 28.0,
+        "0.5": 346.0
+      },
+      "final_n_live": 30,
+      "final_order": 0.5197343675183795,
+      "success": true
+    },
+    {
+      "seed": 2007,
+      "strategy": "fixed_30",
+      "runtime_sec": 0.8448691368103027,
+      "samples_to_target": {
+        "0.3": 517.0,
+        "0.5": 1408.0
+      },
+      "final_n_live": 30,
+      "final_order": 0.5221194445137877,
+      "success": true
+    },
+    {
+      "seed": 2008,
+      "strategy": "fixed_30",
+      "runtime_sec": 0.38466835021972656,
+      "samples_to_target": {
+        "0.3": 3.0,
+        "0.5": 574.0
+      },
+      "final_n_live": 30,
+      "final_order": 0.5135406629835144,
+      "success": true
+    },
+    {
+      "seed": 2009,
+      "strategy": "fixed_30",
+      "runtime_sec": 0.4293210506439209,
+      "samples_to_target": {
+        "0.3": 0.0,
+        "0.5": 657.0
+      },
+      "final_n_live": 30,
+      "final_order": 0.5154086888360115,
+      "success": true
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "hypothesis": "Order gradient at high-low boundary points toward nearest high-order peak not global max",
+  "verdict": "INCONCLUSIVE",
+  "metrics": {
+    "n_boundary_points": 97,
+    "n_peaks": 30,
+    "alignment_nearest_mean": 0.0792,
+    "alignment_nearest_std": 0.3184,
+    "alignment_farthest_mean": -0.0113,
+    "alignment_farthest_std": 0.3231,
+    "alignment_random_mean": 0.0365,
+    "alignment_random_std": 0.2792,
+    "t_stat_nearest_vs_farthest": 1.955,
+    "p_value_nearest_vs_farthest": 0.052083,
+    "cohens_d": 0.282,
+    "p_value_nearest_vs_random": 0.32422,
+    "cohens_d_nearest_vs_random": 0.143,
+    "fraction_toward_nearest": 0.68
+  },
+  "summary": "Gradient at boundary shows weak preference for nearest peak (68% toward nearest, d=0.28, p=0.052). Mean alignment with nearest=0.08 vs farthest=-0.01. Effect exists but below significance threshold. Gradient direction at boundaries is noisy, not clearly organized toward local optima."
+}

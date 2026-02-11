@@ -1,0 +1,133 @@
+{
+  "experiment_id": "RES-254",
+  "title": "Hierarchical Multi-Scale Composition with Nested Sampling Validation",
+  "hypothesis": "Multi-scale [x,x/2,x/4,y,y/2,y/4] achieves \u22651.2\u00d7 order or \u22652\u00d7 sampling efficiency vs [x,y,r]",
+  "method": "Compare 5 CPPN variants: baseline, hierarchy, interaction, adaptive, spectral",
+  "n_samples_per_variant": 25,
+  "results": {
+    "baseline": {
+      "eff_dim": 4.879418380876987,
+      "order_dist": {
+        "mean": 0.08148299320992997,
+        "std": 0.11803592971032026,
+        "p25": 0.004147380080290953,
+        "p50": 0.004274991775069136,
+        "p75": 0.13766171994370902,
+        "p90": 0.19548194719925321,
+        "min": 0.004147380080290953,
+        "max": 0.5197603629334541
+      },
+      "sampling_efficiency": {
+        "median_samples": 5000.0,
+        "mean_samples": 5000.0,
+        "success_rate": 0.0,
+        "samples_p90": 5000.0
+      },
+      "n_cppns": 25
+    },
+    "hierarchy": {
+      "eff_dim": 7.276159508745557,
+      "order_dist": {
+        "mean": 0.060536051685600605,
+        "std": 0.06538449136972094,
+        "p25": 0.004274991775069136,
+        "p50": 0.03436029818875693,
+        "p75": 0.09152088316720623,
+        "p90": 0.14916475043579433,
+        "min": 0.004147380080290953,
+        "max": 0.2382375663704848
+      },
+      "sampling_efficiency": {
+        "median_samples": 5000.0,
+        "mean_samples": 5000.0,
+        "success_rate": 0.0,
+        "samples_p90": 5000.0
+      },
+      "n_cppns": 25
+    },
+    "interaction": {
+      "eff_dim": 5.654699349007695,
+      "order_dist": {
+        "mean": 0.16300883457453708,
+        "std": 0.10265960100740155,
+        "p25": 0.08267748752239755,
+        "p50": 0.15370579242289603,
+        "p75": 0.23598900470900272,
+        "p90": 0.27458200762194834,
+        "min": 0.004274991775069136,
+        "max": 0.38335826146907537
+      },
+      "sampling_efficiency": {
+        "median_samples": 5000.0,
+        "mean_samples": 5000.0,
+        "success_rate": 0.0,
+        "samples_p90": 5000.0
+      },
+      "n_cppns": 25
+    },
+    "adaptive": {
+      "eff_dim": 5.654699349007695,
+      "order_dist": {
+        "mean": 0.08299659529396336,
+        "std": 0.0731834548065604,
+        "p25": 0.02057772573204384,
+        "p50": 0.0556781597825051,
+        "p75": 0.12948767420296486,
+        "p90": 0.17474946121859763,
+        "min": 0.004147380080290953,
+        "max": 0.2498476187309198
+      },
+      "sampling_efficiency": {
+        "median_samples": 5000.0,
+        "mean_samples": 5000.0,
+        "success_rate": 0.0,
+        "samples_p90": 5000.0
+      },
+      "n_cppns": 25
+    },
+    "spectral": {
+      "eff_dim": 5.654699349007695,
+      "order_dist": {
+        "mean": 0.24503531506915152,
+        "std": 0.19240940015692848,
+        "p25": 0.02942614809861877,
+        "p50": 0.23019233980669476,
+        "p75": 0.36845241806797785,
+        "p90": 0.49695476243292025,
+        "min": 0.004274991775069136,
+        "max": 0.6791580966131613
+      },
+      "sampling_efficiency": {
+        "median_samples": 5000.0,
+        "mean_samples": 5000.0,
+        "success_rate": 0.0,
+        "samples_p90": 5000.0
+      },
+      "n_cppns": 25
+    }
+  },
+  "comparison": {
+    "hierarchy_order_gain": 0.7429286689265037,
+    "hierarchy_sampling_speedup": 1.0,
+    "interaction_order_gain": 2.0005258539603075,
+    "interaction_sampling_speedup": 1.0,
+    "adaptive_order_gain": 1.0185756809415898,
+    "adaptive_sampling_speedup": 1.0,
+    "spectral_order_gain": 3.007195801433693,
+    "spectral_sampling_speedup": 1.0
+  },
+  "validation": {
+    "test_hierarchy_12x": false,
+    "test_hierarchy_efficiency_2x": false,
+    "test_interaction_12x": true,
+    "test_interaction_efficiency_2x": false,
+    "test_adaptive_12x": false,
+    "test_adaptive_efficiency_2x": false,
+    "test_spectral_12x": true,
+    "test_spectral_efficiency_2x": false,
+    "best_variant": "spectral",
+    "best_order_gain": 3.007195801433693,
+    "best_sampling_speedup": 1.0,
+    "conclusion": "validate"
+  }
+}

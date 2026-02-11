@@ -1,0 +1,982 @@
+
+
+
+\section{Order Metrics}
+\label{app:metrics}
+
+\subsection{Multiplicative Order Metric}
+
+The multiplicative order metric combines four factors:
+
+\begin{equation}
+O_{\text{mult}}(x) = O_{\text{compress}}(x) \times O_{\text{symmetry}}(x) \times O_{\text{connectivity}}(x) \times O_{\text{balance}}(x)
+\end{equation}
+
+\textbf{Compressibility} ($O_{\text{compress}}$): Measures pattern regularity via compression ratio.
+\begin{equation}
+O_{\text{compress}}(x) = 1 - \frac{\text{compressed\_size}(x)}{\text{raw\_size}(x)}
+\end{equation}
+We use zlib compression on the binary image representation.
+
+\textbf{Symmetry} ($O_{\text{symmetry}}$): Measures bilateral symmetry.
+\begin{equation}
+O_{\text{symmetry}}(x) = 1 - \frac{\|x - \text{flip}(x)\|_1}{n_{\text{pixels}}}
+\end{equation}
+where flip is horizontal reflection.
+
+\textbf{Connectivity} ($O_{\text{connectivity}}$): Measures whether foreground pixels form a single connected component.
+\begin{equation}
+O_{\text{connectivity}}(x) = \frac{\text{largest\_component\_size}}{\text{total\_foreground\_pixels}}
+\end{equation}
+
+\textbf{Color Balance} ($O_{\text{balance}}$): Penalizes extreme all-black or all-white images.
+\begin{equation}
+O_{\text{balance}}(x) = 4 \cdot p \cdot (1-p)
+\end{equation}
+where $p$ is the fraction of white pixels.
+
+\subsection{Maze Order Metric}
+
+For maze-like structures, we use BFS solvability:
+\begin{equation}
+O_{\text{maze}}(x) = \begin{cases}
+1 & \text{if path exists from corner to corner} \\
+0 & \text{otherwise}
+\end{cases}
+\end{equation}
+
+
+
+
+\section{Nested Sampling Implementation}
+\label{app:nested_sampling}
+
+\subsection{Algorithm}
+
+\begin{algorithm}[H]
+\caption{Full Nested Sampling Procedure}
+\begin{algorithmic}
+\STATE \textbf{Input:} Prior $P$, order function $O$, live points $N$, iterations $M$
+\STATE \textbf{Output:} Dead points with volume estimates
+\STATE
+\STATE // Initialize live points
+\FOR{$j = 1$ to $N$}
+    \STATE $x_j \sim P$
+    \STATE $o_j \leftarrow O(x_j)$
+\ENDFOR
+\STATE
+\STATE // Main loop
+\FOR{$i = 1$ to $M$}
+    \STATE $j^* \leftarrow \arg\min_j o_j$
+    \STATE $\log X_i \leftarrow -(i+1)/N$
+    \STATE Record $(x_{j^*}, o_{j^*}, \log X_i)$
+    \STATE
+    \STATE // Replace with sample of higher structural order
+    \STATE $\tau \leftarrow o_{j^*}$
+    \REPEAT
+        \STATE $x_{\text{new}} \sim P$ (via ESS)
+    \UNTIL{$O(x_{\text{new}}) > \tau$}
+    \STATE $x_{j^*} \leftarrow x_{\text{new}}$
+    \STATE $o_{j^*} \leftarrow O(x_{\text{new}})$
+\ENDFOR
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Prior-Preserving Sampling}
+
+For CPPN priors, we use Elliptical Slice Sampling (ESS) to sample new latent codes while preserving the Gaussian prior:
+
+\begin{enumerate}
+    \item Sample auxiliary variable $\nu \sim \mathcal{N}(0, I)$
+    \item Choose angle uniformly: $\theta \sim \text{Uniform}[0, 2\pi]$
+    \item Propose: $z' = z \cos\theta + \nu \sin\theta$
+    \item Accept if $O(\text{decode}(z')) > \tau$, else shrink bracket
+\end{enumerate}
+
+ESS is exact in the idealized algorithm (no Metropolis-Hastings acceptance), preserving the Gaussian prior. Our implementation uses finite contraction/restart caps for robustness; Appendix~\ref{app:ess} diagnostics show stable mixing with no evidence these caps drive reported outcomes.
+
+\textbf{ESS Hyperparameters.} We use the following settings for all experiments:
+\begin{itemize}
+    \item \texttt{max\_contractions}: 100 (maximum bracket shrinkage attempts per sample)
+    \item \texttt{max\_restarts}: 5 (maximum fresh auxiliary variable draws if bracket exhausted)
+    \item \texttt{termination\_threshold}: $10^{-10}$ (minimum bracket width before restart)
+\end{itemize}
+These settings ensure robust sampling even for challenging thresholds while maintaining computational efficiency.
+
+\subsection{Volume Estimation}
+
+The prior volume at iteration $i$ is:
+\begin{equation}
+\log X_i = -\frac{i+1}{N}
+\end{equation}
+
+To find bits at threshold $\tau$:
+\begin{equation}
+B(\tau) = -\frac{\log X(\tau)}{\ln 2}
+\end{equation}
+where $\log X(\tau)$ is interpolated from dead points.
+
+\textbf{Volume Shrinkage Variance.} The shrinkage factor $X_i$ is a random variable with known distribution $X_i \sim \text{Beta}(N-1, 1)$, though we use its expectation $\mathbb{E}[X_i] = (N-1)/N$ as a point estimate. The variance of $\log X_i$ is $\text{Var}[\log X_i] \approx 1/N^2$ for large $N$. With $N=50$ live points, this contributes $\pm 0.14$ bits of uncertainty per iteration, accumulating to approximately $\pm 2$ bits of total uncertainty over 100 iterations. Our use of 10 independent runs (Table 1) partially captures this stochastic variance through empirical standard deviations reported in the main text.
+
+
+
+
+\section{Architecture Specifications}
+\label{app:architectures}
+
+\subsection{CPPN Variants}
+
+We test four CPPN variants to assess sensitivity to network capacity.
+
+\begin{table}[H]
+\centering
+\caption{CPPN architecture variants tested}
+\begin{tabular}{lccc}
+\toprule
+Name & Hidden Layers & Width & Parameters \\
+\midrule
+CPPN\_narrow & 2 & 16 & 1,089 \\
+CPPN\_medium & 2 & 32 & 3,649 \\
+CPPN\_wide & 2 & 64 & 13,441 \\
+CPPN\_deep & 4 & 32 & 6,721 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{MLP Variants}
+
+Corresponding MLP variants serve as baselines without coordinate-based structure.
+
+\begin{table}[H]
+\centering
+\caption{MLP architecture variants tested}
+\begin{tabular}{lccc}
+\toprule
+Name & Hidden Layers & Width & Parameters \\
+\midrule
+MLP\_narrow & 2 & 64 & 55,056 \\
+MLP\_medium & 2 & 128 & 181,904 \\
+MLP\_wide & 2 & 256 & 659,216 \\
+MLP\_deep & 4 & 128 & 247,568 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Activation Functions}
+
+\begin{itemize}
+    \item \textbf{CPPN}: $\tanh$ (smooth, bounded)
+    \item \textbf{MLP}: ReLU (standard)
+    \item \textbf{Fourier}: $\sin$ with random frequencies
+\end{itemize}
+
+\subsection{Convolutional Architectures}
+
+All convolutional architectures use 3$\times$3 kernels (except where noted), ReLU activations, and transposed convolutions for upsampling.
+
+\begin{table}[H]
+\centering
+\caption{Convolutional architecture specifications (64$\times$64$\times$3 output)}
+\begin{tabular}{lcccc}
+\toprule
+Name & Blocks & Channels & Kernel & Params \\
+\midrule
+ResNet-2 & 2 & 64$\to$32$\to$16 & 3$\times$3 & 47K \\
+ResNet-4 & 4 & 128$\to$128$\to$64$\to$32$\to$16 & 3$\times$3 & 245K \\
+ResNet-6 & 6 & 256$\to$256$\to$128$\to$128$\to$64$\to$32$\to$16 & 3$\times$3 & 1.2M \\
+ResNet-9x9 & 4 & 128$\to$128$\to$64$\to$32$\to$16 & 9$\times$9 & 1.8M \\
+U-Net & 4+4 & 64$\to$128$\to$256$\to$512 (enc/dec) & 3$\times$3 & 2.1M \\
+Depthwise & 4 & 64$\to$64$\to$32$\to$16 & 3$\times$3 (dw) & 23K \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Attention-Based Architectures}
+
+All attention-based architectures use learned positional embeddings and LayerNorm.
+
+\begin{table}[H]
+\centering
+\caption{Attention-based architecture specifications}
+\begin{tabular}{lccccc}
+\toprule
+Name & Layers & Heads & Embed Dim & Patch Size & Params \\
+\midrule
+ViT & 4 & 4 & 128 & 8$\times$8 & 563K \\
+WindowedViT & 4 & 4 & 128 & 8$\times$8 (w=4) & 563K \\
+LocalAttn & 4 & 4 & 128 & 8$\times$8 & 563K \\
+HybridViT & 4 & 4 & 128 & Conv stem & 612K \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Architecture notes:}
+\begin{itemize}
+    \item \textbf{ViT}: Standard Vision Transformer with global attention
+    \item \textbf{WindowedViT}: Attention restricted to 4$\times$4 windows (similar to Swin~\cite{liu2021swin})
+    \item \textbf{LocalAttn}: Fixed receptive field attention (no window shifting)
+    \item \textbf{HybridViT}: Convolutional stem (4$\times$4$\to$8$\times$8) + Transformer + Conv decoder
+\end{itemize}
+
+\subsection{Coordinate-Based Architectures}
+
+\begin{table}[H]
+\centering
+\caption{Coordinate-based architecture specifications}
+\begin{tabular}{lccc}
+\toprule
+Name & Hidden Dims & Input Encoding & Params \\
+\midrule
+CPPN & 256$\times$3 & $(x, y, r)$ & 10K \\
+Fourier & 256$\times$3 & 8 frequency bands & 6K \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Weight Initialization}
+
+Initialization is treated as part of the prior and held fixed \emph{within} each comparison. Most architecture-family sweeps use $\mathcal{N}(0,1)$ weights without fan-in scaling; the coordinate-conditioned hierarchy (e.g., RES-356/358/367/371) uses a fixed Gaussian prior $\mathcal{N}(0,0.3)$ for prior alignment (see Appendix~\ref{app:init_ablation}). We do not mix initialization schemes inside a single reported comparison.
+
+
+
+
+\section{Full Results}
+\label{app:results}
+
+\subsection{Prior Comparison (10 runs each)}
+
+Table~\ref{tab:prior_comparison_full} shows the complete results from 10 independent runs of nested sampling for each prior type.
+
+\begin{table}[H]
+\centering
+\caption{Prior comparison on multiplicative metric (mean $\pm$ std across 10 runs)}
+\label{tab:prior_comparison_full}
+\begin{tabular}{lcc}
+\toprule
+Prior & Final $O(x)$ & Bits to $\tau=0.1$ \\
+\midrule
+CPPN & $0.59 \pm 0.01$ & $1.9 \pm 0.2$ \\
+Uniform & $0.016 \pm 0.001$ & $\geq 72$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The lower-bound gap (at least $10^{21}\times$) between CPPN and Uniform priors is consistent across all runs, with coefficient of variation $<5\%$ for the bits metric.
+
+\subsection{Prior-Family Transfer Sweep (10 Families)}
+\label{app:prior_family_sweep}
+
+To test transfer beyond the flagship coordinate-controlled trio, we ran a controlled 10-family sweep at 32$\times$32 with fixed NS settings ($N_{\text{live}}=100$, 500 iterations, $\tau=0.1$; source: \texttt{results/prior\_generalization/res\_309\_results.json}).
+
+\begin{table}[H]
+\centering
+\caption{Controlled 10-family sweep: NS crossing bits to reach $\tau=0.1$}
+\label{tab:prior_family_sweep}
+\begin{tabular}{lc}
+\toprule
+Prior family & $B_{\text{NS}}^{\text{cross}}$ to $\tau=0.1$ \\
+\midrule
+CPPN & 0.01 \\
+Fourier basis & 0.01 \\
+Polynomial prior & 0.75 \\
+NeRF-style coordinate MLP & 1.10 \\
+MLP (Tanh) & 2.05 \\
+MLP (GELU) & 2.32 \\
+MLP (Swish) & 2.77 \\
+MLP (ReLU) & 2.94 \\
+SIREN & 3.16 \\
+Uniform random & $> 7.2^\dagger$ \\
+\bottomrule
+\end{tabular}
+\\[2pt]
+{\footnotesize $^\dagger$Not reached within 500 iterations at $N_{\text{live}}=100$ (run floor).}
+\end{table}
+
+This sweep supports the same qualitative pattern as the main text: structured coordinate/procedural priors cross low thresholds quickly, while high-entropy baselines require substantially more exploration.
+
+\subsection{Reconstruction Validation}
+
+We validate that the bits metric predicts reconstruction quality using frozen random feature extractors with trainable linear decoders on MNIST (10,000 train, 2,000 test images, 20 epochs).
+
+\begin{table}[H]
+\centering
+\caption{Reconstruction MSE vs Prior Bits (13 architectures)}
+\label{tab:reconstruction_validation}
+\begin{tabular}{lcc}
+\toprule
+Architecture & Bits & MSE \\
+\midrule
+CPPN & 0.09 & 0.0011 \\
+U-Net & 0.27 & 0.0025 \\
+ResNet-2 & 0.40 & 0.0011 \\
+ResNet-6 & 0.44 & 0.0132 \\
+ResNet-4 & 0.73 & 0.0036 \\
+Depthwise & 0.86 & 0.0135 \\
+ResNet-9x9 & 1.05 & 0.0362 \\
+HybridViT & 1.42 & 0.0021 \\
+Fourier & 2.23 & 0.0509 \\
+WindowedViT & 3.18 & 0.0899 \\
+ViT & 3.76 & 0.0814 \\
+LocalAttn & 3.78 & 0.0829 \\
+MLP & 4.84 & 0.0953 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Spearman correlation: $r = 0.874$, $p < 0.0001$ ($n = 13$). Low-bit architectures achieve lower reconstruction error, confirming that the bits metric captures functionally relevant structure in the prior.
+
+\subsection{Natural Image DIP Spot-Check: ViT/MLP Baselines}
+\label{app:dip_spotcheck_natural}
+
+To pre-empt the concern that our ViT/MLP ``Broken'' behavior is limited to synthetic targets, we run small natural-image spot-checks at $\sigma=0.15$ using the same DIP optimization protocol (2,000 steps, Adam, $\text{lr}=0.01$). We compare ResNet-6 (Shielded), Fourier features (Shielded), ViT with a patch decoder (Broken), and an MLP generator (Broken).
+
+\begin{table}[H]
+\centering
+\caption{CIFAR-10 DIP spot-check at $\sigma=0.15$ (20 images, 1 seed). Mean best PSNR $\pm$ std across targets. The final columns report paired ResNet-6 minus architecture PSNR deltas and Wilcoxon signed-rank $p$-values (two-sided; $n=20$ paired targets).}
+\label{tab:dip_spotcheck_cifar_vit_mlp}
+\begin{tabular}{lcccc}
+\toprule
+Architecture & Mean PSNR (dB) & Std (dB) & ResNet-6 minus Arch (dB) & $p$ (Wilcoxon) \\
+\midrule
+ResNet-6 & 23.88 & 0.84 & 0.00 & -- \\
+Fourier & 23.18 & 0.60 & 0.70 & $9.5\times 10^{-6}$ \\
+MLP & 17.69 & 0.44 & 6.19 & $1.9\times 10^{-6}$ \\
+ViT (patch) & 14.80 & 1.95 & 9.08 & $1.9\times 10^{-6}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+On Tiny ImageNet (native $64\times 64$), the within-Shielded ordering reverses (Fourier slightly outperforms ResNet-6 at $\sigma=0.15$), consistent with our alignment results; ViT/MLP remain far below Shielded priors (Table~\ref{tab:dip_spotcheck_tiny_vit_mlp}).
+
+\begin{table}[H]
+\centering
+\caption{Tiny ImageNet DIP spot-check at $\sigma=0.15$ (20 images, 1 seed). Mean best PSNR $\pm$ std across targets. The final columns report paired ResNet-6 minus architecture PSNR deltas and Wilcoxon signed-rank $p$-values (two-sided; $n=20$ paired targets).}
+\label{tab:dip_spotcheck_tiny_vit_mlp}
+\begin{tabular}{lcccc}
+\toprule
+Architecture & Mean PSNR (dB) & Std (dB) & ResNet-6 minus Arch (dB) & $p$ (Wilcoxon) \\
+\midrule
+ResNet-6 & 22.31 & 2.08 & 0.00 & -- \\
+Fourier & 22.74 & 1.67 & $-0.43$ & $2.1\times 10^{-2}$ \\
+MLP & 17.97 & 0.61 & 4.34 & $1.9\times 10^{-6}$ \\
+ViT (patch) & 13.37 & 2.08 & 8.94 & $1.9\times 10^{-6}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Random-Feature Linear Classification}
+
+The bits metric does not predict classification performance, confirming it measures generative rather than discriminative priors.
+
+\begin{table}[H]
+\centering
+\caption{Classification results (24 architectures, 5 seeds)}
+\begin{tabular}{lccc}
+\toprule
+Dataset & Spearman $r$ & $p$-value & 95\% CI \\
+\midrule
+MNIST & $-0.235$ & 0.27 & $[-0.64, 0.26]$ \\
+FashionMNIST & $+0.010$ & 0.96 & $[-0.51, 0.55]$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Pooled Causal-Ladder Summary (RES-378 E/F/G)}
+\label{app:res378_pool}
+
+The pooled analysis combines 45 condition rows from three independent full runs
+(RES-378E/F/G) using \texttt{results/c13\_res378\_pool\_efg\_v1/res\_378\_pool\_results.json}.
+
+\begin{table}[H]
+\centering
+\caption{Pooled RES-378 E/F/G causal summary (n\_rows=45)}
+\label{tab:res378_pool_summary}
+\begin{tabular}{lc}
+\toprule
+Quantity & Value \\
+\midrule
+Bits model: $\beta_{\text{sharing}}$ (z-scored fit) & $-0.5534$ \\
+Bits model: $\beta_{\text{global-mix}}$ (z-scored fit) & $+0.5098$ \\
+Bits model $R^2$ & $0.5662$ \\
+Mediation: $\beta_{\text{bits}}$ (z-scored fit) & $+0.3973$ \\
+Mediation: $\beta_{\text{sharing}}$ (z-scored fit) & $+1.0110$ \\
+Mediation: $\beta_{\text{global-mix}}$ (z-scored fit) & $-0.0786$ \\
+Mediation $R^2$ & $0.7096$ \\
+Bootstrap $q_{05},q_{95}$ for $\beta_{\text{bits}}$ & $[0.2037,\ 0.5965]$ \\
+Causal flags all positive & true \\
+Pooled causal signal summary & strong \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Cross-Hardware Replay Parity (RES-378E)}
+\label{app:res378e_replay_parity}
+
+To test numerical reproducibility of the C13 causal-ladder result under a different runtime stack, we replayed RES-378E on x86 GCP CPU and compared condition-level outputs to the completed local run.
+
+\begin{table}[H]
+\centering
+\caption{RES-378E replay parity: local vs x86 GCP}
+\label{tab:res378e_replay_parity}
+\begin{tabular}{lc}
+\toprule
+Quantity & Value \\
+\midrule
+Condition pairs compared & 15 \\
+Bits Pearson correlation & 1.0000000000 \\
+Bits mean absolute difference & 0.0 \\
+Bits max absolute difference & 0.0 \\
+AUC(log-generalization MSE) Pearson correlation & 0.9999999999 \\
+AUC mean absolute difference & $2.47\times10^{-6}$ \\
+AUC max absolute difference & $1.99\times10^{-5}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+These values are computed directly from
+\url{results/c13_res378e_replay_gcp_20260208_v2/replay_parity_vs_local.json}
+and support the claim that the causal-ladder estimate is stable across the tested hardware/software environments.
+
+
+
+
+\section{Sanity Check Against Analytic Ground Truth}
+\label{app:sanity}
+
+We validate nested sampling against two metrics with known analytic probabilities:
+
+\subsection{Mean-Pixel Threshold}
+
+For binary images with i.i.d.\ pixels:
+\begin{equation}
+\Pr[\text{mean}(x) \geq \tau] = \sum_{k=\lceil \tau n \rceil}^{n} \binom{n}{k} 2^{-n}
+\end{equation}
+
+\subsection{Perfect Symmetry}
+
+For $n \times n$ binary images:
+\begin{equation}
+\Pr[\text{symmetric}] = 2^{-n^2/2}
+\end{equation}
+since the left half determines the right half.
+
+\subsection{Calibration Results}
+
+We validate nested sampling against analytic ground truth at experimental resolutions ($32 \times 32$, $64 \times 64$) using the mean-threshold metric, where probabilities follow the binomial distribution exactly.
+
+\begin{table}[H]
+\centering
+\caption{Nested sampling vs analytic ground truth at experimental resolutions (n\_live=200)}
+\begin{tabular}{lcccc}
+\toprule
+Size & Metric & Analytic Bits & Estimated Bits & Error \\
+\midrule
+$32 \times 32$ & Mean $\geq 0.52$ & 3.3 & 3.5 & +6\% \\
+$32 \times 32$ & Mean $\geq 0.55$ & 10.6 & 12.1 & +14\% \\
+$32 \times 32$ & Mean $\geq 0.58$ & 22.5 & 25.2 & +12\% \\
+$32 \times 32$ & Mean $\geq 0.60$ & 33.8 & 39.6 & +17\% \\
+$64 \times 64$ & Mean $\geq 0.51$ & 3.3 & 3.7 & +13\% \\
+$64 \times 64$ & Mean $\geq 0.52$ & 7.5 & 7.5 & $<$1\% \\
+$64 \times 64$ & Mean $\geq 0.53$ & 13.9 & 14.8 & +6\% \\
+$64 \times 64$ & Mean $\geq 0.55$ & 33.5 & 35.5 & +6\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Scaling with live points}: We tested whether increasing $n_{\text{live}}$ reduces bias. At $64 \times 64$ with mean $\geq 0.55$ (33.5 analytic bits):
+
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+$n_{\text{live}}$ & Mean Error & Std Error \\
+\midrule
+50 & +6.4\% & $\pm$0.8\% \\
+200 & +7.7\% & $\pm$2.5\% \\
+800 & +6.6\% & $\pm$0.6\% \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The $\sim$7\% systematic bias persists regardless of live points---additional sampling reduces variance as $O(1/\sqrt{n_{\text{live}}})$ but cannot eliminate the algorithmic bias floor.
+
+\textbf{Conclusion}: Systematic overestimation of 6--17\% (mean 9\%) at experimental resolutions. The previously reported 33\% was specific to sharp binary metrics (perfect symmetry) on small images. A 7\% correction on a 70-bit gap yields 65 bits---still a $10^{19}$-fold efficiency difference. Relative orderings are robust.
+
+
+
+
+\section{Mechanistic Analysis: Why Transformers Lack Structural Bias}
+\label{app:mechanism}
+
+Section~\ref{sec:spectrum64} shows that untrained Vision Transformers have weak structural bias indistinguishable from MLPs. Here we investigate \emph{why} through ablation and spectral analysis.
+
+\subsection{Hybrid Architecture Ablation}
+
+One might hypothesize that adding convolutional layers to a Transformer could transfer structural bias. We test this with a \textbf{Hybrid ViT}: Conv Stem $\to$ Transformer $\to$ Conv Decoder.
+
+\textbf{Architecture.} The hybrid consists of:
+\begin{itemize}
+    \item \textbf{Conv Stem}: 4$\times$4 seed $\to$ Conv $\to$ Upsample $\to$ 8$\times$8 feature map
+    \item \textbf{Transformer}: 4-layer encoder processing 64 patches with positional embeddings
+    \item \textbf{Conv Decoder}: Transposed convolutions upsampling to 64$\times$64$\times$3
+\end{itemize}
+
+\textbf{Result.} Figure~\ref{fig:ablation} shows that Hybrid ViT performs identically to Pure ViT---both flatline at order $O(x) \approx 0.0002$. The Transformer in the middle is structure-agnostic, failing to preserve the structure encoded by the conv stem through global attention mixing, producing outputs indistinguishable from random initialization.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.8\columnwidth]{ablation_hybrid_comparison.pdf}
+\caption{Hybrid ablation: Adding convolutional layers before/after a Transformer does not transfer structural bias. Random attention weights perform global mixing that produces high-entropy outputs. ResNet achieves order $O(x) = 0.79$ while all architectures with Transformers remain near zero.}
+\label{fig:ablation}
+\end{figure}
+
+\textbf{Interpretation.} At random initialization, the attention matrix $A = \text{softmax}(QK^T/\sqrt{d})$ is effectively a random, dense stochastic matrix. This matrix mixes information from \emph{every} patch to \emph{every} patch, failing to preserve the spatial topology encoded by the conv stem. A single untrained Transformer block acts as a bottleneck that produces high-entropy outputs regardless of input structure.
+
+This explains why practical hybrid architectures (LeViT, CvT, Swin Transformer~\cite{liu2021swin}) use \emph{local} attention windows or hierarchical convolutions---global attention with random weights does not preserve locality.
+
+\subsection{Spectral Fingerprint}
+
+We analyze the Fourier power spectrum of outputs from each architecture to understand the \emph{physics} of why structure emerges.
+
+\textbf{Method.} For each architecture's best-scoring sample:
+\begin{enumerate}
+    \item Convert to grayscale
+    \item Compute 2D FFT and power spectrum
+    \item Average power radially to get frequency profile
+\end{enumerate}
+
+\textbf{Result.} The architectures show distinct spectral signatures:
+\begin{itemize}
+    \item \textbf{ResNet}: Low-frequency dominance with $1/f^2$ decay---the signature of natural images. Convolutions act as low-pass filters.
+    \item \textbf{ViT/MLP}: Flat (white noise) spectrum---all frequencies equally represented. No architectural constraint suppresses high-frequency content.
+\end{itemize}
+
+This provides a physical interpretation of our bits metric: low-bit architectures (ConvNets) have ``built-in bandpass filters'' that suppress high-frequency noise, while high-bit architectures treat all spatial frequencies democratically, producing white noise at initialization.
+
+\subsection{Summary}
+
+The mechanistic analysis reveals:
+\begin{enumerate}
+    \item \textbf{Attention scrambles}: Transformer attention with random weights mixes all spatial positions equally, failing to preserve local structure
+    \item \textbf{Conv stem insufficient}: Surrounding a Transformer with convolutions does not transfer bias \emph{through} the network. However, a convolutional decoder applied \emph{after} the transformer can impose structure independently (Section~\ref{sec:bias-chain})
+    \item \textbf{Spectral explanation}: ConvNets enforce low-frequency dominance; ViTs/MLPs produce flat spectra
+\end{enumerate}
+
+These findings explain why ViTs require massive pretraining to match ConvNet performance on limited data---they must \emph{learn} the spatial priors that ConvNets receive \emph{for free} from their architecture.
+
+
+
+
+\section{Order Metric Robustness Analysis}
+\label{app:robustness}
+
+A natural concern is whether our conclusions depend on the specific choice of order metric. We address this through two complementary analyses: (1) testing whether different \emph{formulations} of structure metrics yield consistent rankings, and (2) testing whether \emph{simple} metrics (without gates) can distinguish architectures.
+
+\subsection{Formulation Robustness}
+
+We test six alternative formulations of structure metrics:
+
+\begin{enumerate}
+    \item \textbf{Original}: Compression $\times$ TV (multiplicative)
+    \item \textbf{Additive}: $0.5 \cdot$ Compression $+ 0.5 \cdot$ TV
+    \item \textbf{TV-only}: Total variation smoothness only
+    \item \textbf{Compression-only}: zlib compression ratio only
+    \item \textbf{Low-Frequency}: DCT-based low-frequency energy fraction
+    \item \textbf{Gradient}: Inverse gradient magnitude (Sobel-based)
+\end{enumerate}
+
+\textbf{Result.} All six formulations produce \emph{identical} architecture rankings:
+
+\begin{center}
+\begin{tabular}{lcccccc}
+\toprule
+Architecture & Original & Additive & TV-only & Compress & LowFreq & Gradient \\
+\midrule
+CPPN & 0.94 & 0.98 & 1.00 & 0.97 & 1.00 & 1.00 \\
+ResNet & 0.81 & 0.89 & 0.98 & 0.82 & 1.00 & 0.97 \\
+MLP & 0.21 & 0.48 & 0.56 & 0.36 & 1.00 & 0.73 \\
+ViT & 0.00 & 0.07 & 0.05 & 0.10 & 0.97 & 0.19 \\
+Uniform & 0.00 & 0.00 & 0.00 & 0.00 & 0.90 & 0.03 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Kendall's $\tau = 1.0$ for all pairwise metric comparisons. The ranking CPPN $>$ ResNet $>$ MLP $>$ ViT $>$ Uniform is stable across formulations.
+
+\subsection{Why Simple Metrics Fail: The Degenerate Solution Problem}
+
+A deeper question: why use multiplicative gates at all? Why not simply use compression ratio or autocorrelation? We tested eight metrics \emph{without} gates to understand when simple metrics fail:
+
+\begin{enumerate}
+    \item \textbf{order\_multiplicative}: Our gated metric (baseline)
+    \item \textbf{png\_compression}: Compression ratio only
+    \item \textbf{low\_freq\_power}: DCT low-frequency energy
+    \item \textbf{autocorrelation}: Spatial self-correlation
+    \item \textbf{entropy}: Shannon entropy of pixel values
+    \item \textbf{mutual\_information}: MI between adjacent pixels
+    \item \textbf{fractal\_dimension}: Box-counting dimension
+    \item \textbf{euler\_characteristic}: Topological invariant
+\end{enumerate}
+
+\textbf{Methodology.} For fair comparison across metrics with different scales, we use \emph{percentile-based thresholds}: for each metric, we pool samples from all architectures, compute the 50th, 75th, and 90th percentiles, then measure what fraction of each architecture's samples exceed these thresholds.
+
+\textbf{Result.} Only 2 of 8 metrics produce consistent rankings:
+
+\begin{table}[H]
+\centering
+\caption{Architecture rankings by metric (using percentile-based thresholds). Note: MLP ranks highest on compression, autocorrelation, entropy, and low-frequency power because untrained MLPs produce degenerate constant images that are perfectly compressible and perfectly autocorrelated---the opposite of ground truth.}
+\begin{tabular}{lcccc}
+\toprule
+Metric & \multicolumn{3}{c}{Rankings at Percentiles} & Consistent? \\
+ & P50 & P75 & P90 & \\
+\midrule
+order\_multiplicative & CPPN $>$ Conv $>$ Res $>$ ViT $>$ MLP & same & same & \checkmark \\
+fractal\_dimension & Conv $>$ Res $>$ CPPN $>$ ViT $>$ MLP & same & same & \checkmark \\
+\midrule
+png\_compression & \textbf{MLP} $>$ Conv $>$ Res $>$ CPPN $>$ ViT & varies & varies & $\times$ \\
+autocorrelation & \textbf{MLP} $>$ Conv $>$ Res $>$ CPPN $>$ ViT & varies & varies & $\times$ \\
+entropy & \textbf{MLP} $>$ CPPN $>$ Conv $>$ Res $>$ ViT & varies & varies & $\times$ \\
+low\_freq\_power & \textbf{MLP} $>$ Conv $>$ Res $>$ CPPN $>$ ViT & varies & varies & $\times$ \\
+euler\_characteristic & \textbf{MLP} $>$ Conv $>$ Res $>$ CPPN $>$ ViT & varies & varies & $\times$ \\
+mutual\_information & ViT $>$ CPPN $>$ Conv $>$ Res $>$ MLP & varies & varies & $\times$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Key Finding: MLP Wins on Simple Metrics.}
+Five of eight metrics rank MLP \emph{highest}. This counterintuitive result occurs because MLPs with random weights produce \textbf{nearly constant images}---saturated activations push outputs toward all-black or all-white. Such degenerate images are:
+\begin{itemize}[topsep=2pt,itemsep=2pt]
+    \item Perfectly compressible (compression ratio $\approx 0.99$)
+    \item Perfectly autocorrelated (constant $\Rightarrow$ perfect self-similarity)
+    \item Zero entropy (no variation to encode)
+    \item Maximum low-frequency power (DC component dominates)
+\end{itemize}
+
+These are precisely the \emph{degenerate solutions} that our gated metric is designed to exclude. The Color Balance gate ($4p(1-p)$) kills all-black/all-white images; the Connectivity gate requires non-trivial edge structure.
+
+\textbf{Why Fractal Dimension Also Works.}
+The only simple metric that agrees with our gated metric is fractal dimension---but only when computed with a \emph{bell curve} response around moderate complexity ($D \approx 1.5$). This penalizes both extremes:
+\begin{itemize}[topsep=2pt,itemsep=2pt]
+    \item $D \approx 1.0$ (constant images): too simple
+    \item $D \approx 2.0$ (white noise): too complex
+    \item $D \approx 1.5$ (fractal structure): optimal
+\end{itemize}
+
+Both consistent metrics---our multiplicative order and fractal dimension with bell curve---share the key design principle: \textbf{explicitly penalizing both extremes} (trivial patterns and random noise).
+
+\textbf{Conclusion.} Simple metrics without gates can be ``gamed'' by degenerate solutions. The multiplicative gate structure is not arbitrary---it is \emph{necessary} to exclude architectures that produce trivial outputs. Our findings are robust because the gated metric captures genuine structural bias, not measurement artifacts.
+
+\subsection{Extended Validation: 19 Standard Metrics}
+
+To address reviewer concerns about metric arbitrariness, we conducted comprehensive validation across 19 metrics drawn from the image quality, texture analysis, and signal processing literatures (RES-337).
+
+\textbf{Metrics Tested.}
+\begin{enumerate}[topsep=2pt,itemsep=1pt]
+    \item \textbf{First-Round (6)}: TV, Gradient Kurtosis, GLCM Contrast/Homogeneity, LBP Entropy, NIQE
+    \item \textbf{Spectral (5)}: HF-ratio, Spectral Centroid, Spectral Slope ($\beta$), Phase Coherence, BRISQUE
+    \item \textbf{Original Appendix G (6)}: PNG Compression, Autocorrelation, Entropy, Low-Freq Power, Euler Characteristic, Mutual Information
+    \item \textbf{Topological (2)}: Betti$_0$, Betti$_1$ (persistent homology)
+\end{enumerate}
+
+\textbf{Architectures.} CPPN, ConvNet (convolutional decoder), ResNet (residual decoder), MLP (fully-connected decoder), Uniform (baseline noise). 50 samples per architecture at 32$\times$32 grayscale.
+
+\textbf{Results.} Accounting for metric direction (e.g., lower HF-ratio = more structured):
+
+\begin{table}[H]
+\centering
+\caption{Extended metric validation: 15/19 metrics (79\%) correctly rank structured architectures highest}
+\label{tab:extended_metrics}
+\begin{tabular}{llll}
+\toprule
+Category & Count & Metrics & Winner \\
+\midrule
+\textbf{Works} & 15 & GradKurt, GLCM\_homog, NIQE, HF\_ratio, & CPPN, ConvNet, \\
+(structured wins) & & Spectral\_centroid, Spectral\_slope, & or ResNet \\
+& & Phase\_coherence, BRISQUE, PNG\_compress, & \\
+& & Autocorrelation, LowFreq\_power, & \\
+& & Mutual\_info, Betti$_0$, Betti$_1$, Entropy & \\
+\midrule
+\textbf{Trap} & 1 & LBP\_entropy & MLP \\
+(MLP wins) & & & \\
+\midrule
+\textbf{Orthogonal} & 3 & TV, GLCM\_contrast, Euler\_char & Uniform \\
+(edge/noise density) & & & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Key Finding: Spectral Slope Provides Independent Validation.}
+The spectral slope ($\beta$) measures power-law decay in the Fourier spectrum. Natural images follow $P(f) \propto f^{-2}$ (the ``1/$f^2$ law''). Results:
+\begin{itemize}[topsep=2pt,itemsep=2pt]
+    \item CPPN: $\beta = -2.75$ (close to natural image statistics)
+    \item ConvNet: $\beta = -0.05$ (weak low-frequency bias)
+    \item MLP: $\beta = +0.06$ (flat/white noise spectrum)
+    \item Uniform: $\beta = +0.03$ (white noise baseline)
+\end{itemize}
+
+Our gated metric correlates strongly with spectral slope ($r = -0.91$), confirming it captures the same underlying structure measured by this standard, non-heuristic signal processing metric.
+
+\textbf{Why Original ``Failing'' Metrics Now Work.}
+The original analysis (Table~8 above) found compression/autocorrelation ranking MLP highest. In this extended experiment, \emph{CPPN} wins on these metrics. The difference: CPPN produces genuinely smooth, spatially coherent images (due to coordinate-based input with periodic activations), which are highly compressible and autocorrelated for the \emph{right} reasons---not because they are degenerate constants.
+
+\textbf{Interpretation.} The 79\% agreement across 19 diverse metrics provides strong evidence that our conclusions about architectural inductive bias are robust to metric choice. The single ``trap'' metric (LBP entropy) and three ``orthogonal'' metrics (measuring edge/noise density rather than structure) do not undermine the core finding: structured architectures consistently outperform unstructured ones across the vast majority of reasonable structure metrics.
+
+\subsection{Learned Perceptual Metric Validation (LPIPS)}
+
+As a final validation, we test whether our hand-crafted order metric agrees with LPIPS \cite{zhang2018unreasonable}, a learned perceptual metric trained on human similarity judgments. This addresses the concern that our metric might capture artifacts rather than genuine perceptual structure.
+
+\textbf{Setup.} We sample 100 images from 7 architectures (ConvNeXt, ResNet, Swin, MLP-Mixer, ViT, MLP, Uniform) and compute mean LPIPS distance to 100 CIFAR-10 natural images. Lower LPIPS indicates perceptually closer to natural images.
+
+\textbf{Results.}
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+Architecture & Order Score & LPIPS Distance \\
+\midrule
+ConvNeXt & 0.566 & 0.351 \\
+ResNet & 0.441 & 0.317 \\
+Swin & 0.297 & 0.805 \\
+MLP-Mixer & 0.066 & 0.810 \\
+ViT & 0.037 & 0.799 \\
+MLP & 0.036 & 0.810 \\
+Uniform & 0.000 & 0.958 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Correlation: Pearson $r = -0.88$, $p = 0.02$. High-order architectures produce images perceptually similar to natural images (low LPIPS), while low-order architectures produce perceptually random outputs (high LPIPS). This strong negative correlation confirms that our order metric captures genuine perceptual naturalness, not circular artifacts of metric construction.
+
+
+
+
+\section{Constrained Sampling Diagnostics}
+\label{app:ess}
+
+We validate that Elliptical Slice Sampling (ESS) correctly explores the constrained prior region. Key diagnostics:
+
+\textbf{Bracket Efficiency.} Over 300 nested sampling iterations, ESS achieves $99.3\%$ bracket efficiency (proposals satisfy the threshold on the first attempt without bracket shrinkage), with no decline as thresholds increase. This indicates effective exploration even at high constraint levels.
+
+\textbf{Bracket Shrinkage.} The ESS bracket (the angular range searched) shrinks an average of only 0.3 times per step, with occasional peaks up to 38 shrinks at hard thresholds. This is within expected behavior for the algorithm.
+
+\textbf{Weight Correlation.} Consecutive accepted samples show near-zero cosine similarity (mean $= -0.01$, std $= 0.22$), indicating independent sampling with no persistent correlation that could bias estimates.
+
+\textbf{Brute-Force Cross-Validation.} At $\tau = 0.2$, brute-force sampling (5000 samples) estimates 0.04 bits; nested sampling estimates 0.06 bits ($\Delta = 0.02$ bits). Agreement degrades at higher thresholds where brute-force becomes statistically unreliable---precisely the regime where nested sampling's importance lies.
+
+\textbf{Conclusion.} ESS correctly samples from the constrained prior. The high acceptance rate, uncorrelated samples, and brute-force agreement at tractable thresholds confirm algorithmic correctness.
+
+
+
+
+\section{Two-Stage Sampling: Algorithmic Variants}
+\label{app:refinement_saturation}
+
+\textbf{Note on Speedup Measurements.} Early experiments (RES-224) reported $92\times$ speedup, but subsequent validation (RES-283, 100 CPPNs) revealed this was an artifact of methodological error. The correct mean speedup is \textbf{$3.74\times$} ($\sigma=2.43$, range 0.63--10.76) as reported in Section~\ref{sec:manifold_exploitation}. This section documents exploratory algorithmic variants tested during development; the absolute speedup values in these early experiments are unreliable, but the \emph{relative} comparisons remain informative.
+
+\subsection{Algorithmic Refinements (Exploratory)}
+
+Several algorithmic variants were tested to improve upon the basic two-stage approach:
+
+\textbf{Three-Stage Progressive Constraint (RES-229).} Progressively tightening PCA constraints (5D $\to$ 3D $\to$ 2D) was hypothesized to improve efficiency. All variants underperformed the two-stage baseline, with the additional stage acting as a bottleneck rather than a refinement.
+
+\textbf{Adaptive Threshold Manifold Discovery (RES-230).} Dynamically switching to PCA constraints when variance saturates was tested. All adaptive variants performed worse than fixed-budget baselines, with PCA variance saturating almost immediately during Stage 1 (~56 samples). The overhead of dynamic switching exceeded any manifold refinement benefit.
+
+\textbf{Hybrid Multi-Manifold Sampling (RES-231).} Maintaining a weighted mixture of 2D/3D/5D manifold hypotheses was tested. All weighting strategies (fixed, decay, adaptive) converged to identical behavior, revealing that mixture complexity adds overhead without improving selectivity.
+
+\subsection{Architectural Alternatives (Summary)}
+
+We tested several alternative coordinate representations (RES-232--234):
+\begin{itemize}
+    \item \textbf{Dual-channel} $[x+y, x-y]$: No dimensionality reduction; slight performance degradation
+    \item \textbf{Polar} $[r, \theta]$: Marginal symmetry improvement (1.19$\times$), below practical significance
+    \item \textbf{Hierarchical} $[x, x/2, x/4, ...]$: Increased dimensionality, 31\% quality loss
+    \item \textbf{Nonlinear} $[x \cdot y, x/y, x^2, y^2]$: Exceptional 2.48$\times$ order improvement (future work)
+\end{itemize}
+
+\textbf{Conclusion}: CPPNs' [x,y,r] coordinate structure represents a well-optimized design. Alternative coordinate systems do not improve upon it, though nonlinear compositions warrant future investigation. Full experimental details are available in the extended results document.
+
+
+
+
+\section{Size Scaling and Threshold Dependence}
+\label{app:size_scaling}
+
+To clarify the resolution-scaling contradiction discussed in Section~\ref{sec:limitations}, we report size-scaling exponents for CPPNs at two thresholds. The scaling exponent $\beta$ comes from fitting $B(N) \sim N^{\beta}$ across image sizes using the multiplicative metric. At a conservative threshold $\tau=0.1$, scaling is sub-linear; at a stricter threshold $\tau=0.25$, scaling is super-linear. This threshold dependence motivates our explicit caution about threshold selection when interpreting scaling laws.
+
+\begin{table}[H]
+\centering
+\caption{CPPN size-scaling exponent $\beta$ at two thresholds (nested sampling, multiplicative metric).}
+\label{tab:size_scaling_thresholds}
+\begin{tabular}{lcccc}
+\toprule
+Threshold $\tau$ & Sizes & Seeds & $\beta$ (95\% CI) & $R^2$ \\
+\midrule
+0.10 & 8, 16, 32, 48 & 5 & 0.796 [0.762, 0.831] & 0.883 \\
+0.25 & 8, 12, 16, 24, 32, 48 & 8 & 1.450 [1.404, 1.496] & 0.907 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\section{Monte Carlo Volume Validation: Full Results}
+\label{app:monte_carlo}
+
+
+Section~\ref{sec:monte_carlo} presents summary results from our large-scale Monte Carlo validation. Here we provide complete methodological details and extended analysis.
+
+\subsection{Methodology}
+
+\textbf{Architectures Tested.} We test 11 architectures organized into five groups:
+
+\begin{table}[H]
+\centering
+\caption{Architecture families and their structural priors}
+\label{tab:mc_architecture_groups}
+\begin{tabular}{llcc}
+\toprule
+Group & Architectures & Input Type & Expected Bias \\
+\midrule
+A: Coordinate-Conditioned & CPPN, CoordMLP, FourierMLP & $(x,y) \to \text{pixel}$ & High \\
+B: Latent-Decoded & MLPDecoder, ConvDecoder, ViTDecoder & $z \to \text{image}$ & Variable \\
+C: Structured Prior & FourierBasis & Spectral basis & High \\
+D: Procedural & WalkCarver, SpanningTreeMaze & Algorithmic & High \\
+E: Sequential & LSTMDecoder, MixtureOfExperts & Recurrent/sparse & Low \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Sampling Protocol.}
+\begin{enumerate}
+    \item For each architecture, sample 10,000 independent weight configurations from $\mathcal{N}(0, 1)$
+    \item Generate $64 \times 64$ grayscale image from each configuration
+    \item Binarize at threshold 0.5
+    \item Compute multiplicative order metric (Appendix~\ref{app:metrics})
+    \item Record order value for volume calculation
+\end{enumerate}
+
+\textbf{Order Metric.} We use the multiplicative order metric defined in Appendix~\ref{app:metrics}: $O = O_{\text{compress}} \times O_{\text{symmetry}} \times O_{\text{connectivity}} \times O_{\text{balance}}$. The multiplicative formulation ensures that failure on \emph{any} component collapses the score to near-zero, providing sharp discrimination between structured and unstructured outputs.
+
+\subsection{Extended Results}
+
+\textbf{Threshold Robustness Validation.} A potential concern is that our findings depend on the specific choice of order threshold $\tau=0.1$. We validate robustness by computing thermodynamic volume across a 10$\times$ range of thresholds from $\tau=0.05$ (permissive) to $\tau=0.5$ (stringent). Table~\ref{tab:mc_volume_thresholds} shows that architecture rankings remain consistent: structured priors (FourierBasis, CPPN, ConvDecoder) maintain separation from unstructured priors (MLP, ViT, LSTM) at all thresholds. Even at the extreme $\tau=0.5$, FourierBasis achieves 87.2\% while MLP/ViT remain at 0.0\%---confirming our conclusions are not artifacts of threshold choice.
+
+\begin{table}[H]
+\centering
+\caption{Thermodynamic volume at multiple order thresholds (10,000 samples per architecture). Rankings remain stable across a 10$\times$ threshold range.}
+\label{tab:mc_volume_thresholds}
+\begin{tabular}{lccccc}
+\toprule
+Architecture & $\tau=0.05$ & $\tau=0.1$ & $\tau=0.2$ & $\tau=0.3$ & $\tau=0.5$ \\
+\midrule
+WalkCarver & 100.0\% & 100.0\% & 99.8\% & 62.3\% & 1.2\% \\
+FourierBasis & 100.0\% & 99.9\% & 99.3\% & 97.8\% & 87.2\% \\
+FourierMLP & 94.2\% & 83.6\% & 67.1\% & 51.4\% & 26.8\% \\
+CPPN & 82.3\% & 69.0\% & 48.7\% & 32.1\% & 12.4\% \\
+ConvDecoder & 68.4\% & 51.2\% & 28.3\% & 12.1\% & 1.8\% \\
+\midrule
+MixtureOfExperts & 31.2\% & 20.1\% & 8.4\% & 2.3\% & 0.1\% \\
+CoordMLP & 12.8\% & 7.2\% & 2.1\% & 0.4\% & 0.0\% \\
+\midrule
+MLPDecoder & 0.0\% & 0.0\% & 0.0\% & 0.0\% & 0.0\% \\
+ViTDecoder & 0.0\% & 0.0\% & 0.0\% & 0.0\% & 0.0\% \\
+SpanningTreeMaze & 0.0\% & 0.0\% & 0.0\% & 0.0\% & 0.0\% \\
+LSTMDecoder & 0.0\% & 0.0\% & 0.0\% & 0.0\% & 0.0\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Initialization Ablation on Coord Inputs}
+\label{app:init_ablation}
+
+To test initialization sensitivity, we ran a targeted ablation on coord-input architectures (CoordConvNet, CoordMLP, CoordViT) at 32$\times$32 with $\tau=0.1$ (RES-370). We compare three initialization schemes: fixed Gaussian $\mathcal{N}(0, 0.5)$ in this ablation, Xavier, and He. ConvNet and MLP pass rates shift modestly across schemes (ConvNet: 0.665--0.725; MLP: 0.385--0.435). CoordViT is markedly more sensitive: pass rate rises from 0.335 (Gaussian) to 0.855 (Xavier) and 0.725 (He). This sensitivity motivates treating initialization as part of the prior and holding it fixed for all main comparisons.
+
+\subsection{Weight Sharing Isolation (RES-295)}
+\label{app:weight_sharing_isolation}
+
+To isolate translational weight sharing from mere locality, RES-295 compares four local architectures at $32\times 32$ with 1000 MC samples per architecture. The key controlled comparison is Conv3x3 versus LocallyConnected: both use sliding $3\times 3$ receptive fields, but only Conv3x3 shares weights across spatial positions.
+
+\begin{table}[H]
+\centering
+\caption{RES-295 weight-sharing isolation results (\texttt{results/weight\_sharing/res\_295\_weight\_sharing\_isolation.json}).}
+\label{tab:weight_sharing_isolation}
+\begin{tabular}{lccc}
+\toprule
+Architecture & Params & Mean Order & Inductive Property \\
+\midrule
+Conv3x3 & 25,553 & 0.5330465 & Locality + sharing \\
+LocallyConnected & 1,426,432 & 0.0000241 & Locality, no sharing \\
+DepthwiseConv3x3 & 4,145 & 0.4014567 & Locality + partial sharing \\
+LocalAttention3x3 & 25,729 & 0.1421627 & Locality, no sharing \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Primary test (Conv3x3 vs LocallyConnected): Mann-Whitney $U=10^6$ (maximum separation), p-value underflow in double precision (reported as $p<10^{-300}$), Cohen's $d=2.36$, mean difference $0.5330$. This supports translational invariance through weight sharing as a dominant source of thermodynamic volume.
+
+\textbf{Order Distribution Statistics.}
+
+\begin{table}[H]
+\centering
+\caption{Full order distribution statistics (10,000 samples per architecture)}
+\label{tab:mc_order_stats}
+\begin{tabular}{lcccccc}
+\toprule
+Architecture & Mean & Std & Median & Q25 & Q75 & Max \\
+\midrule
+FourierBasis & 0.708 & 0.195 & 0.762 & 0.612 & 0.854 & 0.987 \\
+FourierMLP & 0.480 & 0.311 & 0.521 & 0.198 & 0.764 & 0.956 \\
+WalkCarver & 0.372 & 0.027 & 0.374 & 0.354 & 0.391 & 0.468 \\
+CPPN & 0.347 & 0.304 & 0.312 & 0.048 & 0.621 & 0.943 \\
+ConvDecoder & 0.152 & 0.166 & 0.098 & 0.021 & 0.234 & 0.812 \\
+\midrule
+MixtureOfExperts & 0.061 & 0.054 & 0.047 & 0.018 & 0.089 & 0.324 \\
+CoordMLP & 0.034 & 0.042 & 0.018 & 0.004 & 0.048 & 0.287 \\
+\midrule
+MLPDecoder & $\sim 10^{-24}$ & --- & --- & --- & --- & $10^{-18}$ \\
+ViTDecoder & $\sim 10^{-23}$ & --- & --- & --- & --- & $10^{-17}$ \\
+SpanningTreeMaze & $\sim 10^{-5}$ & --- & --- & --- & --- & $10^{-3}$ \\
+LSTMDecoder & $\sim 10^{-4}$ & --- & --- & --- & --- & $10^{-2}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Key Observations}
+
+\textbf{1. Extreme Separation.} The gap between Shielded and Broken regimes spans 20+ orders of magnitude in mean order. This is not a subtle effect---it represents fundamentally different thermodynamic properties of architecture families.
+
+\textbf{2. WalkCarver Dominance.} The WalkCarver (random walk maze carving) achieves 100\% volume with remarkably low variance (std=0.027). This procedural algorithm is \emph{guaranteed} to produce structured output regardless of random seed, unlike neural architectures which have non-trivial failure modes.
+
+\textbf{3. Fourier vs Periodic Activations.} FourierBasis (0.708 mean order) outperforms CPPN (0.347) despite both using periodic functions. The key difference: FourierBasis uses \emph{fixed} sinusoidal basis functions with only amplitude weights, while CPPN uses \emph{random} activation patterns. This suggests that the regularity of Fourier decomposition provides stronger structural guarantees than stochastic activation selection.
+
+\textbf{4. ViT = MLP.} Vision Transformers with random weights produce order below MC detection (0/1,000,000 successes; $P < 10^{-6}$), indistinguishable from MLPs. The $\sim 10^{-23}$ and $\sim 10^{-24}$ values in the table above reflect \emph{mean order metric values} from nested sampling, not probabilities. The attention mechanism provides no structural bias at initialization---positional embeddings and self-attention become meaningful only after training.
+
+\textbf{5. Bimodal Distributions.} CPPN and FourierMLP show bimodal order distributions with substantial mass near zero and near 0.6-0.8. This reflects the ``lottery'' nature of random initialization: some configurations produce structured outputs, while others collapse to noise. ConvDecoder shows a unimodal distribution concentrated near zero, indicating weaker but more consistent bias.
+
+\subsection{Validation of Nested Sampling Estimates}
+
+The Monte Carlo volume directly measures $P(\text{order} \geq \tau)$, which nested sampling estimates as $2^{-B(\tau)}$ where $B(\tau)$ is the bits required to reach threshold $\tau$.
+
+\textbf{Consistency Check.} For CPPN at $\tau = 0.1$:
+\begin{itemize}
+    \item Monte Carlo volume: 0.69 $\Rightarrow$ $B_{\text{MC}} = -\log_2(0.69) = 0.54$ bits
+    \item Nested sampling (Table~\ref{tab:prior_comparison}, 32$\times$32): $B_{\text{NS}} \approx 1.9$ bits
+\end{itemize}
+
+The 3.5$\times$ discrepancy is explained by:
+\begin{enumerate}
+    \item \textbf{Resolution difference}: 64$\times$64 (Monte Carlo) vs 32$\times$32 (nested sampling). Higher resolution provides more pixels for pattern expression.
+    \item \textbf{Threshold calibration}: The order metric's gate parameters were calibrated at 32$\times$32; at 64$\times$64 with scale normalization, thresholds shift.
+    \item \textbf{Algorithmic bias}: Nested sampling's volume shrinkage factor has systematic upward bias (Appendix~\ref{app:sanity}).
+\end{enumerate}
+
+Critically, the architecture \emph{ranking} is identical: both methods produce Shielded $>$ Transitional $>$ Broken ordering, validating the qualitative conclusions.
+
+\subsection{Implications for Two-Stage Sampling}
+
+The Monte Carlo volume measurements provide context for interpreting the observed $3.74\times$ mean speedup from two-stage sampling (RES-283):
+
+\begin{enumerate}
+    \item \textbf{Volume confirms manifold existence:} The 69\% volume for CPPN at $\tau=0.1$ confirms that high-order solutions are not rare in CPPN weight space---explaining why manifold-aware approaches can provide speedup despite high variance.
+
+    \item \textbf{Gap to theoretical ceiling:} The theoretical ceiling ($\sim 60\times$) vs observed mean ($3.74\times$) indicates substantial room for algorithmic improvement. The high variance (range $0.63$--$10.76\times$) suggests that some CPPNs achieve near-theoretical speedup while others face bottlenecks.
+
+    \item \textbf{Architectural implications:} The compositional [x,y,r] input structure creates the manifold that two-stage sampling exploits. Architectures with 0\% volume (MLP, ViT) cannot benefit from manifold-aware sampling because no manifold exists to discover.
+\end{enumerate}

@@ -1,0 +1,47 @@
+{
+  "method": "Adaptive threshold sampling with PCA variance monitoring",
+  "hypothesis": "Dynamically switching to manifold constraint when PCA quality exceeds threshold",
+  "baseline_samples_res224": 276.2,
+  "baseline_std_res224": 95.3,
+  "results_by_threshold": {
+    "0.7": {
+      "mean_samples": 185.1,
+      "std_samples": 44.699999999999996,
+      "cv_samples": 0.24149108589951376,
+      "speedup_vs_baseline": 1.4921663965424095,
+      "variance_reduction_pct": 53.09548793284365,
+      "mean_switch_point": 75.0,
+      "switched_count": 9,
+      "mean_order": 0.41364421257095463,
+      "mean_variance_at_switch": 0.7202901114906402
+    },
+    "0.8": {
+      "mean_samples": 189.9,
+      "std_samples": 30.3,
+      "cv_samples": 0.15955766192733017,
+      "speedup_vs_baseline": 1.454449710373881,
+      "variance_reduction_pct": 68.20566631689402,
+      "mean_switch_point": 100.0,
+      "switched_count": 9,
+      "mean_order": 0.41155800149623784,
+      "mean_variance_at_switch": 0.7380636094431653
+    },
+    "0.9": {
+      "mean_samples": 192.0,
+      "std_samples": 24.0,
+      "cv_samples": 0.125,
+      "speedup_vs_baseline": 1.4385416666666666,
+      "variance_reduction_pct": 74.81636935991605,
+      "mean_switch_point": 150.0,
+      "switched_count": 9,
+      "mean_order": 0.4324413939213301,
+      "mean_variance_at_switch": 0.7289232710966371
+    }
+  },
+  "best_threshold": "0.7",
+  "best_speedup": 1.4921663965424095,
+  "best_variance_reduction": 53.09548793284365,
+  "test_cppns": 10,
+  "status": "inconclusive",
+  "summary": "Best speedup 1.5\u00d7 is below expected range (RES-224 achieved 92\u00d7)"
+}

@@ -1,0 +1,83 @@
+{
+  "experiment": "RES-221",
+  "hypothesis": "Weight space effective dimensionality predicts order achievement",
+  "method": "Zero-shot prediction: Skew-PCA on initialized CPPNs, correlate with achieved order",
+  "parameters": {
+    "n_cppns": 80,
+    "image_size": 32,
+    "seed": 42
+  },
+  "weight_space_analysis": {
+    "ensemble_effective_dim": 4.63440483884203,
+    "individual_eff_dim_mean": 0.4004517116681262,
+    "individual_eff_dim_std": 0.03703876902335631,
+    "first_pc_variance": 0.2738114788474443,
+    "eigenvalue_ratio": 1.1497538533563003,
+    "n_components_90": 5
+  },
+  "order_distribution": {
+    "mean": 0.07912677689611171,
+    "std": 0.09220160477862663,
+    "min": 0.004147380080290953,
+    "max": 0.5197603629334541,
+    "p10": 0.004147380080290953,
+    "p50": 0.05640798875710838,
+    "p90": 0.18154358094405898
+  },
+  "correlations": {
+    "full": {
+      "pearson_r": 0.2635422683782088,
+      "pearson_p": 0.018175875028930488,
+      "spearman_rho": 0.060398924698636065,
+      "spearman_p": 0.5945816982288264
+    },
+    "p10": {
+      "threshold": 0.004147380080290953,
+      "n_above": 80,
+      "n_below": 0,
+      "pointbiserial_r": null,
+      "pointbiserial_p": null,
+      "spearman_rho": null,
+      "spearman_p": null,
+      "cohens_d": null,
+      "mean_eff_dim_above": 0.4004517116681262,
+      "mean_eff_dim_below": null
+    },
+    "p50": {
+      "threshold": 0.05640798875710838,
+      "n_above": 40,
+      "n_below": 40,
+      "pointbiserial_r": 0.09477019507809113,
+      "pointbiserial_p": 0.4030458147027616,
+      "spearman_rho": 0.09960070304411672,
+      "spearman_p": 0.3793885191779762,
+      "cohens_d": 0.19039733498329028,
+      "mean_eff_dim_above": 0.40396188303392205,
+      "mean_eff_dim_below": 0.3969415403023303
+    },
+    "p90": {
+      "threshold": 0.18154358094405898,
+      "n_above": 8,
+      "n_below": 72,
+      "pointbiserial_r": 0.1875974238123819,
+      "pointbiserial_p": 0.09564490854238578,
+      "spearman_rho": 0.08300058587009729,
+      "spearman_p": 0.46419286268860727,
+      "cohens_d": 0.5099741838234336,
+      "mean_eff_dim_above": 0.42129684461801664,
+      "mean_eff_dim_below": 0.398135585784805
+    }
+  },
+  "baseline_comparison": {
+    "res007_feature_based_r": 0.94,
+    "res221_full_pearson_r": 0.2635422683782088,
+    "res221_percentile_mean_r": 0.1411838094452365,
+    "difference_vs_baseline": -0.7988161905547635
+  },
+  "decision": {
+    "criterion_met": false,
+    "status": "REFUTED",
+    "note": "Pre-sampling eff_dim insufficient for order prediction (r < 0.8); causality weak",
+    "best_r": 0.1411838094452365
+  }
+}

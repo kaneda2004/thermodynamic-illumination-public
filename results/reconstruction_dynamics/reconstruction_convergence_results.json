@@ -1,0 +1,625 @@
+{
+  "experiment": "reconstruction_convergence_order_correlation",
+  "timestamp": 1766206929.987626,
+  "n_samples": 50,
+  "samples": [
+    {
+      "sample_id": 0,
+      "seed": 100,
+      "order": 0.02376311882988865,
+      "compressibility_bits": 0.9375,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 1,
+      "seed": 101,
+      "order": 0.004274991775069136,
+      "compressibility_bits": 0.97265625,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 2,
+      "seed": 102,
+      "order": 0.00911138383650946,
+      "compressibility_bits": 0.94921875,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 3,
+      "seed": 103,
+      "order": 0.004147380080290953,
+      "compressibility_bits": 0.97265625,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 4,
+      "seed": 104,
+      "order": 0.004274991775069136,
+      "compressibility_bits": 0.97265625,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 5,
+      "seed": 105,
+      "order": 0.03366635572069561,
+      "compressibility_bits": 0.91015625,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 6,
+      "seed": 106,
+      "order": 0.004274991775069136,
+      "compressibility_bits": 0.97265625,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 7,
+      "seed": 107,
+      "order": 0.16852158932205213,
+      "compressibility_bits": 0.89453125,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 8,
+      "seed": 108,
+      "order": 0.07978016177446723,
+      "compressibility_bits": 0.912109375,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 9,
+      "seed": 109,
+      "order": 0.13614689544707334,
+      "compressibility_bits": 0.892578125,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 10,
+      "seed": 110,
+      "order": 0.17936570071213168,
+      "compressibility_bits": 0.892578125,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 11,
+      "seed": 111,
+      "order": 0.004147380080290953,
+      "compressibility_bits": 0.97265625,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 12,
+      "seed": 112,
+      "order": 0.004274991775069136,
+      "compressibility_bits": 0.97265625,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 13,
+      "seed": 113,
+      "order": 0.004147380080290953,
+      "compressibility_bits": 0.97265625,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 14,
+      "seed": 114,
+      "order": 0.004274991775069136,
+      "compressibility_bits": 0.97265625,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 15,
+      "seed": 115,
+      "order": 0.004147380080290953,
+      "compressibility_bits": 0.97265625,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 16,
+      "seed": 116,
+      "order": 0.004147380080290953,
+      "compressibility_bits": 0.97265625,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 17,
+      "seed": 117,
+      "order": 0.004147380080290953,
+      "compressibility_bits": 0.97265625,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 18,
+      "seed": 118,
+      "order": 0.08540775509479759,
+      "compressibility_bits": 0.890625,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 19,
+      "seed": 119,
+      "order": 0.015105684711708764,
+      "compressibility_bits": 0.9453125,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 20,
+      "seed": 120,
+      "order": 0.004274991775069136,
+      "compressibility_bits": 0.97265625,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 21,
+      "seed": 121,
+      "order": 0.004147380080290953,
+      "compressibility_bits": 0.97265625,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 22,
+      "seed": 122,
+      "order": 0.06903035985515733,
+      "compressibility_bits": 0.89453125,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 23,
+      "seed": 123,
+      "order": 0.004147380080290953,
+      "compressibility_bits": 0.97265625,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 24,
+      "seed": 124,
+      "order": 0.21275156806431833,
+      "compressibility_bits": 0.8828125,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 25,
+      "seed": 125,
+      "order": 0.11095653475004609,
+      "compressibility_bits": 0.92578125,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 26,
+      "seed": 126,
+      "order": 0.13342721570317836,
+      "compressibility_bits": 0.8984375,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 27,
+      "seed": 127,
+      "order": 0.004147380080290953,
+      "compressibility_bits": 0.97265625,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 28,
+      "seed": 128,
+      "order": 0.008157341868861035,
+      "compressibility_bits": 0.955078125,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 29,
+      "seed": 129,
+      "order": 0.004147380080290953,
+      "compressibility_bits": 0.97265625,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 30,
+      "seed": 130,
+      "order": 0.12751778147380982,
+      "compressibility_bits": 0.88671875,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 31,
+      "seed": 131,
+      "order": 0.008459624261533539,
+      "compressibility_bits": 0.95703125,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 32,
+      "seed": 132,
+      "order": 0.09730749804768007,
+      "compressibility_bits": 0.908203125,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 33,
+      "seed": 133,
+      "order": 0.004147380080290953,
+      "compressibility_bits": 0.97265625,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 34,
+      "seed": 134,
+      "order": 0.10451123901961852,
+      "compressibility_bits": 0.884765625,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 35,
+      "seed": 135,
+      "order": 0.004147380080290953,
+      "compressibility_bits": 0.97265625,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 36,
+      "seed": 136,
+      "order": 0.004147380080290953,
+      "compressibility_bits": 0.97265625,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 37,
+      "seed": 137,
+      "order": 0.12529050594529934,
+      "compressibility_bits": 0.919921875,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 38,
+      "seed": 138,
+      "order": 0.09507984411184744,
+      "compressibility_bits": 0.9140625,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 39,
+      "seed": 139,
+      "order": 0.014863162861360328,
+      "compressibility_bits": 0.9375,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 40,
+      "seed": 140,
+      "order": 0.004147380080290953,
+      "compressibility_bits": 0.97265625,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 41,
+      "seed": 141,
+      "order": 0.004147380080290953,
+      "compressibility_bits": 0.97265625,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 42,
+      "seed": 142,
+      "order": 0.20285162487609731,
+      "compressibility_bits": 0.8828125,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 43,
+      "seed": 143,
+      "order": 0.1778291717487119,
+      "compressibility_bits": 0.888671875,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 44,
+      "seed": 144,
+      "order": 0.004274991775069136,
+      "compressibility_bits": 0.97265625,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 45,
+      "seed": 145,
+      "order": 0.004147380080290953,
+      "compressibility_bits": 0.97265625,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 46,
+      "seed": 146,
+      "order": 0.004274991775069136,
+      "compressibility_bits": 0.97265625,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 47,
+      "seed": 147,
+      "order": 0.004274991775069136,
+      "compressibility_bits": 0.97265625,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 48,
+      "seed": 148,
+      "order": 0.201300254549685,
+      "compressibility_bits": 0.8828125,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    },
+    {
+      "sample_id": 49,
+      "seed": 149,
+      "order": 0.08263169876305126,
+      "compressibility_bits": 0.8984375,
+      "convergence_iterations": {
+        "25_percent": 0,
+        "50_percent": 0,
+        "75_percent": 0,
+        "90_percent": 0
+      }
+    }
+  ],
+  "hypothesis": "Reconstruction convergence speed correlates with image order",
+  "correlation": {
+    "order_vs_compressibility": {
+      "spearman_rho": -0.9310133626480863,
+      "p_value": 1.1966926220810562e-22,
+      "n_samples": 50
+    },
+    "order_vs_convergence_50pct": {
+      "spearman_rho": NaN,
+      "p_value": NaN,
+      "n_samples": 50
+    }
+  },
+  "effect_size": {
+    "cohens_d": 0.0,
+    "high_order_mean": 0.0,
+    "low_order_mean": 0.0
+  }
+}

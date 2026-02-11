@@ -1,0 +1,61 @@
+{
+  "hypothesis": "Polar coordinate inputs create more symmetric weight space structure",
+  "coordinate_systems": {
+    "cartesian": {
+      "rotational_symmetry": {
+        "mean": 0.061481458912350656,
+        "std": 0.13375499788095235
+      },
+      "reflection_symmetry": {
+        "mean": 0.292934475477803,
+        "std": 0.1673997223816649
+      },
+      "fourier_symmetry": {
+        "mean": 0.000987151242652548,
+        "std": 0.0022039762742158023
+      },
+      "order": 0.09816752700901615,
+      "eff_dim": -85.51225681134446,
+      "eff_dim_se": 27.81712253288634
+    },
+    "polar": {
+      "rotational_symmetry": {
+        "mean": 0.1660010015108103,
+        "std": 0.23605279049742378
+      },
+      "reflection_symmetry": {
+        "mean": 0.33816728252733697,
+        "std": 0.1633257076903431
+      },
+      "fourier_symmetry": {
+        "mean": 0.0052932366398556275,
+        "std": 0.020884055577251738
+      },
+      "order": 0.14233485269913113,
+      "eff_dim": -85.85726545645493,
+      "eff_dim_se": 53.49677993441174
+    },
+    "hybrid": {
+      "rotational_symmetry": {
+        "mean": 0.03879521750561303,
+        "std": 0.07442519497081573
+      },
+      "reflection_symmetry": {
+        "mean": 0.2691932577351596,
+        "std": 0.12276997287482865
+      },
+      "fourier_symmetry": {
+        "mean": 0.0003237817200816296,
+        "std": 0.0006311446715847793
+      },
+      "order": 0.09931559095229586,
+      "eff_dim": -333.4690780322432,
+      "eff_dim_se": 309.63104155961827
+    }
+  },
+  "symmetry_improvement": 2.7,
+  "eff_dim_ratio": 1.004,
+  "rotational_order": "improvement",
+  "summary": "Polar coordinates achieved 1.3\u00d7 symmetry improvement. Rotational symmetry: 0.1660 (polar) vs 0.0615 (cartesian). Eff. dim: -85.86 (polar) vs -85.51 (cartesian). Hybrid showed 0.0388 rotational symmetry.",
+  "status": "validated"
+}

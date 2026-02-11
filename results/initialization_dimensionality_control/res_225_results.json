@@ -1,0 +1,40 @@
+{
+  "method": "Three initialization strategies with effective dimensionality measurement",
+  "target_order": 0.35,
+  "n_live": 100,
+  "strategy_a_standard": {
+    "count": 30,
+    "initial_eff_dim_pr": 4.55284608412154,
+    "mean_samples": 8430.0,
+    "std_samples": 10252.256662153297,
+    "success_rate": 0.9333333333333333
+  },
+  "strategy_b_pca": {
+    "count": 30,
+    "initial_eff_dim_pr": 1.9365904797552742,
+    "mean_samples": 9966.666666666666,
+    "std_samples": 10084.785019468134,
+    "overhead_percent": 18.228548833531033,
+    "success_rate": 1.0,
+    "passes_criterion": true
+  },
+  "strategy_c_lowrank": {
+    "count": 30,
+    "initial_eff_dim_pr": 13.411430454918117,
+    "mean_samples": 7156.666666666667,
+    "std_samples": 7601.433344369263,
+    "overhead_percent": -15.10478449980229,
+    "success_rate": 1.0,
+    "passes_criterion": false
+  },
+  "validation_criteria": {
+    "max_overhead_percent": 20.0,
+    "min_success_rate": 0.6,
+    "max_initial_eff_dim_pr": 3.0
+  },
+  "conclusion": "validate",
+  "interpretation": "Low-D initialization (eff_dim \u2264 2-3) can achieve structured states with minimal overhead, supporting the hypothesis that initial dimensionality is not a critical bottleneck. High-order achievement likely drives convergence to low-D manifold, not vice versa.",
+  "status": "invalid",
+  "invalid_reason": "Sample counting bug (baseline multiplies by n_live) inflates sample counts and speedup; requires fix and rerun.",
+  "needs_rerun": true
+}

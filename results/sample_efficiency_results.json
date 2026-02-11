@@ -1,0 +1,470 @@
+{
+  "mnist": {
+    "dataset": "mnist",
+    "corr_n_required": -0.4705882352941176,
+    "pval_n_required": 0.06581947250108118,
+    "ci_n_required": [
+      -0.8006026454043728,
+      0.12527404639647857
+    ],
+    "corr_accuracy": -0.23478260869565212,
+    "pval_accuracy": 0.26945461176954527,
+    "ci_accuracy": [
+      -0.6383655107771546,
+      0.2610748504166374
+    ],
+    "verdict": "INCONCLUSIVE",
+    "results": [
+      {
+        "name": "CPPN_deep",
+        "bits": 0.054185018170683115,
+        "mean_n_required": 4759.887003096173,
+        "std_n_required": 0.0,
+        "n_valid_seeds": 1,
+        "mean_final_acc": 0.1507,
+        "std_final_acc": 0.032737745799000885
+      },
+      {
+        "name": "CPPN_narrow",
+        "bits": 0.08393189752086863,
+        "mean_n_required": 3676.5365321871373,
+        "std_n_required": 912.0429667726762,
+        "n_valid_seeds": 4,
+        "mean_final_acc": 0.21459999999999999,
+        "std_final_acc": 0.01217949095816406
+      },
+      {
+        "name": "CPPN_wide",
+        "bits": 0.09679768795112674,
+        "mean_n_required": 2479.6269642682314,
+        "std_n_required": 1290.6859251386804,
+        "n_valid_seeds": 3,
+        "mean_final_acc": 0.199,
+        "std_final_acc": 0.021004761364985802
+      },
+      {
+        "name": "CPPN_medium",
+        "bits": 0.13147129531281254,
+        "mean_n_required": 4885.204079198772,
+        "std_n_required": 0.0,
+        "n_valid_seeds": 1,
+        "mean_final_acc": 0.1839,
+        "std_final_acc": 0.016019987515600624
+      },
+      {
+        "name": "CPPN_shallow",
+        "bits": 0.15331579507897422,
+        "mean_n_required": 2434.065932490038,
+        "std_n_required": 0.0,
+        "n_valid_seeds": 1,
+        "mean_final_acc": 0.1766,
+        "std_final_acc": 0.01246354684670459
+      },
+      {
+        "name": "CPPN_silu",
+        "bits": 0.1570648458255903,
+        "mean_n_required": 3121.6722489868607,
+        "std_n_required": 952.1021989280512,
+        "n_valid_seeds": 3,
+        "mean_final_acc": 0.15030000000000002,
+        "std_final_acc": 0.05288534768723754
+      },
+      {
+        "name": "Conv_shallow",
+        "bits": 0.3136529624344764,
+        "mean_n_required": 2583.259881169039,
+        "std_n_required": 1241.6729044787162,
+        "n_valid_seeds": 5,
+        "mean_final_acc": 0.2112,
+        "std_final_acc": 0.01049571341072154
+      },
+      {
+        "name": "CPPN_gelu",
+        "bits": 0.34551142865643086,
+        "mean_n_required": 2235.4936976122804,
+        "std_n_required": 1241.5177943945903,
+        "n_valid_seeds": 2,
+        "mean_final_acc": 0.16920000000000002,
+        "std_final_acc": 0.042765172746055874
+      },
+      {
+        "name": "ResNet_medium",
+        "bits": 0.3579879306192773,
+        "mean_n_required": 948.693106292402,
+        "std_n_required": 547.0267764316303,
+        "n_valid_seeds": 5,
+        "mean_final_acc": 0.22359999999999997,
+        "std_final_acc": 0.006952697318307475
+      },
+      {
+        "name": "ResNet_shallow",
+        "bits": 0.3669299117712585,
+        "mean_n_required": 856.8622222913573,
+        "std_n_required": 537.7089169165652,
+        "n_valid_seeds": 5,
+        "mean_final_acc": 0.22680000000000003,
+        "std_final_acc": 0.00534415568635496
+      },
+      {
+        "name": "ResNet_deep",
+        "bits": 0.5308466320015959,
+        "mean_n_required": 1645.4773149790824,
+        "std_n_required": 1215.670592465664,
+        "n_valid_seeds": 4,
+        "mean_final_acc": 0.20950000000000002,
+        "std_final_acc": 0.022047675614449702
+      },
+      {
+        "name": "Conv_narrow",
+        "bits": 0.6650510405014755,
+        "mean_n_required": "inf",
+        "std_n_required": 0,
+        "n_valid_seeds": 0,
+        "mean_final_acc": 0.1753,
+        "std_final_acc": 0.023269293070482394
+      },
+      {
+        "name": "Conv_wide",
+        "bits": 0.7208376267106855,
+        "mean_n_required": 2413.2491273561227,
+        "std_n_required": 1125.5867964244892,
+        "n_valid_seeds": 4,
+        "mean_final_acc": 0.2138,
+        "std_final_acc": 0.01597998748435054
+      },
+      {
+        "name": "Conv_deep",
+        "bits": 0.9000287388085438,
+        "mean_n_required": "inf",
+        "std_n_required": 0,
+        "n_valid_seeds": 0,
+        "mean_final_acc": 0.10729999999999999,
+        "std_final_acc": 0.01040961094373848
+      },
+      {
+        "name": "Conv_medium",
+        "bits": 1.0283690939083052,
+        "mean_n_required": "inf",
+        "std_n_required": 0,
+        "n_valid_seeds": 0,
+        "mean_final_acc": 0.1238,
+        "std_final_acc": 0.0275274408545364
+      },
+      {
+        "name": "CPPN_relu",
+        "bits": 1.2781193517710359,
+        "mean_n_required": "inf",
+        "std_n_required": 0,
+        "n_valid_seeds": 0,
+        "mean_final_acc": 0.18330000000000002,
+        "std_final_acc": 0.016737980762326146
+      },
+      {
+        "name": "MLP_narrow",
+        "bits": 4.410860647402569,
+        "mean_n_required": 1857.840471918878,
+        "std_n_required": 1123.237205114613,
+        "n_valid_seeds": 5,
+        "mean_final_acc": 0.3040999999999999,
+        "std_final_acc": 0.012705904139414883
+      },
+      {
+        "name": "MLP_deep",
+        "bits": 4.415943707900435,
+        "mean_n_required": "inf",
+        "std_n_required": 0,
+        "n_valid_seeds": 0,
+        "mean_final_acc": 0.1212,
+        "std_final_acc": 0.02685814587792687
+      },
+      {
+        "name": "MLP_medium",
+        "bits": 4.626285086094605,
+        "mean_n_required": 3234.384190402212,
+        "std_n_required": 741.63056865608,
+        "n_valid_seeds": 2,
+        "mean_final_acc": 0.16390000000000002,
+        "std_final_acc": 0.05175074878685332
+      },
+      {
+        "name": "MLP_shallow",
+        "bits": 4.895214170244484,
+        "mean_n_required": 2820.387633138038,
+        "std_n_required": 577.2889934714899,
+        "n_valid_seeds": 5,
+        "mean_final_acc": 0.2694,
+        "std_final_acc": 0.034251131368175265
+      },
+      {
+        "name": "MLP_wide",
+        "bits": 5.175124582948285,
+        "mean_n_required": 2399.645592172911,
+        "std_n_required": 1250.76268446094,
+        "n_valid_seeds": 5,
+        "mean_final_acc": 0.32480000000000003,
+        "std_final_acc": 0.030089200720524286
+      },
+      {
+        "name": "Fourier_med_freq",
+        "bits": 5.59890260397055,
+        "mean_n_required": "inf",
+        "std_n_required": 0,
+        "n_valid_seeds": 0,
+        "mean_final_acc": 0.0965,
+        "std_final_acc": 0.006655824516917495
+      },
+      {
+        "name": "Fourier_high_freq",
+        "bits": 5.599341419922445,
+        "mean_n_required": "inf",
+        "std_n_required": 0,
+        "n_valid_seeds": 0,
+        "mean_final_acc": 0.09889999999999999,
+        "std_final_acc": 0.004789572005931218
+      },
+      {
+        "name": "Fourier_low_freq",
+        "bits": 5.601472346281944,
+        "mean_n_required": "inf",
+        "std_n_required": 0,
+        "n_valid_seeds": 0,
+        "mean_final_acc": 0.11099999999999999,
+        "std_final_acc": 0.007739509028355738
+      }
+    ]
+  },
+  "fashion": {
+    "dataset": "fashion",
+    "corr_n_required": -0.38596491228070173,
+    "pval_n_required": 0.10265132732835121,
+    "ci_n_required": [
+      -0.6970561423953083,
+      0.0842338352524357
+    ],
+    "corr_accuracy": 0.009565217391304347,
+    "pval_accuracy": 0.9646181660759277,
+    "ci_accuracy": [
+      -0.5101229109986475,
+      0.5450733872571146
+    ],
+    "verdict": "INCONCLUSIVE",
+    "results": [
+      {
+        "name": "CPPN_medium",
+        "bits": 0.04505298078748263,
+        "mean_n_required": 2877.359915086767,
+        "std_n_required": 1256.9334349163323,
+        "n_valid_seeds": 4,
+        "mean_final_acc": 0.2096,
+        "std_final_acc": 0.01427024877148258
+      },
+      {
+        "name": "CPPN_deep",
+        "bits": 0.06022692969473191,
+        "mean_n_required": 3619.953923809827,
+        "std_n_required": 1176.5576987564264,
+        "n_valid_seeds": 2,
+        "mean_final_acc": 0.1907,
+        "std_final_acc": 0.012335315156087415
+      },
+      {
+        "name": "CPPN_wide",
+        "bits": 0.06601801628402497,
+        "mean_n_required": 1970.0592859120618,
+        "std_n_required": 826.1647000466749,
+        "n_valid_seeds": 5,
+        "mean_final_acc": 0.2211,
+        "std_final_acc": 0.016381086655042152
+      },
+      {
+        "name": "CPPN_shallow",
+        "bits": 0.07943871840499886,
+        "mean_n_required": 2698.8303870681757,
+        "std_n_required": 1629.7985251612656,
+        "n_valid_seeds": 5,
+        "mean_final_acc": 0.21189999999999998,
+        "std_final_acc": 0.01424570110594771
+      },
+      {
+        "name": "CPPN_narrow",
+        "bits": 0.11633546369272091,
+        "mean_n_required": 1975.4297298604113,
+        "std_n_required": 1375.9179060167717,
+        "n_valid_seeds": 5,
+        "mean_final_acc": 0.22749999999999998,
+        "std_final_acc": 0.020186629238186354
+      },
+      {
+        "name": "Conv_deep",
+        "bits": 0.13720871042090296,
+        "mean_n_required": "inf",
+        "std_n_required": 0,
+        "n_valid_seeds": 0,
+        "mean_final_acc": 0.1323,
+        "std_final_acc": 0.0256448825304387
+      },
+      {
+        "name": "CPPN_gelu",
+        "bits": 0.2081514246762205,
+        "mean_n_required": 2846.045775663808,
+        "std_n_required": 654.62775627326,
+        "n_valid_seeds": 4,
+        "mean_final_acc": 0.2076,
+        "std_final_acc": 0.014305243793798132
+      },
+      {
+        "name": "CPPN_silu",
+        "bits": 0.214444283865647,
+        "mean_n_required": 4828.124997089844,
+        "std_n_required": 0.0,
+        "n_valid_seeds": 1,
+        "mean_final_acc": 0.1868,
+        "std_final_acc": 0.009537295214053089
+      },
+      {
+        "name": "ResNet_shallow",
+        "bits": 0.2546650852577278,
+        "mean_n_required": 669.6801892144136,
+        "std_n_required": 172.54823022731372,
+        "n_valid_seeds": 5,
+        "mean_final_acc": 0.2575,
+        "std_final_acc": 0.018008331405213532
+      },
+      {
+        "name": "Conv_wide",
+        "bits": 0.4239794498949592,
+        "mean_n_required": 998.725717254106,
+        "std_n_required": 360.5530128048094,
+        "n_valid_seeds": 5,
+        "mean_final_acc": 0.2333,
+        "std_final_acc": 0.027839899425105674
+      },
+      {
+        "name": "ResNet_medium",
+        "bits": 0.464401393658781,
+        "mean_n_required": 413.10250310145364,
+        "std_n_required": 163.84690656609285,
+        "n_valid_seeds": 5,
+        "mean_final_acc": 0.31900000000000006,
+        "std_final_acc": 0.019243180610283756
+      },
+      {
+        "name": "ResNet_deep",
+        "bits": 0.4688127745341035,
+        "mean_n_required": 569.9270803217034,
+        "std_n_required": 201.57285835306868,
+        "n_valid_seeds": 5,
+        "mean_final_acc": 0.2744,
+        "std_final_acc": 0.017811232411037697
+      },
+      {
+        "name": "Conv_shallow",
+        "bits": 0.6129672842564227,
+        "mean_n_required": 1806.1774594713002,
+        "std_n_required": 1209.3867345115764,
+        "n_valid_seeds": 5,
+        "mean_final_acc": 0.221,
+        "std_final_acc": 0.02092844953645635
+      },
+      {
+        "name": "Conv_narrow",
+        "bits": 0.7159479514213896,
+        "mean_n_required": 1710.1404312153913,
+        "std_n_required": 799.5012355987858,
+        "n_valid_seeds": 5,
+        "mean_final_acc": 0.21539999999999998,
+        "std_final_acc": 0.020597087172704785
+      },
+      {
+        "name": "Conv_medium",
+        "bits": 0.736081482966951,
+        "mean_n_required": 919.4214872566765,
+        "std_n_required": 0.0,
+        "n_valid_seeds": 1,
+        "mean_final_acc": 0.1706,
+        "std_final_acc": 0.020589803301634523
+      },
+      {
+        "name": "CPPN_relu",
+        "bits": 1.0703857489477746,
+        "mean_n_required": 2269.458060329588,
+        "std_n_required": 773.1763245294269,
+        "n_valid_seeds": 5,
+        "mean_final_acc": 0.2679,
+        "std_final_acc": 0.019173940648703376
+      },
+      {
+        "name": "MLP_narrow",
+        "bits": 4.334319601424736,
+        "mean_n_required": 1567.9164977206171,
+        "std_n_required": 436.1204496026599,
+        "n_valid_seeds": 5,
+        "mean_final_acc": 0.45409999999999995,
+        "std_final_acc": 0.04739345946436069
+      },
+      {
+        "name": "MLP_deep",
+        "bits": 4.476263198717071,
+        "mean_n_required": "inf",
+        "std_n_required": 0,
+        "n_valid_seeds": 0,
+        "mean_final_acc": 0.13799999999999998,
+        "std_final_acc": 0.02825774230188958
+      },
+      {
+        "name": "MLP_medium",
+        "bits": 4.616944375732962,
+        "mean_n_required": 3163.264661405074,
+        "std_n_required": 954.5684694721218,
+        "n_valid_seeds": 5,
+        "mean_final_acc": 0.2843,
+        "std_final_acc": 0.031334645362601436
+      },
+      {
+        "name": "MLP_shallow",
+        "bits": 4.8635858337831746,
+        "mean_n_required": 1474.6453285899338,
+        "std_n_required": 859.9674575214717,
+        "n_valid_seeds": 5,
+        "mean_final_acc": 0.45620000000000005,
+        "std_final_acc": 0.03965929903566122
+      },
+      {
+        "name": "MLP_wide",
+        "bits": 5.0932239631220195,
+        "mean_n_required": 1760.437086716421,
+        "std_n_required": 724.0728969172088,
+        "n_valid_seeds": 5,
+        "mean_final_acc": 0.48699999999999993,
+        "std_final_acc": 0.04070749316772038
+      },
+      {
+        "name": "Fourier_low_freq",
+        "bits": 5.599756124539731,
+        "mean_n_required": "inf",
+        "std_n_required": 0,
+        "n_valid_seeds": 0,
+        "mean_final_acc": 0.1014,
+        "std_final_acc": 0.00673349834781297
+      },
+      {
+        "name": "Fourier_med_freq",
+        "bits": 5.608376075562298,
+        "mean_n_required": "inf",
+        "std_n_required": 0,
+        "n_valid_seeds": 0,
+        "mean_final_acc": 0.09790000000000001,
+        "std_final_acc": 0.0037868192457522977
+      },
+      {
+        "name": "Fourier_high_freq",
+        "bits": 5.616245521136933,
+        "mean_n_required": "inf",
+        "std_n_required": 0,
+        "n_valid_seeds": 0,
+        "mean_final_acc": 0.09759999999999999,
+        "std_final_acc": 0.0066663333249995845
+      }
+    ]
+  }
+}

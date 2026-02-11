@@ -1,0 +1,55 @@
+{
+  "n_samples": 500,
+  "order_stats": {
+    "min": 0.004147380080290953,
+    "max": 0.46347171311588403,
+    "mean": 0.06443018988426803,
+    "std": 0.0755118315558316
+  },
+  "lipschitz_stats": {
+    "min": 0.0,
+    "max": 1.6151432166046122,
+    "mean": 0.12887183179724837,
+    "std": 0.21250963268531692
+  },
+  "bin_counts": [
+    291,
+    66,
+    110,
+    32,
+    1
+  ],
+  "primary_test": {
+    "test": "Spearman correlation",
+    "rho": 0.8719327791042574,
+    "p_value": 1.4611045536512504e-156
+  },
+  "pearson": {
+    "r": 0.6398021186676653,
+    "p_value": 6.421462777746794e-59
+  },
+  "kruskal_wallis": {
+    "H_statistic": 307.1260100355452,
+    "p_value": 2.8539073766879006e-66,
+    "eta_squared": 0.6143959798697883
+  },
+  "mann_whitney": {
+    "U_statistic": 28934.0,
+    "p_value": 2.634141758607496e-36,
+    "cohens_d": 1.3432687092746047,
+    "low_order_mean": 0.05315588975892042,
+    "high_order_mean": 0.35911939183775593,
+    "n_low": 357,
+    "n_high": 89
+  },
+  "asymmetry": {
+    "mean_increase_sensitivity": 0.1283705217011891,
+    "mean_decrease_sensitivity": 0.10696199925839764,
+    "mean_n_increases": 4.668,
+    "mean_n_decreases": 15.332,
+    "asymmetry_ratio": 0.833228671512105
+  },
+  "status": "validated",
+  "confidence": "high",
+  "summary": "Strong positive correlation between order level and Lipschitz constant (rho=0.87, p=1.46e-156). High-order images are dynamically unstable - small weight perturbations cause larger order changes. "
+}

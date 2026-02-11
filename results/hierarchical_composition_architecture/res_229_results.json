@@ -1,0 +1,57 @@
+{
+  "experiment_id": "RES-229",
+  "title": "Hierarchical Multi-Scale Composition",
+  "method": "Multi-scale hierarchical coordinate inputs vs baseline and interaction terms",
+  "n_samples_per_variant": 25,
+  "results": {
+    "baseline": {
+      "eff_dim": 4.766055673633502,
+      "first_pc_var": 0.28635886313897335,
+      "n_components_90": 5,
+      "mean_order": 0.08148299320992997,
+      "std_order": 0.11803592971032026,
+      "order_p25": 0.004147380080290953,
+      "order_p50": 0.004274991775069136,
+      "order_p75": 0.13766171994370902,
+      "order_p90": 0.19548194719925321,
+      "median_samples_to_05": null,
+      "ns_success_rate": 0.0
+    },
+    "hierarchy": {
+      "eff_dim": 6.678609252029071,
+      "first_pc_var": 0.2548718319276436,
+      "n_components_90": 6,
+      "mean_order": 0.056372012626922936,
+      "std_order": 0.06596410354941278,
+      "order_p25": 0.004274991775069136,
+      "order_p50": 0.006860509342405155,
+      "order_p75": 0.10545300114731286,
+      "order_p90": 0.13583797023678454,
+      "median_samples_to_05": null,
+      "ns_success_rate": 0.0
+    },
+    "interaction": {
+      "eff_dim": 6.947212135683168,
+      "first_pc_var": 0.2628843332394302,
+      "n_components_90": 7,
+      "mean_order": 0.20178366777777712,
+      "std_order": 0.14871224438091862,
+      "order_p25": 0.11012361304885473,
+      "order_p50": 0.16195459200550502,
+      "order_p75": 0.26493652069948737,
+      "order_p90": 0.34838249378956726,
+      "median_samples_to_05": null,
+      "ns_success_rate": 0.0
+    }
+  },
+  "comparison": {
+    "hierarchy_order_gain": 0.6918255013250192,
+    "hierarchy_efficiency_gain": null,
+    "interaction_order_gain": 2.4763899781873335
+  },
+  "validation": {
+    "test1_hierarchy_order_12x": false,
+    "test2_hierarchy_efficiency_2x": false,
+    "conclusion": "refute"
+  }
+}

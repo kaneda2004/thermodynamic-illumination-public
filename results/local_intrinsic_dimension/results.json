@@ -1,0 +1,72 @@
+{
+  "experiment_id": "RES-187",
+  "hypothesis": "Local intrinsic dimension (MLE at k-NN) negatively correlates with CPPN order",
+  "domain": "manifold_structure",
+  "status": "inconclusive",
+  "parameters": {
+    "n_samples": 500,
+    "image_size": 32,
+    "k_values": [
+      5,
+      10,
+      20
+    ],
+    "seed": 42,
+    "weight_dim": 5
+  },
+  "order_stats": {
+    "mean": 0.06739463590169684,
+    "std": 0.0777000600285022,
+    "min": 0.004147380080290953,
+    "max": 0.5197603629334541
+  },
+  "results_by_k": {
+    "k=5": {
+      "pearson_r": -0.09589594212709371,
+      "pearson_p": 0.03204294975136975,
+      "spearman_rho": -0.09072039022967392,
+      "spearman_p": 0.042593416160629415,
+      "mean_local_dim": 6.896326548108871,
+      "std_local_dim": 4.770711902061503,
+      "high_order_dim": 6.36198825894729,
+      "low_order_dim": 7.649758375571849,
+      "cohens_d": -0.26236587511699666,
+      "t_test_p": 0.030877933471193813,
+      "valid_samples": 500
+    },
+    "k=10": {
+      "pearson_r": -0.09799276970039573,
+      "pearson_p": 0.028453520817259183,
+      "spearman_rho": -0.10122843901059322,
+      "spearman_p": 0.02359325788077756,
+      "mean_local_dim": 5.77542165528292,
+      "std_local_dim": 2.216821930508553,
+      "high_order_dim": 5.41816872473205,
+      "low_order_dim": 6.047612494133189,
+      "cohens_d": -0.27851768960122886,
+      "t_test_p": 0.018730431212525732,
+      "valid_samples": 500
+    },
+    "k=20": {
+      "pearson_r": -0.06767393007393874,
+      "pearson_p": 0.13074248182735868,
+      "spearman_rho": -0.08217999001993696,
+      "spearman_p": 0.06634170660942278,
+      "mean_local_dim": 5.256344962605412,
+      "std_local_dim": 1.3241325159021082,
+      "high_order_dim": 5.085730839780606,
+      "low_order_dim": 5.380966853649806,
+      "cohens_d": -0.22191827762702077,
+      "t_test_p": 0.0592004153817872,
+      "valid_samples": 500
+    }
+  },
+  "primary_k": "k=10",
+  "primary_result": {
+    "pearson_r": -0.09799276970039573,
+    "pearson_p": 0.028453520817259183,
+    "cohens_d": -0.27851768960122886,
+    "high_order_dim": 5.41816872473205,
+    "low_order_dim": 6.047612494133189
+  }
+}

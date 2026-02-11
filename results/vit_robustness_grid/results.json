@@ -1,0 +1,189 @@
+{
+  "hypothesis": "ViT broken regime persists across hyperparameter variants",
+  "conv_baseline": {
+    "max_order": 1.0,
+    "mean_order": 1.0,
+    "bits_at_0p5": 0.0
+  },
+  "variants": [
+    {
+      "name": "patch_4_norm_pre",
+      "config": {
+        "name": "patch_4_norm_pre",
+        "patch_size": 4,
+        "embed_dim": 256,
+        "depth": 6,
+        "normalization": "pre"
+      },
+      "optimizers": {
+        "Adam": {
+          "max_order": 0.0073897366884345585,
+          "mean_order": 0.007389736688434559,
+          "bits_at_0p5": Infinity,
+          "is_broken": true
+        },
+        "AdamW": {
+          "max_order": 5.9381475189514995e-05,
+          "mean_order": 5.938147518951501e-05,
+          "bits_at_0p5": Infinity,
+          "is_broken": true
+        }
+      }
+    },
+    {
+      "name": "patch_4_norm_post",
+      "config": {
+        "name": "patch_4_norm_post",
+        "patch_size": 4,
+        "embed_dim": 256,
+        "depth": 6,
+        "normalization": "post"
+      },
+      "optimizers": {
+        "Adam": {
+          "max_order": 1.0917104922497659e-05,
+          "mean_order": 1.0917104922497659e-05,
+          "bits_at_0p5": Infinity,
+          "is_broken": true
+        },
+        "AdamW": {
+          "max_order": 1.0917104922497659e-05,
+          "mean_order": 1.0917104922497659e-05,
+          "bits_at_0p5": Infinity,
+          "is_broken": true
+        }
+      }
+    },
+    {
+      "name": "patch_8_norm_pre",
+      "config": {
+        "name": "patch_8_norm_pre",
+        "patch_size": 8,
+        "embed_dim": 256,
+        "depth": 6,
+        "normalization": "pre"
+      },
+      "optimizers": {
+        "Adam": {
+          "max_order": 0.00026851762827005183,
+          "mean_order": 0.00026851762827005183,
+          "bits_at_0p5": Infinity,
+          "is_broken": true
+        },
+        "AdamW": {
+          "max_order": 0.00026851762827005183,
+          "mean_order": 0.00026851762827005183,
+          "bits_at_0p5": Infinity,
+          "is_broken": true
+        }
+      }
+    },
+    {
+      "name": "patch_8_norm_post",
+      "config": {
+        "name": "patch_8_norm_post",
+        "patch_size": 8,
+        "embed_dim": 256,
+        "depth": 6,
+        "normalization": "post"
+      },
+      "optimizers": {
+        "Adam": {
+          "max_order": 0.00014365856122745854,
+          "mean_order": 0.0001436585612274585,
+          "bits_at_0p5": Infinity,
+          "is_broken": true
+        },
+        "AdamW": {
+          "max_order": 0.00014365856122745854,
+          "mean_order": 0.0001436585612274585,
+          "bits_at_0p5": Infinity,
+          "is_broken": true
+        }
+      }
+    },
+    {
+      "name": "patch_16_norm_pre",
+      "config": {
+        "name": "patch_16_norm_pre",
+        "patch_size": 16,
+        "embed_dim": 256,
+        "depth": 6,
+        "normalization": "pre"
+      },
+      "optimizers": {
+        "Adam": {
+          "max_order": 3.289304450287366e-05,
+          "mean_order": 3.2893044502873654e-05,
+          "bits_at_0p5": Infinity,
+          "is_broken": true
+        },
+        "AdamW": {
+          "max_order": 3.289304450287366e-05,
+          "mean_order": 3.2893044502873654e-05,
+          "bits_at_0p5": Infinity,
+          "is_broken": true
+        }
+      }
+    },
+    {
+      "name": "patch_16_norm_post",
+      "config": {
+        "name": "patch_16_norm_post",
+        "patch_size": 16,
+        "embed_dim": 256,
+        "depth": 6,
+        "normalization": "post"
+      },
+      "optimizers": {
+        "Adam": {
+          "max_order": 2.1043571785530502e-05,
+          "mean_order": 2.10435717855305e-05,
+          "bits_at_0p5": Infinity,
+          "is_broken": true
+        },
+        "AdamW": {
+          "max_order": 2.1043571785530502e-05,
+          "mean_order": 2.10435717855305e-05,
+          "bits_at_0p5": Infinity,
+          "is_broken": true
+        }
+      }
+    },
+    {
+      "name": "depth_12",
+      "config": {
+        "name": "depth_12",
+        "patch_size": 8,
+        "embed_dim": 256,
+        "depth": 12,
+        "normalization": "pre"
+      },
+      "optimizers": {
+        "Adam": {
+          "max_order": 3.344040803303657e-06,
+          "mean_order": 3.3440408033036558e-06,
+          "bits_at_0p5": Infinity,
+          "is_broken": true
+        },
+        "AdamW": {
+          "max_order": 3.344040803303657e-06,
+          "mean_order": 3.3440408033036558e-06,
+          "bits_at_0p5": Infinity,
+          "is_broken": true
+        }
+      }
+    }
+  ],
+  "summary": {
+    "total_variants": 7,
+    "total_tests": 14,
+    "broken_count": 14,
+    "broken_percent": 100.0,
+    "escaped_variants": [],
+    "num_escaped": 0,
+    "conclusion": "Broken regime holds for 14/14 tests (100.0%). Only 0 variants escape (variant level). Optimizer choice (Adam vs AdamW) invariant to broken regime.",
+    "optimizer_invariance_mean_diff": 0.1417091901976803,
+    "optimizer_invariant": false
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "method": "Effective dimensionality comparison across activation functions",
+  "configuration": {
+    "n_trials": 4,
+    "n_cppns_per_trial": 10,
+    "n_total_cppns_per_activation": 40,
+    "network_structure": "4 inputs -> 2 hidden + skip -> 1 output",
+    "total_weights": 16,
+    "variance_threshold": 0.9
+  },
+  "measurements": {
+    "sine_eff_dim": 6.0,
+    "sine_eff_dim_std": 0.0,
+    "relu_eff_dim": 6.0,
+    "relu_eff_dim_std": 0.0,
+    "tanh_eff_dim": 6.0,
+    "tanh_eff_dim_std": 0.0
+  },
+  "comparisons": {
+    "sine_to_relu_ratio": 1.0,
+    "sine_to_tanh_ratio": 1.0,
+    "sine_vs_relu_p_value": 1.0,
+    "sine_vs_tanh_p_value": 1.0,
+    "sine_vs_relu_cohens_d": 0.0,
+    "sine_vs_tanh_cohens_d": 0.0
+  },
+  "validation": {
+    "relu_validates_hypothesis": false,
+    "tanh_validates_hypothesis": false,
+    "threshold_ratio": 2.0,
+    "threshold_p_value": 0.05
+  },
+  "conclusion": "refute",
+  "summary": "Sine activations show similar effective dimensionality compared to ReLU/tanh. Sine/ReLU ratio=1.0000x, Sine/tanh ratio=1.0000x."
+}

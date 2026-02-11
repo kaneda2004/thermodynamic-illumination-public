@@ -1,0 +1,291 @@
+{
+  "all_results": [
+    {
+      "architecture": "CPPN",
+      "init_scheme": "uniform",
+      "n_samples": 100,
+      "final_order": 0.4084415544450778,
+      "mean_order": 0.09950439360247809,
+      "bits_to_0.5": Infinity,
+      "bits_to_0.3": 2.0588936890535687,
+      "bits_to_0.1": 1.7858751946471527,
+      "order_distribution": {
+        "min": 0.0,
+        "q25": 0.0,
+        "q50": 0.0,
+        "q75": 0.26860973141090944,
+        "max": 0.4084415544450778
+      }
+    },
+    {
+      "architecture": "CPPN",
+      "init_scheme": "he",
+      "n_samples": 100,
+      "final_order": 0.43044023635944173,
+      "mean_order": 0.07471081700953931,
+      "bits_to_0.5": Infinity,
+      "bits_to_0.3": 2.5563933485243853,
+      "bits_to_0.1": 2.1202942337177118,
+      "order_distribution": {
+        "min": 0.0,
+        "q25": 0.0,
+        "q50": 0.0,
+        "q75": 0.0,
+        "max": 0.43044023635944173
+      }
+    },
+    {
+      "architecture": "CPPN",
+      "init_scheme": "xavier",
+      "n_samples": 100,
+      "final_order": 0.402168223445813,
+      "mean_order": 0.09466568606043956,
+      "bits_to_0.5": Infinity,
+      "bits_to_0.3": 2.1844245711374275,
+      "bits_to_0.1": 1.8365012677171204,
+      "order_distribution": {
+        "min": 0.0,
+        "q25": 0.0,
+        "q50": 0.0,
+        "q75": 0.2684544644072752,
+        "max": 0.402168223445813
+      }
+    },
+    {
+      "architecture": "MLP-2L",
+      "init_scheme": "uniform",
+      "n_samples": 100,
+      "final_order": 0.46187637189854736,
+      "mean_order": 0.44132653358154544,
+      "bits_to_0.5": Infinity,
+      "bits_to_0.3": -0.0,
+      "bits_to_0.1": -0.0,
+      "order_distribution": {
+        "min": 0.4128223607459087,
+        "q25": 0.43562675419870805,
+        "q50": 0.4412524911375315,
+        "q75": 0.44832635113831576,
+        "max": 0.46187637189854736
+      }
+    },
+    {
+      "architecture": "MLP-2L",
+      "init_scheme": "he",
+      "n_samples": 100,
+      "final_order": 0.46598028980569134,
+      "mean_order": 0.44010429430170284,
+      "bits_to_0.5": Infinity,
+      "bits_to_0.3": -0.0,
+      "bits_to_0.1": -0.0,
+      "order_distribution": {
+        "min": 0.4219618974499659,
+        "q25": 0.4343074308521543,
+        "q50": 0.4398850146957356,
+        "q75": 0.4458005008922289,
+        "max": 0.46598028980569134
+      }
+    },
+    {
+      "architecture": "MLP-2L",
+      "init_scheme": "xavier",
+      "n_samples": 100,
+      "final_order": 0.45975504034585185,
+      "mean_order": 0.4386801549484499,
+      "bits_to_0.5": Infinity,
+      "bits_to_0.3": -0.0,
+      "bits_to_0.1": -0.0,
+      "order_distribution": {
+        "min": 0.40935040698132785,
+        "q25": 0.43297246721736365,
+        "q50": 0.4393070539087593,
+        "q75": 0.4449436127341455,
+        "max": 0.45975504034585185
+      }
+    },
+    {
+      "architecture": "MLP-3L",
+      "init_scheme": "uniform",
+      "n_samples": 100,
+      "final_order": 0.4575755103936716,
+      "mean_order": 0.440765147273114,
+      "bits_to_0.5": Infinity,
+      "bits_to_0.3": -0.0,
+      "bits_to_0.1": -0.0,
+      "order_distribution": {
+        "min": 0.4167124241226698,
+        "q25": 0.4354070897843747,
+        "q50": 0.44130805817557783,
+        "q75": 0.44714750918499174,
+        "max": 0.4575755103936716
+      }
+    },
+    {
+      "architecture": "MLP-3L",
+      "init_scheme": "he",
+      "n_samples": 100,
+      "final_order": 0.4624642293002017,
+      "mean_order": 0.4405778058768257,
+      "bits_to_0.5": Infinity,
+      "bits_to_0.3": -0.0,
+      "bits_to_0.1": -0.0,
+      "order_distribution": {
+        "min": 0.4050698635954575,
+        "q25": 0.434106155678385,
+        "q50": 0.44144968667064854,
+        "q75": 0.4474691348990089,
+        "max": 0.4624642293002017
+      }
+    },
+    {
+      "architecture": "MLP-3L",
+      "init_scheme": "xavier",
+      "n_samples": 100,
+      "final_order": 0.4644300876688218,
+      "mean_order": 0.4409739349500572,
+      "bits_to_0.5": Infinity,
+      "bits_to_0.3": -0.0,
+      "bits_to_0.1": -0.0,
+      "order_distribution": {
+        "min": 0.41705299452632705,
+        "q25": 0.4345729313586221,
+        "q50": 0.4410947269383888,
+        "q75": 0.44732029586243494,
+        "max": 0.4644300876688218
+      }
+    },
+    {
+      "architecture": "Conv-Small",
+      "init_scheme": "uniform",
+      "n_samples": 100,
+      "final_order": 0.5358227290577059,
+      "mean_order": 0.47545632994989256,
+      "bits_to_0.5": 1.4739311883324124,
+      "bits_to_0.3": -0.0,
+      "bits_to_0.1": -0.0,
+      "order_distribution": {
+        "min": 0.32341730023797577,
+        "q25": 0.44434492759096683,
+        "q50": 0.47848441316193646,
+        "q75": 0.5099516105003995,
+        "max": 0.5358227290577059
+      }
+    },
+    {
+      "architecture": "Conv-Small",
+      "init_scheme": "he",
+      "n_samples": 100,
+      "final_order": 0.5413871827846973,
+      "mean_order": 0.4790641272776893,
+      "bits_to_0.5": 1.0588936890535685,
+      "bits_to_0.3": 0.014499569695115089,
+      "bits_to_0.1": -0.0,
+      "order_distribution": {
+        "min": 0.2862563261068333,
+        "q25": 0.45573402021855114,
+        "q50": 0.4973153125950818,
+        "q75": 0.5185538247859942,
+        "max": 0.5413871827846973
+      }
+    },
+    {
+      "architecture": "Conv-Small",
+      "init_scheme": "xavier",
+      "n_samples": 100,
+      "final_order": 0.5414934119218586,
+      "mean_order": 0.47700305951481325,
+      "bits_to_0.5": 1.3219280948873622,
+      "bits_to_0.3": 0.043943347587597055,
+      "bits_to_0.1": -0.0,
+      "order_distribution": {
+        "min": 0.23829372651162048,
+        "q25": 0.45132001107967357,
+        "q50": 0.48289344735461975,
+        "q75": 0.5201438451726711,
+        "max": 0.5414934119218586
+      }
+    },
+    {
+      "architecture": "ViT-Tiny",
+      "init_scheme": "uniform",
+      "n_samples": 100,
+      "final_order": 0.4647136913126108,
+      "mean_order": 0.4404417213728549,
+      "bits_to_0.5": Infinity,
+      "bits_to_0.3": -0.0,
+      "bits_to_0.1": -0.0,
+      "order_distribution": {
+        "min": 0.40605684984313195,
+        "q25": 0.435359024492814,
+        "q50": 0.43999223467743276,
+        "q75": 0.44497923260466954,
+        "max": 0.4647136913126108
+      }
+    },
+    {
+      "architecture": "ViT-Tiny",
+      "init_scheme": "he",
+      "n_samples": 100,
+      "final_order": 0.46206497033261057,
+      "mean_order": 0.44002446105044263,
+      "bits_to_0.5": Infinity,
+      "bits_to_0.3": -0.0,
+      "bits_to_0.1": -0.0,
+      "order_distribution": {
+        "min": 0.41936990965739057,
+        "q25": 0.4342804840781561,
+        "q50": 0.43977974484251114,
+        "q75": 0.4474282546752984,
+        "max": 0.46206497033261057
+      }
+    },
+    {
+      "architecture": "ViT-Tiny",
+      "init_scheme": "xavier",
+      "n_samples": 100,
+      "final_order": 0.4639312381026852,
+      "mean_order": 0.4402960709643591,
+      "bits_to_0.5": Infinity,
+      "bits_to_0.3": -0.0,
+      "bits_to_0.1": -0.0,
+      "order_distribution": {
+        "min": 0.4182545740046329,
+        "q25": 0.43606433995764055,
+        "q50": 0.4393830680895701,
+        "q75": 0.44576510445603856,
+        "max": 0.4639312381026852
+      }
+    }
+  ],
+  "invariance_analysis": {
+    "CPPN": {
+      "order_mean": 0.41368333808344415,
+      "order_variation_pct": 6.834216007976127,
+      "bits_variation_pct": 21.94944527499478,
+      "n_inits_tested": 3
+    },
+    "MLP-2L": {
+      "order_mean": 0.4625372340166969,
+      "order_variation_pct": 1.3458915308891146,
+      "bits_variation_pct": 0,
+      "n_inits_tested": 3
+    },
+    "MLP-3L": {
+      "order_mean": 0.46148994245423175,
+      "order_variation_pct": 1.485314552836655,
+      "bits_variation_pct": 0,
+      "n_inits_tested": 3
+    },
+    "Conv-Small": {
+      "order_mean": 0.5395677745880872,
+      "order_variation_pct": 1.050967669164787,
+      "bits_variation_pct": 100.76080819186505,
+      "n_inits_tested": 3
+    },
+    "ViT-Tiny": {
+      "order_mean": 0.46356996658263555,
+      "order_variation_pct": 0.5713745865648271,
+      "bits_variation_pct": 0,
+      "n_inits_tested": 3
+    }
+  }
+}

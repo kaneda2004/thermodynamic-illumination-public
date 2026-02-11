@@ -1,0 +1,24 @@
+{
+  "experiment": "phase_transition",
+  "image_size": 64,
+  "n_live": 100,
+  "n_iterations": 500,
+  "timestamp": "2025-12-17T22:07:49.521353",
+  "variance_peak": {
+    "log_X": -1.05,
+    "order": 0.014551368731676034,
+    "variance": 1.7085236874775118e-05
+  },
+  "steepest_slope": {
+    "log_X": -0.9,
+    "order": 0.01013451267831063,
+    "slope": -0.22026419166172004
+  },
+  "final_order": 0.1146011700334348,
+  "order_trajectory": {
+    "min": 0.0017033882472623594,
+    "max": 0.1146011700334348,
+    "final": 0.1146011700334348
+  },
+  "phase_transition_detected": false
+}

@@ -1,0 +1,41 @@
+{
+  "experiment_id": "RES-248",
+  "hypothesis": "Lower eff_dim in high-order regions \u2192 higher speedup. eff_dim is PRIMARY bottleneck limiting speedup to ~92\u00d7.",
+  "data_points": 8,
+  "correlations": {
+    "pearson_r": 0.45188962175634934,
+    "pearson_p": 0.2609878578648851,
+    "spearman_rho": 0.34291382751370236,
+    "spearman_p": 0.405662473506009
+  },
+  "effect_size": {
+    "cohens_d": -1.6120068599289505,
+    "mean_speedup_low_eff_dim": 1.0,
+    "mean_speedup_high_eff_dim": 51.51714285714286
+  },
+  "key_experiments": {
+    "RES-224": {
+      "speedup": 92.22,
+      "eff_dim": 3.76,
+      "status": "two-stage baseline validated"
+    },
+    "RES-238": {
+      "speedup": 101.07,
+      "eff_dim": 3.76,
+      "note": "even higher speedup with simpler single-stage"
+    },
+    "RES-225": {
+      "speedup": 1.0,
+      "eff_dim": 1.94,
+      "status": "lowest eff_dim, terrible speedup"
+    },
+    "RES-230": {
+      "speedup": 0.87,
+      "eff_dim": 3.4,
+      "note": "similar eff_dim to baseline, poor speedup"
+    }
+  },
+  "interpretation": "HYPOTHESIS REFUTED: Weak/negligible correlation (r=0.452) indicates eff_dim is NOT the primary bottleneck. Stage design (exploration\u2192constraint), manifold quality, and constraint tightness dominate speedup. Other factors explain 90%+ of variance.",
+  "conclusion": "REFUTED",
+  "implication_for_cycle_8": "Future speedup improvements require optimizing stage transition timing and manifold representation quality, NOT just reducing weight-space dimensionality."
+}

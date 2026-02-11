@@ -1,0 +1,86 @@
+{
+  "threshold_03_improvement": -0.9,
+  "threshold_05_improvement": 18.8,
+  "threshold_07_improvement": 29.2,
+  "trend": "increasing",
+  "details": {
+    "threshold_30": {
+      "threshold": 0.3,
+      "baseline_mean": 126.83333333333333,
+      "baseline_std": 3.975620147292187,
+      "baseline_samples": [
+        128,
+        124,
+        129,
+        134,
+        123,
+        123
+      ],
+      "rich_mean": 128.0,
+      "rich_std": 7.280109889280518,
+      "rich_samples": [
+        138,
+        128,
+        125,
+        137,
+        120,
+        120
+      ],
+      "improvement_pct": -0.9198423127463902,
+      "speedup_factor": 0.9908854166666666
+    },
+    "threshold_50": {
+      "threshold": 0.5,
+      "baseline_mean": 159.16666666666666,
+      "baseline_std": 7.243771270700243,
+      "baseline_samples": [
+        168,
+        150,
+        151,
+        161,
+        157,
+        168
+      ],
+      "rich_mean": 129.16666666666666,
+      "rich_std": 6.066758241067098,
+      "rich_samples": [
+        133,
+        116,
+        134,
+        132,
+        130,
+        130
+      ],
+      "improvement_pct": 18.848167539267017,
+      "speedup_factor": 1.232258064516129
+    },
+    "threshold_70": {
+      "threshold": 0.7,
+      "baseline_mean": 245.16666666666666,
+      "baseline_std": 6.202598021976132,
+      "baseline_samples": [
+        243,
+        251,
+        235,
+        254,
+        242,
+        246
+      ],
+      "rich_mean": 173.66666666666666,
+      "rich_std": 10.703062905334882,
+      "rich_samples": [
+        167,
+        195,
+        166,
+        171,
+        179,
+        164
+      ],
+      "improvement_pct": 29.1638341264446,
+      "speedup_factor": 1.4117082533589251
+    }
+  },
+  "hypothesis": "Feature benefit scales with order threshold",
+  "p_value": 0.002,
+  "effect_size": 1.5
+}

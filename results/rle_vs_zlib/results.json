@@ -1,0 +1,17 @@
+{
+  "n_samples": 500,
+  "resolution": 64,
+  "rle_order_corr": 0.8630380251367497,
+  "rle_order_p": 8.229828694594991e-150,
+  "zlib_order_corr": 0.9553478641510318,
+  "zlib_order_p": 7.913410287705864e-266,
+  "fisher_z_diff": -9.215256904488946,
+  "p_diff": 0.0,
+  "effect_size_corr_diff": -0.09230983901428214,
+  "order_mean": 0.025675933745595344,
+  "order_std": 0.029000998633081015,
+  "rle_mean": 0.1952421875,
+  "zlib_mean": 0.01447802734375,
+  "validated": false,
+  "status": "refuted"
+}

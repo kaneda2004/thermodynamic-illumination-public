@@ -1,0 +1,1134 @@
+\documentclass{article}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{xcolor}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage[font=small,labelfont=bf,skip=10pt]{caption}
+\usepackage{float}
+
+
+\usepackage[margin=1in]{geometry}
+
+
+\title{Thermodynamic Illumination: Measuring the Volume of Structured Images Under Neural Network Priors}
+
+\author{Matthew Kalenuik\\
+\textit{Independent Researcher}\\
+British Columbia, Canada\\
+\texttt{matthew.kalenuik@icloud.com}}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Inductive bias is often discussed qualitatively. We introduce \emph{Thermodynamic Illumination}, a framework to quantify the inductive biases of neural network architectures by measuring the \emph{density of structured images} (those with non-random patterns distinguishing them from noise) under their random-weight priors. Using nested sampling from statistical physics, we estimate prior volumes for images exceeding structure thresholds.
+
+Using coordinate-conditioned architectures with matched inputs, we find CoordConvNet reaches $\tau=0.1$ at 0.72 NS crossing bits ($B_{\text{NS}}^{\text{cross}}$) with a 64\% initial live-point pass fraction, while CoordViT reaches $\tau=0.1$ at 2.67 $B_{\text{NS}}^{\text{cross}}$ bits with a 3\% initial live-point pass fraction. This is a $\sim$2-bit $B_{\text{NS}}^{\text{cross}}$ threshold-crossing gap and a separate $\sim$21$\times$ live-point pass-fraction gap. This controlled comparison isolates locality with weight sharing (convolutions) versus global mixing (attention) as the dominant architectural source of bias. In an independent prior-comparison baseline, CPPN reaches $\tau=0.1$ at $\sim$1.9 $B_{\text{NS}}^{\text{cross}}$ bits while uniform remains above the explored $B_{\text{NS}}^{\text{cross}} > 72$ bit floor.
+
+We validate that thermodynamic volume predicts reconstruction quality (Spearman $\rho=0.874$, $p=0.0001$, $n=13$ architectures) and optimization dynamics: low-$B_{\text{NS}}^{\text{cross}}$ architectures achieve 12dB better denoising in Deep Image Prior experiments. Across 13 architectures, we discover three thermodynamic regimes---\emph{Shielded} (forces generalization), \emph{Memorization} (fits without generalizing), and \emph{Broken} (fails untrained reconstruction)---with structure predicting generalization gap (Spearman $\rho=0.79$, permutation $p=0.002$). The bits metric does \emph{not} predict random-feature linear classification, confirming it captures generative priors specifically.
+
+Our work transforms inductive bias from a qualitative notion to a measurable quantity, enabling principled architecture selection for generative tasks.
+\end{abstract}
+
+
+\section{Introduction}
+
+
+Vision Transformers require substantially more training data than convolutional networks to achieve comparable performance on image tasks \cite{steiner2022how}. Why? The standard explanation invokes ``inductive bias''---convolutional architectures encode assumptions about spatial locality and translation invariance that transformers must learn from data. But this explanation remains qualitative. \emph{How much} more bias do ConvNets have? Can we measure it? Our framework quantifies architectural priors for image generation and reconstruction; while we show this metric does not directly predict classification performance (Section~\ref{sec:classification}), the absence of generative priors in untrained ViTs is consistent with their need to learn such structure from data.
+
+Consider the Deep Image Prior \cite{ulyanov2018deep}: a randomly-initialized convolutional network, when optimized to reconstruct a corrupted image, produces clean natural images rather than noise---without any training data. Vision Transformers underperform substantially in this setup (about 10dB vs 25dB for ConvNets). This striking result demonstrates that CNN architecture alone encodes a powerful prior over images. But \emph{how powerful}? And how does this compare to transformers?
+
+The challenge is measurement. We cannot enumerate all possible outputs of a neural network, and naive sampling fails catastrophically for rare events. For architectures like uniform random pixels, where structured images occupy $10^{-20}$ of output space, random sampling would require cosmic timescales. However, for architectures with favorable inductive biases like CPPNs, the story is dramatically different.
+
+\paragraph{Our contribution.} We introduce \emph{Thermodynamic Illumination}, a framework that quantifies inductive bias by measuring the \emph{volume of structured images} under a network's random-weight prior. Borrowing nested sampling from statistical physics \cite{skilling2006nested}, we efficiently estimate probabilities as small as $10^{-22}$ (72 bits of prior volume), answering:
+
+\begin{quote}
+\emph{``What fraction of a network's output space consists of structured images?''}
+\end{quote}
+
+We report two related quantities. \textbf{Tail-surprisal bits} are
+\[
+B_{\text{MC}}(\tau) = -\log_2 p(\tau), \quad p(\tau)=\Pr[\text{order}(x)\ge\tau].
+\]
+This is a direct prior-mass quantity estimated by Monte Carlo. For nested-sampling trajectories we also report a \textbf{threshold-crossing cost}
+\[
+B_{\text{NS}}^{\text{cross}}(\tau)=\frac{i_\tau}{N_{\text{live}}\ln 2},
+\]
+where $i_\tau$ is the first iteration whose running threshold exceeds $\tau$. $B_{\text{NS}}^{\text{cross}}$ is a search-cost proxy; $B_{\text{MC}}$ is a direct tail-mass estimate. We use ``thermodynamic volume'' to denote probability mass under the architecture-induced prior (the pushforward of the weight distribution through the network), not geometric volume in image space.
+Probability-ratio interpretations are made from $B_{\text{MC}}$ only; $B_{\text{NS}}^{\text{cross}}$ is interpreted as an operational threshold-crossing cost.
+At matched calibration settings, $B_{\text{NS}}^{\text{cross}}$ shows a small positive bias in analytic tests (about 7\% mean overestimation; Appendix~\ref{app:sanity}), so large NS crossing-cost separations are conservative under our fixed protocol.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.93\columnwidth]{prior_pipeline_schematic.pdf}
+\caption{Thermodynamic Illumination schematic. An architecture with an explicit random-weight prior induces an image distribution $P(x)$. An order metric $O(x)$ and threshold $\tau$ define ``structured'' events. When Monte Carlo is feasible, we estimate tail mass $p(\tau)$ and tail-surprisal bits $B_{\text{MC}}(\tau)=-\log_2 p(\tau)$. Nested sampling yields an operational threshold-crossing cost $B_{\text{NS}}^{\text{cross}}(\tau)$ and initial live-point pass fraction $\hat p_{\text{live}}(\tau)$ under a fixed protocol.}
+\label{fig:schematic}
+\end{figure}
+
+Our contributions are:
+\begin{enumerate}
+    \item \textbf{A novel measurement framework}: We adapt nested sampling to estimate the density of structured images under neural network priors, enabling quantitative comparison of architectures that was previously impossible.
+
+    \item \textbf{Massive differences revealed}: In a controlled coordinate-conditioned 32$\times$32 comparison, $B_{\text{NS}}^{\text{cross}}(\tau{=}0.1)$ is 0.72/2.11/2.67 bits for CoordConvNet/CoordMLP/CoordViT with initial live-point pass fractions 64\%/21\%/3\%. In independent prior-comparison baselines, CPPN reaches $\tau=0.1$ at $\sim$1.9 $B_{\text{NS}}^{\text{cross}}$ bits while uniform remains above the explored $B_{\text{NS}}^{\text{cross}} > 72$ bit floor.
+
+    \item \textbf{Predictive validation}: We demonstrate that $B_{\text{NS}}^{\text{cross}}$ strongly predicts reconstruction quality (Spearman $\rho=0.874$, $p=0.0001$, $n=13$), providing practical utility beyond theoretical interest.
+
+    \item \textbf{A Generative-Discriminative Trade-off}: We observe that architectures optimal for reconstruction (low $B_{\text{NS}}^{\text{cross}}$) are suboptimal for classification, and vice versa. This trade-off, demonstrated on two classification datasets, suggests why structure-based metrics predict reconstruction but not classification.
+
+    \item \textbf{Scale validation}: We report threshold-matched CPPN size-scaling exponents (Appendix~\ref{app:size_scaling}) and run additional scale-normalized convolutional sweeps up to 1024$\times$1024. Scaling claims are restricted to matched thresholds and architecture families.
+\end{enumerate}
+
+\begin{center}
+\fbox{
+\begin{minipage}{0.95\textwidth}
+\textbf{Key Results at a Glance:}
+\begin{itemize}[leftmargin=0.3cm, topsep=2pt, itemsep=3pt, partopsep=0pt]
+\item \textbf{The ConvNet-ViT Gap}: With matched coordinate inputs, CoordConvNet reaches $\tau=0.1$ at $B_{\text{NS}}^{\text{cross}}=0.72$ bits with 64\% initial live-point pass fraction, while CoordViT reaches $B_{\text{NS}}^{\text{cross}}=2.67$ bits with 3\% initial live-point pass fraction---a $\sim$2-bit $B_{\text{NS}}^{\text{cross}}$ gap and a separate $\sim$21$\times$ live-point pass-fraction gap, isolating locality with weight sharing versus global mixing
+\item \textbf{Kinetic Validation}: Low-$B_{\text{NS}}^{\text{cross}}$ architectures achieve 12dB better denoising in Deep Image Prior experiments
+\item \textbf{Three Regimes}: Architectures divide into Shielded (forces generalization), Memorization (fits without generalizing), and Broken (fails untrained generative reconstruction)
+\item \textbf{Generative-Specific}: Predicts reconstruction ($\rho=0.874$) but NOT random-feature classification---confirming the metric captures generative priors
+\item \textbf{Scale-Validated}: Threshold-matched CPPN scaling is explicit ($\beta \approx 0.80$ at $\tau=0.1$, $\beta \approx 1.45$ at $\tau=0.25$), and high-resolution sweeps extend to 1024$\times$1024 with scope-limited comparisons
+\end{itemize}
+\end{minipage}
+}
+\end{center}
+
+\paragraph{Initialization is part of the prior.} All headline comparisons fix a single explicit weight prior within each comparison (no fan-in scaling). Alternative initializations (He/Xavier) define different priors and can materially change pass fractions for some architectures (notably CoordViT), so we treat initialization as part of the object of study and report sensitivity in Appendix~\ref{app:init_ablation}. Claims about ``bias'' are therefore scoped to the stated protocol and weight prior.
+
+\begin{center}
+\fbox{
+\begin{minipage}{0.95\textwidth}
+\textbf{Reproducibility (Public Release).}
+\begin{itemize}[leftmargin=0.4cm, topsep=2pt, itemsep=3pt, partopsep=0pt]
+\item Code, figures, and artifact bundles: \url{https://github.com/kaneda2004/thermodynamic-illumination-public} (tag \texttt{arxiv-v1})
+\item Quickstart: \texttt{uv sync} then \texttt{uv run python reproduce\_results.py}
+\item Determinism: scripts set fixed seeds in their configs; see \texttt{REPRODUCE.md} for the exact seeds and run counts per table/figure
+\item Submission artifacts: the exact arXiv flat-source upload is included as \texttt{paper/ax.tar} and \texttt{paper/arxiv\_flat\_source/}
+\end{itemize}
+\end{minipage}
+}
+\end{center}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\columnwidth]{killer_visual.pdf}
+\caption{The ConvNet-ViT efficiency gap. \textbf{Left}: A CoordConvNet prior ($B_{\text{NS}}^{\text{cross}}=0.72$ bits at $\tau=0.1$, 64\% initial live-point pass fraction) produces structured images---curves, edges, and geometric patterns emerge from 3$\times$3 local convolutions. \textbf{Right}: A CoordViT prior ($B_{\text{NS}}^{\text{cross}}=2.67$ bits at $\tau=0.1$, 3\% initial live-point pass fraction) produces noise-like outputs under this untrained prior. Same coordinate inputs and random weights, but higher NS crossing cost and lower initial live-point pass fraction for CoordViT. The shown bits are $B_{\text{NS}}^{\text{cross}}$ (crossing cost), not direct tail-surprisal $B_{\text{MC}}$.}
+\label{fig:killer}
+\end{figure}
+
+\textbf{Paper organization.} Section~\ref{sec:related} reviews related work on inductive biases and untrained networks. Section~\ref{sec:background} provides background on nested sampling and order metrics. Section~\ref{sec:method} presents our measurement framework. Section~\ref{sec:experiments} validates the framework through prior comparison, reconstruction, and classification experiments. Section~\ref{sec:discussion} discusses implications and limitations, and Section~\ref{sec:conclusion} concludes.
+
+
+\section{Related Work}
+\label{sec:related}
+
+
+\paragraph{Deep Image Prior and Untrained Networks.}
+The discovery that untrained CNNs serve as powerful image priors \cite{ulyanov2018deep} sparked interest in understanding architecture-induced biases. Subsequent work showed that network depth, skip connections, and activation functions all influence the prior \cite{ha2016generating}. However, these works demonstrate bias qualitatively through reconstruction examples. Our framework provides the first \emph{quantitative} comparison, enabling statements like ``CPPN priors require at least $10^{21}\times$ less threshold-crossing effort than uniform priors under a fixed nested-sampling protocol.''
+
+\paragraph{Weight Agnostic Neural Networks.}
+Gaier \& Ha \cite{gaier2019weight} evolved network topologies that solve tasks with \emph{any} random weight assignment, demonstrating that architecture alone can encode solutions. Their work asks ``what tasks can an architecture solve?'' while we ask ``what outputs does an architecture prefer?'' These are complementary: task performance requires both appropriate bias \emph{and} sufficient capacity, while our metric isolates the bias component.
+
+\paragraph{Zero-Shot Neural Architecture Search.}
+Mellor et al.\ \cite{mellor2021neural} introduced metrics to predict trained accuracy from untrained network statistics, enabling neural architecture search without training. Their metrics examine activation patterns and gradient flow. Our key finding is that such predictions are \emph{task-dependent}: bits predicts reconstruction but shows no significant relationship with classification on our tested datasets. This reveals a trade-off between generative and discriminative optimization that activation-based metrics cannot detect.
+
+\paragraph{Compositional Pattern Producing Networks.}
+CPPNs \cite{stanley2007cppn} were introduced for evolutionary art, producing structured patterns through coordinate-based mappings with specialized activation functions. The Picbreeder system \cite{secretan2008picbreeder} demonstrated their creative potential through human-guided evolution. We provide the first quantitative measure of CPPN bias strength, explaining \emph{why} they produce structure: they occupy an unusually dense region of image space.
+
+\paragraph{Physics-Inspired Methods for Neural Networks.}
+Wang-Landau sampling and related methods have been applied to map loss landscapes in weight space \cite{mele2025density}. Random feature theory \cite{yehudai2019power} provides theoretical grounding for untrained networks. Lee et al.\ \cite{lee2018deep} showed that infinitely wide deep networks are equivalent to Gaussian processes with architecture-dependent covariance functions, providing a theoretical lens on untrained network priors that complements our empirical sampling approach. Our work applies nested sampling \cite{skilling2006nested} to \emph{output} space, measuring how much of an architecture's output manifold contains structured images.
+
+\paragraph{Positioning.} Unlike prior work that examines specific architectures or tasks, we provide a general framework for measuring and comparing structural bias across any architecture. Our bits metric is architecture-agnostic and measurement-task-agnostic for untrained generative structure; downstream supervised performance remains task-dependent.
+
+
+\section{Background}
+\label{sec:background}
+
+
+Before presenting our method, we introduce two key concepts: nested sampling for rare event estimation, and order metrics for quantifying image structure.
+
+\subsection{Nested Sampling}
+
+Nested sampling \cite{skilling2006nested} is a Monte Carlo algorithm originally developed for Bayesian evidence computation. Its key insight is that exploring probability space by \emph{order statistic} rather than by region enables efficient estimation of exponentially small probabilities.
+
+The algorithm maintains $N$ ``live points'' sampled from a prior distribution. At each iteration, the lowest-likelihood point is removed and replaced with a new sample constrained to have higher likelihood. This process compresses the prior volume geometrically: after $i$ iterations, the remaining volume is approximately $X_i \approx e^{-i/N}$.
+
+This geometric shrinkage makes nested sampling ideally suited for estimating rare events. While naive rejection sampling requires $\mathcal{O}(1/p)$ samples to find an event with probability $p$, nested sampling requires only $\mathcal{O}(N \log(1/p))$ samples---exponentially more efficient for rare events.
+
+\subsection{Quantifying Image Structure}
+
+What makes an image ``structured'' versus ``random''? We seek metrics that capture intuitive notions of order while remaining computationally tractable. A good order metric should:
+
+\begin{enumerate}
+    \item Assign high values to images with recognizable patterns (symmetry, connectivity, regularity)
+    \item Assign low values to noise-like images
+    \item Be robust to single-pixel perturbations (not dominated by noise)
+    \item Avoid trivial solutions (all-black, all-white)
+\end{enumerate}
+
+We use a multiplicative combination of four such properties (compressibility, symmetry, connectivity, and color balance), detailed in Section~\ref{sec:metrics}. The multiplicative form ensures that \emph{all} properties must be present---a highly compressible but disconnected image scores low, as does a symmetric but noisy image.
+
+
+\section{Method}
+\label{sec:method}
+
+
+\subsection{Problem Formulation}
+
+Let $P(x)$ be the distribution of images induced by a generative prior (e.g., a network with random weights). Let $O(x): \mathcal{X} \to [0,1]$ be an \emph{order metric} measuring image structure (1 = highly ordered, 0 = random noise).
+
+We seek to estimate the \emph{density of structured images}:
+\begin{equation}
+    V(\tau) = \Pr_{x \sim P}[O(x) \geq \tau]
+\end{equation}
+
+This is analogous to the \emph{density of states} in statistical mechanics: $V(\tau)$ measures the fraction of configuration space at or above energy level $\tau$. The key difference is that we measure in \emph{output space} (images) rather than weight space.
+
+The theoretical tail-surprisal at threshold $\tau$ is:
+\begin{equation}
+    B_{\text{MC}}(\tau) = -\log_2 V(\tau)
+\end{equation}
+
+This has an information-theoretic interpretation: $B_{\text{MC}}(\tau)$ is the \emph{surprisal} (negative log probability) of drawing a structured image from the prior---equivalently, the bits of prior volume required. Random sampling requires $\mathcal{O}(2^{B_{\text{MC}}(\tau)})$ samples to find one image with $O(x) \geq \tau$.
+
+Tail-surprisal bits enable cross-architecture probability comparison: if one prior has $B_{\text{MC}}(\tau)=2$ and another has $B_{\text{MC}}(\tau)>72$ at the same threshold, then the corresponding tail probabilities differ by at least $2^{70} \approx 10^{21}$.
+
+\textbf{Interpreting measurements.} We distinguish three types of quantities:
+\begin{itemize}[leftmargin=0.5cm, topsep=2pt, itemsep=2pt]
+    \item \textbf{Probabilities from Monte Carlo}: Direct sampling provides empirical bounds. With 0/1,000,000 ViTDecoder samples exceeding $\tau=0.1$, we have $P < 10^{-6}$ (one-sided bound). ConvDecoder's own architecture-induced prior achieves 51.2\% at the same threshold---a $>$500,000$\times$ gap versus the ViTDecoder prior.
+    \item \textbf{Mean order values}: Some architectures produce mean order scores $\sim 10^{-23}$ (Table~\ref{tab:monte_carlo_volume}). This is a metric magnitude, not a probability---it reflects how far typical outputs are from the structure threshold.
+    \item \textbf{Bits from nested sampling}: NS reports an operational threshold-crossing cost $B_{\text{NS}}^{\text{cross}}(\tau)=i_\tau/(N_{\text{live}}\ln 2)$ (Section~\ref{sec:methodological_validation}). CPPN reaches $\tau=0.1$ at $\sim$2 $B_{\text{NS}}^{\text{cross}}$ bits; uniform pixels remain un-crossed past the explored $B_{\text{NS}}^{\text{cross}} > 72$ bit floor, giving a rigorous lower bound on threshold-crossing effort under this fixed protocol (not a calibrated $B_{\text{MC}}$ probability ratio).
+\end{itemize}
+The key result is the \emph{relative gap} between architectures, which is robust across metrics and thresholds.
+
+\subsection{Nested Sampling}
+
+We use nested sampling \cite{skilling2006nested} to estimate $V(\tau)$ efficiently. The algorithm maintains $N$ ``live points'' from the prior and progressively restricts to higher-order regions:
+
+\begin{algorithm}
+\caption{Nested Sampling for Structure Density}
+\begin{algorithmic}
+\STATE Initialize $N$ samples from prior $P(x)$
+\FOR{$i = 1$ to $M$ iterations}
+    \STATE Find lowest-order sample $x_{\min}$
+    \STATE Record $(x_{\min}, O(x_{\min}), \log X_i)$ as ``dead point''
+    \STATE Replace $x_{\min}$ with new sample having higher order
+    \STATE $\log X_i \leftarrow -(i+1)/N$ (volume shrinkage)
+\ENDFOR
+\STATE \textbf{return} dead points with volume estimates
+\end{algorithmic}
+\end{algorithm}
+
+The key property is \emph{geometric volume shrinkage}: after $i$ iterations, the remaining prior volume is $X_i \approx e^{-i/N}$. This enables exploration of exponentially rare regions with only linear cost in iteration count.
+
+\paragraph{Reported NS quantities.}
+For threshold $\tau$, let $i_\tau$ denote the first iteration where the running best threshold exceeds $\tau$. We report
+\[
+B_{\text{NS}}^{\text{cross}}(\tau)=\frac{i_\tau}{N_{\text{live}}\ln 2},
+\]
+which captures threshold-crossing search cost under a fixed NS protocol. We also report the initial live-point pass fraction
+\[
+\hat p_{\text{live}}(\tau)=\frac{1}{N_{\text{live}}}\sum_{j=1}^{N_{\text{live}}}\mathbf{1}[O(x^{(0)}_j)\ge\tau].
+\]
+$\hat p_{\text{live}}$ is an initial Monte Carlo estimate from live points; $B_{\text{NS}}^{\text{cross}}$ is a trajectory cost. They are related but not numerically identical at finite sample sizes.
+
+\paragraph{Prior-Preserving Sampling.}
+The critical step is replacing $x_{\min}$ with a new sample that (1) exceeds the threshold $O(x) > \tau$ and (2) is distributed according to the prior $P$. For neural network priors parameterized by weights or latent codes drawn from $\mathcal{N}(0, I)$ (CPPN network parameters; MLP latent codes), we use Elliptical Slice Sampling (ESS) \cite{murray2010elliptical}:
+
+\begin{enumerate}
+    \item Sample auxiliary variable $\nu \sim \mathcal{N}(0, I)$
+    \item Choose angle uniformly: $\phi \sim \text{Uniform}[0, 2\pi]$
+    \item Propose $w' = w \cos\phi + \nu \sin\phi$
+    \item Accept if $O(\text{decode}(w')) > \tau$, else shrink bracket and repeat
+\end{enumerate}
+
+ESS is exact in the idealized algorithm (no Metropolis-Hastings acceptance ratio), ensuring Gaussian-prior preservation. Our implementation adds finite contraction/restart caps for robustness; diagnostics in Appendix~\ref{app:ess} show stable mixing and no evidence these limits drive reported results. Importantly, our acceptance test is \emph{order-threshold based} (accept if $O(\text{decode}(w')) > \tau$), not likelihood-based---the likelihood threshold constraint is measurable and the decoding function is deterministic, satisfying ESS correctness conditions.
+
+\paragraph{Prior Specification.}
+\label{sec:prior_spec}
+We formalize the generative process as $x = f_\theta(u)$ where $\theta \sim \mathcal{N}(0, \sigma^2 I)$ are network weights and $u$ is an architecture-dependent input:
+\begin{itemize}[topsep=2pt,itemsep=1pt]
+    \item \textbf{Coordinate-based} (CPPN, Fourier Features): $u$ is a fixed coordinate grid $\{(i/N, j/N)\}_{i,j=1}^N$
+    \item \textbf{Latent-decoded} (VAE, GAN decoders): $u \sim \mathcal{N}(0, I)$ is a random latent vector
+    \item \textbf{Direct-decoder} (ConvNet, ViT, MLP decoders): $u$ is fixed seed noise or learned embedding
+\end{itemize}
+
+\begin{table}[H]
+\centering
+\caption{Prior contract by architecture family}
+\label{tab:prior_contract}
+\small
+\begin{tabular}{p{2.9cm}p{3.2cm}p{3.2cm}p{3.3cm}}
+\toprule
+Family & Random variables & Held fixed & Induced image prior \\
+\midrule
+Coordinate-conditioned & $\theta \sim \mathcal{N}(0,\sigma^2 I)$ & coordinate grid $(x,y)$ or $(x,y,r)$ & $x=f_\theta(u_{\text{coord}})$ \\
+Latent-decoded & $\theta \sim \mathcal{N}(0,\sigma^2 I)$, $z\sim\mathcal{N}(0,I)$ & decoder architecture & $x=f_\theta(z)$ \\
+Direct-decoder & $\theta \sim \mathcal{N}(0,\sigma^2 I)$ & seed tensor $u_0$ / embeddings & $x=f_\theta(u_0)$ \\
+Procedural/statistical & method state $\xi$ from method-specific prior & generation rules/hyperparameters & $x=g_\xi$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Our ``prior'' is thus the distribution over images induced by randomness in $\theta$ (and $u$ where applicable). We sample weights from $\mathcal{N}(0, \sigma^2 I)$ with $\sigma$ fixed per experiment ($\sigma = 0.3$ for the 32$\times$32 coordinate-input hierarchy; $\sigma = 1.0$ for the 64$\times$64 RGB spectrum and other experiments unless noted). We deliberately avoid fan-in scaling (He/Xavier initialization) because our goal is to characterize \emph{architecture-as-prior}, not trained-network behavior. BatchNorm running statistics are kept at PyTorch eval defaults (running mean $=0$, running variance $=1$), and BatchNorm affine parameters are sampled with the rest of $\theta$ unless otherwise noted. Because initialization can affect pass fractions for some architectures (Appendix~\ref{app:init_ablation}), we hold $\sigma$ and initialization fixed within each comparison. Appendix~\ref{app:robustness} further confirms that architecture rankings are preserved across different order metric formulations.
+
+\subsection{Order Metrics}
+\label{sec:metrics}
+
+We use a \textbf{multiplicative metric} combining four factors, each normalized to $[0,1]$:
+\begin{equation}
+    O(x) = O_{\text{compress}}(x) \times O_{\text{symmetry}}(x) \times O_{\text{connectivity}}(x) \times O_{\text{balance}}(x)
+\label{eq:order}
+\end{equation}
+
+\textbf{Compressibility} measures pattern regularity via compression ratio:
+\begin{equation}
+    O_{\text{compress}}(x) = 1 - \frac{\text{compressed\_size}(x)}{\text{raw\_size}(x)}
+\end{equation}
+We use zlib compression on the binary image. Random noise is incompressible ($O_{\text{compress}} \approx 0$); regular patterns compress well ($O_{\text{compress}} \to 1$).
+
+\textbf{Symmetry} measures bilateral reflection similarity:
+\begin{equation}
+    O_{\text{symmetry}}(x) = 1 - \frac{\|x - \text{flip}(x)\|_1}{n_{\text{pixels}}}
+\end{equation}
+This captures a basic structural property common in natural and designed images.
+
+\textbf{Connectivity} measures whether foreground forms a single connected component:
+\begin{equation}
+    O_{\text{connectivity}}(x) = \frac{\text{largest\_component\_size}}{\text{total\_foreground\_pixels}}
+\end{equation}
+This penalizes scattered, fragmented images in favor of coherent shapes. For images with zero foreground pixels, connectivity is defined as 0.
+
+\textbf{Color Balance} penalizes trivial all-black or all-white images:
+\begin{equation}
+    O_{\text{balance}}(x) = 4 \cdot p \cdot (1-p)
+\end{equation}
+where $p$ is the fraction of white pixels. This peaks at $p=0.5$ and goes to zero at extremes.
+
+The multiplicative form ensures \emph{all} properties must be present---a highly compressible but disconnected image scores low, as does a symmetric but imbalanced image.
+
+\paragraph{RGB Order Metric Used in Sections 5.1, 5.2, 5.3, 5.10, and 5.11.}
+For RGB experiments we use
+\begin{equation}
+O_{\text{RGB}}(x)=C_{\text{JPEG}}(x)\times S_{\text{TV}}(x),
+\end{equation}
+with
+\begin{equation}
+C_{\text{JPEG}}(x)=\max\!\left(0,\;1-\frac{b_{\text{JPEG}}(x;Q=85)}{b_{\text{raw}}(x)}\right),
+\end{equation}
+\begin{equation}
+\text{TV}(x)=\frac{1}{N}\sum |x_{i+1,j,c}-x_{i,j,c}|+\frac{1}{N}\sum |x_{i,j+1,c}-x_{i,j,c}|,
+\end{equation}
+\begin{equation}
+S_{\text{TV}}(x)=\exp(-10\cdot \text{TV}(x)).
+\end{equation}
+Here $x\in[0,1]^{H\times W\times C}$ before encoding; $b_{\text{JPEG}}$ uses 8-bit JPEG at quality 85.
+
+\paragraph{Why Gates Are Necessary: Excluding Degenerate Solutions.}
+Simple structure metrics---compression ratio, autocorrelation, spectral entropy---can be maximized by \emph{degenerate} outputs that are technically ``structured'' but visually uninteresting:
+\begin{itemize}[topsep=2pt,itemsep=2pt]
+    \item \textbf{Constant images} (all black or all white): perfectly compressible, perfect autocorrelation, zero entropy
+    \item \textbf{Uniform gray}: high local variance, balanced density
+    \item \textbf{Checkerboard patterns}: high compressibility, regular edges
+\end{itemize}
+Without explicit gates, architectures producing such degenerate outputs would score highest on simple metrics. For example, an MLP with random weights often produces nearly constant images (due to saturated activations), achieving near-perfect compression and autocorrelation scores. Our multiplicative design addresses this by requiring \emph{multiple necessary conditions}: non-trivial density (Color Balance gate), presence of edges (Connectivity gate), moderate compressibility (not trivial patterns), and spatial coherence (Symmetry gate). Only images satisfying \emph{all} conditions---excluding both random noise \emph{and} degenerate constants---score highly.
+
+We validated this design empirically: our initial tests on 8 simple metrics (compression, autocorrelation, entropy, etc.) found only 2 produced consistent rankings when comparing binary image priors (CPPN, MLP, Walk, Uniform)---a failure mode we initially attributed to MLP degeneracy. However, extended validation across 19 metrics and 5 architectures (below) revealed a more nuanced picture: most standard metrics \emph{do} rank structured architectures highest when CPPN (which produces smooth, non-degenerate outputs) is included. The key insight is that our multiplicative gates provide \emph{one} valid approach to measuring structure, but are not uniquely necessary---multiple principled approaches converge on the same rankings. We use \emph{percentile-based thresholds} for comparison (pooling across architectures to define fair cut points), ensuring rankings are not artifacts of scale differences between metrics.
+
+\textbf{Robustness Across Standard Metrics.} To address concerns about metric arbitrariness, we tested 19 diverse metrics from the image quality, texture analysis, and signal processing literatures---including compression ratio, autocorrelation, GLCM features, LBP entropy, Betti numbers (persistent homology), NIQE, BRISQUE, spectral centroid, spectral slope, and high-frequency energy ratio. \textbf{Result: 15/19 metrics (79\%) correctly rank structured architectures (CPPN, ConvNet, ResNet) highest} when accounting for metric direction (e.g., lower HF-ratio = more structured). Only 1/19 metrics falls into a potential degeneracy trap (LBP entropy ranks MLP highest), while 3/19 measure orthogonal properties like edge density where uniform noise wins trivially. The spectral slope provides particularly strong validation: CPPN achieves $\beta = -2.75$ (close to the $1/f^2$ natural image law), while MLP shows $\beta = +0.06$ (flat spectrum). Our gated metric correlates strongly (Spearman $\rho = -0.91$) with this standard, non-heuristic measure from signal processing. See Appendix~\ref{app:robustness}, Table~\ref{tab:extended_metrics} for full results.
+
+Note that multiplicative metrics impose implicit AND logic, which can create sharp transitions as thresholds approach 1. However, the architecture-dependent \emph{location} of these transitions is robust (Appendix~\ref{app:robustness} shows consistent rankings across metrics), confirming our findings reflect genuine architectural differences rather than metric construction. \textbf{Key robustness claim:} the ranking of architectures by thermodynamic volume is preserved across all reasonable structure metrics we tested---the specific metric choice affects absolute values but not the ordering.
+
+\paragraph{What ``Structure'' Means.} We emphasize that ``structure'' in this framework refers specifically to geometric regularity: spatial coherence, low-frequency dominance, and compressibility---properties ubiquitous in natural image statistics ($1/f$ spectra). This is a narrower notion than semantic structure, but it is precisely this geometric prior that distinguishes convolutional from attention-based architectures at initialization. Our goal is not to capture all notions of structure, but to quantify the specific inductive bias that predicts downstream task performance. Independent spectral analysis confirms this: high-order architectures exhibit $1/f$ frequency scaling characteristic of natural images, while low-order architectures show flat spectra (Appendix~\ref{app:mechanism}).
+
+\paragraph{Scale Normalization.} The edge density component (measured via connectivity) scales as $O(1/N)$ for smooth CPPN patterns, requiring resolution-dependent gate calibration. We normalize the edge gate center by resolution: $\text{center}(N) = 0.15 \times (32/N)$, ensuring that the same CPPN produces consistent order scores when sampled at different resolutions. This preserves the metric's discriminative power while enabling principled cross-resolution comparison.
+
+\subsection{Architectures Tested}
+
+We test architectures across two experimental setups with different image formats and order metrics (see Table~\ref{tab:metrics_by_section}).
+
+\subsubsection{Baseline Priors (32$\times$32 Binary)}
+
+For foundational validation (Section~\ref{sec:prior_comparison}), we test four priors spanning extreme structural biases:
+
+\textbf{CPPN (Compositional Pattern Producing Network).}
+CPPNs \cite{stanley2007cppn} map spatial coordinates to pixel values: $f: (x, y, r) \to [0,1]$, where $r = \sqrt{x^2 + y^2}$ provides radial information. We use $\tanh$ activations throughout, which produce smooth, bounded outputs. The coordinate-based parameterization induces strong spatial coherence---nearby pixels receive similar inputs and thus similar outputs. Architecture: 2 hidden layers of 32 units ($\sim$3,600 parameters).
+
+\textbf{MLP (Multi-Layer Perceptron).}
+The MLP maps a latent vector to a flattened image: $f: \mathbb{R}^{d} \to \mathbb{R}^{n \times n}$. Unlike CPPNs, there is no explicit spatial structure---pixels are independent output dimensions. This acts as a random projection \cite{johnson1984extensions}, which preserves distances but destroys topology. Architecture: 2 hidden layers of 128 units with ReLU ($\sim$180,000 parameters).
+
+\textbf{Walk Prior.}
+The walk prior generates images via random walks on a grid, producing connected line-like structures. Starting from a random position, the walk takes steps in random directions, marking visited pixels. This encodes connectivity by construction but lacks other structure.
+
+\textbf{Uniform Prior (Baseline).}
+The maximum entropy baseline: each pixel is independently sampled from $\text{Bernoulli}(0.5)$. This represents ``no prior'' and serves as the null hypothesis.
+
+\subsubsection{Neural Network Architectures (64$\times$64 RGB)}
+
+For the main experiments (Sections~\ref{sec:spectrum64}--\ref{sec:scaling_law}), we test 13 architectures spanning convolutional, attention-based, coordinate-based, and fully-connected families:
+
+\textbf{Convolutional Networks (6 variants).}
+\emph{ResNet} variants with 2, 4, 6, and 9$\times$9 kernel sizes use residual blocks with BatchNorm, producing strong locality bias. \emph{U-Net} adds skip connections between encoder and decoder. \emph{Depthwise Separable Conv} factorizes spatial and channel mixing. Across these variants, parameter counts span 23K--2.1M at 64$\times$64 RGB.
+
+\textbf{Attention-Based Networks (4 variants).}
+\emph{Vision Transformer (ViT)} uses 4 transformer layers with 4 attention heads, patch size $8 \times 8$, embedding dimension 128, and learnable positional embeddings (563K parameters). \emph{Windowed ViT} restricts attention to local windows. \emph{Local Attention} uses fixed local receptive fields. \emph{Hybrid ViT} combines convolutional stems with transformer blocks.
+
+\textbf{Coordinate-Based Networks (2 variants).}
+\emph{CPPN} as described above, scaled to 64$\times$64 RGB output. \emph{Fourier Features} \cite{tancik2020fourier} use sinusoidal positional encodings before an MLP, enabling high-frequency pattern generation.
+
+\textbf{Fully-Connected (1 variant).}
+\emph{MLP} maps a latent vector directly to all pixels without spatial structure (6.5M parameters at 64$\times$64).
+
+All weights are sampled from $\mathcal{N}(0, 1)$ without fan-in scaling, as our goal is to characterize architecture-as-prior. See Appendix~\ref{app:architectures} for detailed specifications.
+
+\subsection{Validation Against Ground Truth}
+
+To validate our nested sampling implementation, we test against metrics with \emph{known} analytic probabilities. For example, the probability of a random $n \times n$ binary image having mean pixel value $\geq T$ follows the binomial distribution exactly. At experimental resolutions ($32 \times 32$, $64 \times 64$), our estimates show systematic overestimation of 6--17\% with mean 9\%. This $\sim$7\% bias floor persists regardless of live points---additional sampling reduces variance but not systematic bias. Relative orderings remain valid; a 7\% correction on a 70-bit gap still yields $>10^{19}$-fold efficiency differences. See Appendix~\ref{app:sanity} for extended calibration.
+
+
+\section{Experiments}
+\label{sec:experiments}
+
+
+We conduct three experiments: (1) comparing prior volumes across architectures, (2) validating correlation with reconstruction quality, and (3) testing correlation with classification accuracy. All experiments use 32$\times$32 binary images unless otherwise noted.
+
+\paragraph{Order Metrics by Experiment.} For clarity, Table~\ref{tab:metrics_by_section} specifies which order metric is used in each experiment section, since different image types (binary vs RGB) require different metrics. \textbf{Important:} Bits are not compared numerically across metric families; only within-experiment rankings are interpreted.
+
+\begin{table}[H]
+\centering
+\caption{Order metrics used in each experiment section}
+\label{tab:metrics_by_section}
+\small
+\begin{tabular}{lll}
+\toprule
+Section & Image Type & Order Metric \\
+\midrule
+5.1 ConvNets vs Transformers & 64$\times$64 RGB & Compression + TV \\
+5.2 Deep Image Prior & 64$\times$64 RGB & Compression + TV \\
+5.3 Structure-Generalization & 64$\times$64 RGB & Compression + TV \\
+5.4 Monte Carlo Validation & 64$\times$64 binary & Multiplicative (Eq.~\ref{eq:order}) \\
+5.5 Prior Comparison & 32$\times$32 binary & Multiplicative (Eq.~\ref{eq:order}) \\
+5.6 Reconstruction & 28$\times$28 grayscale$^\ddagger$ & Multiplicative \\
+5.7 Classification & 28$\times$28 grayscale$^\ddagger$ & Multiplicative \\
+5.10 RGB Scaling & 32$\times$32 RGB & Compression + TV \\
+5.11 Thermodynamic Alignment & 64$\times$64 RGB & Compression + TV \\
+\bottomrule
+\end{tabular}
+\\[2pt]
+{\footnotesize $^\ddagger$Grayscale images binarized at threshold 0.5 before applying multiplicative metric.}
+\end{table}
+
+\paragraph{Summary of Claims and Evidence.} Table~\ref{tab:claims_evidence} summarizes our key quantitative claims with their measurement methods and uncertainty bounds.
+
+\begin{table}[H]
+\centering
+\caption{Summary of key claims and supporting evidence}
+\label{tab:claims_evidence}
+\small
+\begin{tabular}{p{4cm}lllp{2.5cm}}
+\toprule
+Claim & Method & Samples & Result & Uncertainty \\
+\midrule
+ConvNet $P(\tau{=}0.1) = 51\%$ & MC & 10,000 & 51.2\% & $\pm$3\% (bootstrap) \\
+ViT $P(\tau{=}0.1) < 10^{-6}$ & MC & 1,000,000 & 0/1M & One-sided bound \\
+CPPN $B_{\text{NS}}^{\text{cross}}(\tau{=}0.1)\approx 2$ & NS & 500 live & 2.1 bits & $\pm$7\% (App.~E) \\
+Uniform $B_{\text{NS}}^{\text{cross}}(\tau{=}0.1)>72$ & NS & 500 live & $>$72 bits & Lower bound \\
+$B_{\text{NS}}^{\text{cross}}$--reconstruction $\rho$ & Spearman & 13 arch. & 0.874 & $p=0.0001$ \\
+$B_{\text{NS}}^{\text{cross}}$--classification $\rho$ & Spearman & 24 arch. & $-$0.24 & $p=0.27$ (n.s.) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\subsection{Inductive Bias Spectrum: ConvNets vs Transformers}
+\label{sec:spectrum64}
+
+The debate between convolutional networks and Vision Transformers (ViT) typically focuses on trained performance. Our framework enables comparison of their \emph{untrained} priors---revealing surprising differences.
+
+\textbf{Setup.} We compare three 64$\times$64 RGB architectures:
+\begin{itemize}
+    \item \textbf{ResNet} (245K params): 4-layer convolutional decoder with BatchNorm
+    \item \textbf{ViT} (563K params): 4-layer transformer with learnable positional embeddings
+    \item \textbf{MLP} (6.5M params): 3-layer fully-connected network
+\end{itemize}
+
+\textbf{Hypothesis.} We expected ViT to show \emph{medium} inductive bias---between ResNet (strong) and MLP (weak)---since positional embeddings encode spatial information.
+
+\textbf{Architecture Details.} The ViT uses 4 transformer layers with 4 attention heads, patch size $8 \times 8$ (8 patches per row), embedding dimension 128, MLP ratio 2:1, LayerNorm, and learnable positional embeddings (563K parameters total). The ResNet uses 4 residual blocks with $3 \times 3$ convolutions and BatchNorm (245K parameters). The MLP is a 3-layer fully-connected network with ReLU activations (6.5M parameters). All weights are sampled from $\mathcal{N}(0, 1)$ without fan-in scaling. For BatchNorm layers, we evaluate in inference mode with default running statistics, and BN affine parameters are sampled with the same Gaussian prior unless explicitly ablated. We emphasize that this is a probe of \emph{untrained generator} behavior in a generative setup, not a statement about trained ViT performance on discriminative tasks (e.g., ImageNet classification) where ViTs excel. We treat initialization as part of the prior and hold it fixed within each comparison (Appendix~\ref{app:init_ablation}).
+
+\textbf{Results.} Figure~\ref{fig:spectrum64} reveals a surprising finding: \textbf{in our untrained image-generation setup, Global ViT is thermodynamically close to MLP}. Both flatline at score $\approx 0.0001$, while ResNet reaches 0.84 after exploring 11 bits of prior volume ($-\log_2 X$), crossing $\tau=0.1$ at $B_{\text{NS}}^{\text{cross}}=0.96$ bits. This does not imply ViTs lack inductive bias when trained on real data---only that their \emph{untrained output distribution} shows no structural preference. (Windowed ViT variants show similar zero-structure behavior but differ in optimization dynamics; see Section~\ref{sec:scaling_law}.)
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{spectrum_64_comparison.pdf}
+\caption{Inductive Bias Spectrum at 64$\times$64: ResNet (green) shows strong structural bias, reaching high scores immediately. ViT (purple) and MLP (red) both flatline near zero---untrained ViT has \emph{no} structural advantage over MLP despite positional embeddings.}
+\label{fig:spectrum64}
+\end{figure}
+
+\textbf{Interpretation.} Positional embeddings tell attention \emph{where} patches are but don't constrain \emph{how} to combine them. With random weights, attention matrices perform global mixing that tends to wash out spatial structure. This is consistent with the empirical observation that ViTs often require more pretraining to match ConvNets in low-data regimes, whereas ConvNets benefit from stronger architectural spatial priors at initialization. See Appendix~\ref{app:mechanism} for mechanistic analysis via hybrid architectures and spectral fingerprints.
+
+\textbf{Spectral Validation of Order Metric.} To confirm our order metric captures genuine structure rather than measurement artifacts, we validate it against power spectrum analysis---a standard, non-heuristic measure from signal processing. We fit power laws $P(k) \sim k^\beta$ to radially-averaged power spectra. High-order images exhibit dramatically steeper spectral decay ($\beta = -2.65$) compared to low-order images ($\beta = -0.49$), with correlation $\rho = -0.91$ and effect size $d = -3.37$ ($p < 10^{-100}$). Notably, high-order images approach natural image statistics ($\beta \approx -2$, the classic $1/f^2$ spectrum), while low-order images are closer to white noise. This strong correlation validates that our gated metric aligns with established image statistics: architectures producing $1/f$ spectra (ConvNets) score high; those producing flat spectra (ViT, MLP) score low.
+
+\textbf{Controlled Comparison: CoordConvNet vs CoordViT.} To isolate locality with weight sharing versus global mixing as the source of structural bias, we compare architectures receiving \emph{identical} coordinate grid inputs $(x,y) \in [-1,1]^2$ at 32$\times$32 resolution. CoordConvNet processes the coordinate grid with 3$\times$3 convolutions (10K params); CoordViT processes the same grid with global self-attention (21K params); CoordMLP serves as an intermediate baseline (4K params). Using nested sampling (100 live points, 2000 iterations):
+
+\begin{itemize}[topsep=2pt, itemsep=2pt]
+    \item \textbf{CoordConvNet}: $B_{\text{NS}}^{\text{cross}}=0.72$ bits at $\tau=0.1$, 64\% initial live-point pass fraction (local convolutions with weight sharing)
+    \item \textbf{CoordMLP}: $B_{\text{NS}}^{\text{cross}}=2.11$ bits at $\tau=0.1$, 21\% initial live-point pass fraction (no spatial weight sharing)
+    \item \textbf{CoordViT}: $B_{\text{NS}}^{\text{cross}}=2.67$ bits at $\tau=0.1$, 3\% initial live-point pass fraction (global attention; no locality or weight sharing)
+\end{itemize}
+
+This yields a $\sim$2-bit NS crossing-cost gap between ConvNet and ViT (0.72 vs 2.67) and a separate $\sim$21$\times$ gap in initial live-point pass fraction (64\% vs 3\%). The controlled design ensures the gap reflects architectural mixing with or without weight sharing, not input representation. The ordering ConvNet $<$ MLP $<$ ViT reveals that locality plus weight sharing provides the strongest spatial bias, while global attention provides the weakest.
+
+
+\subsection{From Thermodynamics to Generalization}
+\label{sec:dip}
+
+Our bits metric measures \emph{static} structure in output space. Does this predict \emph{dynamic} behavior during optimization? We test via Deep Image Prior \cite{ulyanov2018deep} reconstruction.
+
+\textbf{Setup.} We create a 64$\times$64 RGB test image with geometric shapes, corrupt it with Gaussian noise ($\sigma=0.15$), and train untrained networks to reconstruct the \emph{noisy} image---tracking generalization to the \emph{clean} image. Here, ``generalization'' means improved reconstruction quality on the clean target relative to the noisy observation, achieved through implicit regularization and early stopping. This follows the Deep Image Prior paradigm \cite{ulyanov2018deep}.
+
+\textbf{Hypothesis.} Low-bit architectures (ResNet) should act as implicit regularizers, fitting signal before noise. High-bit architectures (ViT, MLP) should fit everything equally.
+
+\textbf{Results.} Figure~\ref{fig:dip} confirms the hypothesis dramatically (left panel reports MSE; equivalent PSNR values are reported below):
+\begin{itemize}
+    \item \textbf{ResNet}: Peaks at 25.4dB PSNR (iteration 230), then degrades---showing implicit regularization with natural early-stopping point
+    \item \textbf{ViT}: Achieves only 10.0dB---poor reconstruction of structured targets in this untrained setup
+    \item \textbf{MLP}: Immediately fits noisy target near the 18.2dB noise floor (19.0dB in this single demo), with no denoising capability
+\end{itemize}
+
+The gap between ResNet (25.4dB) and ViT (10.0dB) demonstrates that thermodynamic volume directly predicts generalization capability.
+
+\textbf{Large-Scale Validation.} We validate across 1,500 independent DIP reconstructions (20 target images $\times$ 5 noise levels $\times$ 5 seeds $\times$ 3 architectures). ResNet achieves $26.2 \pm 7.1$dB, ViT $14.1 \pm 5.7$dB---a mean gap of 12.1dB. In matched comparisons (same target, noise, seed), ResNet outperforms ViT in 92.2\% of cases (461/500 pairs, $p < 0.001$). The advantage is largest at low noise ($\sigma=0.05$: $+19.7$dB) where structural priors dominate; at high noise ($\sigma=0.5$) the gap narrows to $+3.3$dB.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{dip_summary.pdf}
+\caption{The Shield of Structure: Thermodynamic volume predicts generalization. ResNet (low-$B_{\text{NS}}^{\text{cross}}$ prior) fits signal before noise, enabling denoising. ViT (high-$B_{\text{NS}}^{\text{cross}}$ prior) struggles to represent target structure under this untrained prior. Left panel uses MSE (lower is better); the corresponding trajectory summaries are reported in PSNR in text. The bits metric is not merely descriptive---it predicts optimization dynamics.}
+\label{fig:dip}
+\end{figure}
+
+\textbf{Natural Image Sanity Check (CIFAR-10, native $32\times 32$).} To ensure this DIP alignment is not an artifact of synthetic shapes or resizing artifacts, we repeat the denoising protocol on 20 CIFAR-10 test images (native $32\times 32$), across four noise levels ($\sigma \in \{0.05, 0.10, 0.15, 0.20\}$), five random seeds, and four untrained generator priors (CPPN, Fourier features, ResNet-6, Depthwise) for 1,600 reconstructions total. Figure~\ref{fig:dip_cifar} shows that at this resolution, CPPN outperforms Fourier for $\sigma \in \{0.10, 0.15, 0.20\}$ by 0.78--1.35dB (100 matched pairs per noise level; $p\leq 8\times 10^{-24}$). At $\sigma=0.05$, differences are negligible (CPPN--Fourier $=-0.09$dB; $p=0.54$).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{dip_cifar_sanity.pdf}
+\caption{CIFAR-10 DIP sanity check (1,600 reconstructions). \textbf{Left:} Mean best PSNR vs noise level for four untrained generator priors on 20 CIFAR-10 test images (native $32\times 32$), with 5 seeds per condition (100 runs per architecture per noise level). \textbf{Right:} Paired CPPN minus Fourier PSNR differences, showing a CPPN advantage at $\sigma \in \{0.10, 0.15, 0.20\}$ and a near-tie at $\sigma=0.05$.}
+\label{fig:dip_cifar}
+\end{figure}
+
+\textbf{Natural Image Sanity Check (Tiny ImageNet, native $64\times 64$).} We also repeat the protocol on 20 Tiny ImageNet validation images (native $64\times 64$), using the same noise levels, seeds, and priors (1,600 reconstructions total). Figure~\ref{fig:dip_tiny} shows a different within-regime ordering: Fourier features outperform CPPN at low and moderate noise (paired CPPN--Fourier $=-3.72$dB at $\sigma=0.05$, $-1.04$dB at $\sigma=0.10$, $-0.49$dB at $\sigma=0.15$; all $p\leq 2\times 10^{-5}$), while differences are negligible at $\sigma=0.20$ ($-0.10$dB; $p=0.305$). For space, we omit ViT/MLP from this natural-image sweep; targeted CIFAR-10 and Tiny ImageNet spot-checks at $\sigma=0.15$ confirm they remain far below Shielded priors under the same protocol (Appendix~\ref{app:dip_spotcheck_natural}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{dip_tiny_sanity.pdf}
+\caption{Tiny ImageNet DIP sanity check (1,600 reconstructions; native $64\times 64$). \textbf{Left:} Mean best PSNR vs noise level for four untrained generator priors on 20 Tiny ImageNet validation images, with 5 seeds per condition. \textbf{Right:} Paired CPPN minus Fourier PSNR differences, showing Fourier outperforming CPPN at low and moderate noise and convergence at high noise.}
+\label{fig:dip_tiny}
+\end{figure}
+
+\emph{Takeaway: in this untrained DIP setting, thermodynamic structure separates regimes (Shielded $>$ Memorization $>$ Broken), but within the Shielded regime, the best denoiser depends on alignment. CIFAR-10 (32$\times$32) favors stronger smoothing at moderate noise (CPPN $>$ Fourier), while Tiny ImageNet (64$\times$64) favors detail-preserving priors at low and moderate noise (Fourier $>$ CPPN).}
+
+
+\subsection{The Structure-Generalization Relationship}
+\label{sec:scaling_law}
+
+The preceding experiments establish that low-$B_{\text{NS}}^{\text{cross}}$ architectures excel at generation while high-$B_{\text{NS}}^{\text{cross}}$ architectures fail. We now ask: can thermodynamic volume \emph{predict} generalization performance without training? We term the resulting correlation a ``structure-generalization relationship'': a systematic, predictive relationship observed across our 13 tested architectures. We emphasize this is domain-specific (images) and task-specific---the correlation \emph{inverts} for classification tasks (Section~\ref{sec:classification}), confirming it captures generative priors specifically. Extension to other domains (3D, audio, text) would require separate validation.
+
+\textbf{Comprehensive Test.} We test 13 diverse architectures spanning the full spectrum of inductive bias: convolutional variants (ResNet-2/4/6/9$\times$9, U-Net, Depthwise Separable), coordinate-based networks (CPPN, Fourier Features), attention-based (ViT, Windowed ViT, Local Attention, Hybrid ViT), and fully-connected (MLP). For each, we measure both thermodynamic structure (via nested sampling) and DIP denoising performance (best PSNR on clean target).
+
+\textbf{Results.} Figure~\ref{fig:scaling_law} reveals not just a correlation (Spearman $\rho = 0.79$, permutation $p = 0.002$), but a \textbf{taxonomy of three thermodynamic regimes}:
+
+\begin{enumerate}
+    \item \textbf{The Shielded Regime} (ConvNets, CPPN; structure $> 0.5$, PSNR $> 22$dB): The architecture \emph{physically prevents} the model from fitting noise---it forces generalization. This is the inductive bias sweet spot. Notably, kernel size does not matter: 9$\times$9 ConvNets achieve the same high structure (0.81) as 3$\times$3.
+
+    \item \textbf{The Memorization Regime} (MLP, Windowed ViT; structure $\approx 0$, PSNR $\approx 18.2$dB): Zero structural bias, but the architecture can still \emph{fit} the noisy input. The 18.2dB PSNR equals the noisy input's PSNR against clean---these networks memorize without generalizing.
+
+    \item \textbf{The Broken Regime} (Global ViT, Hybrid ViT; structure $\approx 0$, PSNR $\approx 10$dB): Global attention at random initialization creates such a chaotic optimization landscape that the model cannot even memorize. In this protocol, these architectures enter an \emph{untrained optimization-failure regime}.
+\end{enumerate}
+
+\begin{table}[H]
+\centering
+\caption{Operational regime boundaries used in Figure~\ref{fig:scaling_law} ($n=13$ architectures).}
+\label{tab:regime_boundaries}
+\begin{tabular}{lccc}
+\toprule
+Regime & Structure (order) & DIP PSNR & Behavior \\
+\midrule
+Shielded & $> 0.5$ & $> 22$ dB & Generalizes (fits signal before noise) \\
+Memorization & $\approx 0$ & $\approx 18.2$ dB & Fits noise floor, no denoising \\
+Broken & $\approx 0$ & $\approx 10$ dB & Fails to fit target structure \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{The Windowed ViT Insight.} Windowing attention rescued ViT from the Broken regime (moving from 10dB to 18.2dB), but did \emph{not} grant it structural bias. Local Attention $\neq$ Convolution: convolution enforces weight sharing and translational invariance \emph{everywhere}, creating a manifold of smooth images. Local attention only restricts connectivity---with random weights, it is merely a sparse random graph lacking the symmetries that create thermodynamic volume. Windowed ViT is effectively a sparse MLP.
+
+\textbf{Mechanistic Validation: Weight Sharing is the Generator.} To isolate weight sharing from locality, we compare Conv3x3 and LocallyConnected under a matched protocol (Appendix~\ref{app:weight_sharing_isolation}): Conv3x3 (locality + weight sharing) versus LocallyConnected (locality only, independent weights per position), each with 1000 MC samples at $32\times 32$. Despite identical $3\times 3$ receptive fields, Conv3x3 has mean order $0.5330$ while LocallyConnected has $2.41\times 10^{-5}$ (about $2.2\times 10^{4}$ ratio). The Mann-Whitney comparison is maximally separated ($U=10^6$), with p-value underflow in double precision (reported as $p<10^{-300}$) and Cohen's $d=2.36$. LocallyConnected also has more parameters (1.43M vs 25.6K), so the gap is not a capacity artifact. This supports translational invariance through weight sharing, not mere local connectivity, as the key source of thermodynamic volume.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{scaling_law_comprehensive.pdf}
+\caption{The Structure-Generalization Relationship reveals three regimes: \textbf{Shielded} (ConvNets, CPPN; high structure, 22--27dB), \textbf{Memorization} (MLP, Windowed ViT; zero structure, $\sim$18.2dB), and \textbf{Broken} (Global/Hybrid ViT; zero structure, $\sim$10dB). Architectures at the noise floor (18.2dB) effectively act as identity functions---memorizing input noise without generating structure. Note: ``Broken'' refers specifically to untrained generative reconstruction---trained ViTs (e.g., DiT) succeed precisely because extensive training compensates for lack of structural prior. The correlation (Spearman $\rho = 0.79$, permutation $p = 0.002$, $n=13$) supports structure as a predictor of generalization, while the regime separation reveals the mechanism: structure predicts \emph{generalization}, not mere learnability.}
+\label{fig:scaling_law}
+\end{figure}
+
+\textbf{Implication.} The three-regime taxonomy offers precise architectural guidance for untrained generative tasks: to \emph{generalize}, choose Shielded architectures; to avoid reconstruction failure, avoid global attention at random initialization for pixel-space objectives. Structure predicts \emph{generalization gap}---enabling principled architecture selection without training. A permutation test (10,000 permutations) confirms the correlation is not spurious: only 21 random shuffles achieved $|\rho| \geq 0.79$, yielding empirical $p = 0.002$.
+
+\textbf{Landscape Geometry.} Why does nested sampling become exponentially harder at high-order thresholds? We measured order gradient magnitude (the sensitivity of the order metric to weight perturbations) during NS progression. At early iterations (low thresholds), gradients average 0.07; at late iterations (high thresholds), gradients increase to 2.61---a \textbf{37$\times$ increase} ($d = 1.07$, $p < 0.003$). This steepening loss landscape explains why ellipsoidal slice sampling requires exponentially more contraction steps as NS approaches high-order regions: the geometry itself becomes more challenging. High-order regions are not just rare---they occupy geometrically ``sharper'' regions of weight space.
+
+
+\subsection{Large-Scale Monte Carlo Validation}
+\label{sec:monte_carlo}
+
+
+Nested sampling provides efficient exploration of rare events, but the algorithm's stochastic volume shrinkage introduces uncertainty. We validate our thermodynamic volume measurements via independent Monte Carlo sampling with 10,000 random weight initializations per architecture, plus dedicated 1,000,000-sample tail checks for ViTDecoder and MLPDecoder.
+
+\textbf{Setup.} We test 11 architectures spanning coordinate-conditioned (CPPN, CoordMLP, FourierMLP, FourierBasis), latent-decoded (MLPDecoder, ConvDecoder, ViTDecoder), procedural (WalkCarver, SpanningTreeMaze), and sequential (LSTMDecoder, MixtureOfExperts) families. For each architecture, we sample 10,000 independent weight configurations from $\mathcal{N}(0,1)$, generate $64 \times 64$ images, binarize at 0.5, and compute the multiplicative order metric. The thermodynamic volume at threshold $\tau$ is simply the fraction of samples with order $\geq \tau$.
+
+\textbf{Results.} Table~\ref{tab:monte_carlo_volume} reveals extreme variation in thermodynamic volume:
+
+\begin{table}[H]
+\centering
+\caption{Monte Carlo thermodynamic volume validation (10,000 samples per architecture; ViTDecoder/MLPDecoder tail checks extended to 1,000,000 samples). Volume is prior-specific: for each architecture, it is the fraction of that architecture's own sampled prior producing Order $> 0.1$ (not the i.i.d. pixel Uniform baseline).}
+\label{tab:monte_carlo_volume}
+\begin{tabular}{lcccc}
+\toprule
+Architecture & Volume & Mean Order & Order Std & Regime \\
+\midrule
+WalkCarver & 100.0\% & 0.372 & 0.027 & Shielded \\
+FourierBasis & 99.9\% & 0.708 & 0.195 & Shielded \\
+FourierMLP & 83.6\% & 0.480 & 0.311 & Shielded \\
+CPPN & 69.0\% & 0.347 & 0.304 & Shielded \\
+ConvDecoder & 51.2\% & 0.152 & 0.166 & Shielded \\
+\midrule
+MixtureOfExperts & 20.1\% & 0.061 & 0.054 & Intermediate \\
+CoordMLP & 7.2\% & 0.034 & 0.042 & Intermediate \\
+\midrule
+MLPDecoder & 0.0\%$^\dagger$ & $10^{-24}$ & --- & Broken \\
+ViTDecoder & 0.0\%$^\dagger$ & $10^{-23}$ & --- & Broken \\
+SpanningTreeMaze & 0.0\%$^\dagger$ & $10^{-5}$ & --- & Broken \\
+LSTMDecoder & 0.0\%$^\dagger$ & $10^{-4}$ & --- & Broken \\
+\bottomrule
+\end{tabular}
+\\[2pt]
+{\footnotesize $^\dagger$For ViTDecoder/MLPDecoder, dedicated 1,000,000-sample runs give a $10^{-6}$ detection floor; values reported as 0.0\% indicate $< 0.0001\%$.}
+\end{table}
+
+\textbf{Key Findings.}
+\begin{enumerate}
+    \item \textbf{Volume varies by $>$5 orders of magnitude}: From 100\% (WalkCarver) to 0\% (MLP, ViT). This independently supports the large lower-bound separation from nested sampling (at least $10^{21}\times$; Section~\ref{sec:prior_comparison}).
+
+    \item \textbf{ViT and MLP are indistinguishable}: ViTDecoder and MLPDecoder both produce order below Monte Carlo detection threshold (0/1,000,000 successes; $P < 10^{-6}$ in dedicated tail checks). Nested sampling mean order values ($\sim 10^{-23}$) reflect metric magnitude, not probability. This validates the ``Broken Regime'' finding (Section~\ref{sec:scaling_law}).
+
+    \item \textbf{Three regimes confirmed}: Shielded (volume $>50\%$), Intermediate (1--50\%), and Broken (0\%). The Monte Carlo measurement provides sharper regime boundaries than nested sampling.
+
+    \item \textbf{FourierBasis dominates}: Achieves highest mean order (0.708) with 99.9\% volume, outperforming CPPN (0.347, 69\%). This suggests Fourier basis functions provide stronger implicit regularization than periodic activation functions.
+\end{enumerate}
+
+\textbf{Validation of Nested Sampling.} \emph{Critical note on calibration:} Monte Carlo (64$\times$64) and nested sampling (32$\times$32) use different methodologies, making absolute bit values incomparable across methods. MC directly counts successes ($\text{bits} = -\log_2(\text{fraction})$); NS estimates volume via iterative compression with different calibration. What IS validated is the \textbf{architecture ranking}: both methods produce identical orderings (WalkCarver $>$ FourierBasis $>$ FourierMLP $>$ CPPN $>$ ConvDecoder $>$ ... $>$ ViT $>$ MLP) across all thresholds tested ($\tau = 0.05$ to $0.5$). This rank-order consistency---robust across methods, resolutions, and thresholds---validates the thermodynamic interpretation. (For resolution scaling \emph{within} a single method, see Section~\ref{sec:limitations}: bits increase sub-linearly with resolution.)
+
+This Monte Carlo validation provides the strongest evidence that our thermodynamic volume measurements reflect genuine architectural properties: 110,000 independent samples (11 architectures $\times$ 10,000 samples) confirm the extreme variation in structural bias across neural network families.
+
+
+\subsection{Prior Volume Comparison}
+\label{sec:prior_comparison}
+
+\textbf{Setup.} We run nested sampling with $N=50$ live points for 2500 iterations on each prior, repeated 10 times with different random seeds, at 32$\times$32 binary resolution with order threshold $\tau=0.1$. This explores up to $B_{\text{NS}}^{\text{cross}}>72$ bits of NS crossing depth along the $-\log_2 X$ trajectory. We measure the order achieved and prior-depth explored at each iteration.
+
+\textbf{Results.} Figure~\ref{fig:volume} shows the order metric versus explored prior depth ($-\log_2 X$), combining continuous CPPN/Uniform trajectories with threshold traces for coordinate-conditioned ConvNet/MLP/ViT. Figure~\ref{fig:volume_zoomed} provides a zoomed view of the first 15 bits, highlighting early structure emergence.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{fig1_volume_comparison.pdf}
+\caption{Volume comparison: order metric vs bits of prior volume explored. Continuous curves show CPPN and Uniform baselines; dashed traces show coordinate-conditioned architectures (CoordConvNet/CoordMLP/CoordViT). The dashed horizontal line marks $\tau = 0.1$.}
+\label{fig:volume}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{fig1b_volume_zoomed.pdf}
+\caption{Zoomed view (0--15 bits): early structure emergence for CPPN and coordinate-conditioned architectures. CoordConvNet crosses $\tau=0.1$ at $B_{\text{NS}}^{\text{cross}}=0.72$ bits; CoordViT requires $B_{\text{NS}}^{\text{cross}}=2.67$ bits---a $\sim$2-bit $B_{\text{NS}}^{\text{cross}}$ threshold-crossing gap. Markers show discrete threshold measurements from nested sampling.}
+\label{fig:volume_zoomed}
+\end{figure}
+
+\paragraph{Uniform prior behavior.} An important observation: uniform random sampling does show gradual improvement---reaching order $\approx 0.016$ after exploring 72 bits of prior volume (Figure~\ref{fig:volume}). However, the rate is extremely slow. Early extrapolation suggested reaching $\tau=0.1$ might require $\sim$174--526 bits depending on the assumed functional form.
+
+Extended experiments exploring up to 87 bits reveal a more sobering picture: the improvement rate \emph{flattens} rather than accelerates at higher bit depths. This is likely due to rejection sampling becoming increasingly difficult---at high thresholds, finding a random sample that exceeds the current best requires exponentially many attempts. This computational bottleneck manifests as threshold stagnation in the nested sampling algorithm.
+
+The practical implication is that our $>$72 bit estimate for uniform is a rigorous \emph{lower bound from measurement}, not a theoretical upper bound. Formal upper bounds would require alternative sampling methods (e.g., MCMC in image space, subset simulation) beyond our nested sampling framework. The true bits required to reach $\tau=0.1$ under uniform sampling may be substantially higher, potentially unreachable in practice. This reinforces our main conclusion: structured priors like CPPN exhibit rapid phase transitions to high order, while uniform sampling shows only marginal improvement even after extensive exploration---a difference of at least $10^{21}\times$ and likely far greater.
+
+Table~\ref{tab:prior_comparison} summarizes NS crossing bits $B_{\text{NS}}^{\text{cross}}$ required to reach the $\tau = 0.1$ threshold.
+
+\begin{table}[H]
+\centering
+\caption{Bits to reach order threshold $\tau = 0.1$ (mean $\pm$ std over 10 runs)}
+\label{tab:prior_comparison}
+\begin{tabular}{lccc}
+\toprule
+Prior & Final Order & NS crossing bits to $\tau=0.1$ & Efficiency vs Uniform \\
+\midrule
+CPPN & $0.59 \pm 0.01$ & $1.9 \pm 0.2$ & $\geq 10^{21}\times$ \\
+Uniform & $0.016 \pm 0.001$ & $\geq 72^\dagger$ & $1\times$ (baseline) \\
+\bottomrule
+\end{tabular}
+\\[2pt]
+{\footnotesize $^\dagger$Computational floor where algorithm stopped; true value likely much higher (see text).}
+\end{table}
+
+\paragraph{Controlled Coordinate Comparison.} To avoid cross-protocol mixing, we report the matched-input coordinate comparison from a single experiment where all architectures receive identical $(x,y)$ inputs and share the same NS settings. Table~\ref{tab:architecture_hierarchy} reports this controlled comparison at 32$\times$32.
+
+\begin{table}[H]
+\centering
+\caption{Controlled coordinate-conditioned comparison at $\tau = 0.1$ (32$\times$32)}
+\label{tab:architecture_hierarchy}
+\begin{tabular}{lccc}
+\toprule
+Architecture & $B_{\text{NS}}^{\text{cross}}$ & Initial $\hat p_{\text{live}}$ & Key Property \\
+\midrule
+CoordConvNet & 0.72 & 64\% & Local 3$\times$3 kernels \\
+CoordMLP & 2.11 & 21\% & Smooth function over $(x,y)$ \\
+CoordViT & 2.67 & 3\% & Global attention (no locality) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The key finding is the consistent ordering between local and global architectures: CoordConvNet (local 3$\times$3 kernels with weight sharing) reaches $\tau = 0.1$ with $B_{\text{NS}}^{\text{cross}}=0.72$ bits, CoordMLP (no spatial weight sharing) requires $B_{\text{NS}}^{\text{cross}}=2.11$ bits, and CoordViT (global attention) requires $B_{\text{NS}}^{\text{cross}}=2.67$ bits---a $\sim$2-bit $B_{\text{NS}}^{\text{cross}}$ gap between ConvNet and ViT, with a separate 64\% vs 3\% initial live-point pass-fraction gap. This controlled comparison, where all architectures receive identical coordinate inputs, isolates locality with weight sharing versus global mixing as the strongest structural bias. The independent CPPN vs Uniform baseline (Table~\ref{tab:prior_comparison}) remains the extreme-case lower-bound separation.
+
+\begin{table}[H]
+\centering
+\caption{MC/NS calibration at $\tau=0.1$ for the matched coordinate trio (MC uses matched prior, $n=2000$ per architecture)}
+\label{tab:mc_ns_coord_calibration}
+\begin{tabular}{lcccc}
+\toprule
+Architecture & $B_{\text{NS}}^{\text{cross}}$ & $\hat p_{\text{live}}$ & $\hat p_{\text{MC}}$ & $B_{\text{MC}}=-\log_2\hat p_{\text{MC}}$ \\
+\midrule
+CoordConvNet & 0.72 & 64.0\% & 62.7\% & 0.67 \\
+CoordMLP & 2.11 & 21.0\% & 24.1\% & 2.06 \\
+CoordViT & 2.67 & 3.0\% & 2.4\% & 5.38 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:mc_ns_coord_calibration} and Figure~\ref{fig:mc_ns_coord_calibration_scatter} show that initial live-point pass fractions align with matched-prior MC pass estimates, while tail-surprisal bits can diverge in rare-event regimes (especially CoordViT). We therefore use $B_{\text{NS}}^{\text{cross}}$ for threshold-crossing cost and $B_{\text{MC}}$ for direct tail-mass interpretation.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.72\columnwidth]{mc_ns_coord_calibration_scatter.pdf}
+\caption{Calibration of NS crossing cost against MC tail-surprisal for the matched coordinate trio at $\tau=0.1$. Points near the diagonal (CoordConvNet, CoordMLP) indicate agreement; CoordViT shows a large divergence, motivating separate reporting of $B_{\text{NS}}^{\text{cross}}$ and $B_{\text{MC}}$.}
+\label{fig:mc_ns_coord_calibration_scatter}
+\end{figure}
+
+\textbf{Threshold Robustness.} Is the $\tau = 0.1$ threshold cherry-picked? Figure~\ref{fig:threshold_curve} shows $B_{\text{NS}}^{\text{cross}}(\tau)$ curves for coordinate-based architectures. The gap between CoordConvNet and CoordViT persists across all thresholds: at $\tau = 0.1$, the gap is $\sim$2 $B_{\text{NS}}^{\text{cross}}$ bits (with 64\% vs 3\% initial live-point pass fractions), and the relative ordering (ConvNet $<$ MLP $<$ ViT) is maintained across threshold levels. The phenomenon is fundamental, not an artifact of threshold choice.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\columnwidth]{bits_threshold_curve.pdf}
+\caption{$B_{\text{NS}}^{\text{cross}}(\tau)$ curves: NS threshold-crossing bits required to reach order threshold $\tau$ for coordinate-based architectures. CoordConvNet (green) reaches all thresholds more cheaply than CoordMLP and CoordViT. The ConvNet $<$ MLP $<$ ViT ordering is preserved as threshold stringency increases.}
+\label{fig:threshold_curve}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\columnwidth]{fig2_bits_bar_chart.pdf}
+\caption{NS threshold-crossing bits to reach $\tau = 0.1$ for key anchors. CoordConvNet/CoordMLP/CoordViT come from the matched-input coordinate comparison; CPPN/Uniform come from prior-comparison baselines. Lower is better.}
+\label{fig:bits}
+\end{figure}
+
+\subsection{Reconstruction Validation}
+\label{sec:reconstruction}
+
+Does $B_{\text{NS}}^{\text{cross}}$ predict practical performance? We test this on image reconstruction.
+
+\textbf{Setup.} We train autoencoders on MNIST with frozen random feature extractors from 13 diverse architectures spanning convolutional (ResNet-2/4/6/9$\times$9, U-Net, Depthwise), coordinate-based (CPPN, Fourier), attention-based (ViT, WindowedViT, LocalAttn, HybridViT), and fully-connected (MLP). To control for decoder architecture effects, all feature extractors feed into a shared linear decoder.
+
+\textbf{Results.} Figure~\ref{fig:reconstruction} shows a strong positive correlation between $B_{\text{NS}}^{\text{cross}}(\tau{=}0.1)$ and MSE (Spearman $\rho = 0.874$, $p = 0.0001$). Figure~\ref{fig:reconstruction_examples} visualizes this relationship directly: low-$B_{\text{NS}}^{\text{cross}}$ architectures produce sharp reconstructions while high-$B_{\text{NS}}^{\text{cross}}$ architectures collapse to noise.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{fig3_reconstruction_correlation.pdf}
+\caption{Reconstruction MSE vs NS crossing bits $B_{\text{NS}}^{\text{cross}}(\tau{=}0.1)$ across 13 architectures. Lower crossing bits strongly predict better reconstruction (Spearman $\rho = 0.874$, $p = 0.0001$).}
+\label{fig:reconstruction}
+\end{figure}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{fig3b_reconstruction_examples.pdf}
+\caption{Reconstruction examples ordered by $B_{\text{NS}}^{\text{cross}}(\tau{=}0.1)$ (low $\rightarrow$ high). Low-$B_{\text{NS}}^{\text{cross}}$ architectures (CPPN, U-Net, ResNet) preserve digit structure; high-$B_{\text{NS}}^{\text{cross}}$ architectures (ViT, LocalAttn, MLP) produce noise. All use identical linear decoders, isolating the feature extractor as the only variable.}
+\label{fig:reconstruction_examples}
+\end{figure*}
+
+The correlation is remarkably strong: architectures with lower $B_{\text{NS}}^{\text{cross}}(\tau{=}0.1)$ (stronger structural bias) achieve dramatically better reconstruction. CPPN features ($B_{\text{NS}}^{\text{cross}}=0.09$ bits) achieve MSE of 0.0011, while MLP features ($B_{\text{NS}}^{\text{cross}}=4.84$ bits) achieve MSE of 0.0953---an 87$\times$ difference.
+
+\subsection{Random-Feature Linear Classification}
+\label{sec:classification}
+
+We next test whether bits predicts classification accuracy.
+
+\textbf{Setup.} We evaluate 24 architecture variants (varying depth, width, activation) using frozen random feature extractors with a trained linear classification head on MNIST and FashionMNIST (matching Section~\ref{sec:reconstruction}). Each architecture is tested with 5 random seeds. We compute bootstrap 95\% confidence intervals for the Spearman correlation.
+
+\textbf{Results.} Figure~\ref{fig:classification} shows no significant correlation between bits and classification accuracy.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{fig4_classification_null.pdf}
+\caption{Random-feature linear probe accuracy vs $B_{\text{NS}}^{\text{cross}}(\tau{=}0.1)$ shows no significant correlation. This is an important negative result: the bits metric that predicts reconstruction does \emph{not} predict random-feature classification.}
+\label{fig:classification}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\caption{Random-feature linear probe correlation with NS crossing bits $B_{\text{NS}}^{\text{cross}}(\tau{=}0.1)$ (24 architectures, 5 seeds)}
+\label{tab:classification}
+\begin{tabular}{lccc}
+\toprule
+Dataset & Spearman $\rho$ & $p$-value & 95\% CI \\
+\midrule
+MNIST & $-0.235$ & 0.27 & $[-0.64, 0.26]$ \\
+FashionMNIST & $+0.010$ & 0.96 & $[-0.51, 0.55]$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+This is an important \emph{negative} result. The metric that strongly predicts reconstruction ($\rho = 0.874$, $n=13$) shows no relationship to classification. The 95\% confidence intervals span zero, confirming this is not merely low power.
+
+\subsection{The Generative-Discriminative Trade-off}
+
+Why does bits predict reconstruction but not classification? We propose a \textbf{Generative-Discriminative Trade-off} hypothesis:
+
+\textbf{Low bits (CPPN-like):} Strong topology preservation. Nearby latent codes map to similar images. This is ideal for reconstruction (smooth latent space) but harmful for classification (classes may overlap in latent space).
+
+\textbf{High bits (MLP-like):} Random projection behavior \cite{johnson1984extensions}. Distances are preserved but topology is destroyed. This is ideal for classification (preserves discriminative distances) but harmful for reconstruction (no smoothness prior).
+
+\subsection{Practical Demonstration}
+\label{sec:practical}
+
+To validate practical utility in an inverse setting, we show sparse reconstruction from 30\% observed pixels on MNIST. Figure~\ref{fig:demo} compares reconstructions under two priors: CPPN and MLP. With identical sparse observations and optimization budget, the CPPN prior recovers coherent digit structure while the MLP prior collapses to texture-like noise.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{fig6_demo_results.pdf}
+\caption{Sparse reconstruction demonstration with 30\% observed pixels. Left to right: original target, masked observations, CPPN-prior reconstruction, and MLP-prior reconstruction. Under identical observation masks and optimization protocol, the low-$B_{\text{NS}}^{\text{cross}}$ CPPN prior preserves global digit structure while the high-$B_{\text{NS}}^{\text{cross}}$ MLP prior fails to reconstruct coherent shape.}
+\label{fig:demo}
+\end{figure}
+
+This demonstrates that the bits metric has practical implications for inverse problems: lower-$B_{\text{NS}}^{\text{cross}}$ priors recover coherent structure under sparse measurements, while higher-$B_{\text{NS}}^{\text{cross}}$ priors tend to overfit local noise.
+
+\subsection{Scaling to Continuous RGB Images}
+\label{sec:rgb}
+
+To verify that our framework extends beyond binary toy images, we apply nested sampling to continuous RGB images ($32 \times 32 \times 3$) using realistic neural network architectures.
+
+\textbf{Setup.} We compare two architectures generating RGB images:
+\begin{itemize}
+    \item \textbf{ConvNet} (56K parameters): A convolutional decoder with upsampling layers, encoding strong spatial locality and smoothness priors.
+    \item \textbf{LinearNet} (7.4M parameters): A fully-connected MLP treating pixels as independent outputs, encoding weak/no structural prior.
+\end{itemize}
+
+We sample directly in \emph{weight space} using Elliptical Slice Sampling, treating the entire weight vector $\theta \sim \mathcal{N}(0, I)$ as the random variable. The order metric combines JPEG compression ratio (measuring visual redundancy) and total variation (measuring smoothness)---both appropriate for continuous RGB images (see Table~\ref{tab:metrics_by_section}; the multiplicative binary metric from Eq.~\ref{eq:order} does not apply to RGB).
+
+\textbf{Results.} Figure~\ref{fig:rgb} shows a striking result: the ConvNet \emph{immediately} produces structured images (starting score $\approx 0.4$), while the LinearNet remains at zero throughout. Even with 132$\times$ more parameters, the MLP produces only noise.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{rgb_thermodynamic_comparison.pdf}
+\caption{RGB scaling experiment: ConvNet (56K params) immediately produces structured images, reaching score 0.76 by 14 bits. LinearNet (7.4M params) produces pure noise (score 0.0) throughout. The convolutional architecture's inductive bias is so strong that the median crossing cost is approximately 0 bits (many runs cross at initialization), so structured images are default outputs under this protocol.}
+\label{fig:rgb}
+\end{figure}
+
+This near-zero crossing-cost result is even more dramatic than our binary experiments. It demonstrates that for convolutional architectures, structured images are not rare events requiring extended search---they appear at initialization or after minimal exploration. The framework successfully scales to continuous domains with realistic parameter counts, and the qualitative findings (convolutions $\gg$ MLPs for structure) hold with even greater magnitude.
+
+
+\subsection{Thermodynamic Alignment}
+\label{sec:alignment}
+
+
+Finally, we ask: is maximum structural bias always optimal? The structure-generalization relationship (Spearman $\rho = 0.79$) suggests ``more structure is better,'' but a closer look at the top performers reveals a subtler truth.
+
+\paragraph{Ground Truth Calibration.} We measured 100 CIFAR-10 images resized to $64 \times 64$. Natural images score $0.53 \pm 0.08$---significantly \emph{lower} than the highest-structure architectures.
+
+\paragraph{The Peak Performance Puzzle.} Consider the top of the scaling curve:
+\begin{itemize}
+    \item CPPN (structure $0.73$) $\to$ Best PSNR: \textbf{26.7dB}
+    \item ResNet-6 (structure $0.92$) $\to$ PSNR: 25.9dB
+    \item Depthwise (structure $0.94$) $\to$ PSNR: 24.0dB
+\end{itemize}
+The architecture with \emph{maximum} structure (Depthwise) does not achieve the best performance. At the noise level used in our DIP experiments ($\sigma = 0.15$), CPPN's moderate structure ($0.73$) provides strong regularization without over-constraining the representation space.
+
+\paragraph{Noise-Dependent Optimal Structure.} This finding depends on both noise level and target complexity. At low noise, detail-preserving priors like Fourier Features \cite{tancik2020fourier} can outperform more strongly smoothing priors (Tiny ImageNet, native $64\times 64$; Figure~\ref{fig:dip_tiny}), consistent with CPPN over-smoothing and underfitting fine texture. At moderate noise, the tradeoff can reverse on simpler, lower-resolution targets: on CIFAR-10 (native $32\times 32$), CPPN outperforms Fourier for $\sigma \in \{0.10, 0.15, 0.20\}$ (Figure~\ref{fig:dip_cifar}). At higher noise, differences narrow and priors converge (Tiny ImageNet at $\sigma=0.20$).
+
+We validate the importance of matching structure to task at $64 \times 64$ resolution using the same RGB compression+TV metric, finding strong correlation between reconstruction quality and structure (Pearson $r=-0.931$, $p=0.021$). High-order architectures achieve near-perfect reconstruction (quality $\approx 0.98$), while low-order architectures remain near baseline (quality $\approx 0.50$).
+
+This refines our understanding: the structure-generalization relationship holds across regimes (Shielded $>$ Memorization $>$ Broken), but \emph{within} the Shielded regime, optimal structure depends on alignment (noise level and target complexity), not maximal structure.
+
+\subsection{Phase Transition in Sampling Difficulty}
+\label{sec:phase_transition}
+
+Beyond architecture ranking, our experiments reveal a fundamental nonlinearity in the difficulty landscape: the effort required to find high-order structures undergoes a dramatic phase transition. We use ``phase transition'' here to denote a sharp empirical kink in sampling difficulty, not a claim of statistical-physics criticality; finite-size scaling tests do not support a true critical point.
+
+\paragraph{Empirical Discovery.} We measure bits required to reach different percentiles of the order distribution (P10, P25, P50, P75, P90) and fit power laws $\text{bits} \sim \text{percentile}^{\alpha}$ separately to two regimes:
+\begin{itemize}
+    \item \textbf{Early regime} (P5--P50, order $0.004$--$0.022$): $\alpha = 0.28$ (sublinear)
+    \item \textbf{Late regime} (P55--P95, order $0.041$--$0.204$): $\alpha = 3.67$ (superlinear)
+\end{itemize}
+
+The scaling exponent exhibits a dramatic jump: $\Delta\alpha = 3.39$ ($p < 0.001$), a 13-fold increase in scaling exponent. This is not a smooth transition but a sharp kink in the effort curve, indicating a fundamental change in landscape geometry around order $\approx 0.15$.
+
+\paragraph{Generality Across Architectures.} This phase transition is not CPPN-specific. Testing ConvNets and Fourier Features networks with identical methodology (sampling images from randomly-initialized, untrained networks) reveals similar transitions: ConvNets show $\alpha_{\text{low}} = 0.27$, $\alpha_{\text{high}} = 2.88$, $\Delta\alpha = 2.61$ ($p < 0.001$); Fourier Features show $\alpha_{\text{low}} = 0.26$, $\alpha_{\text{high}} = 3.44$, $\Delta\alpha = 3.19$ ($p < 0.001$). Crucially, architectures in the Memorization regime (MLP, Windowed ViT) and Broken regime (Global ViT) show no phase transition---they generate little structure from random weights (order $< 10^{-4}$), confirming the transition is specific to Shielded regime architectures.
+
+\paragraph{Mechanistic Explanation via Weight Space Collapse.} To understand this phase transition, we analyze the effective dimensionality of CPPN weight vectors that achieve different order levels. Using local principal component analysis, we estimate how many dimensions are needed to explain 90\% of variance in weights at each order threshold.
+
+\textbf{Key Finding:} High-order CPPN solutions occupy a progressively \emph{narrower} manifold in weight space:
+\begin{itemize}
+    \item At order 0.0 (low structure): Effective dimension $= 4.12$
+    \item At order 0.5 (high structure): Effective dimension $= 1.45$
+    \item Collapse factor: $2.84$ reduction ($p < 0.001$, Spearman $\rho = -1.0$)
+\end{itemize}
+
+This dimensional collapse explains the phase transition mechanistically. Finding random samples in a 1.5D subspace embedded within 100+D weight space requires exponentially more samples than exploring the initial broad region. The phase transition is not a feature of the order metric but reflects genuine geometric structure in CPPN weight space.
+
+\paragraph{Architectural Origin of the Manifold.} Why do CPPNs exhibit higher initial dimensionality (4.12) that then collapses, rather than starting low-dimensional like ResNets? We tested whether this stems from compositional coordinate inputs versus periodic activations.
+
+\textbf{Finding.} The compositional structure of CPPN inputs (separate channels for $x$, $y$, and $r = \sqrt{x^2 + y^2}$) is the primary driver of higher-dimensional weight space, independent of activation function choice:
+\begin{itemize}
+    \item Compositional inputs (x,y,r) + Sine: $\text{eff\_dim} = 4.82$
+    \item Random noise + Sine: $\text{eff\_dim} = 4.43$ (8.1\% reduction)
+    \item Compositional inputs + ReLU: $\text{eff\_dim} = 4.68$ (consistent with Sine)
+    \item Periodic activations alone (Sine/Tanh without compositional inputs): $\text{eff\_dim} = 6.0$ ($p=1.0$)---no effect on \emph{dimensionality}, though periodic activations do affect order magnitude (Table~\ref{tab:monte_carlo_volume})
+\end{itemize}
+
+This demonstrates that the three separate geometric input channels create natural regularization constraints that force the posterior distribution across more dimensions. The phase transition from 4.12$\to$1.45 effective dimensions is therefore an architectural consequence: compositional structure creates higher initial dimensionality that enables efficient collapse to the low-dimensional structured manifold.
+
+\paragraph{Implications for Nested Sampling.} The phase transition also explains why nested sampling is so effective: by progressively contracting the prior volume, the algorithm naturally concentrates on the low-dimensional manifold where high-order solutions reside. This is precisely the region where random sampling would require astronomical sample counts. The measured lower-bound separation (at least $10^{21}\times$ between CPPN and uniform priors) is partly a consequence of CPPN's built-in navigation toward this low-dimensional structure.
+
+Figure~\ref{fig:phase_transition} visualizes this transition and the underlying weight space geometry. The structure-generalization relationship (Section~\ref{sec:scaling_law}) reflects this fundamental dimensionality effect: architectures constrained by convolutional locality (ConvNets) create narrower weight-space manifolds for structured outputs, while architectures without such constraints (ViTs) explore higher-dimensional regions.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{phase_transition_scaling.pdf}
+\caption{Phase transition in sampling difficulty. Left: Samples required to reach different order percentiles show a sharp kink at P50 across all Shielded regime architectures (CPPN, ConvNet, Fourier; $\alpha$ jumps from $\approx$0.27 to $\approx$3.3, all $p < 0.001$). Right: Effective dimensionality (participation ratio of PCA singular values) collapses from 4.12 at low order to 1.45 at high order, explaining why high-structure solutions concentrate on a narrow manifold.}
+\label{fig:phase_transition}
+\end{figure}
+
+\subsection{Two-Stage Sampling: Exploiting the Manifold}
+\label{sec:manifold_exploitation}
+
+The weight space collapse revealed in Section~\ref{sec:phase_transition} raises a practical question: can we exploit knowledge of the low-dimensional manifold to accelerate sampling? We designed a two-stage algorithm: (1) broad exploration for 150 iterations to discover manifold structure via PCA, then (2) constrained proposals within the learned basis.
+
+\textbf{Results.} Two-stage sampling yields modest speedups with high variance (mean $3.74\times$, range 0.63--10.76 across 100 CPPNs). Cross-validated predictability is negative ($R^2_{\text{CV}}=-0.32$), indicating speedup cannot be reliably predicted from features or early dynamics.
+
+\paragraph{Critical Caveat.} This speedup is measured against single-stage nested sampling. For high-volume architectures like CPPNs, nested sampling itself is counterproductive: random sampling finds Order $\geq 0.95$ in $\sim$30 evaluations, while nested+PCA requires $\sim$3,771 ($125\times$ slower). When structure is \emph{common} under the prior, the overhead of nested sampling's contraction exceeds any benefit.
+
+\paragraph{Implication.} Two-stage speedup helps only within the nested sampling paradigm. For practitioners, random sampling from CPPNs is optimal. Nested sampling's value lies in \emph{measuring} thermodynamic volume for architecture comparison, not finding structured outputs. Full algorithmic details, alternative approaches tested, and information-theoretic speedup bounds appear in Appendix~\ref{app:refinement_saturation}.
+
+\subsection{Methodological Validation}
+\label{sec:methodological_validation}
+
+We validate that the order metric measures a real architectural property---implicit regularization strength---rather than measurement artifacts.
+
+\paragraph{Tail Mass Consistency.} The thermodynamic volume interpretation is grounded in tail mass:
+\begin{equation}
+B_{\text{MC}}(\tau) = -\log_2\left(P(\text{order} \geq \tau)\right)
+\end{equation}
+Across five architectures (CPPN, MLP, Conv, ViT, Transformer), tail mass estimates show consistent proportionality (0.75--1.39$\times$, mean $\approx 1.0$) to nested sampling evidence ratios for four architectures, with Transformer as an outlier (3.15$\times$). The near-unity proportionality confirms the thermodynamic interpretation.
+
+\paragraph{MC/NS Prior Alignment.} When the MC weight prior matches the NS prior, MC pass rates align with NS initial live-point pass fractions for CoordConvNet/CoordMLP/CoordViT at $\tau=0.1$: deltas are within 0.6--3.1 percentage points at $n=2000$ (Table~\ref{tab:mc_ns_coord_calibration}). This resolves the earlier discrepancy as prior mismatch, not NS failure. Absolute bits can still be method-sensitive in rare-event regimes (especially CoordViT), so we use this check for ordering/pass-fraction agreement rather than strict MC=NS bit identity.
+
+\paragraph{Metric Swap on Coord Inputs.} Replacing the multiplicative metric with a spectral-slope order \cite{field1987relations} yields the same ordering on coord-input architectures (ConvNet $>$ MLP $>$ ViT) with consistent pass-fraction separation, indicating the ConvNet--ViT gap is not an artifact of the gated metric.
+
+\paragraph{Initialization Sensitivity.} Some architectures (notably CoordViT) show materially higher pass fractions under He/Xavier initialization than under the fixed Gaussian prior. We therefore treat initialization as part of the prior and hold it fixed within each comparison; ablation results appear in Appendix~\ref{app:init_ablation}.
+
+\paragraph{ViT Broken Regime.} The ViT ``broken regime'' is robust: 14 variants spanning patch sizes, normalizations, depths, and optimizers all achieve order $10^{-6}$ to $10^{-2}$ (mean $\approx 6 \times 10^{-4}$)---indicating transformers in this setup generate little structure from architecture alone.
+
+\paragraph{Prior Generalization.} The framework generalizes beyond the neural architectures in main experiments. In a controlled 10-family sweep (Appendix~\ref{app:prior_family_sweep}) spanning coordinate networks (CPPN/Fourier/NeRF), MLP variants (ReLU/GELU/Swish/Tanh), polynomial priors, SIREN, and uniform random, all structured priors reached $\tau=0.1$ while uniform did not within the explored budget. This supports that the framework measures architectural inductive bias across multiple prior families, not only the coordinate trio used in the flagship controlled comparison.
+
+\paragraph{Threshold Robustness.} Architecture rankings are stable across a wide range of order thresholds. We validate at $\tau \in \{0.05, 0.1, 0.2, 0.3, 0.5\}$ with 10,000 samples per architecture (Appendix Table~\ref{tab:mc_volume_thresholds}). Even at the extreme threshold $\tau=0.5$, separation is maintained: FourierBasis achieves 87.2\%, CPPN 12.4\%, while MLP/ViT remain at 0.0\%. This confirms our findings are not artifacts of threshold choice.
+
+\begin{table}[H]
+\centering
+\caption{Methodological Validation Summary}
+\label{tab:phase0_validation}
+\begin{tabular}{lcc}
+\toprule
+Validation & Result & Status \\
+\midrule
+Tail mass proportionality & $0.75$--$1.39\times$ factor & \checkmark \\
+MC/NS prior alignment & $\leq 3.1$pp deltas at $\tau=0.1$ & \checkmark \\
+Coord metric swap & Ordering preserved (Conv $>$ MLP $>$ ViT) & \checkmark \\
+Initialization sensitivity & ViT sensitive; fixed prior & \checkmark \\
+ViT broken regime & 100\% (14/14 variants) & \checkmark \\
+Prior generalization & 10-family controlled sweep & \checkmark \\
+Threshold robustness & $\tau \in [0.05, 0.5]$ validated & \checkmark \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\subsection{Dissecting the Structural Bias Chain}
+\label{sec:bias-chain}
+
+
+Where does the structural prior originate---encoder or decoder? We isolate these contributions through matched-decoder experiments, replacing each architecture's native decoder with a shared convolutional upsampler (Figure~\ref{fig:bias-matrix}).
+
+\paragraph{Finding 1: The decoder is the primary source.}
+Replacing ViT's patch decoder with a convolutional decoder moves it from the Broken regime (order $= 0.0002$) to the Shielded regime (order $= 0.285$)---a $1000\times$ improvement. This does not contradict Appendix~\ref{app:mechanism}'s finding that transformers fail to preserve structure: there, the transformer was placed \emph{between} structured modules (conv stem $\to$ transformer $\to$ conv decoder); here, the conv decoder imposes structure \emph{after} the transformer. In both cases transformers are structure-agnostic---they neither generate nor preserve structure---but a sufficiently strong decoder can compensate. The convolutional decoder provides the manifold of smooth images; the encoder determines where on that manifold the network lands.
+
+\paragraph{Finding 2: Convolutional encoders provide additional bias.}
+With matched decoders, ConvNeXt ($0.453$) significantly exceeds ViT ($0.285$), a gap of $0.168$ attributable purely to encoder architecture. Weight sharing in the encoder creates translational invariance that further concentrates probability mass on structured images.
+
+\paragraph{Finding 3: Non-convolutional encoders are interchangeable.}
+Swin ($0.288$), ViT ($0.285$), MLP-Mixer ($0.285$), and dense MLP ($0.285$) achieve statistically identical scores with matched decoders. Without convolutional weight sharing, the specific mixing mechanism---attention, windowed attention, token-mixing MLP, or dense layers---is irrelevant. All function as structure-agnostic transformations.
+
+These findings reveal that inductive bias is \emph{compositional}: a network's structural prior is limited by its weakest component. Standard ViTs, lacking bias in both encoder and decoder, occupy negligible thermodynamic volume. Hybrid designs inheriting convolutional decoders can partially recover, but full structural bias requires convolution throughout the architecture.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\columnwidth]{bias_matrix_simple.pdf}
+\caption{\textbf{Structural bias is compositional.} Order metric decomposed by encoder type (rows) and decoder type (columns). The convolutional decoder rescues non-conv encoders from Broken to Shielded, but conv encoders provide additional bias ($0.45$ vs $0.29$). Notably, even a convolutional encoder is strangled by a patch decoder ($0.05$ vs $0.45$)---a $9\times$ loss in structural density, confirming the decoder as the primary bottleneck. All non-conv encoders (Swin, ViT, MLP-Mixer, MLP) are statistically identical with matched decoders.}
+\label{fig:bias-matrix}
+\end{figure}
+
+
+\section{Discussion}
+\label{sec:discussion}
+
+
+\subsection{Significance}
+
+This work provides the first quantitative comparison of neural network priors for image generation. Previous work demonstrated that architecture matters \cite{ulyanov2018deep} or evolved architectures for specific tasks \cite{gaier2019weight}, but could not answer ``how much does architecture X bias toward structure compared to architecture Y?'' Our bits metric answers this directly.
+
+The magnitude of differences is striking: at least $10^{21}\times$ between CPPN and uniform priors (from the measured $>72$-bit lower bound for uniform). This is not a subtle effect that requires careful statistics to detect---it represents substantially different inductive biases that influence learning dynamics for generative tasks.
+
+Beyond quantitative comparison, our work provides \emph{mechanistic understanding}. We show that compositional coordinate structure---the architectural choice to provide separate input channels for $x$, $y$, and $r$---creates natural regularization that concentrates structured outputs on low-dimensional weight space manifolds. This is not an accident of periodic activations or initialization, but a direct consequence of architectural composition. The observed $\sim$2--4$\times$ mean speedup under non-trivial targets indicates that this geometric structure is operationally exploitable, though gains are noisy and not easily predicted.
+
+Furthermore, testing of alternative CPPN architectures reveals that the standard [x,y,r] composition is \emph{well-engineered}, not arbitrary. Alternative coordinate systems tested and compared include:
+\begin{itemize}
+    \item Dual-channel [x+y, x-y]: higher effective dimensionality (4.01 vs 3.76 baseline; effective dimensionality measures weight-space collapse at high order, see Section~\ref{sec:phase_transition}), suggesting no added structural regularization
+    \item Polar $[r,\theta]$: achieved modest $1.15\times$ symmetry gain (below $1.3\times$ target)
+    \item Hierarchical multi-scale [x, x/2, x/4, y, y/2, y/4]: degraded performance to $0.69\times$ order (31\% loss)
+\end{itemize}
+All alternatives either failed to achieve target metrics or underperformed standard CPPNs. This suggests that CPPNs' [x,y,r] composition represents a local optimum in the architecture design space. Exception: nonlinear interaction terms ($x \cdot y$, $x/y$, $x^2$, $y^2$) showed exceptional $2.48\times$ order improvement in preliminary tests, suggesting that hybrid compositional + nonlinear architectures warrant future investigation.
+
+\subsection{Claim Levels}
+
+For clarity, we separate three levels of claims supported by this paper:
+\begin{itemize}
+    \item \textbf{Descriptive}: Architecture families induce markedly different thermodynamic structure densities under explicitly specified priors.
+    \item \textbf{Predictive (validated here)}: In our untrained DIP-style reconstruction setup, lower $B_{\text{NS}}^{\text{cross}}$ is associated with better denoising and earlier generalization windows.
+    \item \textbf{Hypothesis (scope-limited)}: Thermodynamic bits may inform architecture pre-screening for inverse problems; broader claims outside these settings require additional validation.
+\end{itemize}
+
+\subsection{Practical Implications}
+
+Our results suggest concrete architecture selection guidelines for \emph{generative} tasks:
+
+\begin{itemize}
+    \item \textbf{For reconstruction tasks} (autoencoders, inpainting, super-resolution, denoising): prefer low-$B_{\text{NS}}^{\text{cross}}$ architectures like CPPNs or deep convolutions. The topology-preserving nature of these architectures provides an implicit regularizer that guides reconstruction toward natural images.
+
+    \item \textbf{For generation tasks} (image synthesis, neural radiance fields): match the architecture's thermodynamic structure to the target data distribution (Section~\ref{sec:alignment}). Fourier Features ($0.54$) closely match natural images ($0.53$), consistent with their empirical efficacy in NeRF.
+\end{itemize}
+
+\paragraph{Classification.} Notably, $B_{\text{NS}}^{\text{cross}}$ does \emph{not} predict classification performance (Table~\ref{tab:classification}: MNIST $r=-0.24$, $p=0.27$; FashionMNIST $r=0.01$, $p=0.96$). This is expected: classification depends on properties orthogonal to our structure metric---invariances, margin geometry, and feature hierarchy rather than output smoothness. The bits metric measures generative priors; classification requires different inductive biases.
+
+\subsection{ConvNets vs Transformers}
+
+Our framework provides a thermodynamic lens on the observation that Vision Transformers often require more training data than ConvNets \cite{steiner2022how}. We find that untrained ViTs with standard patch-wise decoders occupy the same high-entropy region as MLPs, despite having positional embeddings (Section~\ref{sec:spectrum64}); replacing the decoder with a convolutional upsampler rescues the architecture to the Shielded regime (Section~\ref{sec:bias-chain}). The attention mechanism with random weights does not \emph{create} spatial structure---it is structure-agnostic, neither generating nor preserving locality. The deficit in standard ViTs lies specifically in the patch-based decoder, not the attention mixing itself. When a conv decoder follows the transformer, structure can be imposed at the output stage (Section~\ref{sec:bias-chain}). Standard ViT configurations, using patch tokenization followed by patch-wise linear projection, lack structural bias at both ends.
+
+ConvNets, by contrast, have structure \emph{hard-coded} into their connectivity: locality with weight sharing is enforced regardless of weight values. We validated this mechanistically: convolutions with weight sharing produce $10^4\times$ more structure than locally-connected layers without sharing, despite identical receptive fields. This ``hard'' inductive bias provides implicit regularization in our untrained generative setup; alignment with low-data ConvNet-vs-ViT observations in supervised literature \cite{steiner2022how} should be interpreted as consistency, not causal evidence from this study. Our DIP experiment (Section~\ref{sec:dip}) demonstrates this directly: the ResNet's low-$B_{\text{NS}}^{\text{cross}}$ prior enables a 12dB denoising advantage over ViT (validated across 1,500 independent runs).
+
+Our matched-decoder experiments (Section~\ref{sec:bias-chain}) further decompose this effect: replacing ViT's patch decoder with a convolutional upsampler rescues it from the Broken regime (order $= 0.0002$) to Shielded ($0.285$). However, it still trails ConvNeXt ($0.453$), confirming that convolutional encoders provide additional bias beyond decoder smoothness. Notably, all non-convolutional encoders---Swin, ViT, MLP-Mixer, and dense MLP---achieve identical scores with matched decoders, revealing that the specific mixing mechanism is irrelevant without weight sharing.
+
+\paragraph{Controlled Comparison with Matched Inputs.} To isolate locality with weight sharing versus global mixing, we test coordinate-conditioned architectures receiving identical $(x,y)$ coordinate inputs (Section~\ref{sec:spectrum64}). CoordConvNet (3$\times$3 convolutions) achieves $B_{\text{NS}}^{\text{cross}}=0.72$ bits with 64\% initial live-point pass fraction; CoordMLP (no spatial weight sharing) requires $B_{\text{NS}}^{\text{cross}}=2.11$ bits with 21\%; CoordViT (global attention) requires $B_{\text{NS}}^{\text{cross}}=2.67$ bits with 3\%---a $\sim$2-bit $B_{\text{NS}}^{\text{cross}}$ gap and $\sim$21$\times$ pass-fraction gap between ConvNet and ViT. This controlled design confirms the gap arises from architectural mixing with or without weight sharing, not from input representation, decoder architecture, or parameter count.
+
+\paragraph{Thermodynamic Cost as Data Requirement.} We treat this as a hypothesis, not a universal result. Direct architecture-family probes of bits vs $N_{\text{required}}$ remain mixed: in matched-prior/init confound-decomposition sweeps, a positive convolutional slope at target MSE $0.03$ did not replicate under seed shift, and CPPN remained partially right-censored/inconclusive with target-sensitive sign changes. We therefore do not claim a stable or universal data-requirement law from those runs. However, a redesigned causal intervention ladder with explicit knobs for weight sharing and global mixing now gives stronger mechanism evidence in a controlled single-family setting: after calibrating the global-mix operator, pooled analysis across three matched replications shows all three checks positive (sharing reduces bits, global mixing increases bits, and adjusted bits predicts worse denoising generalization AUC). A full x86 GCP replay matched local condition-level bits exactly and matched AUCs to numerical tolerance (mean absolute AUC difference $2.47\times10^{-6}$, max $1.99\times10^{-5}$). This supports a causal mechanism within the intervention family, while broader dataset-scale data-requirement claims remain for future work.
+
+\subsection{Limitations}
+\label{sec:limitations}
+
+Several limitations warrant discussion:
+
+\paragraph{Scope guardrail.} Bits are only compared within a fixed order metric and resolution; cross-experiment numeric comparisons are not interpreted. Classification results are limited to random-feature linear probes on MNIST and FashionMNIST.
+
+\paragraph{Scale.} Our primary experiments use 32$\times$32 binary images. Additional high-resolution validation covers convolutional families up to 1024$\times$1024 RGB, while non-convolutional comparisons are mainly at lower resolutions. We therefore make scale claims only within matched architecture families, thresholds, and metrics, and defer numeric exponent fits to Appendix~\ref{app:size_scaling}.
+
+\paragraph{Threshold sensitivity.} The scaling exponent depends on the structure threshold $\tau$. For size-scaling in CPPNs, we observe strong threshold dependence: $\beta \approx 0.80$ at $\tau=0.1$ (sub-linear) versus $\beta \approx 1.45$ at $\tau=0.25$ (super-linear); see Appendix~\ref{app:size_scaling}. This motivates a strict reporting rule: we do not compare raw bit magnitudes across different thresholds, and we interpret scaling trends only within threshold-matched analyses.
+
+\paragraph{Metric Specificity.} While our order$_{\text{multiplicative}}$ metric captures implicit regularization strength that predicts performance across generative task domains, it does not universally correlate with all structure measures (Section~\ref{sec:methodological_validation}: alternative metrics yield $\rho = -0.123$). The metric is specific to compositional priors. Extensions to other task classes (classification, reinforcement learning) would require validation of whether implicit regularization remains the relevant architectural property.
+
+Testing against DINOv2 semantic embeddings \cite{oquab2023dinov2} confirms our metric captures compositional structure rather than semantic similarity to natural images: ResNet outputs are closest to CIFAR-10 references (cosine distance 0.434) while high-order CPPN outputs remain semantically distant (0.508). This validates that ``structure'' in our framework means geometric regularity, not naturalness.
+
+\paragraph{Calibration.} Nested sampling shows $\sim$7\% systematic overestimation at experimental resolutions, with variance decreasing as $O(1/\sqrt{n_{\text{live}}})$ but bias floor persisting (Appendix~\ref{app:sanity}). A 7\% correction on a 70-bit gap yields 65 bits---still a $10^{19}$-fold efficiency difference. Relative orderings are robust.
+
+\paragraph{Computational cost.} Nested sampling requires $\mathcal{O}(NM)$ likelihood evaluations, where $N$ is live points and $M$ is iterations. For neural network priors, each evaluation requires a forward pass. This is tractable for small networks but expensive for large models.
+
+\paragraph{Nested sampling vs. random.} For high-volume architectures like CPPNs, nested sampling is slower than random sampling for \emph{finding} structured outputs (Section~\ref{sec:manifold_exploitation}). Our speedup claims are relative to single-stage nested sampling, not random sampling. Practitioners seeking structured CPPN outputs should use random sampling. Nested sampling's value lies in \emph{measuring} thermodynamic volume for architecture comparison, not in optimization.
+
+\paragraph{Input distribution specification.} Different architecture families use different input conventions: CPPNs receive fixed coordinate grids, while ConvNets and ViTs receive random noise (Section~\ref{sec:prior_spec}). To test whether this confounds our results, we ablated input type: a coordinate-input MLP with ReLU activations (matching ConvNet activations but CPPN inputs) achieves only 15.2\% success rate---\emph{worse} than ConvDecoder with random noise (52.3\%). CPPN's advantage (74.8\%) thus stems from periodic activations, not coordinate inputs. The input specification is not a confound.
+
+\subsection{Future Work}
+
+Our framework opens several promising research directions:
+
+\paragraph{Thermodynamic Neural Architecture Search (T-NAS).} The structure-generalization relationship (Section~\ref{sec:scaling_law}) motivates a possible screening workflow: evaluate untrained priors first, then train only shortlisted architectures. This is a hypothesis for future prospective validation; we do not claim realized NAS speedups in this work.
+
+\paragraph{Adversarial robustness.} The ``thermodynamic decay'' observed during discriminative training---where structure peaks early then declines as accuracy rises---may explain adversarial vulnerability. As networks chase high-frequency discriminative features, they leave the smooth, structured manifold where natural images reside. We hypothesize that \emph{thermodynamic volume is inversely proportional to adversarial vulnerability}: high-structure networks should be more robust because they cannot represent the high-frequency perturbations that fool low-structure networks. Testing this on standard adversarial benchmarks could yield both theoretical insight and practical defense strategies.
+
+\paragraph{Pretrained generative models.} Preliminary repository sweeps indicate the framework can be extended to additional generator families beyond those reported in the main controlled tables. Extending this to \emph{pretrained} models would enable comparison of learned vs architectural priors: how much structure comes from architecture alone vs training? This could reveal whether architectural inductive bias persists, diminishes, or transforms after learning on large datasets.
+
+\paragraph{Concept safety in generative AI.} Measuring ``bits of separation'' between concepts in a generative model's latent space could serve as a safety audit metric: if the separation between ``safe'' and ``unsafe'' concepts falls below a threshold, the model may hallucinate or generate inappropriate content. This thermodynamic lens on concept entanglement could inform both model selection and deployment decisions.
+
+\paragraph{Other domains.} The framework generalizes to any domain with a computable order metric: 3D shapes (mesh regularity), audio signals (spectral structure), text (grammaticality, coherence), and molecular structures (chemical validity). Each domain would require domain-specific order metrics, but the nested sampling machinery transfers directly.
+
+\paragraph{Theoretical foundations.} What architectural properties determine bits? Can we derive thermodynamic volume analytically from network topology, activation functions, or weight matrix spectra? Such theory could guide architecture design without expensive sampling---predicting bits from a network's connectivity graph alone. The spectral fingerprint analysis (Appendix~\ref{app:mechanism}) suggests that frequency response may be a tractable proxy; formalizing this connection is an open problem.
+
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+
+We introduced Thermodynamic Illumination, a framework for measuring the structural bias of neural network priors by quantifying the volume of structured images in their output space. Using nested sampling from statistical physics, we efficiently estimate probabilities as small as $10^{-22}$ (72 bits of prior volume).
+
+Our experiments reveal nine key findings:
+\begin{enumerate}
+    \item \textbf{Massive differences exist}: In the controlled coordinate-conditioned 32$\times$32 comparison, ConvNet/MLP/ViT are cleanly separated in $B_{\text{NS}}^{\text{cross}}(\tau{=}0.1)$ (0.72/2.11/2.67 bits). In independent prior-comparison baselines, CPPN reaches $\tau=0.1$ at $\sim$1.9 $B_{\text{NS}}^{\text{cross}}$ bits while uniform remains at $B_{\text{NS}}^{\text{cross}} > 72$ bits, implying at least a $10^{21}\times$ lower-bound threshold-crossing effort gap.
+    \item \textbf{Reconstruction prediction}: $B_{\text{NS}}^{\text{cross}}$ strongly predicts reconstruction quality (Spearman $\rho = 0.874$, $p = 0.0001$, $n=13$).
+    \item \textbf{Generative-specific metric}: Low-$B_{\text{NS}}^{\text{cross}}$ architectures excel at generation; however, $B_{\text{NS}}^{\text{cross}}$ does \emph{not} predict classification performance (MNIST $r=-0.24$, FashionMNIST $r=0.01$, both $p>0.25$). This confirms that our metric captures generative priors specifically.
+    \item \textbf{ConvNet-Transformer gap}: With matched coordinate inputs, CoordConvNet ($B_{\text{NS}}^{\text{cross}}=0.72$ bits, 64\% initial live-point pass fraction) and CoordViT ($B_{\text{NS}}^{\text{cross}}=2.67$ bits, 3\%) show a $\sim$2-bit $B_{\text{NS}}^{\text{cross}}$ gap and a $\sim$21$\times$ pass-fraction gap. This controlled comparison isolates locality with weight sharing versus global mixing as the source of spatial bias.
+    \item \textbf{Compositional bias}: Matched-decoder experiments reveal that structural bias is compositional---a network is only as structured as its weakest architectural component. Replacing ViT's patch decoder with a convolutional upsampler rescues it from Broken ($0.0002$) to Shielded ($0.285$), but it still trails ConvNeXt ($0.453$). All non-convolutional encoders (attention, MLP-mixing, dense) achieve identical scores with matched decoders, confirming that the mixing mechanism is irrelevant without weight sharing.
+    \item \textbf{Kinetic validation}: Thermodynamic volume predicts optimization dynamics---low-$B_{\text{NS}}^{\text{cross}}$ networks act as implicit regularizers during training, achieving 12dB better denoising than high-$B_{\text{NS}}^{\text{cross}}$ alternatives.
+    \item \textbf{Three thermodynamic regimes}: Across 13 architectures, we discover \emph{Shielded} (forces generalization), \emph{Memorization} (fits without generalizing), and \emph{Broken} (fails untrained generative reconstruction). Structure predicts generalization gap (Spearman $\rho = 0.79$, permutation $p = 0.002$).
+    \item \textbf{Noise-Dependent Optimal Structure}: Optimal generalization occurs not at maximum structure, but depends on alignment (noise level and target complexity). On CIFAR-10 (native $32\times 32$), CPPN outperforms Fourier at moderate noise ($\sigma \in \{0.10, 0.15, 0.20\}$; Figure~\ref{fig:dip_cifar}). On Tiny ImageNet (native $64\times 64$), Fourier outperforms CPPN at low and moderate noise ($\sigma \leq 0.15$) and converges at high noise ($\sigma=0.20$; Figure~\ref{fig:dip_tiny}), consistent with a bias-variance tradeoff between over-smoothing and detail preservation.
+    \item \textbf{Broad generalization}: A controlled 10-family sweep confirms transfer beyond the coordinate trio: coordinate networks, MLP variants, polynomial priors, and SIREN all reach the order threshold under the same protocol, while uniform random does not.
+\end{enumerate}
+
+This work transforms inductive bias from a qualitative notion (``CNNs prefer smooth images'') to a measurable quantity ($B = 0.9$ bits for deep convolutions), and demonstrates that this measurement has practical consequences for generalization. We hope this enables principled architecture selection and inspires further investigation into the relationship between network structure and output space geometry.
+
+\paragraph{Code Availability.} Code and data are available at \url{https://github.com/kaneda2004/thermodynamic-illumination-public}.
+
+
+
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+
+
+
+\newpage
+\appendix
+\section*{Appendix}
+\addcontentsline{toc}{section}{Appendix}
+\input{appendix}
+
+\end{document}
+
+\typeout{get arXiv to do 4 passes: Label(s) may have changed. Rerun}

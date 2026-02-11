@@ -1,0 +1,10 @@
+{
+  "total_excess": {
+    "cppn_mean": 0.12419991111149041,
+    "cppn_std": 0.1216597108298294,
+    "random_mean": 0.9268459829937149,
+    "random_std": 0.003874046165651521,
+    "mann_whitney_U": 0.0,
+    "p_value": 1.0,
+    "cohens_d": -9.309946699889373,
+    "significant": 

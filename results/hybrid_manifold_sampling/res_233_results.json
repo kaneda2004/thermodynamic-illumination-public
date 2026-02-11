@@ -1,0 +1,21 @@
+{
+  "method": "Mixture of 2D/3D/5D manifold bases with adaptive weighting",
+  "baseline_samples": 25470.0,
+  "baseline_samples_std": 8720.269491248537,
+  "fixed_weights_samples": 301.0,
+  "fixed_weights_std": 0.0,
+  "fixed_speedup": 84.61794019933555,
+  "decay_weights_samples": 301.0,
+  "decay_weights_std": 0.0,
+  "decay_speedup": 84.61794019933555,
+  "adaptive_weights_samples": 301.0,
+  "adaptive_weights_std": 0.0,
+  "adaptive_speedup": 84.61794019933555,
+  "best_speedup": 84.61794019933555,
+  "best_variant": "fixed",
+  "speedup_threshold": 110.0,
+  "conclusion": "refute",
+  "status": "invalid",
+  "invalid_reason": "Sample counting bug (baseline multiplies by n_live) inflates sample counts and speedup; requires fix and rerun.",
+  "needs_rerun": true
+}

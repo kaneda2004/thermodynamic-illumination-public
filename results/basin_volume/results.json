@@ -1,0 +1,85 @@
+{
+  "experiment_id": "RES-172",
+  "hypothesis": "High-order basins occupy smaller volume in weight space than low-order regions",
+  "global_volume_analysis": {
+    "n_samples": 10000,
+    "mean_order": 0.06291358950466372,
+    "std_order": 0.07460019454029071,
+    "volume_fractions": {
+      "0.01": 0.5672,
+      "0.05": 0.4161,
+      "0.1": 0.279,
+      "0.2": 0.0561,
+      "0.3": 0.0069,
+      "0.4": 0.0018,
+      "0.5": 0.0003
+    },
+    "percentiles": {
+      "50": 0.022862535634195297,
+      "90": 0.17952793933115208,
+      "95": 0.2042803497499565,
+      "99": 0.27277299784070635
+    }
+  },
+  "local_volume_analysis": {
+    "radius": 0.5,
+    "n_samples_per_center": 100,
+    "bins": [
+      {
+        "order_range": "[0.01, 0.05)",
+        "lower": 0.01,
+        "upper": 0.05,
+        "n_centers": 50,
+        "mean_volume": 0.9378,
+        "std_volume": 0.09735070621212771,
+        "mean_order": 0.028582513842200764
+      },
+      {
+        "order_range": "[0.05, 0.1)",
+        "lower": 0.05,
+        "upper": 0.1,
+        "n_centers": 50,
+        "mean_volume": 0.9398000000000001,
+        "std_volume": 0.0805354580293674,
+        "mean_order": 0.07398898900066853
+      },
+      {
+        "order_range": "[0.1, 0.2)",
+        "lower": 0.1,
+        "upper": 0.2,
+        "n_centers": 50,
+        "mean_volume": 0.9175999999999999,
+        "std_volume": 0.12642088435064833,
+        "mean_order": 0.14999683088694302
+      },
+      {
+        "order_range": "[0.2, 0.3)",
+        "lower": 0.2,
+        "upper": 0.3,
+        "n_centers": 50,
+        "mean_volume": 0.8258000000000001,
+        "std_volume": 0.16003862033896693,
+        "mean_order": 0.22447461711588737
+      },
+      {
+        "order_range": "[0.3, 1.0)",
+        "lower": 0.3,
+        "upper": 1.0,
+        "n_centers": 8,
+        "mean_volume": 0.4125,
+        "std_volume": 0.20728904939721252,
+        "mean_order": 0.3777634613580377
+      }
+    ]
+  },
+  "statistical_analysis": {
+    "low_order_volume": 0.9378,
+    "high_order_volume": 0.4125,
+    "t_stat": 11.416811933353278,
+    "p_value": 3.0256428073880383e-16,
+    "cohens_d": 3.243893486601642,
+    "correlation_r": -0.6157733700375688,
+    "correlation_p": 4.240318801127189e-23
+  },
+  "status": "VALIDATED: High-order basins have smaller local volume"
+}

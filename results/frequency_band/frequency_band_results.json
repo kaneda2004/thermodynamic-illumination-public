@@ -1,0 +1,51 @@
+{
+  "n_samples": 500,
+  "correlations": {
+    "order_vs_low_freq_ratio": {
+      "rho": 0.043232942493513005,
+      "p": 0.33467028315252023
+    },
+    "order_vs_spectral_slope": {
+      "rho": -0.9065319082687667,
+      "p": 1.178941467886825e-188
+    }
+  },
+  "r_squared": {
+    "low_freq_ratio": 0.12485745308902649,
+    "spectral_slope": 0.4952696652759611,
+    "low_freq_better": false
+  },
+  "group_comparison": {
+    "high_order_low_freq_mean": 0.9658841415152903,
+    "low_order_low_freq_mean": 0.6557836837855849,
+    "mann_whitney_U": 27062.0,
+    "p_value": 0.009031094165290585,
+    "cohens_d": 0.9588951503226777
+  },
+  "quartile_analysis": {
+    "low_freq_ratio": [
+      0.574468085106383,
+      0.9023535636515524,
+      0.9635055038678816,
+      0.9682627791626994
+    ],
+    "high_freq_ratio": [
+      0.0,
+      0.09764643634844761,
+      0.03649449613211854,
+      0.03173722083730062
+    ],
+    "spectral_slope": [
+      0.0,
+      -1.9677692128080946,
+      -2.6238437027842743,
+      -2.6778225401666953
+    ]
+  },
+  "summary_stats": {
+    "mean_order": 0.06739463590169684,
+    "mean_low_freq_ratio": 0.8108339126504377,
+    "mean_high_freq_ratio": 0.029166087349562296,
+    "mean_spectral_slope": -1.5694199431259463
+  }
+}

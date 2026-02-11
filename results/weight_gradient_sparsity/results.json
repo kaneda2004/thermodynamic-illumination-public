@@ -1,0 +1,23 @@
+{
+  "experiment_id": "RES-098",
+  "hypothesis": "Weight gradient sparsity correlates with CPPN image order",
+  "domain": "weight_gradient_structure",
+  "status": "validated",
+  "parameters": {
+    "n_samples": 200,
+    "image_size": 32,
+    "sparsity_threshold": 0.1,
+    "seed": 42
+  },
+  "metrics": {
+    "spearman_rho_sparsity": -0.2261140441117826,
+    "p_value_sparsity": 0.0012841807724741272,
+    "spearman_rho_mean_grad": 0.22725434328403055,
+    "p_value_mean_grad": 0.001211473866272272,
+    "mannwhitney_effect_size": 0.0595,
+    "mannwhitney_pvalue": 0.03255242170862389,
+    "high_order_sparsity_mean": 0.9620000000000001,
+    "low_order_sparsity_mean": 0.992
+  },
+  "summary": "Weight gradient sparsity correlates with order (rho=-0.226, p=1.28e-03). High-order CPPNs have lower gradient sparsity."
+}

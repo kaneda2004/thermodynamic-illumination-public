@@ -1,0 +1,33 @@
+{
+  "experiment_id": "RES-163",
+  "hypothesis": "Activation trajectory curvature through CPPN layers correlates with output order",
+  "n_samples": 500,
+  "n_hidden_layers": 4,
+  "analysis": {
+    "correlation_abs": {
+      "r": -0.028193369522781418,
+      "p": 0.529368650343236
+    },
+    "correlation_rms": {
+      "r": -0.022889509384560094,
+      "p": 0.6096235733810952
+    },
+    "correlation_var": {
+      "r": -0.03020247302388927,
+      "p": 0.5004313279483235
+    },
+    "cohens_d": 0.06266935955457201,
+    "t_test_pvalue": 0.4849551869144786,
+    "high_order_mean_curvature": 1.4110275042147447,
+    "low_order_mean_curvature": 1.3700230154159558,
+    "order_stats": {
+      "mean": 0.0052411002724033545,
+      "std": 0.010771278836302713,
+      "median": 0.004274991775069136
+    },
+    "curvature_stats": {
+      "mean": 1.3912633406137282,
+      "std": 0.654555725494846
+    }
+  }
+}

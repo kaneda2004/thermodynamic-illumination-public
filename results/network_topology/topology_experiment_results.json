@@ -1,0 +1,129 @@
+{
+  "experiment": "network_topology",
+  "domain": "network_topology",
+  "parameters": {
+    "n_samples": 500,
+    "image_size": 32,
+    "base_seed": 42,
+    "hidden_counts_tested": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "hidden_activations": [
+      "sigmoid",
+      "tanh",
+      "sin",
+      "gauss",
+      "relu"
+    ]
+  },
+  "hypothesis": {
+    "statement": "Deep CPPN networks (2+ hidden nodes) achieve higher order than shallow networks (0 hidden nodes)",
+    "null_hypothesis": "Order distribution is independent of network depth",
+    "builds_on": [
+      "RES-013",
+      "RES-021"
+    ],
+    "novelty_justification": "RES-013 tested activation functions, RES-021 tested weight structure. This tests network depth/topology effect on achievable order."
+  },
+  "primary_test": {
+    "test": "Spearman correlation",
+    "rho": 0.04921494649443629,
+    "p_value": 0.027741897608051798
+  },
+  "refined_test": {
+    "test": "Mann-Whitney U (shallow < deep)",
+    "comparison": "0 hidden vs 2+ hidden",
+    "shallow_mean": 0.06740734566631419,
+    "deep_mean": 0.12855207607127042,
+    "U_stat": 260033.5,
+    "p_value": 0.9006881904608075,
+    "cohens_d": 0.3327086798695964
+  },
+  "secondary_test": {
+    "test": "Kruskal-Wallis H",
+    "H_stat": 121.35535486628446,
+    "p_value": 3.9402568410898476e-26
+  },
+  "pairwise_comparisons": {
+    "0_vs_1": {
+      "U_stat": 170508.0,
+      "p_value": 1.6962550032897694e-24,
+      "cohens_d": -0.07151663852824994,
+      "significant_bonferroni": true
+    },
+    "0_vs_2": {
+      "U_stat": 138979.5,
+      "p_value": 0.0019223296492280274,
+      "cohens_d": 0.28503994098140145,
+      "significant_bonferroni": true
+    },
+    "0_vs_3": {
+      "U_stat": 121054.0,
+      "p_value": 0.38312270691173156,
+      "cohens_d": 0.45731813757406176,
+      "significant_bonferroni": false
+    }
+  },
+  "summary_by_hidden_count": {
+    "0": {
+      "order_mean": 0.06740734566631419,
+      "order_std": 0.07572472855393586,
+      "order_max": 0.38403121933161977,
+      "order_median": 0.029716705214742116,
+      "order_25th": 0.004274991775069136,
+      "order_75th": 0.1203149913863937,
+      "n_params_mean": 5.0
+    },
+    "1": {
+      "order_mean": 0.058852032843778566,
+      "order_std": 0.1510950271016535,
+      "order_max": 1.0,
+      "order_median": 0.004274991775069136,
+      "order_25th": 0.004147380080290953,
+      "order_75th": 0.004274991775069136,
+      "n_params_mean": 7.0
+    },
+    "2": {
+      "order_mean": 0.11185764462064651,
+      "order_std": 0.20689519091104408,
+      "order_max": 0.9985151719829396,
+      "order_median": 0.004274991775069136,
+      "order_25th": 0.004147380080290953,
+      "order_75th": 0.12813155229336903,
+      "n_params_mean": 13.0
+    },
+    "3": {
+      "order_mean": 0.14524650752189433,
+      "order_std": 0.22823528216579456,
+      "order_max": 1.0,
+      "order_median": 0.015149516611179668,
+      "order_25th": 0.004274991775069136,
+      "order_75th": 0.19706954415783481,
+      "n_params_mean": 19.0
+    }
+  },
+  "monotonicity": {
+    "strictly_increasing": false,
+    "increasing_pairs": 2
+  },
+  "bottleneck_finding": {
+    "description": "1-hidden node shows bimodal distribution: either very low order (median=0.004) or very high (max=1.0)",
+    "n_hidden_1_median": 0.004274991775069136,
+    "n_hidden_1_max": 1.0,
+    "n_hidden_1_75th": 0.004274991775069136
+  },
+  "decision": {
+    "spearman_pass": false,
+    "refined_pass": false,
+    "effect_size_pass": false,
+    "kruskal_pass": true,
+    "criteria_met": 1,
+    "criteria_total": 3
+  },
+  "status": "inconclusive",
+  "confidence": "low",
+  "summary": "Inconclusive results. Weak positive trend (rho=0.049) but insufficient significance or effect size. More samples or different methodology may be needed."
+}

@@ -1,0 +1,19 @@
+{
+  "hypothesis": "Polar coordinates enhance rotational symmetry in CPPN weight space",
+  "method": "Compare weight space dimensionality and rotational symmetry across coordinate systems",
+  "cartesian_weight_eff_dim": 4.0,
+  "polar_weight_eff_dim": 4.0,
+  "mixed_weight_eff_dim": 4.0,
+  "cartesian_rotational_symmetry": 0.29395930117401786,
+  "polar_rotational_symmetry": 0.3390582355112217,
+  "mixed_rotational_symmetry": 0.29395930117401786,
+  "polar_eff_dim_ratio": 1.0,
+  "polar_symmetry_gain": 1.1534189738412333,
+  "cartesian_convergence_samples": 0,
+  "polar_convergence_samples": 0,
+  "mixed_convergence_samples": 0,
+  "conclusion": "refuted",
+  "summary": "Polar advantage insufficient: dim_ratio=1.00\u00d7, sym_gain=1.15\u00d7",
+  "effect_size": 0.15341897384123326,
+  "p_value": 0.95
+}

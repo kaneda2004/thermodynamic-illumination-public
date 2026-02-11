@@ -1,0 +1,8 @@
+| RES-ID | Hypothesis (compact) | Effect Size | Domain |
+|---|---|---|---|
+| RES-184 | CPPNs with equal |x-weight| and |y-weight| produce higher reflection symmetry | 0.1107 | coordinate_effects |
+| RES-064 | Optimal binarization threshold for order variance separation is not 0.5 | -0.0185 | threshold_sensitivity |
+| RES-144 | High-order CPPN weight vectors cluster in narrow angular cones in weight space | -0.1041 | weight_geometry |
+| RES-158 | Pre-activation velocity (layer-to-layer delta) predicts CPPN output order | -0.1794 | activation_dynamics |
+| RES-033 | Cross-scale MI (coarse to fine) is higher for CPPN than random | -1.0669 | information_theory |
+| RES-036 | Bit-cost scales sub-linearly with image size (B(N) ~ N^beta, beta < 1) | -22.8033 | scaling_laws |

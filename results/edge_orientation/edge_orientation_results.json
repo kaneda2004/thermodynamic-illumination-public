@@ -1,0 +1,41 @@
+{
+  "n_samples": 500,
+  "image_size": 32,
+  "n_bins": 36,
+  "seed": 42,
+  "max_entropy": 5.169925001442312,
+  "order_range": [
+    0.004147380080290953,
+    0.5197603629334541
+  ],
+  "entropy_range": [
+    0.468109487890291,
+    5.169925001442311
+  ],
+  "spearman_rho_entropy": -0.6332320738158985,
+  "spearman_p_entropy": 2.1509464886779377e-57,
+  "spearman_rho_peak": 0.6454073818831975,
+  "spearman_p_peak": 2.998092149683281e-60,
+  "spearman_rho_dominant": 0.6346164083224356,
+  "spearman_p_dominant": 1.033656121886954e-57,
+  "entropy_low_mean": 4.411581916816682,
+  "entropy_low_std": 1.3840198982028022,
+  "entropy_high_mean": 2.336017535369735,
+  "entropy_high_std": 0.776824986608539,
+  "mann_whitney_U": 53218.0,
+  "mann_whitney_p": 2.1933915772334096e-44,
+  "cohens_d": -1.8494383966787502,
+  "kruskal_H": 240.25276908182136,
+  "kruskal_p": 8.39160105872178e-52,
+  "quartile_entropies": [
+    5.16992500144231,
+    4.054714582875209,
+    2.037556440471315,
+    2.634478630268156
+  ],
+  "peak_ratio_low_mean": 0.29997044299929704,
+  "peak_ratio_high_mean": 0.8302269038386866,
+  "dominant_strength_low_mean": 4.729281234306911,
+  "dominant_strength_high_mean": 14.288520225365318,
+  "status": "validated"
+}

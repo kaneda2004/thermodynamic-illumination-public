@@ -1,0 +1,306 @@
+{
+  "experiment": "coordinate_warping",
+  "experiment_id": "RES-102",
+  "hypothesis": "Nonlinear coordinate warping produces distinct order distributions",
+  "parameters": {
+    "n_samples": 400,
+    "image_size": 32,
+    "base_seed": 42,
+    "warpings": [
+      "identity",
+      "sqrt",
+      "square",
+      "log",
+      "exp",
+      "sinh",
+      "tanh"
+    ]
+  },
+  "primary_test": {
+    "test": "kruskal_wallis",
+    "H_statistic": 48.035629858132914,
+    "p_value": 1.1624053292491373e-08,
+    "significant": true
+  },
+  "secondary_tests": {
+    "pairwise_comparisons": [
+      {
+        "warp1": "identity",
+        "warp2": "sqrt",
+        "U": 83508.0,
+        "p_value": 0.27863809936893214,
+        "cohens_d": 0.1569541569979609,
+        "significant": false
+      },
+      {
+        "warp1": "identity",
+        "warp2": "square",
+        "U": 78213.5,
+        "p_value": 0.5817827017915774,
+        "cohens_d": -0.0033675165308640607,
+        "significant": false
+      },
+      {
+        "warp1": "identity",
+        "warp2": "log",
+        "U": 87312.5,
+        "p_value": 0.023512567104072308,
+        "cohens_d": 0.2014864551150827,
+        "significant": false
+      },
+      {
+        "warp1": "identity",
+        "warp2": "exp",
+        "U": 67224.5,
+        "p_value": 8.352165812052519e-05,
+        "cohens_d": -0.2741043871823987,
+        "significant": false
+      },
+      {
+        "warp1": "identity",
+        "warp2": "sinh",
+        "U": 78938.5,
+        "p_value": 0.7433545320338852,
+        "cohens_d": 0.012667842794021764,
+        "significant": false
+      },
+      {
+        "warp1": "identity",
+        "warp2": "tanh",
+        "U": 82598.0,
+        "p_value": 0.4220483147221006,
+        "cohens_d": 0.1142412009889601,
+        "significant": false
+      },
+      {
+        "warp1": "sqrt",
+        "warp2": "square",
+        "U": 75487.0,
+        "p_value": 0.16402211949287449,
+        "cohens_d": -0.15200096183719708,
+        "significant": false
+      },
+      {
+        "warp1": "sqrt",
+        "warp2": "log",
+        "U": 84497.5,
+        "p_value": 0.16361409741674482,
+        "cohens_d": 0.0482523899208062,
+        "significant": false
+      },
+      {
+        "warp1": "sqrt",
+        "warp2": "exp",
+        "U": 62790.0,
+        "p_value": 1.1644838534161145e-07,
+        "cohens_d": -0.43630309122680133,
+        "significant": false
+      },
+      {
+        "warp1": "sqrt",
+        "warp2": "sinh",
+        "U": 75483.5,
+        "p_value": 0.16348736290714427,
+        "cohens_d": -0.14199699753269404,
+        "significant": false
+      },
+      {
+        "warp1": "sqrt",
+        "warp2": "tanh",
+        "U": 78570.5,
+        "p_value": 0.6588012714984783,
+        "cohens_d": -0.049578850638726295,
+        "significant": false
+      },
+      {
+        "warp1": "square",
+        "warp2": "log",
+        "U": 90049.5,
+        "p_value": 0.0018811714812261282,
+        "cohens_d": 0.19413601405763797,
+        "significant": false
+      },
+      {
+        "warp1": "square",
+        "warp2": "exp",
+        "U": 69016.0,
+        "p_value": 0.0007288966436948172,
+        "cohens_d": -0.25923039405336873,
+        "significant": false
+      },
+      {
+        "warp1": "square",
+        "warp2": "sinh",
+        "U": 80917.0,
+        "p_value": 0.7776005673461935,
+        "cohens_d": 0.01541056580605703,
+        "significant": false
+      },
+      {
+        "warp1": "square",
+        "warp2": "tanh",
+        "U": 83853.5,
+        "p_value": 0.23455057711604854,
+        "cohens_d": 0.11144462769020634,
+        "significant": false
+      },
+      {
+        "warp1": "log",
+        "warp2": "exp",
+        "U": 59805.5,
+        "p_value": 4.5825549791845297e-10,
+        "cohens_d": -0.4774297407651832,
+        "significant": false
+      },
+      {
+        "warp1": "log",
+        "warp2": "sinh",
+        "U": 71024.5,
+        "p_value": 0.005480454270685527,
+        "cohens_d": -0.18614207142316352,
+        "significant": false
+      },
+      {
+        "warp1": "log",
+        "warp2": "tanh",
+        "U": 75069.5,
+        "p_value": 0.1265156517762844,
+        "cohens_d": -0.09886156245242064,
+        "significant": false
+      },
+      {
+        "warp1": "exp",
+        "warp2": "sinh",
+        "U": 91960.0,
+        "p_value": 0.00023323591278385622,
+        "cohens_d": 0.2840494032453589,
+        "significant": false
+      },
+      {
+        "warp1": "exp",
+        "warp2": "tanh",
+        "U": 96140.0,
+        "p_value": 6.635068710278147e-07,
+        "cohens_d": 0.4012206822466251,
+        "significant": false
+      },
+      {
+        "warp1": "sinh",
+        "warp2": "tanh",
+        "U": 83722.5,
+        "p_value": 0.2505426382403876,
+        "cohens_d": 0.09937400820017075,
+        "significant": false
+      }
+    ],
+    "n_significant": 0,
+    "n_comparisons": 21,
+    "bonferroni_alpha": 0.0004761904761904762
+  },
+  "best_vs_identity": {
+    "best_warp": "exp",
+    "cohens_d": 0.2741043871823987,
+    "p_value": 4.1760829060262594e-05,
+    "beats_identity": false
+  },
+  "effect_vs_identity": {
+    "sqrt": -0.1569541569979609,
+    "square": 0.0033675165308640607,
+    "log": -0.2014864551150827,
+    "exp": 0.2741043871823987,
+    "sinh": -0.012667842794021764,
+    "tanh": -0.1142412009889601
+  },
+  "summary_by_warp": {
+    "identity": {
+      "order_mean": 0.06183813971587687,
+      "order_std": 0.07307726335961379,
+      "order_median": 0.023813536398964302,
+      "order_q25": 0.004274991775069136,
+      "order_q75": 0.10707594832131387,
+      "edge_density_mean": 0.011654052734375,
+      "symmetry_mean": 0.824267578125,
+      "spectral_coherence_mean": 0.9719849230643121,
+      "compressibility_mean": 0.9362841796875
+    },
+    "sqrt": {
+      "order_mean": 0.05108609025206308,
+      "order_std": 0.0634188726374123,
+      "order_median": 0.020645376178279363,
+      "order_q25": 0.004274991775069136,
+      "order_q75": 0.0877581987398543,
+      "edge_density_mean": 0.010247802734375,
+      "symmetry_mean": 0.7960693359375,
+      "spectral_coherence_mean": 0.9748490570470909,
+      "compressibility_mean": 0.9431884765625
+    },
+    "square": {
+      "order_mean": 0.06209698589874308,
+      "order_std": 0.08029204996651125,
+      "order_median": 0.017739288552327107,
+      "order_q25": 0.004274991775069136,
+      "order_q75": 0.10183322724280969,
+      "edge_density_mean": 0.013228759765625,
+      "symmetry_mean": 0.868818359375,
+      "spectral_coherence_mean": 0.9687422938728399,
+      "compressibility_mean": 0.93751953125
+    },
+    "log": {
+      "order_mean": 0.048017517871394716,
+      "order_std": 0.06361030828924258,
+      "order_median": 0.004274991775069136,
+      "order_q25": 0.004274991775069136,
+      "order_q75": 0.08523246255881821,
+      "edge_density_mean": 0.009202880859375,
+      "symmetry_mean": 0.8569775390625,
+      "spectral_coherence_mean": 0.9777624984677102,
+      "compressibility_mean": 0.9428759765625
+    },
+    "exp": {
+      "order_mean": 0.08322097753802779,
+      "order_std": 0.08246426135254885,
+      "order_median": 0.05777005235584215,
+      "order_q25": 0.004274991775069136,
+      "order_q75": 0.1497426727048516,
+      "edge_density_mean": 0.015069580078125,
+      "symmetry_mean": 0.793896484375,
+      "spectral_coherence_mean": 0.9642594895512059,
+      "compressibility_mean": 0.926123046875
+    },
+    "sinh": {
+      "order_mean": 0.06090371069052642,
+      "order_std": 0.07426118183593564,
+      "order_median": 0.01888689804679025,
+      "order_q25": 0.004274991775069136,
+      "order_q75": 0.10967311596122468,
+      "edge_density_mean": 0.011748046875,
+      "symmetry_mean": 0.8377783203125,
+      "spectral_coherence_mean": 0.9724436617672525,
+      "compressibility_mean": 0.9351318359375
+    },
+    "tanh": {
+      "order_mean": 0.054163343351913584,
+      "order_std": 0.06052786700898216,
+      "order_median": 0.02556012370272392,
+      "order_q25": 0.004274991775069136,
+      "order_q75": 0.09537729885881242,
+      "edge_density_mean": 0.01065185546875,
+      "symmetry_mean": 0.7945751953125,
+      "spectral_coherence_mean": 0.9745254732671812,
+      "compressibility_mean": 0.9426220703125
+    }
+  },
+  "rankings": {
+    "by_mean_order": [
+      "exp",
+      "square",
+      "identity",
+      "sinh",
+      "tanh",
+      "sqrt",
+      "log"
+    ]
+  },
+  "status": "inconclusive",
+  "confidence": "medium"
+}

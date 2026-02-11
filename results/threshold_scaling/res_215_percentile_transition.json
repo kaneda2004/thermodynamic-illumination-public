@@ -1,0 +1,49 @@
+{
+  "experiment": "RES-215",
+  "revision": "v2 - percentile scaling",
+  "hypothesis": "The scaling exponent changes across percentiles, indicating phase transition",
+  "method": "Monte Carlo sampling to percentiles of order distribution",
+  "order_distribution": {
+    "mean": 0.07199283532920926,
+    "std": 0.07643967691871378,
+    "min": 0.004147380080290953,
+    "max": 0.3554841961624255
+  },
+  "percentiles": [
+    10,
+    25,
+    50,
+    75,
+    90
+  ],
+  "threshold_values": [
+    0.004147380080290953,
+    0.004274991775069136,
+    0.043707910773211164,
+    0.12710029275119666,
+    0.19454903122937156
+  ],
+  "efforts": [
+    -4.906890595608519,
+    -4.573466861883326,
+    -3.8433876533023605,
+    -2.7021238449539053,
+    -1.01547140876244
+  ],
+  "effort_vars": [
+    1.7763568394002505e-15,
+    0.47850695623174005,
+    0.9044904283160599,
+    1.1452382216514185,
+    1.3902228383436595
+  ],
+  "power_law_analysis": {
+    "slope_low": NaN,
+    "slope_high": NaN,
+    "transition_magnitude": NaN,
+    "global_slope": NaN,
+    "global_r_squared": NaN
+  },
+  "effect_size": NaN,
+  "status": "REFUTED"
+}

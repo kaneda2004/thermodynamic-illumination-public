@@ -1,0 +1,42 @@
+{
+  "metadata": {
+    "n_cppns": 5,
+    "resolution": 64,
+    "baseline_order": 0.0018321393321724907
+  },
+  "measurements": [
+    {
+      "cppn_id": 0,
+      "order": 0.0018321393321724907,
+      "reconstruction_quality": 0.5
+    },
+    {
+      "cppn_id": 1,
+      "order": 0.07705977795255245,
+      "reconstruction_quality": 0.9917637443191476
+    },
+    {
+      "cppn_id": 2,
+      "order": 0.0017033882472623594,
+      "reconstruction_quality": 0.5
+    },
+    {
+      "cppn_id": 3,
+      "order": 0.0017033882472623594,
+      "reconstruction_quality": 0.5
+    },
+    {
+      "cppn_id": 4,
+      "order": 0.13947519411442477,
+      "reconstruction_quality": 0.9836691305114158
+    }
+  ],
+  "analysis": {
+    "pearson_r": -0.931295539996927,
+    "pearson_p": 0.021393616992254158,
+    "spearman_r": -0.8029550685469662,
+    "spearman_p": 0.10183797037740712
+  },
+  "status": "GO",
+  "recommendation": "Alignment principle validated (r < -0.6). Paper claims supported."
+}

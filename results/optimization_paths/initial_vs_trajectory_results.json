@@ -1,0 +1,61 @@
+{
+  "experiment_id": "RES-194",
+  "hypothesis": "Initial weight configuration predicts ESS path final order better than trajectory length",
+  "status": "refuted",
+  "conclusion": "Trajectory features predict BETTER than initial (opposite direction)",
+  "n_paths": 300,
+  "n_steps": 50,
+  "metrics": {
+    "r2_initial": -0.0695861071825922,
+    "r2_trajectory": 0.6982540511252688,
+    "r2_combined": 0.8561389707021713,
+    "r2_diff": -0.767840158307861,
+    "t_statistic": -21.935120162615622,
+    "p_value": 2.5562160817566878e-05,
+    "cohens_d": -10.967560065642134
+  },
+  "cv_results": {
+    "initial_cv_scores": [
+      -0.040326767679479625,
+      -0.15581713866224978,
+      -0.013970344752789687,
+      -0.08688374608181237,
+      -0.05093253873662951
+    ],
+    "trajectory_cv_scores": [
+      0.655157629581522,
+      0.7315150425396981,
+      0.7060848259976658,
+      0.6444720338209218,
+      0.7540407236865365
+    ],
+    "combined_cv_scores": [
+      0.8404503056243708,
+      0.8707794909241956,
+      0.8415268810211975,
+      0.8372801375927557,
+      0.8906580383483365
+    ]
+  },
+  "feature_names": {
+    "initial": [
+      "l2_norm",
+      "max_abs_weight",
+      "connection_l2",
+      "bias_l2",
+      "connection_bias_ratio",
+      "r_weight_magnitude",
+      "xy_weight_magnitude",
+      "weight_variance",
+      "sign_uniformity",
+      "initial_order"
+    ],
+    "trajectory": [
+      "cumulative_displacement",
+      "total_displacement",
+      "acceptance_rate",
+      "mean_step_displacement",
+      "order_gain"
+    ]
+  }
+}

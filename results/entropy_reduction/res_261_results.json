@@ -1,0 +1,36 @@
+{
+  "experiment": "RES-261",
+  "domain": "entropy_reduction",
+  "hypothesis": "Speedup decomposition: tighter manifold vs faster discovery",
+  "method": "Two-stage sampling analysis with feature decomposition",
+  "decomposition": {
+    "baseline": {
+      "stage1_entropy_reduction_pct": 100.0,
+      "stage2_entropy_reduction_pct": 15.960768929336137,
+      "stage1_samples_to_50pct": 4,
+      "stage2_samples_to_50pct": 100,
+      "total_samples_to_target": 104,
+      "stage1_contribution_pct": 3.8461538461538463,
+      "stage2_contribution_pct": 96.15384615384616
+    },
+    "full": {
+      "stage1_entropy_reduction_pct": 100.0,
+      "stage2_entropy_reduction_pct": 1.385404030012141,
+      "stage1_samples_to_50pct": 4,
+      "stage2_samples_to_50pct": 100,
+      "total_samples_to_target": 104,
+      "stage1_contribution_pct": 3.8461538461538463,
+      "stage2_contribution_pct": 96.15384615384616
+    }
+  },
+  "stage_analysis": {
+    "speedup_from_sample_reduction_pct": 0.0,
+    "entropy_improvement_pct": -14.575364899324,
+    "stage1_speedup_pct": 0.0,
+    "stage2_speedup_pct": 0.0,
+    "stage2_convergence_rate_improvement_pct": -86.26117947486462,
+    "interpretation": "not tightness"
+  },
+  "status": "inconclusive",
+  "summary": "No clear speedup pattern. Total entropy improved -14.6% but samples unchanged"
+}

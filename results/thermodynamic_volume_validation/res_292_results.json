@@ -1,0 +1,298 @@
+{
+  "n_architectures": 11,
+  "n_samples_per_arch": 10000,
+  "image_size": 64,
+  "thresholds": [
+    0.05,
+    0.1,
+    0.2,
+    0.3,
+    0.5
+  ],
+  "seed": 42,
+  "skipped_architectures": [
+    "GaussianProcess"
+  ],
+  "architecture_results": {
+    "MLPDecoder": {
+      "name": "MLPDecoder",
+      "n_samples": 10000,
+      "order_mean": 1.0178224219519478e-24,
+      "order_std": 3.26374740852314e-24,
+      "order_min": 5.52488209531933e-28,
+      "order_max": 1.2213436533956846e-22,
+      "order_median": 3.020218931852125e-25,
+      "order_q25": 1.0655522237523428e-25,
+      "order_q75": 8.565246685528807e-25,
+      "volume_by_threshold": {
+        "threshold_0.05": 0.0,
+        "threshold_0.1": 0.0,
+        "threshold_0.2": 0.0,
+        "threshold_0.3": 0.0,
+        "threshold_0.5": 0.0
+      }
+    },
+    "CPPN": {
+      "name": "CPPN",
+      "n_samples": 10000,
+      "order_mean": 0.347236094490888,
+      "order_std": 0.30359917711204043,
+      "order_min": 6.565830710717239e-13,
+      "order_max": 1.0,
+      "order_median": 0.28948779355646664,
+      "order_q25": 0.05733200884922516,
+      "order_q75": 0.5783075964558584,
+      "volume_by_threshold": {
+        "threshold_0.05": 0.7608,
+        "threshold_0.1": 0.6901,
+        "threshold_0.2": 0.5846,
+        "threshold_0.3": 0.4871,
+        "threshold_0.5": 0.3099
+      }
+    },
+    "ConvDecoder": {
+      "name": "ConvDecoder",
+      "n_samples": 10000,
+      "order_mean": 0.15190756588766224,
+      "order_std": 0.16643876113509953,
+      "order_min": 1.1106199606624228e-16,
+      "order_max": 0.9278319581129604,
+      "order_median": 0.10490252250761817,
+      "order_q25": 0.01908297190098413,
+      "order_q75": 0.21666106787079467,
+      "volume_by_threshold": {
+        "threshold_0.05": 0.6358,
+        "threshold_0.1": 0.5116,
+        "threshold_0.2": 0.286,
+        "threshold_0.3": 0.1484,
+        "threshold_0.5": 0.054
+      }
+    },
+    "MixtureOfExperts": {
+      "name": "MixtureOfExperts",
+      "n_samples": 10000,
+      "order_mean": 0.06091695723710316,
+      "order_std": 0.05386467512964363,
+      "order_min": 0.0017033882472623594,
+      "order_max": 0.5471094743661689,
+      "order_median": 0.05048640797260995,
+      "order_q25": 0.015719571041983425,
+      "order_q75": 0.08889477819301754,
+      "volume_by_threshold": {
+        "threshold_0.05": 0.504,
+        "threshold_0.1": 0.2006,
+        "threshold_0.2": 0.0214,
+        "threshold_0.3": 0.001,
+        "threshold_0.5": 0.0001
+      }
+    },
+    "ViTDecoder": {
+      "name": "ViTDecoder",
+      "n_samples": 10000,
+      "order_mean": 2.722890545604718e-23,
+      "order_std": 4.1104345687352725e-22,
+      "order_min": 7.423683890028889e-31,
+      "order_max": 2.4876954292042704e-20,
+      "order_median": 2.8013073554870995e-25,
+      "order_q25": 3.5153129275159354e-26,
+      "order_q75": 2.3524644566187915e-24,
+      "volume_by_threshold": {
+        "threshold_0.05": 0.0,
+        "threshold_0.1": 0.0,
+        "threshold_0.2": 0.0,
+        "threshold_0.3": 0.0,
+        "threshold_0.5": 0.0
+      }
+    },
+    "FourierMLP": {
+      "name": "FourierMLP",
+      "n_samples": 10000,
+      "order_mean": 0.4799357444194304,
+      "order_std": 0.3105103858449765,
+      "order_min": 0.0017033882472623594,
+      "order_max": 1.0,
+      "order_median": 0.4930871846552004,
+      "order_q25": 0.18919626447325932,
+      "order_q75": 0.7539244239741785,
+      "volume_by_threshold": {
+        "threshold_0.05": 0.8981,
+        "threshold_0.1": 0.8364,
+        "threshold_0.2": 0.7398,
+        "threshold_0.3": 0.6567,
+        "threshold_0.5": 0.4927
+      }
+    },
+    "FourierBasis": {
+      "name": "FourierBasis",
+      "n_samples": 10000,
+      "order_mean": 0.707927880224005,
+      "order_std": 0.19517167440339694,
+      "order_min": 0.049674378537336486,
+      "order_max": 1.0,
+      "order_median": 0.7221121157706601,
+      "order_q25": 0.5735062397291497,
+      "order_q75": 0.8680874264427261,
+      "volume_by_threshold": {
+        "threshold_0.05": 0.9999,
+        "threshold_0.1": 0.9993,
+        "threshold_0.2": 0.9941,
+        "threshold_0.3": 0.9753,
+        "threshold_0.5": 0.8389
+      }
+    },
+    "CoordMLP": {
+      "name": "CoordMLP",
+      "n_samples": 10000,
+      "order_mean": 0.03433772828531319,
+      "order_std": 0.04241104822017217,
+      "order_min": 0.0017033882472623594,
+      "order_max": 0.47733133258299726,
+      "order_median": 0.015547907386343984,
+      "order_q25": 0.0018321393321724907,
+      "order_q75": 0.05653399213946113,
+      "volume_by_threshold": {
+        "threshold_0.05": 0.2866,
+        "threshold_0.1": 0.0725,
+        "threshold_0.2": 0.0069,
+        "threshold_0.3": 0.0001,
+        "threshold_0.5": 0.0
+      }
+    },
+    "SpanningTreeMaze": {
+      "name": "SpanningTreeMaze",
+      "n_samples": 10000,
+      "order_mean": 1.966435787690239e-05,
+      "order_std": 9.726216638619936e-07,
+      "order_min": 1.5485281158149312e-05,
+      "order_max": 2.299170282863488e-05,
+      "order_median": 1.968107435017758e-05,
+      "order_q25": 1.9007142239297895e-05,
+      "order_q75": 2.0337163106300695e-05,
+      "volume_by_threshold": {
+        "threshold_0.05": 0.0,
+        "threshold_0.1": 0.0,
+        "threshold_0.2": 0.0,
+        "threshold_0.3": 0.0,
+        "threshold_0.5": 0.0
+      }
+    },
+    "LSTMDecoder": {
+      "name": "LSTMDecoder",
+      "n_samples": 10000,
+      "order_mean": 8.131336189002507e-05,
+      "order_std": 0.000568692713842097,
+      "order_min": 1.4547657036225316e-25,
+      "order_max": 0.024479390256450722,
+      "order_median": 3.8104594754675093e-07,
+      "order_q25": 6.735682349654996e-09,
+      "order_q75": 8.965223102292496e-06,
+      "volume_by_threshold": {
+        "threshold_0.05": 0.0,
+        "threshold_0.1": 0.0,
+        "threshold_0.2": 0.0,
+        "threshold_0.3": 0.0,
+        "threshold_0.5": 0.0
+      }
+    },
+    "WalkCarver": {
+      "name": "WalkCarver",
+      "n_samples": 10000,
+      "order_mean": 0.3715609424247013,
+      "order_std": 0.0270425891708725,
+      "order_min": 0.2134293708685154,
+      "order_max": 0.46560244367499287,
+      "order_median": 0.37329364693401396,
+      "order_q25": 0.3557953802831484,
+      "order_q75": 0.3895755712793428,
+      "volume_by_threshold": {
+        "threshold_0.05": 1.0,
+        "threshold_0.1": 1.0,
+        "threshold_0.2": 1.0,
+        "threshold_0.3": 0.9866,
+        "threshold_0.5": 0.0
+      }
+    }
+  },
+  "mean_volume_by_threshold": {
+    "threshold_0.05": 0.46229090909090914,
+    "threshold_0.1": 0.39186363636363636,
+    "threshold_0.2": 0.3302545454545454,
+    "threshold_0.3": 0.2959272727272727,
+    "threshold_0.5": 0.15414545454545453
+  },
+  "std_volume_by_threshold": {
+    "threshold_0.05": 0.4016732875327353,
+    "threshold_0.1": 0.40367701146681223,
+    "threshold_0.2": 0.39998282545774017,
+    "threshold_0.3": 0.3875132914809248,
+    "threshold_0.5": 0.26698510126507186
+  },
+  "volume_rankings": {
+    "threshold_0.05": [
+      "WalkCarver",
+      "FourierBasis",
+      "FourierMLP",
+      "CPPN",
+      "ConvDecoder",
+      "MixtureOfExperts",
+      "CoordMLP",
+      "MLPDecoder",
+      "ViTDecoder",
+      "SpanningTreeMaze",
+      "LSTMDecoder"
+    ],
+    "threshold_0.1": [
+      "WalkCarver",
+      "FourierBasis",
+      "FourierMLP",
+      "CPPN",
+      "ConvDecoder",
+      "MixtureOfExperts",
+      "CoordMLP",
+      "MLPDecoder",
+      "ViTDecoder",
+      "SpanningTreeMaze",
+      "LSTMDecoder"
+    ],
+    "threshold_0.2": [
+      "WalkCarver",
+      "FourierBasis",
+      "FourierMLP",
+      "CPPN",
+      "ConvDecoder",
+      "MixtureOfExperts",
+      "CoordMLP",
+      "MLPDecoder",
+      "ViTDecoder",
+      "SpanningTreeMaze",
+      "LSTMDecoder"
+    ],
+    "threshold_0.3": [
+      "WalkCarver",
+      "FourierBasis",
+      "FourierMLP",
+      "CPPN",
+      "ConvDecoder",
+      "MixtureOfExperts",
+      "CoordMLP",
+      "MLPDecoder",
+      "ViTDecoder",
+      "SpanningTreeMaze",
+      "LSTMDecoder"
+    ],
+    "threshold_0.5": [
+      "FourierBasis",
+      "FourierMLP",
+      "CPPN",
+      "ConvDecoder",
+      "MixtureOfExperts",
+      "MLPDecoder",
+      "ViTDecoder",
+      "CoordMLP",
+      "SpanningTreeMaze",
+      "LSTMDecoder",
+      "WalkCarver"
+    ]
+  },
+  "interpretation": "Thermodynamic volume varies widely: some architectures naturally produce structure, others rarely do."
+}
