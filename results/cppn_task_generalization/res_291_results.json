@@ -1,0 +1,5821 @@
+{
+  "config": {
+    "n_cppns": 40,
+    "n_workers": 8,
+    "image_size": 32,
+    "n_live": 100,
+    "baseline_max_iterations": 1200,
+    "n_live_stage1": 50,
+    "stage1_budgets": [
+      50,
+      100
+    ],
+    "max_iterations_stage2": 300,
+    "pca_components": 3,
+    "calibration_samples": 1500,
+    "target_hit_baseline": 0.2,
+    "anneal_quantile": 0.1,
+    "elite_fraction": 0.3,
+    "elite_prob": 0.7,
+    "pca_step_scale_start": 0.6,
+    "pca_step_scale_end": 0.2,
+    "objective_names": [
+      "symmetry",
+      "spectral",
+      "kolmogorov",
+      "ising"
+    ]
+  },
+  "calibration": {
+    "symmetry": {
+      "target_order": 0.9976701477582398,
+      "order_mean": 0.8520386999399516,
+      "order_std": 0.09261784018379637,
+      "quantile": 0.9977710522882823,
+      "p_per_draw": 0.002228947711717666,
+      "target_hit_baseline": 0.2,
+      "p_hit_baseline": 0.2000000000000023,
+      "p_hit_stage1": 0.10557280900008537
+    },
+    "spectral": {
+      "target_order": 0.999999342760639,
+      "order_mean": 0.9803498835610733,
+      "order_std": 0.019308694845770254,
+      "quantile": 0.9977710522882823,
+      "p_per_draw": 0.002228947711717666,
+      "target_hit_baseline": 0.2,
+      "p_hit_baseline": 0.2000000000000023,
+      "p_hit_stage1": 0.10557280900008537
+    },
+    "kolmogorov": {
+      "target_order": 0.9685013378122959,
+      "order_mean": 0.25766403408471317,
+      "order_std": 0.16836261021343757,
+      "quantile": 0.9977710522882823,
+      "p_per_draw": 0.002228947711717666,
+      "target_hit_baseline": 0.2,
+      "p_hit_baseline": 0.2000000000000023,
+      "p_hit_stage1": 0.10557280900008537
+    },
+    "ising": {
+      "target_order": 0.9742897123655693,
+      "order_mean": 0.6788440181710401,
+      "order_std": 0.10914557168219384,
+      "quantile": 0.9977710522882823,
+      "p_per_draw": 0.002228947711717666,
+      "target_hit_baseline": 0.2,
+      "p_hit_baseline": 0.2000000000000023,
+      "p_hit_stage1": 0.10557280900008537
+    }
+  },
+  "results": {
+    "symmetry": {
+      "rows": [
+        {
+          "cppn_id": 0,
+          "baseline": {
+            "total_samples": 378,
+            "samples_to_target": 378,
+            "max_order_achieved": 0.9976720088635691,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 77,
+              "samples_to_target": 77,
+              "max_order_achieved": 0.9984188851206361,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 4.909090909090909
+            },
+            "budget_100": {
+              "total_samples": 226,
+              "samples_to_target": 226,
+              "max_order_achieved": 0.9985958093999704,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.6725663716814159
+            }
+          },
+          "best_speedup": 4.909090909090909
+        },
+        {
+          "cppn_id": 1,
+          "baseline": {
+            "total_samples": 247,
+            "samples_to_target": 247,
+            "max_order_achieved": 0.9983515811414811,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 275,
+              "samples_to_target": 275,
+              "max_order_achieved": 0.9977084398680937,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.8981818181818182
+            },
+            "budget_100": {
+              "total_samples": 119,
+              "samples_to_target": 119,
+              "max_order_achieved": 0.9988324753604051,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.0756302521008405
+            }
+          },
+          "best_speedup": 2.0756302521008405
+        },
+        {
+          "cppn_id": 2,
+          "baseline": {
+            "total_samples": 283,
+            "samples_to_target": 283,
+            "max_order_achieved": 0.9980512456619716,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 331,
+              "samples_to_target": 331,
+              "max_order_achieved": 0.9978342196478659,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.8549848942598187
+            },
+            "budget_100": {
+              "total_samples": 100,
+              "samples_to_target": 50,
+              "max_order_achieved": 0.9982495661134798,
+              "success": true,
+              "init_hit": true,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 5.66
+            }
+          },
+          "best_speedup": 5.66
+        },
+        {
+          "cppn_id": 3,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 0.9999956428700976,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 127,
+              "samples_to_target": 127,
+              "max_order_achieved": 0.9986281402806372,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.7874015748031497
+            },
+            "budget_100": {
+              "total_samples": 115,
+              "samples_to_target": 115,
+              "max_order_achieved": 0.9990116252982046,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.8695652173913043
+            }
+          },
+          "best_speedup": 0.8695652173913043
+        },
+        {
+          "cppn_id": 4,
+          "baseline": {
+            "total_samples": 449,
+            "samples_to_target": 449,
+            "max_order_achieved": 0.9999199758701109,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 64,
+              "samples_to_target": 64,
+              "max_order_achieved": 0.9980680211913657,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 7.015625
+            },
+            "budget_100": {
+              "total_samples": 137,
+              "samples_to_target": 137,
+              "max_order_achieved": 0.9979805128904949,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 3.2773722627737225
+            }
+          },
+          "best_speedup": 7.015625
+        },
+        {
+          "cppn_id": 5,
+          "baseline": {
+            "total_samples": 183,
+            "samples_to_target": 183,
+            "max_order_achieved": 0.9976875931271421,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 176,
+              "samples_to_target": 176,
+              "max_order_achieved": 0.9979394560058525,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.0397727272727273
+            },
+            "budget_100": {
+              "total_samples": 112,
+              "samples_to_target": 112,
+              "max_order_achieved": 0.9977245320243202,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.6339285714285714
+            }
+          },
+          "best_speedup": 1.6339285714285714
+        },
+        {
+          "cppn_id": 6,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 0.9999990518411153,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 119,
+              "samples_to_target": 119,
+              "max_order_achieved": 0.9988549305965403,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.8403361344537815
+            },
+            "budget_100": {
+              "total_samples": 400,
+              "samples_to_target": 400,
+              "max_order_achieved": 0.9950101056388106,
+              "success": false,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.25
+            }
+          },
+          "best_speedup": 0.8403361344537815
+        },
+        {
+          "cppn_id": 7,
+          "baseline": {
+            "total_samples": 423,
+            "samples_to_target": 423,
+            "max_order_achieved": 0.9981203748479326,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 83,
+              "samples_to_target": 83,
+              "max_order_achieved": 0.9980254054289753,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 5.096385542168675
+            },
+            "budget_100": {
+              "total_samples": 200,
+              "samples_to_target": 200,
+              "max_order_achieved": 0.9979833793304845,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.115
+            }
+          },
+          "best_speedup": 5.096385542168675
+        },
+        {
+          "cppn_id": 8,
+          "baseline": {
+            "total_samples": 133,
+            "samples_to_target": 133,
+            "max_order_achieved": 0.9995285691832919,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 269,
+              "samples_to_target": 269,
+              "max_order_achieved": 0.9982077870876213,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.4944237918215613
+            },
+            "budget_100": {
+              "total_samples": 127,
+              "samples_to_target": 127,
+              "max_order_achieved": 0.9979075525177965,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.047244094488189
+            }
+          },
+          "best_speedup": 1.047244094488189
+        },
+        {
+          "cppn_id": 9,
+          "baseline": {
+            "total_samples": 171,
+            "samples_to_target": 171,
+            "max_order_achieved": 0.9977430325016746,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 99,
+              "samples_to_target": 99,
+              "max_order_achieved": 0.9993512358766754,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.7272727272727273
+            },
+            "budget_100": {
+              "total_samples": 134,
+              "samples_to_target": 134,
+              "max_order_achieved": 0.9990294679167466,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.2761194029850746
+            }
+          },
+          "best_speedup": 1.7272727272727273
+        },
+        {
+          "cppn_id": 10,
+          "baseline": {
+            "total_samples": 214,
+            "samples_to_target": 214,
+            "max_order_achieved": 0.9987793162372485,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 52,
+              "samples_to_target": 52,
+              "max_order_achieved": 0.9978618024192037,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 4.115384615384615
+            },
+            "budget_100": {
+              "total_samples": 100,
+              "samples_to_target": 50,
+              "max_order_achieved": 0.9977357582320314,
+              "success": true,
+              "init_hit": true,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 4.28
+            }
+          },
+          "best_speedup": 4.28
+        },
+        {
+          "cppn_id": 11,
+          "baseline": {
+            "total_samples": 199,
+            "samples_to_target": 199,
+            "max_order_achieved": 0.9984655654616414,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 96,
+              "samples_to_target": 96,
+              "max_order_achieved": 0.9983283793715539,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.0729166666666665
+            },
+            "budget_100": {
+              "total_samples": 207,
+              "samples_to_target": 207,
+              "max_order_achieved": 0.9985022728187284,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.961352657004831
+            }
+          },
+          "best_speedup": 2.0729166666666665
+        },
+        {
+          "cppn_id": 12,
+          "baseline": {
+            "total_samples": 321,
+            "samples_to_target": 321,
+            "max_order_achieved": 0.998924781660391,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 70,
+              "samples_to_target": 70,
+              "max_order_achieved": 0.9990890089158718,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 4.585714285714285
+            },
+            "budget_100": {
+              "total_samples": 148,
+              "samples_to_target": 148,
+              "max_order_achieved": 0.9979827192983304,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.168918918918919
+            }
+          },
+          "best_speedup": 4.585714285714285
+        },
+        {
+          "cppn_id": 13,
+          "baseline": {
+            "total_samples": 313,
+            "samples_to_target": 313,
+            "max_order_achieved": 0.9988256708292363,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 96,
+              "samples_to_target": 96,
+              "max_order_achieved": 0.9977143335775585,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 3.2604166666666665
+            },
+            "budget_100": {
+              "total_samples": 113,
+              "samples_to_target": 113,
+              "max_order_achieved": 0.9992230302803604,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.769911504424779
+            }
+          },
+          "best_speedup": 3.2604166666666665
+        },
+        {
+          "cppn_id": 14,
+          "baseline": {
+            "total_samples": 267,
+            "samples_to_target": 267,
+            "max_order_achieved": 0.9995244981994551,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 148,
+              "samples_to_target": 148,
+              "max_order_achieved": 0.997906206734075,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.804054054054054
+            },
+            "budget_100": {
+              "total_samples": 141,
+              "samples_to_target": 141,
+              "max_order_achieved": 0.998685444456666,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.8936170212765957
+            }
+          },
+          "best_speedup": 1.8936170212765957
+        },
+        {
+          "cppn_id": 15,
+          "baseline": {
+            "total_samples": 304,
+            "samples_to_target": 304,
+            "max_order_achieved": 0.9983008124301327,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 58,
+              "samples_to_target": 58,
+              "max_order_achieved": 0.9980362495422856,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 5.241379310344827
+            },
+            "budget_100": {
+              "total_samples": 105,
+              "samples_to_target": 105,
+              "max_order_achieved": 0.9980757628415631,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.895238095238095
+            }
+          },
+          "best_speedup": 5.241379310344827
+        },
+        {
+          "cppn_id": 16,
+          "baseline": {
+            "total_samples": 225,
+            "samples_to_target": 225,
+            "max_order_achieved": 0.9978413116180533,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 350,
+              "samples_to_target": 350,
+              "max_order_achieved": 0.9934453127077167,
+              "success": false,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.6428571428571429
+            },
+            "budget_100": {
+              "total_samples": 100,
+              "samples_to_target": 50,
+              "max_order_achieved": 0.9992248259569356,
+              "success": true,
+              "init_hit": true,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 4.5
+            }
+          },
+          "best_speedup": 4.5
+        },
+        {
+          "cppn_id": 17,
+          "baseline": {
+            "total_samples": 366,
+            "samples_to_target": 366,
+            "max_order_achieved": 0.998133650802995,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 64,
+              "samples_to_target": 64,
+              "max_order_achieved": 0.9981958831293877,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 5.71875
+            },
+            "budget_100": {
+              "total_samples": 124,
+              "samples_to_target": 124,
+              "max_order_achieved": 0.9991472611283372,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.9516129032258065
+            }
+          },
+          "best_speedup": 5.71875
+        },
+        {
+          "cppn_id": 18,
+          "baseline": {
+            "total_samples": 108,
+            "samples_to_target": 108,
+            "max_order_achieved": 0.9978375187295786,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 85,
+              "samples_to_target": 85,
+              "max_order_achieved": 0.9984421768171314,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.2705882352941176
+            },
+            "budget_100": {
+              "total_samples": 131,
+              "samples_to_target": 131,
+              "max_order_achieved": 0.9978375692866722,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.8244274809160306
+            }
+          },
+          "best_speedup": 1.2705882352941176
+        },
+        {
+          "cppn_id": 19,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 0.9999882024489672,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 350,
+              "samples_to_target": 350,
+              "max_order_achieved": 0.9912461634159202,
+              "success": false,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.2857142857142857
+            },
+            "budget_100": {
+              "total_samples": 127,
+              "samples_to_target": 127,
+              "max_order_achieved": 0.9986417108634404,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.7874015748031497
+            }
+          },
+          "best_speedup": 0.7874015748031497
+        },
+        {
+          "cppn_id": 20,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 0.9999881635501605,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 165,
+              "samples_to_target": 165,
+              "max_order_achieved": 0.9977748229461488,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.6060606060606061
+            },
+            "budget_100": {
+              "total_samples": 216,
+              "samples_to_target": 216,
+              "max_order_achieved": 0.9980647079478734,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.46296296296296297
+            }
+          },
+          "best_speedup": 0.6060606060606061
+        },
+        {
+          "cppn_id": 21,
+          "baseline": {
+            "total_samples": 288,
+            "samples_to_target": 288,
+            "max_order_achieved": 0.998356689429229,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 148,
+              "samples_to_target": 148,
+              "max_order_achieved": 0.9981132824109531,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.945945945945946
+            },
+            "budget_100": {
+              "total_samples": 108,
+              "samples_to_target": 108,
+              "max_order_achieved": 0.9993548171303186,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.6666666666666665
+            }
+          },
+          "best_speedup": 2.6666666666666665
+        },
+        {
+          "cppn_id": 22,
+          "baseline": {
+            "total_samples": 449,
+            "samples_to_target": 449,
+            "max_order_achieved": 0.9983454764903632,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 175,
+              "samples_to_target": 175,
+              "max_order_achieved": 0.9987865259505917,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.565714285714286
+            },
+            "budget_100": {
+              "total_samples": 114,
+              "samples_to_target": 114,
+              "max_order_achieved": 0.9983157622573129,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 3.93859649122807
+            }
+          },
+          "best_speedup": 3.93859649122807
+        },
+        {
+          "cppn_id": 23,
+          "baseline": {
+            "total_samples": 337,
+            "samples_to_target": 337,
+            "max_order_achieved": 0.9983993226821001,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 109,
+              "samples_to_target": 109,
+              "max_order_achieved": 0.9984760044219403,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 3.091743119266055
+            },
+            "budget_100": {
+              "total_samples": 100,
+              "samples_to_target": 50,
+              "max_order_achieved": 0.9987925757679857,
+              "success": true,
+              "init_hit": true,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 6.74
+            }
+          },
+          "best_speedup": 6.74
+        },
+        {
+          "cppn_id": 24,
+          "baseline": {
+            "total_samples": 302,
+            "samples_to_target": 302,
+            "max_order_achieved": 0.9979545513800915,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 79,
+              "samples_to_target": 79,
+              "max_order_achieved": 0.998472612628715,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 3.8227848101265822
+            },
+            "budget_100": {
+              "total_samples": 99,
+              "samples_to_target": 99,
+              "max_order_achieved": 0.9985413850152727,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 3.0505050505050506
+            }
+          },
+          "best_speedup": 3.8227848101265822
+        },
+        {
+          "cppn_id": 25,
+          "baseline": {
+            "total_samples": 186,
+            "samples_to_target": 186,
+            "max_order_achieved": 0.9994160251781572,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 350,
+              "samples_to_target": 350,
+              "max_order_achieved": 0.9960560299100967,
+              "success": false,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.5314285714285715
+            },
+            "budget_100": {
+              "total_samples": 100,
+              "samples_to_target": 50,
+              "max_order_achieved": 0.9985620199119974,
+              "success": true,
+              "init_hit": true,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 3.72
+            }
+          },
+          "best_speedup": 3.72
+        },
+        {
+          "cppn_id": 26,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 0.9999904230525282,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 105,
+              "samples_to_target": 105,
+              "max_order_achieved": 0.9996145079576315,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.9523809523809523
+            },
+            "budget_100": {
+              "total_samples": 111,
+              "samples_to_target": 111,
+              "max_order_achieved": 0.9980936503384992,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.9009009009009009
+            }
+          },
+          "best_speedup": 0.9523809523809523
+        },
+        {
+          "cppn_id": 27,
+          "baseline": {
+            "total_samples": 335,
+            "samples_to_target": 335,
+            "max_order_achieved": 0.9980023867621789,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 150,
+              "samples_to_target": 150,
+              "max_order_achieved": 0.9983667059693996,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.2333333333333334
+            },
+            "budget_100": {
+              "total_samples": 161,
+              "samples_to_target": 161,
+              "max_order_achieved": 0.9981511779728836,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.080745341614907
+            }
+          },
+          "best_speedup": 2.2333333333333334
+        },
+        {
+          "cppn_id": 28,
+          "baseline": {
+            "total_samples": 396,
+            "samples_to_target": 396,
+            "max_order_achieved": 0.9979387221177832,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 134,
+              "samples_to_target": 134,
+              "max_order_achieved": 0.9981464698674143,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.955223880597015
+            },
+            "budget_100": {
+              "total_samples": 138,
+              "samples_to_target": 138,
+              "max_order_achieved": 0.9986325464016061,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.869565217391304
+            }
+          },
+          "best_speedup": 2.955223880597015
+        },
+        {
+          "cppn_id": 29,
+          "baseline": {
+            "total_samples": 181,
+            "samples_to_target": 181,
+            "max_order_achieved": 0.9987403654184265,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 350,
+              "samples_to_target": 350,
+              "max_order_achieved": 0.9948821448344904,
+              "success": false,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.5171428571428571
+            },
+            "budget_100": {
+              "total_samples": 106,
+              "samples_to_target": 106,
+              "max_order_achieved": 0.9990558676854129,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.7075471698113207
+            }
+          },
+          "best_speedup": 1.7075471698113207
+        },
+        {
+          "cppn_id": 30,
+          "baseline": {
+            "total_samples": 192,
+            "samples_to_target": 192,
+            "max_order_achieved": 0.9992113182939587,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 131,
+              "samples_to_target": 131,
+              "max_order_achieved": 0.9978340572911246,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.465648854961832
+            },
+            "budget_100": {
+              "total_samples": 160,
+              "samples_to_target": 160,
+              "max_order_achieved": 0.9985646746694264,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.2
+            }
+          },
+          "best_speedup": 1.465648854961832
+        },
+        {
+          "cppn_id": 31,
+          "baseline": {
+            "total_samples": 173,
+            "samples_to_target": 173,
+            "max_order_achieved": 0.9980424349035759,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 261,
+              "samples_to_target": 261,
+              "max_order_achieved": 0.9978652589881036,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.6628352490421456
+            },
+            "budget_100": {
+              "total_samples": 123,
+              "samples_to_target": 123,
+              "max_order_achieved": 0.998781746588382,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.4065040650406504
+            }
+          },
+          "best_speedup": 1.4065040650406504
+        },
+        {
+          "cppn_id": 32,
+          "baseline": {
+            "total_samples": 181,
+            "samples_to_target": 181,
+            "max_order_achieved": 0.9994044200026717,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 50,
+              "samples_to_target": 50,
+              "max_order_achieved": 0.9989748889083832,
+              "success": true,
+              "init_hit": true,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 3.62
+            },
+            "budget_100": {
+              "total_samples": 103,
+              "samples_to_target": 103,
+              "max_order_achieved": 0.9983490919497544,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.7572815533980584
+            }
+          },
+          "best_speedup": 3.62
+        },
+        {
+          "cppn_id": 33,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 0.9999992396948677,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 62,
+              "samples_to_target": 62,
+              "max_order_achieved": 0.9980967260877394,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.6129032258064515
+            },
+            "budget_100": {
+              "total_samples": 113,
+              "samples_to_target": 113,
+              "max_order_achieved": 0.9977960691185046,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.8849557522123894
+            }
+          },
+          "best_speedup": 1.6129032258064515
+        },
+        {
+          "cppn_id": 34,
+          "baseline": {
+            "total_samples": 234,
+            "samples_to_target": 234,
+            "max_order_achieved": 0.999517355488396,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 71,
+              "samples_to_target": 71,
+              "max_order_achieved": 0.9983632058023622,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 3.295774647887324
+            },
+            "budget_100": {
+              "total_samples": 195,
+              "samples_to_target": 195,
+              "max_order_achieved": 0.9980932685985431,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.2
+            }
+          },
+          "best_speedup": 3.295774647887324
+        },
+        {
+          "cppn_id": 35,
+          "baseline": {
+            "total_samples": 133,
+            "samples_to_target": 133,
+            "max_order_achieved": 0.999357064784345,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 350,
+              "samples_to_target": 350,
+              "max_order_achieved": 0.9969467334080939,
+              "success": false,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.38
+            },
+            "budget_100": {
+              "total_samples": 69,
+              "samples_to_target": 69,
+              "max_order_achieved": 0.9990974545522235,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 1.9275362318840579
+            }
+          },
+          "best_speedup": 1.9275362318840579
+        },
+        {
+          "cppn_id": 36,
+          "baseline": {
+            "total_samples": 104,
+            "samples_to_target": 104,
+            "max_order_achieved": 0.9982119133201813,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 99,
+              "samples_to_target": 99,
+              "max_order_achieved": 0.9991281959503224,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.0505050505050506
+            },
+            "budget_100": {
+              "total_samples": 151,
+              "samples_to_target": 151,
+              "max_order_achieved": 0.9985366860065283,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.6887417218543046
+            }
+          },
+          "best_speedup": 1.0505050505050506
+        },
+        {
+          "cppn_id": 37,
+          "baseline": {
+            "total_samples": 105,
+            "samples_to_target": 105,
+            "max_order_achieved": 0.9984207944179062,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 71,
+              "samples_to_target": 71,
+              "max_order_achieved": 0.9987422814504381,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.4788732394366197
+            },
+            "budget_100": {
+              "total_samples": 170,
+              "samples_to_target": 170,
+              "max_order_achieved": 0.9977707950626931,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.6176470588235294
+            }
+          },
+          "best_speedup": 1.4788732394366197
+        },
+        {
+          "cppn_id": 38,
+          "baseline": {
+            "total_samples": 211,
+            "samples_to_target": 211,
+            "max_order_achieved": 0.9993389733971465,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 66,
+              "samples_to_target": 66,
+              "max_order_achieved": 0.9985702763725481,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 3.196969696969697
+            },
+            "budget_100": {
+              "total_samples": 119,
+              "samples_to_target": 119,
+              "max_order_achieved": 0.9978630252533278,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.773109243697479
+            }
+          },
+          "best_speedup": 3.196969696969697
+        },
+        {
+          "cppn_id": 39,
+          "baseline": {
+            "total_samples": 195,
+            "samples_to_target": 195,
+            "max_order_achieved": 0.9997777335722555,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 138,
+              "samples_to_target": 138,
+              "max_order_achieved": 0.9977043888799619,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.4130434782608696
+            },
+            "budget_100": {
+              "total_samples": 284,
+              "samples_to_target": 284,
+              "max_order_achieved": 0.9978961693825031,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.6866197183098591
+            }
+          },
+          "best_speedup": 1.4130434782608696
+        }
+      ],
+      "summary": {
+        "n_total": 40,
+        "speedup_mean": 2.8574053652529603,
+        "speedup_std": 1.7472105787355807,
+        "speedup_min": 0.6060606060606061,
+        "speedup_max": 7.015625,
+        "all_speedups": [
+          4.909090909090909,
+          1.6725663716814159,
+          0.8981818181818182,
+          2.0756302521008405,
+          0.8549848942598187,
+          5.66,
+          0.7874015748031497,
+          0.8695652173913043,
+          7.015625,
+          3.2773722627737225,
+          1.0397727272727273,
+          1.6339285714285714,
+          0.8403361344537815,
+          0.25,
+          5.096385542168675,
+          2.115,
+          0.4944237918215613,
+          1.047244094488189,
+          1.7272727272727273,
+          1.2761194029850746,
+          4.115384615384615,
+          4.28,
+          2.0729166666666665,
+          0.961352657004831,
+          4.585714285714285,
+          2.168918918918919,
+          3.2604166666666665,
+          2.769911504424779,
+          1.804054054054054,
+          1.8936170212765957,
+          5.241379310344827,
+          2.895238095238095,
+          0.6428571428571429,
+          4.5,
+          5.71875,
+          2.9516129032258065,
+          1.2705882352941176,
+          0.8244274809160306,
+          0.2857142857142857,
+          0.7874015748031497,
+          0.6060606060606061,
+          0.46296296296296297,
+          1.945945945945946,
+          2.6666666666666665,
+          2.565714285714286,
+          3.93859649122807,
+          3.091743119266055,
+          6.74,
+          3.8227848101265822,
+          3.0505050505050506,
+          0.5314285714285715,
+          3.72,
+          0.9523809523809523,
+          0.9009009009009009,
+          2.2333333333333334,
+          2.080745341614907,
+          2.955223880597015,
+          2.869565217391304,
+          0.5171428571428571,
+          1.7075471698113207,
+          1.465648854961832,
+          1.2,
+          0.6628352490421456,
+          1.4065040650406504,
+          3.62,
+          1.7572815533980584,
+          1.6129032258064515,
+          0.8849557522123894,
+          3.295774647887324,
+          1.2,
+          0.38,
+          1.9275362318840579,
+          1.0505050505050506,
+          0.6887417218543046,
+          1.4788732394366197,
+          0.6176470588235294,
+          3.196969696969697,
+          1.773109243697479,
+          1.4130434782608696,
+          0.6866197183098591
+        ],
+        "best_speedups": [
+          4.909090909090909,
+          2.0756302521008405,
+          5.66,
+          0.8695652173913043,
+          7.015625,
+          1.6339285714285714,
+          0.8403361344537815,
+          5.096385542168675,
+          1.047244094488189,
+          1.7272727272727273,
+          4.28,
+          2.0729166666666665,
+          4.585714285714285,
+          3.2604166666666665,
+          1.8936170212765957,
+          5.241379310344827,
+          4.5,
+          5.71875,
+          1.2705882352941176,
+          0.7874015748031497,
+          0.6060606060606061,
+          2.6666666666666665,
+          3.93859649122807,
+          6.74,
+          3.8227848101265822,
+          3.72,
+          0.9523809523809523,
+          2.2333333333333334,
+          2.955223880597015,
+          1.7075471698113207,
+          1.465648854961832,
+          1.4065040650406504,
+          3.62,
+          1.6129032258064515,
+          3.295774647887324,
+          1.9275362318840579,
+          1.0505050505050506,
+          1.4788732394366197,
+          3.196969696969697,
+          1.4130434782608696
+        ],
+        "variants": {
+          "budget_50": {
+            "speedup_mean": 2.2514890546722004,
+            "speedup_std": 1.7104381269274809,
+            "speedup_min": 0.2857142857142857,
+            "speedup_max": 7.015625,
+            "init_hit_count": 1,
+            "stage1_hit_count": 1,
+            "stage2_used_count": 39,
+            "stage2_speedup_mean": 2.2163990304330268
+          },
+          "budget_100": {
+            "speedup_mean": 2.104744786873971,
+            "speedup_std": 1.4303603459286582,
+            "speedup_min": 0.25,
+            "speedup_max": 6.74,
+            "init_hit_count": 5,
+            "stage1_hit_count": 7,
+            "stage2_used_count": 33,
+            "stage2_speedup_mean": 1.6458106118960523
+          }
+        }
+      }
+    },
+    "spectral": {
+      "rows": [
+        {
+          "cppn_id": 0,
+          "baseline": {
+            "total_samples": 170,
+            "samples_to_target": 170,
+            "max_order_achieved": 0.9999996852734022,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 350,
+              "samples_to_target": 350,
+              "max_order_achieved": 0.9999975821549089,
+              "success": false,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.4857142857142857
+            },
+            "budget_100": {
+              "total_samples": 179,
+              "samples_to_target": 179,
+              "max_order_achieved": 0.9999993707501992,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.9497206703910615
+            }
+          },
+          "best_speedup": 0.9497206703910615
+        },
+        {
+          "cppn_id": 1,
+          "baseline": {
+            "total_samples": 239,
+            "samples_to_target": 239,
+            "max_order_achieved": 0.9999993801294059,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 350,
+              "samples_to_target": 350,
+              "max_order_achieved": 0.9999991807609399,
+              "success": false,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.6828571428571428
+            },
+            "budget_100": {
+              "total_samples": 138,
+              "samples_to_target": 138,
+              "max_order_achieved": 0.9999998349048859,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.7318840579710144
+            }
+          },
+          "best_speedup": 1.7318840579710144
+        },
+        {
+          "cppn_id": 2,
+          "baseline": {
+            "total_samples": 202,
+            "samples_to_target": 202,
+            "max_order_achieved": 0.9999997918716833,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 72,
+              "samples_to_target": 72,
+              "max_order_achieved": 0.9999993901332317,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.8055555555555554
+            },
+            "budget_100": {
+              "total_samples": 117,
+              "samples_to_target": 117,
+              "max_order_achieved": 0.9999998668181218,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.7264957264957266
+            }
+          },
+          "best_speedup": 2.8055555555555554
+        },
+        {
+          "cppn_id": 3,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 0.9999999998183546,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 350,
+              "samples_to_target": 350,
+              "max_order_achieved": 0.9999910453100598,
+              "success": false,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.2857142857142857
+            },
+            "budget_100": {
+              "total_samples": 110,
+              "samples_to_target": 110,
+              "max_order_achieved": 0.9999998166515622,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.9090909090909091
+            }
+          },
+          "best_speedup": 0.9090909090909091
+        },
+        {
+          "cppn_id": 4,
+          "baseline": {
+            "total_samples": 177,
+            "samples_to_target": 177,
+            "max_order_achieved": 0.9999998085879611,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 76,
+              "samples_to_target": 76,
+              "max_order_achieved": 0.9999999913303127,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.3289473684210527
+            },
+            "budget_100": {
+              "total_samples": 100,
+              "samples_to_target": 50,
+              "max_order_achieved": 0.999999570588807,
+              "success": true,
+              "init_hit": true,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 3.54
+            }
+          },
+          "best_speedup": 3.54
+        },
+        {
+          "cppn_id": 5,
+          "baseline": {
+            "total_samples": 200,
+            "samples_to_target": 200,
+            "max_order_achieved": 0.9999998984670255,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 346,
+              "samples_to_target": 346,
+              "max_order_achieved": 0.9999995005226124,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.5780346820809249
+            },
+            "budget_100": {
+              "total_samples": 112,
+              "samples_to_target": 112,
+              "max_order_achieved": 0.9999999690635267,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.7857142857142858
+            }
+          },
+          "best_speedup": 1.7857142857142858
+        },
+        {
+          "cppn_id": 6,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 0.9999999996647412,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 116,
+              "samples_to_target": 116,
+              "max_order_achieved": 0.9999994031761202,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.8620689655172413
+            },
+            "budget_100": {
+              "total_samples": 106,
+              "samples_to_target": 106,
+              "max_order_achieved": 0.9999999259385736,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.9433962264150944
+            }
+          },
+          "best_speedup": 0.9433962264150944
+        },
+        {
+          "cppn_id": 7,
+          "baseline": {
+            "total_samples": 373,
+            "samples_to_target": 373,
+            "max_order_achieved": 0.9999998216255029,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 88,
+              "samples_to_target": 88,
+              "max_order_achieved": 0.9999995457178305,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 4.238636363636363
+            },
+            "budget_100": {
+              "total_samples": 104,
+              "samples_to_target": 104,
+              "max_order_achieved": 0.9999998112089665,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 3.5865384615384617
+            }
+          },
+          "best_speedup": 4.238636363636363
+        },
+        {
+          "cppn_id": 8,
+          "baseline": {
+            "total_samples": 126,
+            "samples_to_target": 126,
+            "max_order_achieved": 0.9999995917068389,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 178,
+              "samples_to_target": 178,
+              "max_order_achieved": 0.999999455730128,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.7078651685393258
+            },
+            "budget_100": {
+              "total_samples": 175,
+              "samples_to_target": 175,
+              "max_order_achieved": 0.9999995710696254,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.72
+            }
+          },
+          "best_speedup": 0.72
+        },
+        {
+          "cppn_id": 9,
+          "baseline": {
+            "total_samples": 218,
+            "samples_to_target": 218,
+            "max_order_achieved": 0.9999997234583289,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 50,
+              "samples_to_target": 50,
+              "max_order_achieved": 0.9999996026495409,
+              "success": true,
+              "init_hit": true,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 4.36
+            },
+            "budget_100": {
+              "total_samples": 128,
+              "samples_to_target": 128,
+              "max_order_achieved": 0.9999994830115074,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.703125
+            }
+          },
+          "best_speedup": 4.36
+        },
+        {
+          "cppn_id": 10,
+          "baseline": {
+            "total_samples": 132,
+            "samples_to_target": 132,
+            "max_order_achieved": 0.9999993849017456,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 107,
+              "samples_to_target": 107,
+              "max_order_achieved": 0.9999997418759549,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.233644859813084
+            },
+            "budget_100": {
+              "total_samples": 117,
+              "samples_to_target": 117,
+              "max_order_achieved": 0.9999994029923939,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.1282051282051282
+            }
+          },
+          "best_speedup": 1.233644859813084
+        },
+        {
+          "cppn_id": 11,
+          "baseline": {
+            "total_samples": 325,
+            "samples_to_target": 325,
+            "max_order_achieved": 0.9999997840072274,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 350,
+              "samples_to_target": 350,
+              "max_order_achieved": 0.9999986138963538,
+              "success": false,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.9285714285714286
+            },
+            "budget_100": {
+              "total_samples": 86,
+              "samples_to_target": 86,
+              "max_order_achieved": 0.999999568798259,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 3.7790697674418605
+            }
+          },
+          "best_speedup": 3.7790697674418605
+        },
+        {
+          "cppn_id": 12,
+          "baseline": {
+            "total_samples": 263,
+            "samples_to_target": 263,
+            "max_order_achieved": 0.9999998765348442,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 350,
+              "samples_to_target": 350,
+              "max_order_achieved": 0.9999956865051107,
+              "success": false,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.7514285714285714
+            },
+            "budget_100": {
+              "total_samples": 104,
+              "samples_to_target": 104,
+              "max_order_achieved": 0.9999995531479837,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.5288461538461537
+            }
+          },
+          "best_speedup": 2.5288461538461537
+        },
+        {
+          "cppn_id": 13,
+          "baseline": {
+            "total_samples": 130,
+            "samples_to_target": 130,
+            "max_order_achieved": 0.9999995405083487,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 95,
+              "samples_to_target": 95,
+              "max_order_achieved": 0.999999752189941,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.368421052631579
+            },
+            "budget_100": {
+              "total_samples": 105,
+              "samples_to_target": 105,
+              "max_order_achieved": 0.9999997326762291,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.2380952380952381
+            }
+          },
+          "best_speedup": 1.368421052631579
+        },
+        {
+          "cppn_id": 14,
+          "baseline": {
+            "total_samples": 319,
+            "samples_to_target": 319,
+            "max_order_achieved": 0.9999994539691781,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 350,
+              "samples_to_target": 350,
+              "max_order_achieved": 0.9999756212295895,
+              "success": false,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.9114285714285715
+            },
+            "budget_100": {
+              "total_samples": 105,
+              "samples_to_target": 105,
+              "max_order_achieved": 0.9999997109064258,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 3.038095238095238
+            }
+          },
+          "best_speedup": 3.038095238095238
+        },
+        {
+          "cppn_id": 15,
+          "baseline": {
+            "total_samples": 303,
+            "samples_to_target": 303,
+            "max_order_achieved": 0.9999998115044393,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 174,
+              "samples_to_target": 174,
+              "max_order_achieved": 0.9999994606360555,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.7413793103448276
+            },
+            "budget_100": {
+              "total_samples": 127,
+              "samples_to_target": 127,
+              "max_order_achieved": 0.9999997998771755,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.3858267716535435
+            }
+          },
+          "best_speedup": 2.3858267716535435
+        },
+        {
+          "cppn_id": 16,
+          "baseline": {
+            "total_samples": 274,
+            "samples_to_target": 274,
+            "max_order_achieved": 0.9999995214914786,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 94,
+              "samples_to_target": 94,
+              "max_order_achieved": 0.9999994638187849,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.9148936170212765
+            },
+            "budget_100": {
+              "total_samples": 142,
+              "samples_to_target": 142,
+              "max_order_achieved": 0.999999597087451,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.9295774647887325
+            }
+          },
+          "best_speedup": 2.9148936170212765
+        },
+        {
+          "cppn_id": 17,
+          "baseline": {
+            "total_samples": 378,
+            "samples_to_target": 378,
+            "max_order_achieved": 0.9999996748245408,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 350,
+              "samples_to_target": 350,
+              "max_order_achieved": 0.9999973616482767,
+              "success": false,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.08
+            },
+            "budget_100": {
+              "total_samples": 105,
+              "samples_to_target": 105,
+              "max_order_achieved": 0.9999995887141195,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 3.6
+            }
+          },
+          "best_speedup": 3.6
+        },
+        {
+          "cppn_id": 18,
+          "baseline": {
+            "total_samples": 364,
+            "samples_to_target": 364,
+            "max_order_achieved": 0.9999998564772049,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 50,
+              "samples_to_target": 50,
+              "max_order_achieved": 0.9999993554804427,
+              "success": true,
+              "init_hit": true,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 7.28
+            },
+            "budget_100": {
+              "total_samples": 99,
+              "samples_to_target": 99,
+              "max_order_achieved": 0.9999996499534783,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 3.676767676767677
+            }
+          },
+          "best_speedup": 7.28
+        },
+        {
+          "cppn_id": 19,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 0.9999999997581682,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 242,
+              "samples_to_target": 242,
+              "max_order_achieved": 0.9999996422426867,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.4132231404958678
+            },
+            "budget_100": {
+              "total_samples": 148,
+              "samples_to_target": 148,
+              "max_order_achieved": 0.9999996511986207,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.6756756756756757
+            }
+          },
+          "best_speedup": 0.6756756756756757
+        },
+        {
+          "cppn_id": 20,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 0.9999999999148512,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 173,
+              "samples_to_target": 173,
+              "max_order_achieved": 0.9999996856476043,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.5780346820809249
+            },
+            "budget_100": {
+              "total_samples": 145,
+              "samples_to_target": 145,
+              "max_order_achieved": 0.999999970404814,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.6896551724137931
+            }
+          },
+          "best_speedup": 0.6896551724137931
+        },
+        {
+          "cppn_id": 21,
+          "baseline": {
+            "total_samples": 216,
+            "samples_to_target": 216,
+            "max_order_achieved": 0.9999995938264805,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 130,
+              "samples_to_target": 130,
+              "max_order_achieved": 0.9999995834618532,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.6615384615384616
+            },
+            "budget_100": {
+              "total_samples": 64,
+              "samples_to_target": 64,
+              "max_order_achieved": 0.9999998748798617,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 3.375
+            }
+          },
+          "best_speedup": 3.375
+        },
+        {
+          "cppn_id": 22,
+          "baseline": {
+            "total_samples": 269,
+            "samples_to_target": 269,
+            "max_order_achieved": 0.9999997632136454,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 350,
+              "samples_to_target": 350,
+              "max_order_achieved": 0.9999662671940268,
+              "success": false,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.7685714285714286
+            },
+            "budget_100": {
+              "total_samples": 140,
+              "samples_to_target": 140,
+              "max_order_achieved": 0.9999995466386624,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.9214285714285715
+            }
+          },
+          "best_speedup": 1.9214285714285715
+        },
+        {
+          "cppn_id": 23,
+          "baseline": {
+            "total_samples": 384,
+            "samples_to_target": 384,
+            "max_order_achieved": 0.9999995746271257,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 350,
+              "samples_to_target": 350,
+              "max_order_achieved": 0.999994153893498,
+              "success": false,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.0971428571428572
+            },
+            "budget_100": {
+              "total_samples": 128,
+              "samples_to_target": 128,
+              "max_order_achieved": 0.9999998799267321,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 3.0
+            }
+          },
+          "best_speedup": 3.0
+        },
+        {
+          "cppn_id": 24,
+          "baseline": {
+            "total_samples": 199,
+            "samples_to_target": 199,
+            "max_order_achieved": 0.9999997504203699,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 240,
+              "samples_to_target": 240,
+              "max_order_achieved": 0.999999379137746,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.8291666666666667
+            },
+            "budget_100": {
+              "total_samples": 134,
+              "samples_to_target": 134,
+              "max_order_achieved": 0.9999996051947524,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.4850746268656716
+            }
+          },
+          "best_speedup": 1.4850746268656716
+        },
+        {
+          "cppn_id": 25,
+          "baseline": {
+            "total_samples": 303,
+            "samples_to_target": 303,
+            "max_order_achieved": 0.9999999775139696,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 350,
+              "samples_to_target": 350,
+              "max_order_achieved": 0.9999326807411599,
+              "success": false,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.8657142857142858
+            },
+            "budget_100": {
+              "total_samples": 100,
+              "samples_to_target": 50,
+              "max_order_achieved": 0.9999999958087011,
+              "success": true,
+              "init_hit": true,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 6.06
+            }
+          },
+          "best_speedup": 6.06
+        },
+        {
+          "cppn_id": 26,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 0.9999999993948318,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 132,
+              "samples_to_target": 132,
+              "max_order_achieved": 0.9999993928439181,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.7575757575757576
+            },
+            "budget_100": {
+              "total_samples": 140,
+              "samples_to_target": 140,
+              "max_order_achieved": 0.9999995302474651,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.7142857142857143
+            }
+          },
+          "best_speedup": 0.7575757575757576
+        },
+        {
+          "cppn_id": 27,
+          "baseline": {
+            "total_samples": 371,
+            "samples_to_target": 371,
+            "max_order_achieved": 0.9999995645287953,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 96,
+              "samples_to_target": 96,
+              "max_order_achieved": 0.999999981996054,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 3.8645833333333335
+            },
+            "budget_100": {
+              "total_samples": 103,
+              "samples_to_target": 103,
+              "max_order_achieved": 0.9999995535183447,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 3.6019417475728157
+            }
+          },
+          "best_speedup": 3.8645833333333335
+        },
+        {
+          "cppn_id": 28,
+          "baseline": {
+            "total_samples": 113,
+            "samples_to_target": 113,
+            "max_order_achieved": 0.9999999612792341,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 149,
+              "samples_to_target": 149,
+              "max_order_achieved": 0.9999995888202816,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.7583892617449665
+            },
+            "budget_100": {
+              "total_samples": 88,
+              "samples_to_target": 88,
+              "max_order_achieved": 0.9999993765868415,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 1.2840909090909092
+            }
+          },
+          "best_speedup": 1.2840909090909092
+        },
+        {
+          "cppn_id": 29,
+          "baseline": {
+            "total_samples": 359,
+            "samples_to_target": 359,
+            "max_order_achieved": 0.9999994520853831,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 230,
+              "samples_to_target": 230,
+              "max_order_achieved": 0.9999998784942412,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.5608695652173914
+            },
+            "budget_100": {
+              "total_samples": 109,
+              "samples_to_target": 109,
+              "max_order_achieved": 0.9999997857160378,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 3.293577981651376
+            }
+          },
+          "best_speedup": 3.293577981651376
+        },
+        {
+          "cppn_id": 30,
+          "baseline": {
+            "total_samples": 340,
+            "samples_to_target": 340,
+            "max_order_achieved": 0.9999998045142616,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 350,
+              "samples_to_target": 350,
+              "max_order_achieved": 0.9999943350716537,
+              "success": false,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.9714285714285714
+            },
+            "budget_100": {
+              "total_samples": 158,
+              "samples_to_target": 158,
+              "max_order_achieved": 0.9999996904497426,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.151898734177215
+            }
+          },
+          "best_speedup": 2.151898734177215
+        },
+        {
+          "cppn_id": 31,
+          "baseline": {
+            "total_samples": 376,
+            "samples_to_target": 376,
+            "max_order_achieved": 0.9999999154092684,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 350,
+              "samples_to_target": 350,
+              "max_order_achieved": 0.9999975374109201,
+              "success": false,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.0742857142857143
+            },
+            "budget_100": {
+              "total_samples": 138,
+              "samples_to_target": 138,
+              "max_order_achieved": 0.9999999967555787,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.7246376811594204
+            }
+          },
+          "best_speedup": 2.7246376811594204
+        },
+        {
+          "cppn_id": 32,
+          "baseline": {
+            "total_samples": 413,
+            "samples_to_target": 413,
+            "max_order_achieved": 0.9999996411824819,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 91,
+              "samples_to_target": 91,
+              "max_order_achieved": 0.9999993894942839,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 4.538461538461538
+            },
+            "budget_100": {
+              "total_samples": 125,
+              "samples_to_target": 125,
+              "max_order_achieved": 0.9999993690682486,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 3.304
+            }
+          },
+          "best_speedup": 4.538461538461538
+        },
+        {
+          "cppn_id": 33,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 0.9999999999237124,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 145,
+              "samples_to_target": 145,
+              "max_order_achieved": 0.9999997110974456,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.6896551724137931
+            },
+            "budget_100": {
+              "total_samples": 400,
+              "samples_to_target": 400,
+              "max_order_achieved": 0.9999965199351656,
+              "success": false,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.25
+            }
+          },
+          "best_speedup": 0.6896551724137931
+        },
+        {
+          "cppn_id": 34,
+          "baseline": {
+            "total_samples": 242,
+            "samples_to_target": 242,
+            "max_order_achieved": 0.9999999728850919,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 74,
+              "samples_to_target": 74,
+              "max_order_achieved": 0.9999996020492057,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 3.27027027027027
+            },
+            "budget_100": {
+              "total_samples": 128,
+              "samples_to_target": 128,
+              "max_order_achieved": 0.9999995731115948,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.890625
+            }
+          },
+          "best_speedup": 3.27027027027027
+        },
+        {
+          "cppn_id": 35,
+          "baseline": {
+            "total_samples": 466,
+            "samples_to_target": 466,
+            "max_order_achieved": 0.9999998779016038,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 295,
+              "samples_to_target": 295,
+              "max_order_achieved": 0.9999994895665691,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.5796610169491525
+            },
+            "budget_100": {
+              "total_samples": 105,
+              "samples_to_target": 105,
+              "max_order_achieved": 0.9999995851194297,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 4.438095238095238
+            }
+          },
+          "best_speedup": 4.438095238095238
+        },
+        {
+          "cppn_id": 36,
+          "baseline": {
+            "total_samples": 307,
+            "samples_to_target": 307,
+            "max_order_achieved": 0.9999995287665802,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 87,
+              "samples_to_target": 87,
+              "max_order_achieved": 0.9999994107327858,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 3.528735632183908
+            },
+            "budget_100": {
+              "total_samples": 95,
+              "samples_to_target": 95,
+              "max_order_achieved": 0.9999994900273999,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 3.231578947368421
+            }
+          },
+          "best_speedup": 3.528735632183908
+        },
+        {
+          "cppn_id": 37,
+          "baseline": {
+            "total_samples": 105,
+            "samples_to_target": 105,
+            "max_order_achieved": 0.9999996587612285,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 85,
+              "samples_to_target": 85,
+              "max_order_achieved": 0.9999999284742271,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.2352941176470589
+            },
+            "budget_100": {
+              "total_samples": 109,
+              "samples_to_target": 109,
+              "max_order_achieved": 0.9999999238187322,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.963302752293578
+            }
+          },
+          "best_speedup": 1.2352941176470589
+        },
+        {
+          "cppn_id": 38,
+          "baseline": {
+            "total_samples": 221,
+            "samples_to_target": 221,
+            "max_order_achieved": 0.9999999403554684,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 52,
+              "samples_to_target": 52,
+              "max_order_achieved": 0.999999730504516,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 4.25
+            },
+            "budget_100": {
+              "total_samples": 101,
+              "samples_to_target": 101,
+              "max_order_achieved": 0.9999997167194523,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.1881188118811883
+            }
+          },
+          "best_speedup": 4.25
+        },
+        {
+          "cppn_id": 39,
+          "baseline": {
+            "total_samples": 402,
+            "samples_to_target": 402,
+            "max_order_achieved": 0.9999999089172807,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 74,
+              "samples_to_target": 74,
+              "max_order_achieved": 0.9999998474462468,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 5.4324324324324325
+            },
+            "budget_100": {
+              "total_samples": 215,
+              "samples_to_target": 215,
+              "max_order_achieved": 0.9999995888350246,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.869767441860465
+            }
+          },
+          "best_speedup": 5.4324324324324325
+        }
+      ],
+      "summary": {
+        "n_total": 40,
+        "speedup_mean": 2.719473459353824,
+        "speedup_std": 1.5917750476583383,
+        "speedup_min": 0.6756756756756757,
+        "speedup_max": 7.28,
+        "all_speedups": [
+          0.4857142857142857,
+          0.9497206703910615,
+          0.6828571428571428,
+          1.7318840579710144,
+          2.8055555555555554,
+          1.7264957264957266,
+          0.2857142857142857,
+          0.9090909090909091,
+          2.3289473684210527,
+          3.54,
+          0.5780346820809249,
+          1.7857142857142858,
+          0.8620689655172413,
+          0.9433962264150944,
+          4.238636363636363,
+          3.5865384615384617,
+          0.7078651685393258,
+          0.72,
+          4.36,
+          1.703125,
+          1.233644859813084,
+          1.1282051282051282,
+          0.9285714285714286,
+          3.7790697674418605,
+          0.7514285714285714,
+          2.5288461538461537,
+          1.368421052631579,
+          1.2380952380952381,
+          0.9114285714285715,
+          3.038095238095238,
+          1.7413793103448276,
+          2.3858267716535435,
+          2.9148936170212765,
+          1.9295774647887325,
+          1.08,
+          3.6,
+          7.28,
+          3.676767676767677,
+          0.4132231404958678,
+          0.6756756756756757,
+          0.5780346820809249,
+          0.6896551724137931,
+          1.6615384615384616,
+          3.375,
+          0.7685714285714286,
+          1.9214285714285715,
+          1.0971428571428572,
+          3.0,
+          0.8291666666666667,
+          1.4850746268656716,
+          0.8657142857142858,
+          6.06,
+          0.7575757575757576,
+          0.7142857142857143,
+          3.8645833333333335,
+          3.6019417475728157,
+          0.7583892617449665,
+          1.2840909090909092,
+          1.5608695652173914,
+          3.293577981651376,
+          0.9714285714285714,
+          2.151898734177215,
+          1.0742857142857143,
+          2.7246376811594204,
+          4.538461538461538,
+          3.304,
+          0.6896551724137931,
+          0.25,
+          3.27027027027027,
+          1.890625,
+          1.5796610169491525,
+          4.438095238095238,
+          3.528735632183908,
+          3.231578947368421,
+          1.2352941176470589,
+          0.963302752293578,
+          4.25,
+          2.1881188118811883,
+          5.4324324324324325,
+          1.869767441860465
+        ],
+        "best_speedups": [
+          0.9497206703910615,
+          1.7318840579710144,
+          2.8055555555555554,
+          0.9090909090909091,
+          3.54,
+          1.7857142857142858,
+          0.9433962264150944,
+          4.238636363636363,
+          0.72,
+          4.36,
+          1.233644859813084,
+          3.7790697674418605,
+          2.5288461538461537,
+          1.368421052631579,
+          3.038095238095238,
+          2.3858267716535435,
+          2.9148936170212765,
+          3.6,
+          7.28,
+          0.6756756756756757,
+          0.6896551724137931,
+          3.375,
+          1.9214285714285715,
+          3.0,
+          1.4850746268656716,
+          6.06,
+          0.7575757575757576,
+          3.8645833333333335,
+          1.2840909090909092,
+          3.293577981651376,
+          2.151898734177215,
+          2.7246376811594204,
+          4.538461538461538,
+          0.6896551724137931,
+          3.27027027027027,
+          4.438095238095238,
+          3.528735632183908,
+          1.2352941176470589,
+          4.25,
+          5.4324324324324325
+        ],
+        "variants": {
+          "budget_50": {
+            "speedup_mean": 1.8817548783857476,
+            "speedup_std": 1.622258677023926,
+            "speedup_min": 0.2857142857142857,
+            "speedup_max": 7.28,
+            "init_hit_count": 2,
+            "stage1_hit_count": 2,
+            "stage2_used_count": 38,
+            "stage2_speedup_mean": 1.6744788193534186
+          },
+          "budget_100": {
+            "speedup_mean": 2.2503300945582545,
+            "speedup_std": 1.2503189542138888,
+            "speedup_min": 0.25,
+            "speedup_max": 6.06,
+            "init_hit_count": 2,
+            "stage1_hit_count": 7,
+            "stage2_used_count": 33,
+            "stage2_speedup_mean": 1.971718075201858
+          }
+        }
+      }
+    },
+    "kolmogorov": {
+      "rows": [
+        {
+          "cppn_id": 0,
+          "baseline": {
+            "total_samples": 255,
+            "samples_to_target": 255,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 169,
+              "samples_to_target": 169,
+              "max_order_achieved": 0.980647487449205,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.5088757396449703
+            },
+            "budget_100": {
+              "total_samples": 100,
+              "samples_to_target": 50,
+              "max_order_achieved": 1.0,
+              "success": true,
+              "init_hit": true,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 5.1
+            }
+          },
+          "best_speedup": 5.1
+        },
+        {
+          "cppn_id": 1,
+          "baseline": {
+            "total_samples": 182,
+            "samples_to_target": 182,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 179,
+              "samples_to_target": 179,
+              "max_order_achieved": 0.9732785456834953,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.0167597765363128
+            },
+            "budget_100": {
+              "total_samples": 143,
+              "samples_to_target": 143,
+              "max_order_achieved": 0.9826243395710214,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.2727272727272727
+            }
+          },
+          "best_speedup": 1.2727272727272727
+        },
+        {
+          "cppn_id": 2,
+          "baseline": {
+            "total_samples": 396,
+            "samples_to_target": 396,
+            "max_order_achieved": 0.9777922050377686,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 156,
+              "samples_to_target": 156,
+              "max_order_achieved": 0.980647487449205,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.5384615384615383
+            },
+            "budget_100": {
+              "total_samples": 106,
+              "samples_to_target": 106,
+              "max_order_achieved": 1.0,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 3.7358490566037736
+            }
+          },
+          "best_speedup": 3.7358490566037736
+        },
+        {
+          "cppn_id": 3,
+          "baseline": {
+            "total_samples": 401,
+            "samples_to_target": 401,
+            "max_order_achieved": 0.9698515400646845,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 350,
+              "samples_to_target": 350,
+              "max_order_achieved": 0.7333297501741547,
+              "success": false,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.1457142857142857
+            },
+            "budget_100": {
+              "total_samples": 100,
+              "samples_to_target": 50,
+              "max_order_achieved": 0.9951876869382159,
+              "success": true,
+              "init_hit": true,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 8.02
+            }
+          },
+          "best_speedup": 8.02
+        },
+        {
+          "cppn_id": 4,
+          "baseline": {
+            "total_samples": 302,
+            "samples_to_target": 302,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 61,
+              "samples_to_target": 61,
+              "max_order_achieved": 1.0,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 4.950819672131147
+            },
+            "budget_100": {
+              "total_samples": 132,
+              "samples_to_target": 132,
+              "max_order_achieved": 0.9768665836693233,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.287878787878788
+            }
+          },
+          "best_speedup": 4.950819672131147
+        },
+        {
+          "cppn_id": 5,
+          "baseline": {
+            "total_samples": 378,
+            "samples_to_target": 378,
+            "max_order_achieved": 0.9777922050377686,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 117,
+              "samples_to_target": 117,
+              "max_order_achieved": 0.9867941088981544,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 3.230769230769231
+            },
+            "budget_100": {
+              "total_samples": 165,
+              "samples_to_target": 165,
+              "max_order_achieved": 1.0,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.290909090909091
+            }
+          },
+          "best_speedup": 3.230769230769231
+        },
+        {
+          "cppn_id": 6,
+          "baseline": {
+            "total_samples": 185,
+            "samples_to_target": 185,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 126,
+              "samples_to_target": 126,
+              "max_order_achieved": 1.0,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.4682539682539681
+            },
+            "budget_100": {
+              "total_samples": 121,
+              "samples_to_target": 121,
+              "max_order_achieved": 1.0,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.5289256198347108
+            }
+          },
+          "best_speedup": 1.5289256198347108
+        },
+        {
+          "cppn_id": 7,
+          "baseline": {
+            "total_samples": 317,
+            "samples_to_target": 317,
+            "max_order_achieved": 0.9867941088981544,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 350,
+              "samples_to_target": 350,
+              "max_order_achieved": 0.9483355357521965,
+              "success": false,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.9057142857142857
+            },
+            "budget_100": {
+              "total_samples": 128,
+              "samples_to_target": 128,
+              "max_order_achieved": 0.993854248957688,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.4765625
+            }
+          },
+          "best_speedup": 2.4765625
+        },
+        {
+          "cppn_id": 8,
+          "baseline": {
+            "total_samples": 317,
+            "samples_to_target": 317,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 350,
+              "samples_to_target": 350,
+              "max_order_achieved": 0.7451346782790023,
+              "success": false,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.9057142857142857
+            },
+            "budget_100": {
+              "total_samples": 162,
+              "samples_to_target": 162,
+              "max_order_achieved": 1.0,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.9567901234567902
+            }
+          },
+          "best_speedup": 1.9567901234567902
+        },
+        {
+          "cppn_id": 9,
+          "baseline": {
+            "total_samples": 290,
+            "samples_to_target": 290,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 77,
+              "samples_to_target": 77,
+              "max_order_achieved": 0.9690171550638925,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 3.7662337662337664
+            },
+            "budget_100": {
+              "total_samples": 114,
+              "samples_to_target": 114,
+              "max_order_achieved": 1.0,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.543859649122807
+            }
+          },
+          "best_speedup": 3.7662337662337664
+        },
+        {
+          "cppn_id": 10,
+          "baseline": {
+            "total_samples": 312,
+            "samples_to_target": 312,
+            "max_order_achieved": 0.9966011441273191,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 67,
+              "samples_to_target": 67,
+              "max_order_achieved": 0.993854248957688,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 4.656716417910448
+            },
+            "budget_100": {
+              "total_samples": 116,
+              "samples_to_target": 116,
+              "max_order_achieved": 0.972407703722167,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.689655172413793
+            }
+          },
+          "best_speedup": 4.656716417910448
+        },
+        {
+          "cppn_id": 11,
+          "baseline": {
+            "total_samples": 199,
+            "samples_to_target": 199,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 50,
+              "samples_to_target": 50,
+              "max_order_achieved": 0.9836377341047823,
+              "success": true,
+              "init_hit": true,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 3.98
+            },
+            "budget_100": {
+              "total_samples": 154,
+              "samples_to_target": 154,
+              "max_order_achieved": 1.0,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.2922077922077921
+            }
+          },
+          "best_speedup": 3.98
+        },
+        {
+          "cppn_id": 12,
+          "baseline": {
+            "total_samples": 249,
+            "samples_to_target": 249,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 350,
+              "samples_to_target": 350,
+              "max_order_achieved": 0.8264990423681433,
+              "success": false,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.7114285714285714
+            },
+            "budget_100": {
+              "total_samples": 100,
+              "samples_to_target": 50,
+              "max_order_achieved": 1.0,
+              "success": true,
+              "init_hit": true,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 4.98
+            }
+          },
+          "best_speedup": 4.98
+        },
+        {
+          "cppn_id": 13,
+          "baseline": {
+            "total_samples": 319,
+            "samples_to_target": 319,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 89,
+              "samples_to_target": 89,
+              "max_order_achieved": 1.0,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 3.5842696629213484
+            },
+            "budget_100": {
+              "total_samples": 154,
+              "samples_to_target": 154,
+              "max_order_achieved": 1.0,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.0714285714285716
+            }
+          },
+          "best_speedup": 3.5842696629213484
+        },
+        {
+          "cppn_id": 14,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 350,
+              "samples_to_target": 350,
+              "max_order_achieved": 0.8622039834036132,
+              "success": false,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.2857142857142857
+            },
+            "budget_100": {
+              "total_samples": 100,
+              "samples_to_target": 50,
+              "max_order_achieved": 1.0,
+              "success": true,
+              "init_hit": true,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 2.0
+            }
+          },
+          "best_speedup": 2.0
+        },
+        {
+          "cppn_id": 15,
+          "baseline": {
+            "total_samples": 450,
+            "samples_to_target": 450,
+            "max_order_achieved": 0.9981376968797967,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 115,
+              "samples_to_target": 115,
+              "max_order_achieved": 0.9690171550638925,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 3.9130434782608696
+            },
+            "budget_100": {
+              "total_samples": 162,
+              "samples_to_target": 162,
+              "max_order_achieved": 1.0,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.7777777777777777
+            }
+          },
+          "best_speedup": 3.9130434782608696
+        },
+        {
+          "cppn_id": 16,
+          "baseline": {
+            "total_samples": 132,
+            "samples_to_target": 132,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 268,
+              "samples_to_target": 268,
+              "max_order_achieved": 0.9836377341047823,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.4925373134328358
+            },
+            "budget_100": {
+              "total_samples": 113,
+              "samples_to_target": 113,
+              "max_order_achieved": 1.0,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.168141592920354
+            }
+          },
+          "best_speedup": 1.168141592920354
+        },
+        {
+          "cppn_id": 17,
+          "baseline": {
+            "total_samples": 303,
+            "samples_to_target": 303,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 76,
+              "samples_to_target": 76,
+              "max_order_achieved": 0.9913540062352514,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 3.986842105263158
+            },
+            "budget_100": {
+              "total_samples": 170,
+              "samples_to_target": 170,
+              "max_order_achieved": 1.0,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.7823529411764707
+            }
+          },
+          "best_speedup": 3.986842105263158
+        },
+        {
+          "cppn_id": 18,
+          "baseline": {
+            "total_samples": 430,
+            "samples_to_target": 430,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 96,
+              "samples_to_target": 96,
+              "max_order_achieved": 0.9715464918616951,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 4.479166666666667
+            },
+            "budget_100": {
+              "total_samples": 122,
+              "samples_to_target": 122,
+              "max_order_achieved": 1.0,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 3.5245901639344264
+            }
+          },
+          "best_speedup": 4.479166666666667
+        },
+        {
+          "cppn_id": 19,
+          "baseline": {
+            "total_samples": 414,
+            "samples_to_target": 414,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 84,
+              "samples_to_target": 84,
+              "max_order_achieved": 0.9966011441273191,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 4.928571428571429
+            },
+            "budget_100": {
+              "total_samples": 101,
+              "samples_to_target": 101,
+              "max_order_achieved": 0.9878909989040702,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 4.099009900990099
+            }
+          },
+          "best_speedup": 4.928571428571429
+        },
+        {
+          "cppn_id": 20,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 163,
+              "samples_to_target": 163,
+              "max_order_achieved": 1.0,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.6134969325153374
+            },
+            "budget_100": {
+              "total_samples": 102,
+              "samples_to_target": 102,
+              "max_order_achieved": 1.0,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.9803921568627451
+            }
+          },
+          "best_speedup": 0.9803921568627451
+        },
+        {
+          "cppn_id": 21,
+          "baseline": {
+            "total_samples": 510,
+            "samples_to_target": 510,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 104,
+              "samples_to_target": 104,
+              "max_order_achieved": 0.9715464918616951,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 4.903846153846154
+            },
+            "budget_100": {
+              "total_samples": 139,
+              "samples_to_target": 139,
+              "max_order_achieved": 0.9690171550638925,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 3.6690647482014387
+            }
+          },
+          "best_speedup": 4.903846153846154
+        },
+        {
+          "cppn_id": 22,
+          "baseline": {
+            "total_samples": 329,
+            "samples_to_target": 329,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 170,
+              "samples_to_target": 170,
+              "max_order_achieved": 0.9716640800537528,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.9352941176470588
+            },
+            "budget_100": {
+              "total_samples": 180,
+              "samples_to_target": 180,
+              "max_order_achieved": 1.0,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.8277777777777777
+            }
+          },
+          "best_speedup": 1.9352941176470588
+        },
+        {
+          "cppn_id": 23,
+          "baseline": {
+            "total_samples": 394,
+            "samples_to_target": 394,
+            "max_order_achieved": 0.9816279642207751,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 350,
+              "samples_to_target": 350,
+              "max_order_achieved": 0.7728192233979047,
+              "success": false,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.1257142857142857
+            },
+            "budget_100": {
+              "total_samples": 104,
+              "samples_to_target": 104,
+              "max_order_achieved": 0.9981376968797967,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 3.7884615384615383
+            }
+          },
+          "best_speedup": 3.7884615384615383
+        },
+        {
+          "cppn_id": 24,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 89,
+              "samples_to_target": 89,
+              "max_order_achieved": 0.9867941088981544,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.1235955056179776
+            },
+            "budget_100": {
+              "total_samples": 125,
+              "samples_to_target": 125,
+              "max_order_achieved": 0.9732785456834953,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.8
+            }
+          },
+          "best_speedup": 1.1235955056179776
+        },
+        {
+          "cppn_id": 25,
+          "baseline": {
+            "total_samples": 297,
+            "samples_to_target": 297,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 83,
+              "samples_to_target": 83,
+              "max_order_achieved": 1.0,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 3.5783132530120483
+            },
+            "budget_100": {
+              "total_samples": 129,
+              "samples_to_target": 129,
+              "max_order_achieved": 1.0,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.302325581395349
+            }
+          },
+          "best_speedup": 3.5783132530120483
+        },
+        {
+          "cppn_id": 26,
+          "baseline": {
+            "total_samples": 380,
+            "samples_to_target": 380,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 99,
+              "samples_to_target": 99,
+              "max_order_achieved": 1.0,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 3.8383838383838382
+            },
+            "budget_100": {
+              "total_samples": 125,
+              "samples_to_target": 125,
+              "max_order_achieved": 1.0,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 3.04
+            }
+          },
+          "best_speedup": 3.8383838383838382
+        },
+        {
+          "cppn_id": 27,
+          "baseline": {
+            "total_samples": 402,
+            "samples_to_target": 402,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 74,
+              "samples_to_target": 74,
+              "max_order_achieved": 1.0,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 5.4324324324324325
+            },
+            "budget_100": {
+              "total_samples": 134,
+              "samples_to_target": 134,
+              "max_order_achieved": 1.0,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 3.0
+            }
+          },
+          "best_speedup": 5.4324324324324325
+        },
+        {
+          "cppn_id": 28,
+          "baseline": {
+            "total_samples": 238,
+            "samples_to_target": 238,
+            "max_order_achieved": 0.972407703722167,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 350,
+              "samples_to_target": 350,
+              "max_order_achieved": 0.8102730937391943,
+              "success": false,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.68
+            },
+            "budget_100": {
+              "total_samples": 111,
+              "samples_to_target": 111,
+              "max_order_achieved": 1.0,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.144144144144144
+            }
+          },
+          "best_speedup": 2.144144144144144
+        },
+        {
+          "cppn_id": 29,
+          "baseline": {
+            "total_samples": 104,
+            "samples_to_target": 104,
+            "max_order_achieved": 0.9732785456834953,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 132,
+              "samples_to_target": 132,
+              "max_order_achieved": 0.9714218142809137,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.7878787878787878
+            },
+            "budget_100": {
+              "total_samples": 250,
+              "samples_to_target": 250,
+              "max_order_achieved": 0.993854248957688,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.416
+            }
+          },
+          "best_speedup": 0.7878787878787878
+        },
+        {
+          "cppn_id": 30,
+          "baseline": {
+            "total_samples": 208,
+            "samples_to_target": 208,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 318,
+              "samples_to_target": 318,
+              "max_order_achieved": 0.9715464918616951,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.6540880503144654
+            },
+            "budget_100": {
+              "total_samples": 110,
+              "samples_to_target": 110,
+              "max_order_achieved": 1.0,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.8909090909090909
+            }
+          },
+          "best_speedup": 1.8909090909090909
+        },
+        {
+          "cppn_id": 31,
+          "baseline": {
+            "total_samples": 256,
+            "samples_to_target": 256,
+            "max_order_achieved": 0.9715464918616951,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 350,
+              "samples_to_target": 350,
+              "max_order_achieved": 0.8377989613742347,
+              "success": false,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.7314285714285714
+            },
+            "budget_100": {
+              "total_samples": 130,
+              "samples_to_target": 130,
+              "max_order_achieved": 1.0,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.9692307692307693
+            }
+          },
+          "best_speedup": 1.9692307692307693
+        },
+        {
+          "cppn_id": 32,
+          "baseline": {
+            "total_samples": 181,
+            "samples_to_target": 181,
+            "max_order_achieved": 0.9867941088981544,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 50,
+              "samples_to_target": 50,
+              "max_order_achieved": 0.993854248957688,
+              "success": true,
+              "init_hit": true,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 3.62
+            },
+            "budget_100": {
+              "total_samples": 101,
+              "samples_to_target": 101,
+              "max_order_achieved": 1.0,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.7920792079207921
+            }
+          },
+          "best_speedup": 3.62
+        },
+        {
+          "cppn_id": 33,
+          "baseline": {
+            "total_samples": 415,
+            "samples_to_target": 415,
+            "max_order_achieved": 0.9901671900549285,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 83,
+              "samples_to_target": 83,
+              "max_order_achieved": 0.9741594091933823,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 5.0
+            },
+            "budget_100": {
+              "total_samples": 87,
+              "samples_to_target": 87,
+              "max_order_achieved": 1.0,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 4.7701149425287355
+            }
+          },
+          "best_speedup": 5.0
+        },
+        {
+          "cppn_id": 34,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 70,
+              "samples_to_target": 70,
+              "max_order_achieved": 0.9846694413410312,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.4285714285714286
+            },
+            "budget_100": {
+              "total_samples": 143,
+              "samples_to_target": 143,
+              "max_order_achieved": 1.0,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.6993006993006993
+            }
+          },
+          "best_speedup": 1.4285714285714286
+        },
+        {
+          "cppn_id": 35,
+          "baseline": {
+            "total_samples": 296,
+            "samples_to_target": 296,
+            "max_order_achieved": 0.9890142646094597,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 350,
+              "samples_to_target": 350,
+              "max_order_achieved": 0.7957286435770401,
+              "success": false,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.8457142857142858
+            },
+            "budget_100": {
+              "total_samples": 116,
+              "samples_to_target": 116,
+              "max_order_achieved": 0.9741594091933823,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.5517241379310347
+            }
+          },
+          "best_speedup": 2.5517241379310347
+        },
+        {
+          "cppn_id": 36,
+          "baseline": {
+            "total_samples": 357,
+            "samples_to_target": 357,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 350,
+              "samples_to_target": 350,
+              "max_order_achieved": 0.8826587425139908,
+              "success": false,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.02
+            },
+            "budget_100": {
+              "total_samples": 122,
+              "samples_to_target": 122,
+              "max_order_achieved": 0.9867941088981544,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.9262295081967213
+            }
+          },
+          "best_speedup": 2.9262295081967213
+        },
+        {
+          "cppn_id": 37,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 110,
+              "samples_to_target": 110,
+              "max_order_achieved": 0.9732785456834953,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.9090909090909091
+            },
+            "budget_100": {
+              "total_samples": 141,
+              "samples_to_target": 141,
+              "max_order_achieved": 0.9878909989040702,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.7092198581560284
+            }
+          },
+          "best_speedup": 0.9090909090909091
+        },
+        {
+          "cppn_id": 38,
+          "baseline": {
+            "total_samples": 453,
+            "samples_to_target": 453,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 91,
+              "samples_to_target": 91,
+              "max_order_achieved": 1.0,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 4.978021978021978
+            },
+            "budget_100": {
+              "total_samples": 131,
+              "samples_to_target": 131,
+              "max_order_achieved": 1.0,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 3.4580152671755724
+            }
+          },
+          "best_speedup": 4.978021978021978
+        },
+        {
+          "cppn_id": 39,
+          "baseline": {
+            "total_samples": 214,
+            "samples_to_target": 214,
+            "max_order_achieved": 0.9826243395710214,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 70,
+              "samples_to_target": 70,
+              "max_order_achieved": 1.0,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 3.057142857142857
+            },
+            "budget_100": {
+              "total_samples": 159,
+              "samples_to_target": 159,
+              "max_order_achieved": 1.0,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.3459119496855345
+            }
+          },
+          "best_speedup": 3.057142857142857
+        }
+      ],
+      "summary": {
+        "n_total": 40,
+        "speedup_mean": 3.263977280041312,
+        "speedup_std": 1.59340770135668,
+        "speedup_min": 0.7878787878787878,
+        "speedup_max": 8.02,
+        "all_speedups": [
+          1.5088757396449703,
+          5.1,
+          1.0167597765363128,
+          1.2727272727272727,
+          2.5384615384615383,
+          3.7358490566037736,
+          1.1457142857142857,
+          8.02,
+          4.950819672131147,
+          2.287878787878788,
+          3.230769230769231,
+          2.290909090909091,
+          1.4682539682539681,
+          1.5289256198347108,
+          0.9057142857142857,
+          2.4765625,
+          0.9057142857142857,
+          1.9567901234567902,
+          3.7662337662337664,
+          2.543859649122807,
+          4.656716417910448,
+          2.689655172413793,
+          3.98,
+          1.2922077922077921,
+          0.7114285714285714,
+          4.98,
+          3.5842696629213484,
+          2.0714285714285716,
+          0.2857142857142857,
+          2.0,
+          3.9130434782608696,
+          2.7777777777777777,
+          0.4925373134328358,
+          1.168141592920354,
+          3.986842105263158,
+          1.7823529411764707,
+          4.479166666666667,
+          3.5245901639344264,
+          4.928571428571429,
+          4.099009900990099,
+          0.6134969325153374,
+          0.9803921568627451,
+          4.903846153846154,
+          3.6690647482014387,
+          1.9352941176470588,
+          1.8277777777777777,
+          1.1257142857142857,
+          3.7884615384615383,
+          1.1235955056179776,
+          0.8,
+          3.5783132530120483,
+          2.302325581395349,
+          3.8383838383838382,
+          3.04,
+          5.4324324324324325,
+          3.0,
+          0.68,
+          2.144144144144144,
+          0.7878787878787878,
+          0.416,
+          0.6540880503144654,
+          1.8909090909090909,
+          0.7314285714285714,
+          1.9692307692307693,
+          3.62,
+          1.7920792079207921,
+          5.0,
+          4.7701149425287355,
+          1.4285714285714286,
+          0.6993006993006993,
+          0.8457142857142858,
+          2.5517241379310347,
+          1.02,
+          2.9262295081967213,
+          0.9090909090909091,
+          0.7092198581560284,
+          4.978021978021978,
+          3.4580152671755724,
+          3.057142857142857,
+          1.3459119496855345
+        ],
+        "best_speedups": [
+          5.1,
+          1.2727272727272727,
+          3.7358490566037736,
+          8.02,
+          4.950819672131147,
+          3.230769230769231,
+          1.5289256198347108,
+          2.4765625,
+          1.9567901234567902,
+          3.7662337662337664,
+          4.656716417910448,
+          3.98,
+          4.98,
+          3.5842696629213484,
+          2.0,
+          3.9130434782608696,
+          1.168141592920354,
+          3.986842105263158,
+          4.479166666666667,
+          4.928571428571429,
+          0.9803921568627451,
+          4.903846153846154,
+          1.9352941176470588,
+          3.7884615384615383,
+          1.1235955056179776,
+          3.5783132530120483,
+          3.8383838383838382,
+          5.4324324324324325,
+          2.144144144144144,
+          0.7878787878787878,
+          1.8909090909090909,
+          1.9692307692307693,
+          3.62,
+          5.0,
+          1.4285714285714286,
+          2.5517241379310347,
+          2.9262295081967213,
+          0.9090909090909091,
+          4.978021978021978,
+          3.057142857142857
+        ],
+        "variants": {
+          "budget_50": {
+            "speedup_mean": 2.4679654966668956,
+            "speedup_std": 1.6865172494981098,
+            "speedup_min": 0.2857142857142857,
+            "speedup_max": 5.4324324324324325,
+            "init_hit_count": 2,
+            "stage1_hit_count": 2,
+            "stage2_used_count": 38,
+            "stage2_speedup_mean": 2.3978584175441
+          },
+          "budget_100": {
+            "speedup_mean": 2.5419891847815124,
+            "speedup_std": 1.4533852500854916,
+            "speedup_min": 0.416,
+            "speedup_max": 8.02,
+            "init_hit_count": 4,
+            "stage1_hit_count": 5,
+            "stage2_used_count": 35,
+            "stage2_speedup_mean": 2.194555784249479
+          }
+        }
+      }
+    },
+    "ising": {
+      "rows": [
+        {
+          "cppn_id": 0,
+          "baseline": {
+            "total_samples": 244,
+            "samples_to_target": 244,
+            "max_order_achieved": 0.992472961689726,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 93,
+              "samples_to_target": 93,
+              "max_order_achieved": 0.9923564135973477,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.6236559139784945
+            },
+            "budget_100": {
+              "total_samples": 122,
+              "samples_to_target": 122,
+              "max_order_achieved": 0.9792797534930158,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.0
+            }
+          },
+          "best_speedup": 2.6236559139784945
+        },
+        {
+          "cppn_id": 1,
+          "baseline": {
+            "total_samples": 137,
+            "samples_to_target": 137,
+            "max_order_achieved": 0.974372546905997,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 57,
+              "samples_to_target": 57,
+              "max_order_achieved": 0.9841314015236524,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.4035087719298245
+            },
+            "budget_100": {
+              "total_samples": 234,
+              "samples_to_target": 234,
+              "max_order_achieved": 0.9797500742408567,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.5854700854700855
+            }
+          },
+          "best_speedup": 2.4035087719298245
+        },
+        {
+          "cppn_id": 2,
+          "baseline": {
+            "total_samples": 211,
+            "samples_to_target": 211,
+            "max_order_achieved": 0.9888777918807943,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 108,
+              "samples_to_target": 108,
+              "max_order_achieved": 0.989424253148399,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.9537037037037037
+            },
+            "budget_100": {
+              "total_samples": 140,
+              "samples_to_target": 140,
+              "max_order_achieved": 0.9891957339365778,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.5071428571428571
+            }
+          },
+          "best_speedup": 1.9537037037037037
+        },
+        {
+          "cppn_id": 3,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 0.9997254450411062,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 52,
+              "samples_to_target": 52,
+              "max_order_achieved": 0.9800182397313564,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.9230769230769231
+            },
+            "budget_100": {
+              "total_samples": 115,
+              "samples_to_target": 115,
+              "max_order_achieved": 0.9935990260247386,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.8695652173913043
+            }
+          },
+          "best_speedup": 1.9230769230769231
+        },
+        {
+          "cppn_id": 4,
+          "baseline": {
+            "total_samples": 105,
+            "samples_to_target": 105,
+            "max_order_achieved": 0.9789085353242708,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 62,
+              "samples_to_target": 62,
+              "max_order_achieved": 0.9812460534377354,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.6935483870967742
+            },
+            "budget_100": {
+              "total_samples": 90,
+              "samples_to_target": 90,
+              "max_order_achieved": 0.9784274239399746,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 1.1666666666666667
+            }
+          },
+          "best_speedup": 1.6935483870967742
+        },
+        {
+          "cppn_id": 5,
+          "baseline": {
+            "total_samples": 313,
+            "samples_to_target": 313,
+            "max_order_achieved": 0.9957983795412866,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 80,
+              "samples_to_target": 80,
+              "max_order_achieved": 0.9819984947420052,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 3.9125
+            },
+            "budget_100": {
+              "total_samples": 100,
+              "samples_to_target": 50,
+              "max_order_achieved": 0.977390748450078,
+              "success": true,
+              "init_hit": true,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 6.26
+            }
+          },
+          "best_speedup": 6.26
+        },
+        {
+          "cppn_id": 6,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 0.9995720803790942,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 109,
+              "samples_to_target": 109,
+              "max_order_achieved": 0.9906521586353174,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.9174311926605505
+            },
+            "budget_100": {
+              "total_samples": 180,
+              "samples_to_target": 180,
+              "max_order_achieved": 0.9805327515784918,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.5555555555555556
+            }
+          },
+          "best_speedup": 0.9174311926605505
+        },
+        {
+          "cppn_id": 7,
+          "baseline": {
+            "total_samples": 158,
+            "samples_to_target": 158,
+            "max_order_achieved": 0.9751722576263275,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 50,
+              "samples_to_target": 50,
+              "max_order_achieved": 0.9776461455918679,
+              "success": true,
+              "init_hit": true,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 3.16
+            },
+            "budget_100": {
+              "total_samples": 100,
+              "samples_to_target": 50,
+              "max_order_achieved": 0.9837340218111947,
+              "success": true,
+              "init_hit": true,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 3.16
+            }
+          },
+          "best_speedup": 3.16
+        },
+        {
+          "cppn_id": 8,
+          "baseline": {
+            "total_samples": 155,
+            "samples_to_target": 155,
+            "max_order_achieved": 0.9816325893575912,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 70,
+              "samples_to_target": 70,
+              "max_order_achieved": 0.9764318017660333,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.2142857142857144
+            },
+            "budget_100": {
+              "total_samples": 100,
+              "samples_to_target": 50,
+              "max_order_achieved": 0.995343279348049,
+              "success": true,
+              "init_hit": true,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 3.1
+            }
+          },
+          "best_speedup": 3.1
+        },
+        {
+          "cppn_id": 9,
+          "baseline": {
+            "total_samples": 411,
+            "samples_to_target": 411,
+            "max_order_achieved": 0.9890297145277921,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 70,
+              "samples_to_target": 70,
+              "max_order_achieved": 0.982022796792017,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 5.871428571428571
+            },
+            "budget_100": {
+              "total_samples": 100,
+              "samples_to_target": 50,
+              "max_order_achieved": 0.9791959487331584,
+              "success": true,
+              "init_hit": true,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 8.22
+            }
+          },
+          "best_speedup": 8.22
+        },
+        {
+          "cppn_id": 10,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 0.999419786062965,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 94,
+              "samples_to_target": 94,
+              "max_order_achieved": 0.9837382566833763,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.0638297872340425
+            },
+            "budget_100": {
+              "total_samples": 104,
+              "samples_to_target": 104,
+              "max_order_achieved": 0.99433559458681,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.9615384615384616
+            }
+          },
+          "best_speedup": 1.0638297872340425
+        },
+        {
+          "cppn_id": 11,
+          "baseline": {
+            "total_samples": 105,
+            "samples_to_target": 105,
+            "max_order_achieved": 0.9760422885409451,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 50,
+              "samples_to_target": 50,
+              "max_order_achieved": 0.988071178182997,
+              "success": true,
+              "init_hit": true,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 2.1
+            },
+            "budget_100": {
+              "total_samples": 99,
+              "samples_to_target": 99,
+              "max_order_achieved": 0.9803114871270773,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 1.0606060606060606
+            }
+          },
+          "best_speedup": 2.1
+        },
+        {
+          "cppn_id": 12,
+          "baseline": {
+            "total_samples": 185,
+            "samples_to_target": 185,
+            "max_order_achieved": 0.9751202261953618,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 59,
+              "samples_to_target": 59,
+              "max_order_achieved": 0.9786378185956293,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 3.135593220338983
+            },
+            "budget_100": {
+              "total_samples": 133,
+              "samples_to_target": 133,
+              "max_order_achieved": 0.9844873962802672,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.3909774436090225
+            }
+          },
+          "best_speedup": 3.135593220338983
+        },
+        {
+          "cppn_id": 13,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 0.9995968539438393,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 163,
+              "samples_to_target": 163,
+              "max_order_achieved": 0.977907588795916,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.6134969325153374
+            },
+            "budget_100": {
+              "total_samples": 100,
+              "samples_to_target": 50,
+              "max_order_achieved": 0.9811864931494607,
+              "success": true,
+              "init_hit": true,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 2.0
+            }
+          },
+          "best_speedup": 2.0
+        },
+        {
+          "cppn_id": 14,
+          "baseline": {
+            "total_samples": 160,
+            "samples_to_target": 160,
+            "max_order_achieved": 0.9932929414541898,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 69,
+              "samples_to_target": 69,
+              "max_order_achieved": 0.9914468656640671,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.318840579710145
+            },
+            "budget_100": {
+              "total_samples": 103,
+              "samples_to_target": 103,
+              "max_order_achieved": 0.9900391984870426,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.5533980582524272
+            }
+          },
+          "best_speedup": 2.318840579710145
+        },
+        {
+          "cppn_id": 15,
+          "baseline": {
+            "total_samples": 174,
+            "samples_to_target": 174,
+            "max_order_achieved": 0.9826908480350531,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 135,
+              "samples_to_target": 135,
+              "max_order_achieved": 0.975720072866191,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.288888888888889
+            },
+            "budget_100": {
+              "total_samples": 168,
+              "samples_to_target": 168,
+              "max_order_achieved": 0.9792844657688276,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.0357142857142858
+            }
+          },
+          "best_speedup": 1.288888888888889
+        },
+        {
+          "cppn_id": 16,
+          "baseline": {
+            "total_samples": 277,
+            "samples_to_target": 277,
+            "max_order_achieved": 0.9866525274132001,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 110,
+              "samples_to_target": 110,
+              "max_order_achieved": 0.9837266844408523,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.518181818181818
+            },
+            "budget_100": {
+              "total_samples": 108,
+              "samples_to_target": 108,
+              "max_order_achieved": 0.9756662939106227,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.564814814814815
+            }
+          },
+          "best_speedup": 2.564814814814815
+        },
+        {
+          "cppn_id": 17,
+          "baseline": {
+            "total_samples": 171,
+            "samples_to_target": 171,
+            "max_order_achieved": 0.9801783117076039,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 50,
+              "samples_to_target": 50,
+              "max_order_achieved": 0.9905463015668279,
+              "success": true,
+              "init_hit": true,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 3.42
+            },
+            "budget_100": {
+              "total_samples": 100,
+              "samples_to_target": 50,
+              "max_order_achieved": 0.9780598433774894,
+              "success": true,
+              "init_hit": true,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 3.42
+            }
+          },
+          "best_speedup": 3.42
+        },
+        {
+          "cppn_id": 18,
+          "baseline": {
+            "total_samples": 343,
+            "samples_to_target": 343,
+            "max_order_achieved": 0.9828909311914664,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 262,
+              "samples_to_target": 262,
+              "max_order_achieved": 0.9748804491598924,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.3091603053435115
+            },
+            "budget_100": {
+              "total_samples": 100,
+              "samples_to_target": 50,
+              "max_order_achieved": 0.9766007169734986,
+              "success": true,
+              "init_hit": true,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 6.86
+            }
+          },
+          "best_speedup": 6.86
+        },
+        {
+          "cppn_id": 19,
+          "baseline": {
+            "total_samples": 250,
+            "samples_to_target": 250,
+            "max_order_achieved": 0.9822519874192561,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 90,
+              "samples_to_target": 90,
+              "max_order_achieved": 0.9847416358668826,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.7777777777777777
+            },
+            "budget_100": {
+              "total_samples": 100,
+              "samples_to_target": 50,
+              "max_order_achieved": 0.988738046282471,
+              "success": true,
+              "init_hit": true,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 5.0
+            }
+          },
+          "best_speedup": 5.0
+        },
+        {
+          "cppn_id": 20,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 0.999425899651473,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 77,
+              "samples_to_target": 77,
+              "max_order_achieved": 0.9840798123294581,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.2987012987012987
+            },
+            "budget_100": {
+              "total_samples": 110,
+              "samples_to_target": 110,
+              "max_order_achieved": 0.9859564590072946,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.9090909090909091
+            }
+          },
+          "best_speedup": 1.2987012987012987
+        },
+        {
+          "cppn_id": 21,
+          "baseline": {
+            "total_samples": 242,
+            "samples_to_target": 242,
+            "max_order_achieved": 0.9860564248418001,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 138,
+              "samples_to_target": 138,
+              "max_order_achieved": 0.9791371509844591,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.7536231884057971
+            },
+            "budget_100": {
+              "total_samples": 400,
+              "samples_to_target": 400,
+              "max_order_achieved": 0.9474283067314864,
+              "success": false,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.605
+            }
+          },
+          "best_speedup": 1.7536231884057971
+        },
+        {
+          "cppn_id": 22,
+          "baseline": {
+            "total_samples": 202,
+            "samples_to_target": 202,
+            "max_order_achieved": 0.9788282255324042,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 77,
+              "samples_to_target": 77,
+              "max_order_achieved": 0.9862181998060915,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 2.6233766233766236
+            },
+            "budget_100": {
+              "total_samples": 150,
+              "samples_to_target": 150,
+              "max_order_achieved": 0.9748210077108168,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.3466666666666667
+            }
+          },
+          "best_speedup": 2.6233766233766236
+        },
+        {
+          "cppn_id": 23,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 0.9993984261581084,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 136,
+              "samples_to_target": 136,
+              "max_order_achieved": 0.9791270291454979,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.7352941176470589
+            },
+            "budget_100": {
+              "total_samples": 207,
+              "samples_to_target": 207,
+              "max_order_achieved": 0.9858414918623992,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.4830917874396135
+            }
+          },
+          "best_speedup": 0.7352941176470589
+        },
+        {
+          "cppn_id": 24,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 0.9995994704578417,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 75,
+              "samples_to_target": 75,
+              "max_order_achieved": 0.9825381121457359,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.3333333333333333
+            },
+            "budget_100": {
+              "total_samples": 100,
+              "samples_to_target": 50,
+              "max_order_achieved": 0.9749678764309221,
+              "success": true,
+              "init_hit": true,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 2.0
+            }
+          },
+          "best_speedup": 2.0
+        },
+        {
+          "cppn_id": 25,
+          "baseline": {
+            "total_samples": 184,
+            "samples_to_target": 184,
+            "max_order_achieved": 0.9805381524459573,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 93,
+              "samples_to_target": 93,
+              "max_order_achieved": 0.9777336706928588,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.978494623655914
+            },
+            "budget_100": {
+              "total_samples": 177,
+              "samples_to_target": 177,
+              "max_order_achieved": 0.9793097774167777,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.03954802259887
+            }
+          },
+          "best_speedup": 1.978494623655914
+        },
+        {
+          "cppn_id": 26,
+          "baseline": {
+            "total_samples": 321,
+            "samples_to_target": 321,
+            "max_order_achieved": 0.978988042359218,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 100,
+              "samples_to_target": 100,
+              "max_order_achieved": 0.9752096400025374,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 3.21
+            },
+            "budget_100": {
+              "total_samples": 100,
+              "samples_to_target": 50,
+              "max_order_achieved": 0.9776371106838266,
+              "success": true,
+              "init_hit": true,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 6.42
+            }
+          },
+          "best_speedup": 6.42
+        },
+        {
+          "cppn_id": 27,
+          "baseline": {
+            "total_samples": 159,
+            "samples_to_target": 159,
+            "max_order_achieved": 0.9779959678613599,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 125,
+              "samples_to_target": 125,
+              "max_order_achieved": 0.9824732222719741,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.272
+            },
+            "budget_100": {
+              "total_samples": 100,
+              "samples_to_target": 50,
+              "max_order_achieved": 0.9801372039682884,
+              "success": true,
+              "init_hit": true,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 3.18
+            }
+          },
+          "best_speedup": 3.18
+        },
+        {
+          "cppn_id": 28,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 0.9998223452117758,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 75,
+              "samples_to_target": 75,
+              "max_order_achieved": 0.9874762127560424,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.3333333333333333
+            },
+            "budget_100": {
+              "total_samples": 113,
+              "samples_to_target": 113,
+              "max_order_achieved": 0.9808017725755709,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.8849557522123894
+            }
+          },
+          "best_speedup": 1.3333333333333333
+        },
+        {
+          "cppn_id": 29,
+          "baseline": {
+            "total_samples": 264,
+            "samples_to_target": 264,
+            "max_order_achieved": 0.9755744804933316,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 318,
+              "samples_to_target": 318,
+              "max_order_achieved": 0.9749109985182468,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.8301886792452831
+            },
+            "budget_100": {
+              "total_samples": 58,
+              "samples_to_target": 58,
+              "max_order_achieved": 0.976219927305485,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 4.551724137931035
+            }
+          },
+          "best_speedup": 4.551724137931035
+        },
+        {
+          "cppn_id": 30,
+          "baseline": {
+            "total_samples": 247,
+            "samples_to_target": 247,
+            "max_order_achieved": 0.9750238363793288,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 350,
+              "samples_to_target": 350,
+              "max_order_achieved": 0.9489743833244859,
+              "success": false,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.7057142857142857
+            },
+            "budget_100": {
+              "total_samples": 100,
+              "samples_to_target": 50,
+              "max_order_achieved": 0.9764372689940811,
+              "success": true,
+              "init_hit": true,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 4.94
+            }
+          },
+          "best_speedup": 4.94
+        },
+        {
+          "cppn_id": 31,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 0.9996419325655819,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 117,
+              "samples_to_target": 117,
+              "max_order_achieved": 0.9857813411096399,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.8547008547008547
+            },
+            "budget_100": {
+              "total_samples": 103,
+              "samples_to_target": 103,
+              "max_order_achieved": 0.9790151539393533,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.970873786407767
+            }
+          },
+          "best_speedup": 0.970873786407767
+        },
+        {
+          "cppn_id": 32,
+          "baseline": {
+            "total_samples": 387,
+            "samples_to_target": 387,
+            "max_order_achieved": 0.9765581151926463,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 97,
+              "samples_to_target": 97,
+              "max_order_achieved": 0.9753719696514322,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 3.9896907216494846
+            },
+            "budget_100": {
+              "total_samples": 85,
+              "samples_to_target": 85,
+              "max_order_achieved": 0.9818004264319032,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 4.552941176470588
+            }
+          },
+          "best_speedup": 4.552941176470588
+        },
+        {
+          "cppn_id": 33,
+          "baseline": {
+            "total_samples": 183,
+            "samples_to_target": 183,
+            "max_order_achieved": 0.9773408679970719,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 97,
+              "samples_to_target": 97,
+              "max_order_achieved": 0.9789023999591323,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.8865979381443299
+            },
+            "budget_100": {
+              "total_samples": 134,
+              "samples_to_target": 134,
+              "max_order_achieved": 0.9755469599569484,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.3656716417910448
+            }
+          },
+          "best_speedup": 1.8865979381443299
+        },
+        {
+          "cppn_id": 34,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 0.9995065106220387,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 71,
+              "samples_to_target": 71,
+              "max_order_achieved": 0.9943848050070933,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.408450704225352
+            },
+            "budget_100": {
+              "total_samples": 120,
+              "samples_to_target": 120,
+              "max_order_achieved": 0.9842781204297123,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.8333333333333334
+            }
+          },
+          "best_speedup": 1.408450704225352
+        },
+        {
+          "cppn_id": 35,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 0.9995698539502601,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 291,
+              "samples_to_target": 291,
+              "max_order_achieved": 0.9753206308546916,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 0.3436426116838488
+            },
+            "budget_100": {
+              "total_samples": 100,
+              "samples_to_target": 50,
+              "max_order_achieved": 0.9925505906096901,
+              "success": true,
+              "init_hit": true,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 2.0
+            }
+          },
+          "best_speedup": 2.0
+        },
+        {
+          "cppn_id": 36,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 0.9997665290954889,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 77,
+              "samples_to_target": 77,
+              "max_order_achieved": 0.9868712245137281,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.2987012987012987
+            },
+            "budget_100": {
+              "total_samples": 100,
+              "samples_to_target": 50,
+              "max_order_achieved": 0.9802935868429918,
+              "success": true,
+              "init_hit": true,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 2.0
+            }
+          },
+          "best_speedup": 2.0
+        },
+        {
+          "cppn_id": 37,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 0.9994474197328056,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 50,
+              "samples_to_target": 50,
+              "max_order_achieved": 0.9765191698092492,
+              "success": true,
+              "init_hit": true,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 2.0
+            },
+            "budget_100": {
+              "total_samples": 99,
+              "samples_to_target": 99,
+              "max_order_achieved": 0.9813897420127076,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": true,
+              "stage2_used": false,
+              "speedup": 1.0101010101010102
+            }
+          },
+          "best_speedup": 2.0
+        },
+        {
+          "cppn_id": 38,
+          "baseline": {
+            "total_samples": 311,
+            "samples_to_target": 311,
+            "max_order_achieved": 0.974296705801682,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 72,
+              "samples_to_target": 72,
+              "max_order_achieved": 0.9772638403765714,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 4.319444444444445
+            },
+            "budget_100": {
+              "total_samples": 207,
+              "samples_to_target": 207,
+              "max_order_achieved": 0.9771521324563865,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.502415458937198
+            }
+          },
+          "best_speedup": 4.319444444444445
+        },
+        {
+          "cppn_id": 39,
+          "baseline": {
+            "total_samples": 248,
+            "samples_to_target": 248,
+            "max_order_achieved": 0.9816830620919514,
+            "success": true
+          },
+          "variants": {
+            "budget_50": {
+              "total_samples": 144,
+              "samples_to_target": 144,
+              "max_order_achieved": 0.9755342107666564,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.7222222222222223
+            },
+            "budget_100": {
+              "total_samples": 136,
+              "samples_to_target": 136,
+              "max_order_achieved": 0.9860381436786763,
+              "success": true,
+              "init_hit": false,
+              "stage1_hit": false,
+              "stage2_used": true,
+              "speedup": 1.8235294117647058
+            }
+          },
+          "best_speedup": 1.8235294117647058
+        }
+      ],
+      "summary": {
+        "n_total": 40,
+        "speedup_mean": 2.8445819241985344,
+        "speedup_std": 1.7524444228742455,
+        "speedup_min": 0.7352941176470589,
+        "speedup_max": 8.22,
+        "all_speedups": [
+          2.6236559139784945,
+          2.0,
+          2.4035087719298245,
+          0.5854700854700855,
+          1.9537037037037037,
+          1.5071428571428571,
+          1.9230769230769231,
+          0.8695652173913043,
+          1.6935483870967742,
+          1.1666666666666667,
+          3.9125,
+          6.26,
+          0.9174311926605505,
+          0.5555555555555556,
+          3.16,
+          3.16,
+          2.2142857142857144,
+          3.1,
+          5.871428571428571,
+          8.22,
+          1.0638297872340425,
+          0.9615384615384616,
+          2.1,
+          1.0606060606060606,
+          3.135593220338983,
+          1.3909774436090225,
+          0.6134969325153374,
+          2.0,
+          2.318840579710145,
+          1.5533980582524272,
+          1.288888888888889,
+          1.0357142857142858,
+          2.518181818181818,
+          2.564814814814815,
+          3.42,
+          3.42,
+          1.3091603053435115,
+          6.86,
+          2.7777777777777777,
+          5.0,
+          1.2987012987012987,
+          0.9090909090909091,
+          1.7536231884057971,
+          0.605,
+          2.6233766233766236,
+          1.3466666666666667,
+          0.7352941176470589,
+          0.4830917874396135,
+          1.3333333333333333,
+          2.0,
+          1.978494623655914,
+          1.03954802259887,
+          3.21,
+          6.42,
+          1.272,
+          3.18,
+          1.3333333333333333,
+          0.8849557522123894,
+          0.8301886792452831,
+          4.551724137931035,
+          0.7057142857142857,
+          4.94,
+          0.8547008547008547,
+          0.970873786407767,
+          3.9896907216494846,
+          4.552941176470588,
+          1.8865979381443299,
+          1.3656716417910448,
+          1.408450704225352,
+          0.8333333333333334,
+          0.3436426116838488,
+          2.0,
+          1.2987012987012987,
+          2.0,
+          2.0,
+          1.0101010101010102,
+          4.319444444444445,
+          1.502415458937198,
+          1.7222222222222223,
+          1.8235294117647058
+        ],
+        "best_speedups": [
+          2.6236559139784945,
+          2.4035087719298245,
+          1.9537037037037037,
+          1.9230769230769231,
+          1.6935483870967742,
+          6.26,
+          0.9174311926605505,
+          3.16,
+          3.1,
+          8.22,
+          1.0638297872340425,
+          2.1,
+          3.135593220338983,
+          2.0,
+          2.318840579710145,
+          1.288888888888889,
+          2.564814814814815,
+          3.42,
+          6.86,
+          5.0,
+          1.2987012987012987,
+          1.7536231884057971,
+          2.6233766233766236,
+          0.7352941176470589,
+          2.0,
+          1.978494623655914,
+          6.42,
+          3.18,
+          1.3333333333333333,
+          4.551724137931035,
+          4.94,
+          0.970873786407767,
+          4.552941176470588,
+          1.8865979381443299,
+          1.408450704225352,
+          2.0,
+          2.0,
+          2.0,
+          4.319444444444445,
+          1.8235294117647058
+        ],
+        "variants": {
+          "budget_50": {
+            "speedup_mean": 2.052910469183396,
+            "speedup_std": 1.146920181228122,
+            "speedup_min": 0.3436426116838488,
+            "speedup_max": 5.871428571428571,
+            "init_hit_count": 4,
+            "stage1_hit_count": 4,
+            "stage2_used_count": 36,
+            "stage2_speedup_mean": 1.9843449657593288
+          },
+          "budget_100": {
+            "speedup_mean": 2.392259815037667,
+            "speedup_std": 1.9536357322426188,
+            "speedup_min": 0.4830917874396135,
+            "speedup_max": 8.22,
+            "init_hit_count": 14,
+            "stage1_hit_count": 19,
+            "stage2_used_count": 21,
+            "stage2_speedup_mean": 1.1803977880824437
+          }
+        }
+      }
+    }
+  }
+}

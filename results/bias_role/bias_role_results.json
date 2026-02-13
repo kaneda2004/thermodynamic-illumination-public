@@ -1,0 +1,70 @@
+{
+  "hypothesis": "Node biases shift density toward 0.5 and correlate with order",
+  "status": "REFUTED",
+  "summary": "Biases do not significantly affect density or order (gate d=-0.12, order effect=0.07)",
+  "analysis": {
+    "bias_deviation_correlation": {
+      "r": 0.22845069185907704,
+      "p": 2.629671869688376e-13,
+      "interpretation": "negative r means bias helps center density"
+    },
+    "density_stats": {
+      "standard": {
+        "mean": 0.5133115234375,
+        "std": 0.3837294065920442,
+        "mean_deviation_from_0.5": 0.3445205078125
+      },
+      "zero_bias": {
+        "mean": 0.4969765625,
+        "std": 0.36818291820083504,
+        "mean_deviation_from_0.5": 0.322271484375
+      },
+      "optimal_bias": {
+        "mean": 0.501291015625,
+        "std": 0.0347984219752355,
+        "mean_deviation_from_0.5": 0.017783203125
+      }
+    },
+    "order_comparison": {
+      "standard_mean": 0.06505137437180838,
+      "standard_median": 0.028653110759849207,
+      "standard_high_order_frac": 0.007,
+      "zero_bias_mean": 0.07603202396179189,
+      "zero_bias_median": 0.04290978191326132,
+      "zero_bias_high_order_frac": 0.011,
+      "optimal_bias_mean": 0.20627870291680409,
+      "optimal_bias_median": 0.1958819299047894,
+      "optimal_bias_high_order_frac": 0.094,
+      "standard_vs_zero": {
+        "u_statistic": 463178.0,
+        "p_value": 0.004139253130145746,
+        "effect_size": 0.07364400000000004
+      },
+      "standard_vs_optimal": {
+        "u_statistic": 93256.0,
+        "p_value": 3.9520315200527083e-218,
+        "effect_size": 0.813488
+      }
+    },
+    "density_gate_comparison": {
+      "standard_mean_gate": 0.42510651381186665,
+      "zero_bias_mean_gate": 0.46643409980175254,
+      "optimal_bias_mean_gate": 0.9925020450918739,
+      "t_statistic": -2.76959955526523,
+      "p_value": 0.005664408096209096,
+      "cohens_d": -0.12392223413562185
+    },
+    "bias_order_correlation": {
+      "bias_vs_order_r": 0.013048207008087601,
+      "bias_vs_order_p": 0.6802499994562162,
+      "abs_bias_vs_order_r": -0.17756664891575408,
+      "abs_bias_vs_order_p": 1.5757166756857184e-08
+    }
+  },
+  "metrics": {
+    "effect_size": -0.12392223413562185,
+    "p_value": 0.005664408096209096,
+    "order_effect": 0.07364400000000004,
+    "order_p_value": 0.004139253130145746
+  }
+}

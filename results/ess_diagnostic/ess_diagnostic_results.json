@@ -1,0 +1,730 @@
+{
+  "metrics": {
+    "cppn": [
+      {
+        "iteration": 0,
+        "threshold": 0.1,
+        "attempts": 2,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 1,
+        "threshold": 0.1,
+        "attempts": 3,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 2,
+        "threshold": 0.1,
+        "attempts": 1,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 3,
+        "threshold": 0.1,
+        "attempts": 4,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 4,
+        "threshold": 0.1,
+        "attempts": 1,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 5,
+        "threshold": 0.1,
+        "attempts": 1,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 6,
+        "threshold": 0.1,
+        "attempts": 2,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 7,
+        "threshold": 0.1,
+        "attempts": 1,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 8,
+        "threshold": 0.1,
+        "attempts": 1,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 9,
+        "threshold": 0.1,
+        "attempts": 1,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 10,
+        "threshold": 0.1,
+        "attempts": 3,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 11,
+        "threshold": 0.1,
+        "attempts": 1,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 12,
+        "threshold": 0.1,
+        "attempts": 5,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 13,
+        "threshold": 0.1,
+        "attempts": 2,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 14,
+        "threshold": 0.1,
+        "attempts": 2,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 15,
+        "threshold": 0.1,
+        "attempts": 4,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 16,
+        "threshold": 0.1,
+        "attempts": 2,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 17,
+        "threshold": 0.1,
+        "attempts": 1,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 18,
+        "threshold": 0.1,
+        "attempts": 4,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 19,
+        "threshold": 0.1,
+        "attempts": 6,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 20,
+        "threshold": 0.1,
+        "attempts": 1,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 21,
+        "threshold": 0.1,
+        "attempts": 3,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 22,
+        "threshold": 0.1,
+        "attempts": 6,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 23,
+        "threshold": 0.1,
+        "attempts": 1,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 24,
+        "threshold": 0.1,
+        "attempts": 1,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 25,
+        "threshold": 0.1,
+        "attempts": 9,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 26,
+        "threshold": 0.1,
+        "attempts": 2,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 27,
+        "threshold": 0.1,
+        "attempts": 14,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 28,
+        "threshold": 0.1,
+        "attempts": 1,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 29,
+        "threshold": 0.1,
+        "attempts": 2,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 30,
+        "threshold": 0.1,
+        "attempts": 3,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 31,
+        "threshold": 0.1,
+        "attempts": 2,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 32,
+        "threshold": 0.1,
+        "attempts": 5,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 33,
+        "threshold": 0.1,
+        "attempts": 14,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 34,
+        "threshold": 0.1,
+        "attempts": 1,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 35,
+        "threshold": 0.1,
+        "attempts": 2,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 36,
+        "threshold": 0.1,
+        "attempts": 1,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 37,
+        "threshold": 0.10049914254585643,
+        "attempts": 4,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 38,
+        "threshold": 0.10084880455055857,
+        "attempts": 1,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 39,
+        "threshold": 0.1029452243255377,
+        "attempts": 2,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 40,
+        "threshold": 0.10305134016338326,
+        "attempts": 12,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 41,
+        "threshold": 0.10733750745139714,
+        "attempts": 2,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 42,
+        "threshold": 0.1099815758803045,
+        "attempts": 3,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 43,
+        "threshold": 0.11000194997936182,
+        "attempts": 2,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 44,
+        "threshold": 0.11097835279042428,
+        "attempts": 3,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 45,
+        "threshold": 0.1130608594416177,
+        "attempts": 6,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 46,
+        "threshold": 0.11604658812357471,
+        "attempts": 4,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 47,
+        "threshold": 0.1171436386210851,
+        "attempts": 2,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 48,
+        "threshold": 0.11886791402961164,
+        "attempts": 1,
+        "acceptance_rate": 1.0,
+        "success": true
+      },
+      {
+        "iteration": 49,
+        "threshold": 0.12084678984934485,
+        "attempts": 6,
+        "acceptance_rate": 1.0,
+        "success": true
+      }
+    ],
+    "uniform": [
+      {
+        "iteration": 0,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 1,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 2,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 3,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 4,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 5,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 6,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 7,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 8,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 9,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 10,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 11,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 12,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 13,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 14,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 15,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 16,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 17,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 18,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 19,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 20,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 21,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 22,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 23,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 24,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 25,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 26,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 27,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 28,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 29,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 30,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 31,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 32,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 33,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 34,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 35,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 36,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 37,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 38,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 39,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 40,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 41,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 42,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 43,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 44,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 45,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 46,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 47,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 48,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      },
+      {
+        "iteration": 49,
+        "threshold": 0.1,
+        "attempts": 1000,
+        "acceptance_rate": 0.0,
+        "success": false
+      }
+    ]
+  },
+  "summary": {
+    "cppn": {
+      "prior": "cppn",
+      "n_iterations": 50,
+      "tau": 0.1,
+      "mean_attempts": 3.26,
+      "std_attempts": 3.103610800342079,
+      "min_attempts": 1,
+      "max_attempts": 14,
+      "success_rate": 1.0
+    },
+    "uniform": {
+      "prior": "uniform",
+      "n_iterations": 50,
+      "tau": 0.1,
+      "mean_attempts": 1000.0,
+      "std_attempts": 0.0,
+      "min_attempts": 1000,
+      "max_attempts": 1000,
+      "success_rate": 0.0
+    }
+  }
+}

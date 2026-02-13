@@ -1,0 +1,329 @@
+{
+  "experiment_id": "RES-210",
+  "hypothesis": "Order metric gates are non-redundant - removing gates reduces structure discrimination",
+  "status": "validated",
+  "conclusion": "Full metric competitive (rank 1, AUC=1.0000)",
+  "parameters": {
+    "n_cppn": 50,
+    "n_random": 50,
+    "n_smooth": 50,
+    "image_size": 32,
+    "seed": 210
+  },
+  "discrimination_cppn_vs_random": [
+    {
+      "metric": "full",
+      "auc": 1.0,
+      "cohens_d": 1.1418196627473791,
+      "cppn_mean": 0.07630568482631837,
+      "cppn_std": 0.0944731753265583,
+      "random_mean": 2.913423502127616e-05,
+      "random_std": 2.2820913176014486e-05,
+      "t_stat": 5.651718984945659,
+      "p_value": 1.5625277801071452e-07,
+      "effect_size": 1.1418196627473791
+    },
+    {
+      "metric": "compress_only",
+      "auc": 1.0,
+      "cohens_d": 11.11783108029157,
+      "cppn_mean": 0.9303125,
+      "cppn_std": 0.03968150176128985,
+      "random_mean": 0.6180078125,
+      "random_std": 0.0018770334026146818,
+      "t_stat": 55.03045624272509,
+      "p_value": 1.6796638752238938e-75,
+      "effect_size": 11.11783108029157
+    },
+    {
+      "metric": "density_edge",
+      "auc": 1.0,
+      "cohens_d": 1.490067667020854,
+      "cppn_mean": 0.12012548962929159,
+      "cppn_std": 0.11382285690507095,
+      "random_mean": 0.0001974658736054494,
+      "random_std": 0.00010976398837834157,
+      "t_stat": 7.375458662440851,
+      "p_value": 5.3160789958457585e-11,
+      "effect_size": 1.490067667020854
+    },
+    {
+      "metric": "edge_compress",
+      "auc": 1.0,
+      "cohens_d": 1.7614664902454515,
+      "cppn_mean": 0.09545974031747187,
+      "cppn_std": 0.0764819406787715,
+      "random_mean": 0.00019795021312822298,
+      "random_std": 0.00011023207489222997,
+      "t_stat": 8.718814300597986,
+      "p_value": 7.254760736228467e-14,
+      "effect_size": 1.7614664902454515
+    },
+    {
+      "metric": "edge_only",
+      "auc": 1.0,
+      "cohens_d": 5.137398018823951,
+      "cppn_mean": 0.237977913953515,
+      "cppn_std": 0.06545554218290615,
+      "random_mean": 0.00019795021312822298,
+      "random_std": 0.00011023207489222997,
+      "t_stat": 25.42882283735325,
+      "p_value": 6.030310992739136e-45,
+      "effect_size": 5.137398018823951
+    },
+    {
+      "metric": "coherence_only",
+      "auc": 1.0,
+      "cohens_d": 34.275315508763335,
+      "cppn_mean": 0.999998258563812,
+      "cppn_std": 9.440767984294644e-07,
+      "random_mean": 0.1157644828938426,
+      "random_std": 0.03648384789112898,
+      "t_stat": 169.65415616488494,
+      "p_value": 8.060563232765104e-123,
+      "effect_size": 34.275315508763335
+    },
+    {
+      "metric": "compress_coherence",
+      "auc": 0.8916,
+      "cohens_d": 1.6311048124319079,
+      "cppn_mean": 0.3484367321386258,
+      "cppn_std": 0.19840684571498896,
+      "random_mean": 0.1157644828938426,
+      "random_std": 0.03648384789112898,
+      "t_stat": 8.073556915876297,
+      "p_value": 1.7671805381778614e-12,
+      "effect_size": 1.6311048124319079
+    },
+    {
+      "metric": "density_coherence",
+      "auc": 0.8679999999999999,
+      "cohens_d": 1.3082074971690283,
+      "cppn_mean": 0.42674711959761535,
+      "cppn_std": 0.33447975320886575,
+      "random_mean": 0.1155137303196701,
+      "random_std": 0.03638666688727204,
+      "t_stat": 6.475296747131107,
+      "p_value": 3.782812939949878e-09,
+      "effect_size": 1.3082074971690283
+    },
+    {
+      "metric": "density_only",
+      "auc": 0.0404,
+      "cohens_d": -2.414810102596723,
+      "cppn_mean": 0.4267481363283789,
+      "cppn_std": 0.33448080549025927,
+      "random_mean": 0.9979011644092745,
+      "random_std": 0.0026174412719579135,
+      "t_stat": -11.952700191767475,
+      "p_value": 7.563054569075187e-21,
+      "effect_size": 2.414810102596723
+    },
+    {
+      "metric": "density_compress",
+      "auc": 0.0,
+      "cohens_d": -5.094115954020657,
+      "cppn_mean": 0.20451143246385262,
+      "cppn_std": 0.22024298267033998,
+      "random_mean": 0.9979011644092745,
+      "random_std": 0.0026174412719579135,
+      "t_stat": -25.2145875466701,
+      "p_value": 1.239266374247751e-44,
+      "effect_size": 5.094115954020657
+    }
+  ],
+  "discrimination_cppn_vs_smooth": [
+    {
+      "metric": "full",
+      "auc": 0.0,
+      "cohens_d": -13.52237591563653,
+      "cppn_mean": 0.07630568482631837,
+      "cppn_std": 0.0944731753265583,
+      "random_mean": 0.995445721945066,
+      "random_std": 0.01775236408633095,
+      "t_stat": -66.93234595390167,
+      "p_value": 1.279590728845569e-83,
+      "effect_size": 13.52237591563653
+    },
+    {
+      "metric": "compress_only",
+      "auc": 1.0,
+      "cohens_d": 5.6808108360939285,
+      "cppn_mean": 0.9303125,
+      "cppn_std": 0.03968150176128985,
+      "random_mean": 0.7619140625,
+      "random_std": 0.0135217765083367,
+      "t_stat": 28.11857905388026,
+      "p_value": 1.0285355030293114e-48,
+      "effect_size": 5.6808108360939285
+    },
+    {
+      "metric": "density_compress",
+      "auc": 0.0,
+      "cohens_d": -5.10795262251898,
+      "cppn_mean": 0.20451143246385262,
+      "cppn_std": 0.22024298267033998,
+      "random_mean": 1.0,
+      "random_std": 0.0,
+      "t_stat": -25.28307556153946,
+      "p_value": 9.83889738166404e-45,
+      "effect_size": 5.10795262251898
+    },
+    {
+      "metric": "density_edge",
+      "auc": 0.0,
+      "cohens_d": -8.048297478771758,
+      "cppn_mean": 0.12012548962929159,
+      "cppn_std": 0.11382285690507095,
+      "random_mean": 0.8627804024108781,
+      "random_std": 0.06382498596035512,
+      "t_stat": -39.83704006972272,
+      "p_value": 2.425350981770627e-62,
+      "effect_size": 8.048297478771758
+    },
+    {
+      "metric": "compress_coherence",
+      "auc": 0.0,
+      "cohens_d": -4.6441012643510575,
+      "cppn_mean": 0.3484367321386258,
+      "cppn_std": 0.19840684571498896,
+      "random_mean": 0.9999801114415005,
+      "random_std": 6.156823173391347e-06,
+      "t_stat": -22.987128475777563,
+      "p_value": 2.9203097598423713e-41,
+      "effect_size": 4.6441012643510575
+    },
+    {
+      "metric": "density_coherence",
+      "auc": 0.0,
+      "cohens_d": -2.4236859288214236,
+      "cppn_mean": 0.42674711959761535,
+      "cppn_std": 0.33447975320886575,
+      "random_mean": 0.9999801114415005,
+      "random_std": 6.156823173391347e-06,
+      "t_stat": -11.99663329015231,
+      "p_value": 6.099799670242259e-21,
+      "effect_size": 2.4236859288214236
+    },
+    {
+      "metric": "edge_compress",
+      "auc": 0.0,
+      "cohens_d": -10.893510460217605,
+      "cppn_mean": 0.09545974031747187,
+      "cppn_std": 0.0764819406787715,
+      "random_mean": 0.8627804024108781,
+      "random_std": 0.06382498596035512,
+      "t_stat": -53.92012582142519,
+      "p_value": 1.1621960673984002e-74,
+      "effect_size": 10.893510460217605
+    },
+    {
+      "metric": "density_only",
+      "auc": 0.0,
+      "cohens_d": -2.4237580959893625,
+      "cppn_mean": 0.4267481363283789,
+      "cppn_std": 0.33448080549025927,
+      "random_mean": 1.0,
+      "random_std": 0.0,
+      "t_stat": -11.996990499409112,
+      "p_value": 6.089148869461008e-21,
+      "effect_size": 2.4237580959893625
+    },
+    {
+      "metric": "edge_only",
+      "auc": 0.0,
+      "cohens_d": -9.665071882713443,
+      "cppn_mean": 0.237977913953515,
+      "cppn_std": 0.06545554218290615,
+      "random_mean": 0.8627804024108781,
+      "random_std": 0.06382498596035512,
+      "t_stat": -47.839665082454744,
+      "p_value": 9.39105644194141e-70,
+      "effect_size": 9.665071882713443
+    },
+    {
+      "metric": "coherence_only",
+      "auc": 1.0,
+      "cohens_d": 4.12021121196473,
+      "cppn_mean": 0.999998258563812,
+      "cppn_std": 9.440767984294644e-07,
+      "random_mean": 0.9999801114415005,
+      "random_std": 6.156823173391347e-06,
+      "t_stat": 20.394005015307723,
+      "p_value": 4.858822561150191e-37,
+      "effect_size": 4.12021121196473
+    }
+  ],
+  "pairwise_comparison": {
+    "full_vs_compress_only": {
+      "full_auc": 1.0,
+      "compress_auc": 1.0,
+      "auc_difference": 0.0,
+      "mcnemar_chi2": 0.0,
+      "mcnemar_p": 1.0,
+      "significant": false
+    }
+  },
+  "metric_ranking": [
+    {
+      "rank": 1,
+      "metric": "full",
+      "auc": 1.0,
+      "cohens_d": 1.1418196627473791
+    },
+    {
+      "rank": 2,
+      "metric": "compress_only",
+      "auc": 1.0,
+      "cohens_d": 11.11783108029157
+    },
+    {
+      "rank": 3,
+      "metric": "density_edge",
+      "auc": 1.0,
+      "cohens_d": 1.490067667020854
+    },
+    {
+      "rank": 4,
+      "metric": "edge_compress",
+      "auc": 1.0,
+      "cohens_d": 1.7614664902454515
+    },
+    {
+      "rank": 5,
+      "metric": "edge_only",
+      "auc": 1.0,
+      "cohens_d": 5.137398018823951
+    },
+    {
+      "rank": 6,
+      "metric": "coherence_only",
+      "auc": 1.0,
+      "cohens_d": 34.275315508763335
+    },
+    {
+      "rank": 7,
+      "metric": "compress_coherence",
+      "auc": 0.8916,
+      "cohens_d": 1.6311048124319079
+    },
+    {
+      "rank": 8,
+      "metric": "density_coherence",
+      "auc": 0.8679999999999999,
+      "cohens_d": 1.3082074971690283
+    },
+    {
+      "rank": 9,
+      "metric": "density_only",
+      "auc": 0.0404,
+      "cohens_d": -2.414810102596723
+    },
+    {
+      "rank": 10,
+      "metric": "density_compress",
+      "auc": 0.0,
+      "cohens_d": -5.094115954020657
+    }
+  ]
+}

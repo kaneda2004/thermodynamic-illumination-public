@@ -1,0 +1,27 @@
+{
+  "n_samples": 1000,
+  "phase_alignment": {
+    "pearson_r": -0.024194472832511874,
+    "pearson_p": 0.4447174652480319,
+    "spearman_rho": -0.036530686174200154,
+    "spearman_p": 0.24844190547753908,
+    "high_order_mean": 0.5013407355738184,
+    "low_order_mean": 0.5172847577585808,
+    "cohens_d": -0.09905272381365016,
+    "ttest_p": 0.30396382071558087
+  },
+  "weighted_phase_alignment": {
+    "pearson_r": -0.0163630355120008,
+    "pearson_p": 0.6052734122085828,
+    "spearman_rho": -0.013717097426411985,
+    "spearman_p": 0.6648327496220221,
+    "high_order_mean": 0.49994346892012753,
+    "low_order_mean": 0.5022797548050222,
+    "cohens_d": -0.012403683645023093,
+    "ttest_p": 0.8974411882084263
+  },
+  "validated": false,
+  "primary_metric": "weighted_phase_alignment",
+  "primary_effect_size": -0.012403683645023093,
+  "primary_p_value": 0.8974411882084263
+}

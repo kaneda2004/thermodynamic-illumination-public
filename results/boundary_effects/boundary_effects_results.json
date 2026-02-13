@@ -1,0 +1,89 @@
+{
+  "n_samples": 500,
+  "image_size": 32,
+  "ring_widths": [
+    1,
+    2,
+    4
+  ],
+  "n_interior_reps": 10,
+  "seed": 42,
+  "timestamp": "2025-12-18T00:20:21.548941",
+  "original_order_mean": 0.06739463590169684,
+  "original_order_std": 0.0777000600285022,
+  "by_ring_width": {
+    "1": {
+      "boundary_pixels": 124,
+      "mean_abs_boundary_change": 0.06610835470140279,
+      "mean_abs_interior_change": 0.39999891366094464,
+      "std_abs_boundary_change": 0.06753175040844628,
+      "std_abs_interior_change": 0.3197894925735553,
+      "frac_interior_larger": 0.982,
+      "wilcoxon_two_sided_p": 2.84513447910132e-70,
+      "wilcoxon_interior_gt_boundary_p": 1.42256723955066e-70,
+      "cohens_d": -1.2397071159700777,
+      "d_ci_95": [
+        -1.3328356969016897,
+        -1.16114898923765
+      ],
+      "mean_boundary_change_signed": 0.06570727984091912,
+      "mean_interior_change_signed": 0.3999974675074541,
+      "wilcoxon_signed_p": 1.4844113425998682e-70,
+      "mean_boundary_order": 0.13310191574261593,
+      "mean_interior_order": 0.46739210340915094
+    },
+    "2": {
+      "boundary_pixels": 240,
+      "mean_abs_boundary_change": 0.07242029081443135,
+      "mean_abs_interior_change": 0.25382104438279046,
+      "std_abs_boundary_change": 0.07157431453476107,
+      "std_abs_interior_change": 0.29642139911385945,
+      "frac_interior_larger": 0.638,
+      "wilcoxon_two_sided_p": 4.197220202638814e-21,
+      "wilcoxon_interior_gt_boundary_p": 2.098610101319407e-21,
+      "cohens_d": -0.6240801019965666,
+      "d_ci_95": [
+        -0.6864496299384503,
+        -0.5640660967463701
+      ],
+      "mean_boundary_change_signed": 0.0677348564085481,
+      "mean_interior_change_signed": 0.25381677594725555,
+      "wilcoxon_signed_p": 4.280667236894027e-24,
+      "mean_boundary_order": 0.13512949231024496,
+      "mean_interior_order": 0.32121141184895236
+    },
+    "4": {
+      "boundary_pixels": 448,
+      "mean_abs_boundary_change": 0.0784110294687523,
+      "mean_abs_interior_change": 0.4747223081439913,
+      "std_abs_boundary_change": 0.06823772503160101,
+      "std_abs_interior_change": 0.36169134687399146,
+      "frac_interior_larger": 0.888,
+      "wilcoxon_two_sided_p": 1.9820340247056245e-62,
+      "wilcoxon_interior_gt_boundary_p": 9.910170123528123e-63,
+      "cohens_d": -1.243580595855899,
+      "d_ci_95": [
+        -1.370255228944818,
+        -1.1361182486232757
+      ],
+      "mean_boundary_change_signed": 0.04973782543808103,
+      "mean_interior_change_signed": 0.4745514457134601,
+      "wilcoxon_signed_p": 2.184189077623906e-70,
+      "mean_boundary_order": 0.11713246133977785,
+      "mean_interior_order": 0.541946081615157
+    }
+  },
+  "primary_result": {
+    "ring_width": 2,
+    "wilcoxon_two_sided_p": 4.197220202638814e-21,
+    "wilcoxon_interior_gt_boundary_p": 2.098610101319407e-21,
+    "cohens_d": -0.6240801019965666,
+    "d_ci_95": [
+      -0.6864496299384503,
+      -0.5640660967463701
+    ],
+    "frac_interior_larger": 0.638
+  },
+  "status": "refuted",
+  "conclusion": "OPPOSITE finding: Interior pixels contribute MORE to order than boundary pixels (d=0.62, p=4.1972e-21)"
+}

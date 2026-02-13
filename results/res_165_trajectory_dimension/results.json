@@ -1,0 +1,19 @@
+{
+  "experiment_id": "RES-165",
+  "hypothesis": "NS trajectory effective dimension decreases as sampling approaches high-order regions",
+  "status": "validated",
+  "n_runs": 20,
+  "n_windows": 6255,
+  "metrics": {
+    "corr_participation_ratio": -0.9481566401512918,
+    "p_participation_ratio": 0.0,
+    "corr_eff_dim_90": -0.9056044644837958,
+    "p_eff_dim_90": 0.0,
+    "cohens_d_pr": -3.2295556651611688,
+    "early_pr_mean": 3.46259402805951,
+    "late_pr_mean": 1.8070271132527314,
+    "early_dim90_mean": 3.8055644387591943,
+    "late_dim90_mean": 2.2797314578005117
+  },
+  "summary": "Participation ratio decreases with order (rho=-0.948, p=0.00e+00). Early (low-order) windows: PR=3.46, Late (high-order): PR=1.81. Effect size d=-3.230. Effective dimension decreases as sampling progresses."
+}

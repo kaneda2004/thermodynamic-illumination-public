@@ -1,0 +1,168 @@
+{
+  "thresholds": [
+    0.01,
+    0.05,
+    0.1,
+    0.15,
+    0.2,
+    0.3,
+    0.4,
+    0.5
+  ],
+  "priors": [
+    "cppn",
+    "uniform",
+    "dsl"
+  ],
+  "B_tau_curves": {
+    "cppn": {
+      "0.01": {
+        "bits": 0.8367631237155988,
+        "log_X": -0.58,
+        "order_at_crossing": 0.0109628871254132
+      },
+      "0.05": {
+        "bits": 1.3272794376178465,
+        "log_X": -0.92,
+        "order_at_crossing": 0.0512114757190258
+      },
+      "0.1": {
+        "bits": 1.933211354791211,
+        "log_X": -1.34,
+        "order_at_crossing": 0.1020423238582323
+      },
+      "0.15": {
+        "bits": 2.712266676871251,
+        "log_X": -1.88,
+        "order_at_crossing": 0.1507021635203924
+      },
+      "0.2": {
+        "bits": 4.154961717760215,
+        "log_X": -2.88,
+        "order_at_crossing": 0.2003109286291505
+      },
+      "0.3": {
+        "bits": 7.300036906898154,
+        "log_X": -5.06,
+        "order_at_crossing": 0.3006489113579227
+      },
+      "0.4": {
+        "bits": 9.49293336904938,
+        "log_X": -6.58,
+        "order_at_crossing": 0.4006723341196886
+      },
+      "0.5": {
+        "bits": 13.243940475360684,
+        "log_X": -9.18,
+        "order_at_crossing": 0.5001742707388854
+      }
+    },
+    "uniform": {
+      "0.01": {
+        "bits": 61.63193214677652,
+        "log_X": -42.72,
+        "order_at_crossing": 0.0100002613406334
+      },
+      "0.05": {
+        "bits": null,
+        "log_X": null,
+        "order_at_crossing": null
+      },
+      "0.1": {
+        "bits": null,
+        "log_X": null,
+        "order_at_crossing": null
+      },
+      "0.15": {
+        "bits": null,
+        "log_X": null,
+        "order_at_crossing": null
+      },
+      "0.2": {
+        "bits": null,
+        "log_X": null,
+        "order_at_crossing": null
+      },
+      "0.3": {
+        "bits": null,
+        "log_X": null,
+        "order_at_crossing": null
+      },
+      "0.4": {
+        "bits": null,
+        "log_X": null,
+        "order_at_crossing": null
+      },
+      "0.5": {
+        "bits": null,
+        "log_X": null,
+        "order_at_crossing": null
+      }
+    },
+    "dsl": {
+      "0.01": {
+        "bits": 0.8944709253511574,
+        "log_X": -0.62,
+        "order_at_crossing": 0.0143715794063821
+      },
+      "0.05": {
+        "bits": 1.58696454497786,
+        "log_X": -1.1,
+        "order_at_crossing": 0.051035259111146
+      },
+      "0.1": {
+        "bits": 3.3759063956801745,
+        "log_X": -2.34,
+        "order_at_crossing": 0.1017367168309253
+      },
+      "0.15": {
+        "bits": 4.068400015306877,
+        "log_X": -2.82,
+        "order_at_crossing": 0.1508132273217467
+      },
+      "0.2": {
+        "bits": 4.5300624283913455,
+        "log_X": -3.14,
+        "order_at_crossing": 0.2072998896601499
+      },
+      "0.3": {
+        "bits": 5.107140444746931,
+        "log_X": -3.54,
+        "order_at_crossing": 0.306299078720695
+      },
+      "0.4": {
+        "bits": 5.91504966764475,
+        "log_X": -4.1,
+        "order_at_crossing": 0.4005046364720689
+      },
+      "0.5": {
+        "bits": 6.463273783182557,
+        "log_X": -4.48,
+        "order_at_crossing": 0.5146178191825226
+      }
+    }
+  },
+  "summary": {
+    "cppn": {
+      "mean_bits": 5.125174132758042,
+      "min_bits": 0.8367631237155988,
+      "max_bits": 13.243940475360684,
+      "thresholds_reached": 8,
+      "thresholds_total": 8
+    },
+    "uniform": {
+      "mean_bits": 61.63193214677652,
+      "min_bits": 61.63193214677652,
+      "max_bits": 61.63193214677652,
+      "thresholds_reached": 1,
+      "thresholds_total": 8
+    },
+    "dsl": {
+      "mean_bits": 3.9926585256602065,
+      "min_bits": 0.8944709253511574,
+      "max_bits": 6.463273783182557,
+      "thresholds_reached": 8,
+      "thresholds_total": 8
+    }
+  }
+}

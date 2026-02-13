@@ -1,0 +1,112 @@
+{
+  "timestamp": "2025-12-21T03:27:02",
+  "architecture_count": 27,
+  "sample_count": 2700,
+  "correlation_matrix": [
+    [
+      0.9999999999999999,
+      -0.8181858742009919,
+      -0.00776478836539695,
+      0.7988982555470556
+    ],
+    [
+      -0.8181858742009919,
+      0.9999999999999999,
+      0.0010920558378990956,
+      -0.7150833031815625
+    ],
+    [
+      -0.00776478836539695,
+      0.0010920558378990956,
+      1.0,
+      0.001179748440868639
+    ],
+    [
+      0.7988982555470556,
+      -0.7150833031815625,
+      0.001179748440868639,
+      0.9999999999999999
+    ]
+  ],
+  "pvalue_matrix": [
+    [
+      0.0,
+      0.0,
+      0.6867352752878958,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.9547693361688573,
+      0.0
+    ],
+    [
+      0.6867352752878958,
+      0.9547693361688573,
+      0.0,
+      0.9511416641487285
+    ],
+    [
+      0.0,
+      0.0,
+      0.9511416641487285,
+      0.0
+    ]
+  ],
+  "correlation_stats": {
+    "min": -0.8181858742009919,
+    "max": 0.7988982555470556,
+    "mean": -0.12331065098702133,
+    "all_above_085": false
+  },
+  "gap_analysis": {
+    "metric_1_multiplicative": {
+      "cppn_mean": 0.33791463293407886,
+      "mlp_mean": 0.7230897705067292,
+      "gap_ratio": 1.1398593018248817,
+      "cppn_higher": false,
+      "p_value": 0.0
+    },
+    "metric_2_lowfreq": {
+      "cppn_mean": 0.9755831797341492,
+      "mlp_mean": 0.857555550085859,
+      "gap_ratio": 0.13763263456982253,
+      "cppn_higher": true,
+      "p_value": 0.0
+    },
+    "metric_3_compression": {
+      "cppn_mean": 0.0,
+      "mlp_mean": 0.0,
+      "gap_ratio": 0.0,
+      "cppn_higher": false,
+      "p_value": NaN
+    },
+    "metric_4_structure": {
+      "cppn_mean": 0.07529019712529679,
+      "mlp_mean": 0.1765894380826257,
+      "gap_ratio": 1.3454506008099336,
+      "cppn_higher": false,
+      "p_value": 0.0
+    }
+  },
+  "gap_consistency": false,
+  "bits_prediction_r2": {
+    "metric_1_multiplicative": 0.5592581728273699,
+    "metric_2_lowfreq": 0.012020455981612601,
+    "metric_3_compression": 0.00023806225076282,
+    "metric_4_structure": 0.632144878682238
+  },
+  "bits_prediction_range": [
+    0.00023806225076282,
+    0.632144878682238
+  ],
+  "bits_prediction_mean": 0.3009153924354958,
+  "all_r2_above_08": false,
+  "metric_names": [
+    "metric_1_multiplicative",
+    "metric_2_lowfreq",
+    "metric_3_compression",
+    "metric_4_structure"
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "hypothesis": "Initial image features predict reconstruction difficulty beyond initial order",
+  "null_hypothesis": "Initial features do not predict bits-to-threshold beyond initial order",
+  "n_seeds": 80,
+  "n_reached_threshold": 80,
+  "threshold": 0.15,
+  "model_comparison": {
+    "R2_reduced": 0.005860988936474909,
+    "R2_full": 0.018940416570640606,
+    "R2_increase": 0.013079427634165697,
+    "F_stat": 0.33329850334996164,
+    "df": [
+      3,
+      75
+    ],
+    "p_value": 0.8012841474174839,
+    "f2_effect_size": 0.01333194013399847
+  },
+  "correlations": {
+    "initial_order": {
+      "r": 0.13775859183180308,
+      "p": 0.2230045131841959
+    },
+    "initial_spectral_coherence": {
+      "r": -0.14089577998132619,
+      "p": 0.21254211737637319
+    },
+    "initial_edge_density": {
+      "r": 0.13234274403994545,
+      "p": 0.24190626652789132
+    },
+    "initial_symmetry": {
+      "r": -0.10572832576795248,
+      "p": 0.35061390201337694
+    },
+    "initial_compressibility": {
+      "r": -0.11784263801353582,
+      "p": 0.29784742942875597
+    }
+  },
+  "partial_correlations": {
+    "initial_spectral_coherence": {
+      "r": -0.09033409369424848,
+      "p": 0.42551635128729537
+    },
+    "initial_edge_density": {
+      "r": 0.10211382519127381,
+      "p": 0.3674190822176442
+    },
+    "initial_symmetry": {
+      "r": -0.016990936855227706,
+      "p": 0.8810876863855485
+    },
+    "initial_compressibility": {
+      "r": -0.03475922508086597,
+      "p": 0.7595319893254706
+    }
+  },
+  "bits_statistics": {
+    "mean": 2.6715105419661382,
+    "std": 0.31593683251011523,
+    "min": 2.048626958062328,
+    "max": 3.54902980058685
+  },
+  "status": "refuted"
+}

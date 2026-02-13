@@ -1,0 +1,7 @@
+{
+  "hypothesis": "CPPN images reach compression saturation at smaller context depth than matched random",
+  "effect_size": 1.3402190985719544,
+  "p_value": 0.0001911713240792433,
+  "validated": true,
+  "status": "validated"
+}

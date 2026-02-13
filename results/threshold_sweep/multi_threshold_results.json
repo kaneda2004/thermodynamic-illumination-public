@@ -1,0 +1,164 @@
+{
+  "threshold_0.1": {
+    "hypothesis": "Bit-cost scales sub-linearly with image size: B(N) ~ N^beta where beta < 1",
+    "null_hypothesis": "Bit-cost scales linearly or super-linearly with image size (beta >= 1)",
+    "sizes": [
+      8,
+      16,
+      32,
+      48
+    ],
+    "threshold": 0.1,
+    "n_seeds": 5,
+    "n_live": 50,
+    "results_per_size": [
+      {
+        "size": 8,
+        "bits_mean": 0.5559999999999999,
+        "bits_std": 0.03199999999999998,
+        "bits_values": [
+          0.58,
+          0.6,
+          0.56,
+          0.52,
+          0.52
+        ],
+        "converged": 5
+      },
+      {
+        "size": 16,
+        "bits_mean": 0.692,
+        "bits_std": 0.08818163074019442,
+        "bits_values": [
+          0.62,
+          0.76,
+          0.82,
+          0.68,
+          0.58
+        ],
+        "converged": 5
+      },
+      {
+        "size": 32,
+        "bits_mean": 1.156,
+        "bits_std": 0.06621178142898737,
+        "bits_values": [
+          1.14,
+          1.18,
+          1.24,
+          1.18,
+          1.04
+        ],
+        "converged": 5
+      },
+      {
+        "size": 48,
+        "bits_mean": 2.5,
+        "bits_std": 0.06928203230275515,
+        "bits_values": [
+          2.6,
+          2.42,
+          2.44,
+          2.48,
+          2.56
+        ],
+        "converged": 5
+      }
+    ],
+    "analysis": {
+      "beta": 0.7959710661022616,
+      "beta_std": 0.017546428171893183,
+      "beta_ci": [
+        0.7621671581160131,
+        0.8307483119491468
+      ],
+      "r_squared": 0.8831004222601427,
+      "z_statistic": 11.62794683333688,
+      "p_value": 1.0,
+      "cohens_d": 11.62794683333688
+    },
+    "status": "validated",
+    "elapsed_seconds": 2.617928981781006
+  },
+  "threshold_0.25": {
+    "hypothesis": "Bit-cost scales sub-linearly with image size: B(N) ~ N^beta where beta < 1",
+    "null_hypothesis": "Bit-cost scales linearly or super-linearly with image size (beta >= 1)",
+    "sizes": [
+      8,
+      16,
+      32,
+      48
+    ],
+    "threshold": 0.25,
+    "n_seeds": 5,
+    "n_live": 50,
+    "results_per_size": [
+      {
+        "size": 8,
+        "bits_mean": 0.76,
+        "bits_std": 0.07999999999999999,
+        "bits_values": [
+          0.82,
+          0.74,
+          0.88,
+          0.66,
+          0.7
+        ],
+        "converged": 5
+      },
+      {
+        "size": 16,
+        "bits_mean": 1.048,
+        "bits_std": 0.09516301802696255,
+        "bits_values": [
+          0.88,
+          1.02,
+          1.1,
+          1.16,
+          1.08
+        ],
+        "converged": 5
+      },
+      {
+        "size": 32,
+        "bits_mean": 4.004,
+        "bits_std": 0.3233326460473794,
+        "bits_values": [
+          3.62,
+          3.96,
+          4.5,
+          3.72,
+          4.22
+        ],
+        "converged": 5
+      },
+      {
+        "size": 48,
+        "bits_mean": 9.748,
+        "bits_std": 1.2132336955426186,
+        "bits_values": [
+          12.04,
+          9.22,
+          9.84,
+          8.6,
+          9.04
+        ],
+        "converged": 5
+      }
+    ],
+    "analysis": {
+      "beta": 1.4518786920390554,
+      "beta_std": 0.035036091701168406,
+      "beta_ci": [
+        1.3864422166871175,
+        1.5211248413244371
+      ],
+      "r_squared": 0.9291129065015312,
+      "z_statistic": -12.897519960081217,
+      "p_value": 2.3240831335903755e-38,
+      "cohens_d": -12.897519960081217
+    },
+    "status": "refuted",
+    "elapsed_seconds": 17.57377576828003
+  }
+}

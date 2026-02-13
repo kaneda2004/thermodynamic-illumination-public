@@ -1,0 +1,11 @@
+{
+  "n_samples": 100,
+  "correlation_r_dominance_symmetry": 0.3268621426054604,
+  "correlation_p_value": 0.0009027847318739764,
+  "high_r_dominance_symmetry": 0.8083821614583333,
+  "low_r_dominance_symmetry": 0.7100553385416667,
+  "effect_size_cohens_d": 0.418264775767455,
+  "ttest_p_value": 0.04105347065118886,
+  "status": "refuted",
+  "hypothesis": "Larger |weight| on r-input produces more rotational symmetry in CPPN outputs"
+}

@@ -1,0 +1,38 @@
+{
+  "n_samples": 500,
+  "image_size": 32,
+  "seed": 42,
+  "order_range": [
+    0.004147380080290953,
+    0.5197603629334541
+  ],
+  "beta_range": [
+    -2.761241165636567,
+    0.0
+  ],
+  "mean_r_squared": NaN,
+  "spearman_rho": -0.9065319082687667,
+  "spearman_p": 1.178941467886825e-188,
+  "pearson_r": -0.7037539806466185,
+  "pearson_p": 5.842491784292258e-76,
+  "beta_low_mean": -0.4880067647764075,
+  "beta_low_std": 0.9056786918385615,
+  "beta_high_mean": -2.6508331214754848,
+  "beta_high_std": 0.0739588257396823,
+  "mann_whitney_U": 62016.0,
+  "mann_whitney_p": 2.211483372937036e-85,
+  "cohens_d": -3.366039822899874,
+  "natural_beta": -2.0,
+  "dist_low_from_natural": 1.5119932352235925,
+  "dist_high_from_natural": 0.6508331214754848,
+  "high_order_closer_to_natural": true,
+  "kruskal_H": 398.0414176122482,
+  "kruskal_p": 5.88024702836417e-86,
+  "quartile_betas": [
+    0.0,
+    -0.7176570070241287,
+    -2.6238437027842743,
+    -2.6778225401666953
+  ],
+  "status": "validated"
+}

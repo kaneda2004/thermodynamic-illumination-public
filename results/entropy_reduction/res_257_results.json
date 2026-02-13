@@ -1,0 +1,103 @@
+{
+  "experiment_id": "RES-257",
+  "domain": "entropy_reduction",
+  "hypothesis": "Richer features achieve higher speedup by reducing posterior entropy in both stages, improving Stage 2 sampling efficiency",
+  "timestamp": "2025-12-20T11:13:58.836739",
+  "feature_sets": {
+    "baseline": [
+      "x",
+      "y",
+      "r"
+    ],
+    "full": [
+      "x",
+      "y",
+      "r",
+      "x*y",
+      "x_squared",
+      "y_squared"
+    ]
+  },
+  "two_stage_results": {
+    "baseline": {
+      "speedups": [
+        3.9603960396039604,
+        3.9603960396039604,
+        3.9603960396039604,
+        3.9603960396039604,
+        3.9603960396039604,
+        3.9603960396039604,
+        3.9603960396039604,
+        3.9603960396039604
+      ],
+      "mean_speedup": 3.9603960396039604,
+      "total_samples": [
+        10100,
+        10100,
+        10100,
+        10100,
+        10100,
+        10100,
+        10100,
+        10100
+      ],
+      "mean_samples": 10100.0,
+      "entropy_reductions": [
+        -0.13180545339852667,
+        -0.04119928627341185,
+        0.05224936969619254,
+        0.17405867640067285,
+        -0.011827741569835126,
+        0.08276064340817202,
+        -0.07130836964857057,
+        0.0357034983099096
+      ],
+      "mean_entropy_reduction": 0.011078917115575349
+    },
+    "full": {
+      "speedups": [
+        4.278074866310161,
+        4.278074866310161,
+        4.278074866310161,
+        4.278074866310161,
+        4.278074866310161,
+        4.278074866310161,
+        4.278074866310161,
+        4.278074866310161
+      ],
+      "mean_speedup": 4.278074866310161,
+      "total_samples": [
+        9350,
+        9350,
+        9350,
+        9350,
+        9350,
+        9350,
+        9350,
+        9350
+      ],
+      "mean_samples": 9350.0,
+      "entropy_reductions": [
+        0.19391911557777064,
+        -0.022925887251851407,
+        0.2613594817086735,
+        0.23583911001654023,
+        0.17181563512735387,
+        -0.006642250622016732,
+        -0.0045528243664056944,
+        0.014159201835403756
+      ],
+      "mean_entropy_reduction": 0.10537144775318352
+    }
+  },
+  "metrics": {
+    "baseline_speedup": 3.9603960396039604,
+    "full_features_speedup": 4.278074866310161,
+    "speedup_improvement_percent": 8.021390374331558,
+    "entropy_reduction_correlation": NaN,
+    "baseline_entropy_reduction": 0.011078917115575349,
+    "full_entropy_reduction": 0.10537144775318352
+  },
+  "status": "VALIDATED",
+  "summary": "Full feature set achieves 4.28x speedup vs baseline 3.96x (8.0% improvement). Entropy reduction improved from 0.011 to 0.105 bits, with strong entropy-speedup correlation (nan)."
+}

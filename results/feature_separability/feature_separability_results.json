@@ -1,0 +1,24 @@
+{
+  "mnist": {
+    "n_architectures": 24,
+    "cv_accuracy": 0.41999999999999993,
+    "cv_std": 0.1833030277982336,
+    "pearson_r": -0.040110005892310174,
+    "pearson_p": 0.8523798860122662,
+    "spearman_rho": -0.12524462135605696,
+    "spearman_p": 0.5598125122887776,
+    "random_baseline": 0.5,
+    "interpretation": "Non-separable"
+  },
+  "fashionmnist": {
+    "n_architectures": 24,
+    "cv_accuracy": 0.43,
+    "cv_std": 0.17776388834631177,
+    "pearson_r": 0.16005598019497264,
+    "pearson_p": 0.45500991712755967,
+    "spearman_rho": 0.14307458481299565,
+    "spearman_p": 0.5048065116624989,
+    "random_baseline": 0.5,
+    "interpretation": "Non-separable"
+  }
+}

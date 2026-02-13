@@ -1,0 +1,81 @@
+{
+  "n_samples": 400,
+  "image_size": 32,
+  "patch_sizes": [
+    2,
+    4,
+    8,
+    16
+  ],
+  "n_shuffle_reps": 10,
+  "seed": 42,
+  "original_order_mean": 0.07130747672413086,
+  "original_order_std": 0.08030228079675679,
+  "by_patch_size": {
+    "2": {
+      "mean_abs_change": 0.04847974184445887,
+      "std_abs_change": 0.06664650339533677,
+      "frac_increase": 0.63,
+      "frac_decrease": 0.37,
+      "final_order_mean": 0.11978621810801783,
+      "final_order_std": 0.14367915642877271
+    },
+    "4": {
+      "mean_abs_change": 0.1399190587699124,
+      "std_abs_change": 0.16861008935372987,
+      "frac_increase": 0.6325,
+      "frac_decrease": 0.3675,
+      "final_order_mean": 0.21122653549404327,
+      "final_order_std": 0.24318139977581613
+    },
+    "8": {
+      "mean_abs_change": 0.27377241579245143,
+      "std_abs_change": 0.30049013782996653,
+      "frac_increase": 0.63,
+      "frac_decrease": 0.37,
+      "final_order_mean": 0.3440528267946326,
+      "final_order_std": 0.3690477388539627
+    },
+    "16": {
+      "mean_abs_change": 0.26255458024819084,
+      "std_abs_change": 0.29143304597563957,
+      "frac_increase": 0.5925,
+      "frac_decrease": 0.4075,
+      "final_order_mean": 0.31840211353700915,
+      "final_order_std": 0.34429104354920437
+    }
+  },
+  "kruskal_wallis_H": 93.00509596539763,
+  "kruskal_wallis_p": 4.954387239074634e-20,
+  "characteristic_scale": 8,
+  "characteristic_scale_effect": 0.27377241579245143,
+  "char_vs_others_U": 279184.5,
+  "char_vs_others_p": 2.547473378211353e-07,
+  "char_vs_others_d": 0.4712583326417946,
+  "pairwise_comparisons": [
+    {
+      "scale_pair": [
+        2,
+        4
+      ],
+      "wilcoxon_p": 3.0225529196299496e-43,
+      "cohens_d": -0.7132482727869488
+    },
+    {
+      "scale_pair": [
+        4,
+        8
+      ],
+      "wilcoxon_p": 1.226490414268616e-40,
+      "cohens_d": -0.549383461089301
+    },
+    {
+      "scale_pair": [
+        8,
+        16
+      ],
+      "wilcoxon_p": 0.12962464888138633,
+      "cohens_d": 0.03789857499376063
+    }
+  ]
+}

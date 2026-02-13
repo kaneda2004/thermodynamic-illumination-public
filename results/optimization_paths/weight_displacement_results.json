@@ -1,0 +1,28 @@
+{
+  "experiment_id": "RES-193",
+  "hypothesis": "Successful optimization paths have larger cumulative weight displacement",
+  "status": "refuted",
+  "conclusion": "No significant difference (p=0.429, d=0.15)",
+  "n_paths": 200,
+  "n_steps": 50,
+  "success_threshold": 0.1,
+  "n_successful": 100,
+  "n_unsuccessful": 100,
+  "metrics": {
+    "mean_succ_cumulative_displacement": 14.754224011715538,
+    "mean_unsucc_cumulative_displacement": 13.568735903692586,
+    "mean_succ_total_displacement": 2.8523238211225657,
+    "mean_unsucc_total_displacement": 2.7111350428718235,
+    "mean_succ_nonzero_steps": 23.82,
+    "mean_unsucc_nonzero_steps": 23.61,
+    "mann_whitney_p": 0.4292730068341283,
+    "cohens_d": 0.15083248762013113,
+    "spearman_rho": 0.04194406433063534,
+    "spearman_p": 0.5553782617827141
+  },
+  "order_stats": {
+    "mean_final_successful": 0.560591276922263,
+    "mean_final_unsuccessful": 0.3944750860192813,
+    "success_rate": 0.5
+  }
+}

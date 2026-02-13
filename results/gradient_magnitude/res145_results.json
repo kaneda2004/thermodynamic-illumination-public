@@ -1,0 +1,14 @@
+{
+  "hypothesis": "Order gradient magnitude increases during nested sampling progression",
+  "verdict": "VALIDATED",
+  "metrics": {
+    "correlation_r": 0.33144055625284236,
+    "p_value": 0.0026714232382016824,
+    "cohens_d": 1.0702793979655618,
+    "early_mean": 0.06961670512689001,
+    "late_mean": 2.608119164435112,
+    "slope": 0.017464212435247158,
+    "order_gradient_r": 0.11890223188662058
+  },
+  "summary": "Order gradient magnitude increases during NS (r=0.33, p=2.67e-03, cohen_d=1.07). Late gradients 2.608 vs early 0.070. Steeper landscape explains harder sampling at high thresholds."
+}

@@ -1,0 +1,16 @@
+{
+  "experiment_id": "RES-142",
+  "hypothesis": "CPPN images have higher local gradient coherence than random images",
+  "domain": "image_statistics",
+  "status": "refuted",
+  "metrics": {
+    "cppn_mean": 0.07456953487497728,
+    "cppn_std": 0.08214261355163699,
+    "random_mean": 0.4040761480770785,
+    "random_std": 0.014352529536958463,
+    "cohens_d": -5.5827177249482975,
+    "p_value": 1.1539251704405765e-166,
+    "n_samples": 500
+  },
+  "summary": "CPPN images have LOWER local gradient coherence (0.075) than random (0.404). Effect size d=-5.58, p=1.2e-166. CPPN images have smoother regions with less local texture variation, leading to lower structure tensor coherence."
+}

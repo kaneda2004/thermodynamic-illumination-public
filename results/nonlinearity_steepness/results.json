@@ -1,0 +1,43 @@
+{
+  "experiment_id": "RES-179",
+  "hypothesis": "Steeper activation functions (tanh(beta*x) with larger beta) produce higher CPPN order",
+  "domain": "nonlinearity_role",
+  "status": "refuted",
+  "metrics": {
+    "effect_size_steep_vs_standard": 0.10821208168045006,
+    "p_value_steep_vs_standard": 0.0159946856032346,
+    "effect_size_shallow_vs_standard": -0.2710029403998515,
+    "p_value_shallow_vs_standard": 2.7840459920869012e-09,
+    "effect_size_extreme": 0.3037985498446321,
+    "p_value_extreme": 3.270763533584038e-11,
+    "mean_within_rho": 0.3405443267672967,
+    "p_within": 6.799739361578519e-13,
+    "friedman_chi2": 134.49454240134492,
+    "friedman_p": 4.255655711951067e-28
+  },
+  "summary": "Order increases with hidden layer steepness (Friedman p=4.26e-28, rho=0.34), but effect size too small (d=0.30<0.5) for practical significance.",
+  "data": {
+    "betas": [
+      0.25,
+      0.5,
+      1.0,
+      2.0,
+      4.0
+    ],
+    "mean_orders": {
+      "0.25": 0.08063186507071218,
+      "0.5": 0.10814839539989347,
+      "1.0": 0.13413346421334052,
+      "2.0": 0.14493844799841601,
+      "4.0": 0.14833641106082546
+    },
+    "std_orders": {
+      "0.25": 0.16605065239028768,
+      "0.5": 0.18829332839924084,
+      "1.0": 0.20701165482720857,
+      "2.0": 0.21461395889528598,
+      "4.0": 0.21542990748005508
+    },
+    "n_samples": 500
+  }
+}

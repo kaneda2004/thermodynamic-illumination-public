@@ -1,0 +1,58 @@
+{
+  "experiment": "RES-164",
+  "domain": "metric_sensitivity",
+  "hypothesis": "Local patch perturbations affect order more than distributed random pixel flips",
+  "parameters": {
+    "n_images": 300,
+    "img_size": 64,
+    "patch_size": 8,
+    "num_pixels_perturbed": 64,
+    "n_perturbations_per_image": 10,
+    "total_samples": 3000
+  },
+  "results": {
+    "patch_mean_delta": 0.0047477109202844455,
+    "distributed_mean_delta": 0.09066794397354556,
+    "difference": -0.08592023305326112,
+    "t_statistic": -70.05833547023751,
+    "p_value": 0.0,
+    "cohens_d": -1.2790843559437794,
+    "patch_median": 0.002831608303246713,
+    "distributed_median": 0.053535919978163315,
+    "ratio_patch_to_distributed": 0.0523637209824643
+  },
+  "tercile_analysis": [
+    {
+      "tercile": "low",
+      "n_images": 63,
+      "patch_mean": 0.0010637184321366279,
+      "distributed_mean": 0.02633270623768273,
+      "cohens_d": -32.32835038578019,
+      "p_value": 0.0
+    },
+    {
+      "tercile": "mid",
+      "n_images": 138,
+      "patch_mean": 0.0028570214818397156,
+      "distributed_mean": 0.055955856074704526,
+      "cohens_d": -1.465257538037398,
+      "p_value": 0.0
+    },
+    {
+      "tercile": "high",
+      "n_images": 99,
+      "patch_mean": 0.009727576266331773,
+      "distributed_mean": 0.17999509657353968,
+      "cohens_d": -5.729372066024686,
+      "p_value": 0.0
+    }
+  ],
+  "original_order_stats": {
+    "mean": 0.021735463501695054,
+    "std": 0.0242384705436249,
+    "min": 0.0017033882472623594,
+    "max": 0.11706408247441283
+  },
+  "status": "refuted",
+  "conclusion": "OPPOSITE: Distributed perturbations cause 19.10x larger order changes than patch (d=-1.28, p=0.00e+00)"
+}

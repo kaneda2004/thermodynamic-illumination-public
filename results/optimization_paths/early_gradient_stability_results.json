@@ -1,0 +1,27 @@
+{
+  "experiment_id": "RES-185",
+  "hypothesis": "Early gradient direction stability predicts optimization path success to high-order",
+  "status": "refuted",
+  "conclusion": "No significant difference (p=1.000, d=0.00)",
+  "n_paths": 200,
+  "n_steps": 100,
+  "early_window": 20,
+  "success_threshold": 0.05,
+  "n_successful": 75,
+  "n_unsuccessful": 125,
+  "metrics": {
+    "mean_succ_early_consistency": 0.0,
+    "mean_unsucc_early_consistency": 0.0,
+    "mean_succ_late_consistency": 0.0,
+    "mean_unsucc_late_consistency": 0.0,
+    "mann_whitney_p": 1.0,
+    "cohens_d": 0.0,
+    "spearman_rho": NaN,
+    "spearman_p": NaN
+  },
+  "order_stats": {
+    "mean_final_successful": 0.1424457578314232,
+    "mean_final_unsuccessful": 0.008344869953221958,
+    "success_rate": 0.375
+  }
+}

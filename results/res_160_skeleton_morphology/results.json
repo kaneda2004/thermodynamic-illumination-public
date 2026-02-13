@@ -1,0 +1,24 @@
+{
+  "n_samples": 500,
+  "n_valid": 420,
+  "correlation_branch_length": {
+    "r": -0.4516099580670089,
+    "p": 1.6933128339528479e-22
+  },
+  "correlation_skeleton_length": {
+    "r": 0.1122635163545557,
+    "p": 0.021383756617517312
+  },
+  "high_vs_low_order": {
+    "high_mean_branch_length": 4.2645556192556935,
+    "low_mean_branch_length": 7.979164045081564,
+    "t_stat": -10.216242937346262,
+    "p_value": 5.068218775078899e-22,
+    "cohens_d": -0.9993855516537025
+  },
+  "summary_stats": {
+    "mean_order": 0.06739463590169684,
+    "mean_branch_length": 6.121859832168629,
+    "mean_skeleton_length": 55.26904761904762
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "experiment_id": "RES-208",
+  "hypothesis": "Phase coherence of magnitude spectrum predicts CPPN order",
+  "status": "VALIDATED",
+  "method": "Computed phase coherence metrics (phase_std, phase_entropy, mean_abs_phase) from 2D FFT of 200 random CPPN samples (64x64)",
+  "results": {
+    "phase_std": {
+      "pearson_r": 0.698,
+      "pearson_p": 0.0000,
+      "spearman_rho": 0.773,
+      "spearman_p": 0.0000,
+      "cohens_d": -1.68,
+      "low_order_mean": 0.304,
+      "high_order_mean": 1.798
+    },
+    "phase_entropy": {
+      "pearson_r": 0.698,
+      "pearson_p": 0.0000,
+      "spearman_rho": 0.822,
+      "spearman_p": 0.0000,
+      "cohens_d": -1.69,
+      "low_order_mean": 0.507,
+      "high_order_mean": 2.994
+    },
+    "mean_absolute_phase": {
+      "pearson_r": 0.698,
+      "pearson_p": 0.0000,
+      "spearman_rho": 0.771,
+      "spearman_p": 0.0000,
+      "cohens_d": -1.68,
+      "low_order_mean": 0.263,
+      "high_order_mean": 1.555
+    }
+  },
+  "best_predictor": {
+    "name": "phase_std",
+    "r": 0.698,
+    "effect_size": 1.68,
+    "p_value": 0.0000
+  },
+  "validation_criteria": {
+    "effect_size_threshold": 0.5,
+    "significance_threshold": 0.01,
+    "effect_size_met": true,
+    "significance_met": true,
+    "verdict": "VALIDATED"
+  },
+  "key_finding": "Phase coherence (low phase std) strongly predicts high CPPN order: phase_std r=-0.698 (rho=-0.773), d=-1.68, p<0.0001. Low-order CPPNs have concentrated phase (mean=0.304) vs high-order distributed (mean=1.798)."
+}

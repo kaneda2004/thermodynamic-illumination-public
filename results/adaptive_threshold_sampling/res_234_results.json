@@ -1,0 +1,29 @@
+{
+  "method": "Adaptive switching on PCA variance threshold",
+  "baseline_samples": 276.0,
+  "test_cppns": 25,
+  "variance_thresholds_tested": [
+    0.7,
+    0.8,
+    0.9,
+    1.0
+  ],
+  "threshold_70_avg_samples": 295.76,
+  "threshold_70_sigma": 50.1655499321995,
+  "threshold_70_speedup": 0.9331890722207196,
+  "threshold_80_avg_samples": 290.72,
+  "threshold_80_sigma": 51.114397189050365,
+  "threshold_80_speedup": 0.9493670886075949,
+  "threshold_90_avg_samples": 306.0,
+  "threshold_90_sigma": 0.0,
+  "threshold_90_speedup": 0.9019607843137255,
+  "threshold_100_avg_samples": 287.64,
+  "threshold_100_sigma": 54.07023580492321,
+  "threshold_100_speedup": 0.9595327492699208,
+  "best_speedup": 0.9595327492699208,
+  "best_threshold": 1.0,
+  "variance_reduction": 0.0,
+  "speedup_threshold": 100.0,
+  "variance_reduction_threshold": 0.2,
+  "conclusion": "refute"
+}

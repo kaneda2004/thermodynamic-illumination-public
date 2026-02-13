@@ -1,0 +1,45 @@
+{
+  "variant_means": {
+    "baseline": 0.8267777777777778,
+    "interactions": 0.9238148148148149,
+    "recurrent": 0.7601851851851852,
+    "combined": 0.9243333333333332
+  },
+  "variant_stds": {
+    "baseline": 0.369759498079161,
+    "interactions": 0.24692573704640877,
+    "recurrent": 0.4193928674036803,
+    "combined": 0.24708029217623367
+  },
+  "effect_sizes": {
+    "interactions_d": 0.3086422203902705,
+    "recurrent_d": -0.16843710815417617,
+    "combined_d": 0.3102315524545341
+  },
+  "multiplicative_gains": {
+    "interactions_gain": 1.1173677373112934,
+    "recurrent_gain": 0.9194552703489673,
+    "combined_gain": 1.1179948931595214
+  },
+  "synergy_analysis": {
+    "baseline_order": 0.8267777777777778,
+    "interactions_order": 0.9238148148148149,
+    "recurrent_order": 0.7601851851851852,
+    "combined_order": 0.9243333333333332,
+    "additive_prediction": 0.8572222222222222,
+    "synergy_factor": 1.078289047310434,
+    "superadditive": true
+  },
+  "anova_results": {
+    "interaction_f": 1.4845911908794247,
+    "interaction_p": 0.22548803499025463,
+    "recurrent_f": 3.4683686761214028,
+    "recurrent_p": 0.06504032428885206
+  },
+  "validation": {
+    "combined_d_>=_1_5": false,
+    "synergy_factor_>= 1_3": false,
+    "combined_gain_>= 3_5x": false
+  },
+  "status": "refuted"
+}

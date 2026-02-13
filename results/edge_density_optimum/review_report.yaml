@@ -1,0 +1,216 @@
+# Review Report for RES-078: Edge Gate Center Optimization
+# Reviewed: 2025-12-18
+# Reviewer: Scientific Review Agent
+
+experiment_id: RES-078
+domain: edge_density_optimum
+status: refuted
+logged_result: "Optimal center is 0.069 (95% CI [0.060, 0.080]), current 0.15 is outside CI"
+
+# ============================================================================
+# SUMMARY
+# ============================================================================
+summary:
+  headline: "Critical methodological flaw - experiment searched in wrong parameter range"
+
+  conclusion: |
+    The experiment correctly identified that 0.15 is not optimal, but the reported
+    optimal of 0.069 is incorrect. The experiment searched centers from 0.05-0.35,
+    but actual CPPN edge densities are in the range 0.0-0.024 (mean ~0.006).
+    The reported "optimal" of 0.069 is simply near the lower bound of the search
+    range. The TRUE optimal center should be around 0.01, matching the actual
+    CPPN edge density distribution.
+
+  recommendation: |
+    1. DO NOT change the edge_gate center based on this result
+    2. Experiment needs to be rerun with correct search range (0.001-0.05)
+    3. Consider whether edge_gate at 0.15 is intentional (filtering random noise)
+       or a bug in the original metric design
+
+# ============================================================================
+# ISSUES FOUND
+# ============================================================================
+issues:
+  - id: ISSUE-001
+    type: methodology
+    severity: critical
+    title: "Search range does not contain actual data distribution"
+    description: |
+      The experiment tests edge_gate centers from 0.05 to 0.35 (line 66), but
+      CPPN images have edge densities in the range 0.0-0.024 with mean ~0.006.
+      This means:
+      - 100% of CPPN edge densities fall below the search range minimum (0.05)
+      - The "optimal" found is simply the lower bound of the search range
+      - The bootstrap CI [0.060, 0.080] is an artifact of grid discretization
+    evidence:
+      actual_edge_density_mean: 0.0056
+      actual_edge_density_max: 0.0236
+      search_range_min: 0.05
+      search_range_max: 0.35
+    code_location: "experiments/edge_density_optimum.py:66"
+    impact: "Reported optimal (0.069) is off by ~6x from true optimal (~0.01)"
+
+  - id: ISSUE-002
+    type: interpretation
+    severity: critical
+    title: "Reported optimal is search boundary, not true optimum"
+    description: |
+      The experiment finds optimal at 0.05 (the search minimum) but reports 0.069.
+      This discrepancy suggests:
+      - Either the bootstrap discretization shifted the result
+      - Or the actual run had slightly different parameters
+      In either case, 0.069 is not meaningfully different from 0.05 given the
+      search grid spacing of 0.01.
+    evidence:
+      reported_optimal: 0.069
+      search_minimum: 0.05
+      search_step: 0.01
+      grid_points: 31
+
+  - id: ISSUE-003
+    type: assumption
+    severity: warning
+    title: "Assumes maximizing order for CPPN sample is the right objective"
+    description: |
+      The experiment optimizes edge_gate to maximize mean order across CPPNs.
+      But the edge_gate may be intentionally set at 0.15 to:
+      - Distinguish structured images from random noise (which has edge density ~0.5)
+      - Create contrast in the order metric between different image types
+      If optimized to CPPN distribution, random noise would score higher than intended.
+    reasoning: |
+      CPPN edge density: ~0.006
+      Random binary image edge density: ~0.5
+      Current center (0.15): CPPN gets gate ~0.19, random gets gate ~0.01
+      Optimal for CPPN (0.006): CPPN gets gate ~1.0, random gets gate ~0.01
+      Either way random scores low, but the metric behavior differs.
+
+  - id: ISSUE-004
+    type: statistics
+    severity: warning
+    title: "Bootstrap CI reflects grid discretization, not true uncertainty"
+    description: |
+      The bootstrap procedure finds the argmax over a discrete grid of 31 centers.
+      The CI [0.060, 0.080] reflects which grid point is selected most often,
+      not genuine uncertainty about a continuous optimal. With a 0.01 grid spacing,
+      the CI width of 0.02 spans only 2-3 grid points.
+    recommendation: |
+      For continuous optimization, use gradient-based methods or finer grid.
+      For discrete comparison, report which grid point is best.
+
+# ============================================================================
+# VERIFICATION ANALYSIS
+# ============================================================================
+verification:
+  replication_status: partial
+
+  original_claim:
+    optimal_center: 0.069
+    ci_95: [0.060, 0.080]
+    current_suboptimal: true
+
+  replication_findings:
+    cppn_edge_density:
+      n_samples: 500
+      mean: 0.0056
+      std: 0.0056
+      min: 0.0000
+      max: 0.0236
+      percentile_95: 0.0139
+
+    mean_order_at_centers:
+      center_0.006: 0.080  # Near true optimal
+      center_0.05: 0.072   # RES-078 search minimum
+      center_0.069: 0.062  # Reported optimal
+      center_0.15: 0.018   # Current default
+
+    true_optimal:
+      center: 0.011
+      search_range_used: [0.001, 0.100]
+      mean_order: 0.080
+
+    artifact_explanation: |
+      RES-078 searched 0.05-0.35 but data is at 0.0-0.024.
+      Finding optimal at lower bound proves search range was wrong.
+
+# ============================================================================
+# ACTIONABILITY ASSESSMENT
+# ============================================================================
+actionability:
+  should_change_parameter: false
+
+  reasoning: |
+    1. The reported optimal (0.069) is incorrect due to methodological error
+    2. The true optimal (~0.01) would match CPPN distribution but may not be
+       the intended design - 0.15 may serve to filter out random noise
+    3. Before changing parameters, need to understand original design intent
+
+  follow_up_needed:
+    - Investigate why edge_gate was set to 0.15 originally
+    - Compare order scores between CPPN and random at different centers
+    - Determine if edge_gate is meant to distinguish structure from noise
+
+# ============================================================================
+# FINAL VERDICT
+# ============================================================================
+verdict:
+  original_status: refuted
+  recommended_status: inconclusive
+
+  rationale: |
+    The original "refuted" status correctly identified that 0.15 is not optimal
+    for maximizing CPPN order. However, the specific claim (optimal = 0.069)
+    is wrong due to methodological error. The experiment needs to be rerun
+    with the correct search range before any actionable conclusions can be drawn.
+
+    Status should be "inconclusive" because:
+    - We know 0.15 is not locally optimal for CPPNs (validated)
+    - We don't know what the optimal actually is (rerun needed)
+    - We don't know if changing the parameter is even desirable
+
+  confidence: high
+
+  recommended_action: rerun
+  rerun_specifications:
+    search_range: [0.001, 0.05]
+    grid_points: 50
+    additional_analysis:
+      - Compare CPPN vs random image order at each center
+      - Document original design rationale for 0.15 center
+
+# ============================================================================
+# OPPORTUNITIES
+# ============================================================================
+opportunities:
+  - id: OPP-001
+    type: methodology_improvement
+    description: |
+      Use data-driven search range. Before testing centers, compute the
+      actual edge density distribution and set search bounds accordingly.
+
+  - id: OPP-002
+    type: new_hypothesis
+    description: |
+      Test hypothesis: "Edge gate center of 0.15 intentionally penalizes
+      CPPN images to prevent order inflation" - this would explain why
+      it's set far from the CPPN distribution mode.
+
+  - id: OPP-003
+    type: metric_design
+    description: |
+      Consider adaptive edge_gate that centers on the input distribution,
+      rather than a fixed value. This would make the metric robust to
+      different image priors.
+
+# ============================================================================
+# METADATA
+# ============================================================================
+metadata:
+  review_date: "2025-12-18"
+  reviewer: "scientific_review_agent"
+  experiment_file: "experiments/edge_density_optimum.py"
+  core_metric_file: "core/thermo_sampler_v3.py"
+  lines_reviewed:
+    - "experiments/edge_density_optimum.py:1-149"
+    - "core/thermo_sampler_v3.py:154-280"
+  verification_scripts_run: 2
+  total_samples_analyzed: 800

@@ -1,0 +1,79 @@
+{
+  "n_trials": 500,
+  "ensemble_sizes": [
+    2,
+    3,
+    5,
+    8
+  ],
+  "size": 32,
+  "by_k": {
+    "2": {
+      "individual_mean": 0.06505137437180838,
+      "individual_std": 0.05254707853842804,
+      "output_avg_mean": 0.06891572072824136,
+      "output_avg_std": 0.07658926773109312,
+      "weight_avg_mean": 0.06891572072824136,
+      "weight_avg_std": 0.07658926773109312,
+      "t_statistic": NaN,
+      "p_value": NaN,
+      "cohens_d": 0.0,
+      "weight_beats_output": 0.0,
+      "weight_beats_individual": 0.37,
+      "output_beats_individual": 0.37
+    },
+    "3": {
+      "individual_mean": 0.06622034280657761,
+      "individual_std": 0.04594808393957529,
+      "output_avg_mean": 0.0673324699966661,
+      "output_avg_std": 0.07829246004872972,
+      "weight_avg_mean": 0.06403594726763234,
+      "weight_avg_std": 0.07365031332011812,
+      "t_statistic": -1.8517546837208732,
+      "p_value": 0.06465155913401,
+      "cohens_d": -0.08289592421450089,
+      "weight_beats_output": 0.298,
+      "weight_beats_individual": 0.388,
+      "output_beats_individual": 0.41
+    },
+    "5": {
+      "individual_mean": 0.06234977838868741,
+      "individual_std": 0.03337224727435612,
+      "output_avg_mean": 0.06581129754505818,
+      "output_avg_std": 0.07938262789638659,
+      "weight_avg_mean": 0.06486301112528309,
+      "weight_avg_std": 0.0755593544708761,
+      "t_statistic": -0.415619658990621,
+      "p_value": 0.6778670047869534,
+      "cohens_d": -0.018605691172630452,
+      "weight_beats_output": 0.308,
+      "weight_beats_individual": 0.372,
+      "output_beats_individual": 0.39
+    },
+    "8": {
+      "individual_mean": 0.06202231053746827,
+      "individual_std": 0.02642435668499513,
+      "output_avg_mean": 0.06766054276957362,
+      "output_avg_std": 0.07688055990041501,
+      "weight_avg_mean": 0.062428699577897886,
+      "weight_avg_std": 0.07187900294286625,
+      "t_statistic": -2.387513168836174,
+      "p_value": 0.017334007577733675,
+      "cohens_d": -0.10687976789703706,
+      "weight_beats_output": 0.298,
+      "weight_beats_individual": 0.372,
+      "output_beats_individual": 0.396
+    }
+  },
+  "summary": {
+    "validated": false,
+    "primary_effect_size": -0.018605691172630452,
+    "primary_p_value": 0.6778670047869534,
+    "weight_avg_advantage": -0.0009482864197750962
+  },
+  "mechanism": {
+    "mean_weight_variance": 0.7696032850857719,
+    "mean_pixel_variance": 0.06588856653902637,
+    "variance_ratio": 0.08561367631335295
+  }
+}

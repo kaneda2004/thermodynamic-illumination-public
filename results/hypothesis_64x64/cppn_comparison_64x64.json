@@ -1,0 +1,55 @@
+{
+  "experiment": "cppn_comparison",
+  "image_size": 64,
+  "n_live": 50,
+  "n_iterations": 500,
+  "timestamp": "2025-12-17T22:05:22.012975",
+  "thresholds": {
+    "multiplicative": {
+      "0.1": {
+        "bits": 6.059319171733647,
+        "reached": true
+      },
+      "0.2": {
+        "bits": 14.426950408889633,
+        "reached": false
+      },
+      "0.3": {
+        "bits": 14.426950408889633,
+        "reached": false
+      },
+      "0.4": {
+        "bits": 14.426950408889633,
+        "reached": false
+      },
+      "0.5": {
+        "bits": 14.426950408889633,
+        "reached": false
+      }
+    },
+    "kolmogorov": {
+      "0.1": {
+        "bits": 0.02885390081777927,
+        "reached": true
+      },
+      "0.2": {
+        "bits": 0.02885390081777927,
+        "reached": true
+      },
+      "0.3": {
+        "bits": 0.02885390081777927,
+        "reached": true
+      },
+      "0.4": {
+        "bits": 0.02885390081777927,
+        "reached": true
+      },
+      "0.5": {
+        "bits": 0.02885390081777927,
+        "reached": true
+      }
+    }
+  },
+  "best_order_multiplicative": 0.158962424974531,
+  "best_order_kolmogorov": 0.97265625
+}

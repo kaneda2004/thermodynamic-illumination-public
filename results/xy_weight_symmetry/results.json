@@ -1,0 +1,45 @@
+{
+  "experiment_id": "RES-184",
+  "domain": "coordinate_effects",
+  "hypothesis": "CPPNs with equal |x-weight| and |y-weight| produce higher reflection symmetry",
+  "parameters": {
+    "n_samples": 500,
+    "image_size": 32,
+    "seed": 42
+  },
+  "primary_test": {
+    "test": "spearman_correlation",
+    "rho_avg": 0.11073353177982163,
+    "p_avg": 0.013230527090176481,
+    "rho_h": 0.0765903910493516,
+    "p_h": 0.0871105694990196,
+    "rho_v": 0.14945118975493774,
+    "p_v": 0.0008013976655668708
+  },
+  "secondary_test": {
+    "test": "mann_whitney_u",
+    "balanced_mean_sym": 0.7903515625,
+    "imbalanced_mean_sym": 0.82803125,
+    "U_statistic": 27411.0,
+    "p_value": 0.9927114090854801,
+    "cohens_d": -0.19787931064783637
+  },
+  "strict_test": {
+    "U_statistic": 10188.5,
+    "p_value": 0.8391674167930829,
+    "cohens_d": -0.10855001014845367
+  },
+  "control": {
+    "symmetry_order_rho": -0.9131351688119401,
+    "symmetry_order_p": 3.305358374542382e-196
+  },
+  "summary_stats": {
+    "asymmetry_mean": 1.2178978880116533,
+    "asymmetry_std": 1.0612584351126562,
+    "symmetry_mean": 0.80919140625,
+    "symmetry_std": 0.19096789292904906
+  },
+  "status": "inconclusive",
+  "effect_size": 0.11073353177982163,
+  "p_value": 0.013230527090176481
+}

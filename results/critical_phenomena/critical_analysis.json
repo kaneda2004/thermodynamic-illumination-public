@@ -1,0 +1,62 @@
+{
+  "phase_mapping": {
+    "critical_log_X": -1.2,
+    "critical_order": 0.06408228478204425,
+    "peak_variance": 9.037789192972599e-05
+  },
+  "exponents": {
+    "beta": 0.5225113251896174,
+    "beta_r2": 0.9535258417906419,
+    "beta_se": 0.0040088524504331945,
+    "gamma": 0.8932214720739937,
+    "gamma_r2": 0.44330282676578076,
+    "gamma_se": 0.0648828523216836,
+    "scaling_sum": 1.9382441224532285
+  },
+  "universality": {
+    "by_size": {
+      "16": {
+        "critical_log_X": -1.16,
+        "peak_variance": 0.004327617560660818,
+        "n_pixels": 256
+      },
+      "32": {
+        "critical_log_X": -5.16,
+        "peak_variance": 0.00039565353442941564,
+        "n_pixels": 1024
+      },
+      "64": {
+        "critical_log_X": -1.08,
+        "peak_variance": 6.540950558372254e-05,
+        "n_pixels": 4096
+      }
+    },
+    "by_metric": {
+      "multiplicative": {
+        "critical_log_X": -5.16,
+        "peak_variance": 0.00039565353442941564
+      },
+      "symmetry": {
+        "critical_log_X": -0.9,
+        "peak_variance": 0.009688539123535159
+      },
+      "spectral": {
+        "critical_log_X": -1.0,
+        "peak_variance": 0.00020207889411980924
+      },
+      "ising": {
+        "critical_log_X": -0.92,
+        "peak_variance": 4.7014218587408774e-05
+      }
+    }
+  },
+  "collapse": {
+    "T_c": -1.08,
+    "best_collapse": [
+      "2D Ising",
+      0.125,
+      1.0
+    ],
+    "best_quality": 0.05883690378043694
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "nmi": {
+    "cppn_mean": 0.48972227125903617,
+    "cppn_std": 0.3816526344613842,
+    "random_mean": 0.7781469939120126,
+    "random_std": 0.0041041856250846115,
+    "mann_whitney_U": 36686.0,
+    "p_value": 0.999957294906478,
+    "cohens_d": -1.0669131642475684,
+    "significant": false
+  },
+  "mi": {
+    "cppn_mean": 0.5578216630465073,
+    "random_mean": 3.820260507038758,
+    "p_value": 1.0,
+    "cohens_d": -8.53806082257677
+  },
+  "H_large": {
+    "cppn_mean": 0.8464003685523314,
+    "random_mean": 5.9984374999077374
+  },
+  "H_small": {
+    "cppn_mean": 0.5578216630465073,
+    "random_mean": 3.820260507038758
+  },
+  "summary": {
+    "status": "refuted",
+    "p_value": 0.999957294906478,
+    "cohens_d": -1.0669131642475684,
+    "cppn_mean": 0.48972227125903617,
+    "random_mean": 0.7781469939120126,
+    "significant": false
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "experiment": "RES-017: Symmetry Type Heterogeneity",
+  "timestamp": "2025-12-18T00:08:18.143498",
+  "parameters": {
+    "n_samples": 500,
+    "image_size": 32,
+    "seed": 42
+  },
+  "correlations": {
+    "h_sym": {
+      "rho": -0.8653550098291766,
+      "p": 1.598066068001506e-151,
+      "significant": true
+    },
+    "v_sym": {
+      "rho": -0.8508797453649287,
+      "p": 2.5745641144929835e-141,
+      "significant": true
+    },
+    "rot90_sym": {
+      "rho": -0.9037810628286994,
+      "p": 1.1307366876588677e-185,
+      "significant": true
+    },
+    "rot180_sym": {
+      "rho": -0.9208085861032482,
+      "p": 8.85454973512994e-206,
+      "significant": true
+    },
+    "diag_sym": {
+      "rho": -0.8634593823828504,
+      "p": 4.0405102899837457e-150,
+      "significant": true
+    }
+  },
+  "kruskal_wallis": {
+    "h_sym": {
+      "H": 399.6931961170522,
+      "p": 1.6133375278367682e-87,
+      "cohens_d": -2.831450934990695,
+      "low_mean": 1.0,
+      "high_mean": 0.5618099738023952,
+      "significant": true
+    },
+    "v_sym": {
+      "H": 389.97551625542945,
+      "p": 2.0791824774786186e-85,
+      "cohens_d": -2.374016790701376,
+      "low_mean": 1.0,
+      "high_mean": 0.6323563809880239,
+      "significant": true
+    },
+    "rot90_sym": {
+      "H": 423.6203051121215,
+      "p": 1.0280625375666401e-92,
+      "cohens_d": -8.004615473600374,
+      "low_mean": 1.0,
+      "high_mean": 0.5731427769461078,
+      "significant": true
+    },
+    "rot180_sym": {
+      "H": 429.88570752862466,
+      "p": 4.482338859849048e-94,
+      "cohens_d": -5.5211246507453335,
+      "low_mean": 1.0,
+      "high_mean": 0.3569540606287425,
+      "significant": true
+    },
+    "diag_sym": {
+      "H": 395.10732690891444,
+      "p": 1.5978429174283129e-86,
+      "cohens_d": -2.5274628206751673,
+      "low_mean": 1.0,
+      "high_mean": 0.6351164857784432,
+      "significant": true
+    }
+  },
+  "heterogeneity": {
+    "Q_statistic": 40.71510835179045,
+    "Q_p_value": 3.078775867582095e-08,
+    "heterogeneous": true,
+    "rho_variance": 0.0007126532963819334,
+    "rho_range": 0.06992884073831951
+  },
+  "rotational_vs_reflection": {
+    "rot_rho_mean": -0.9122948244659739,
+    "ref_rho_mean": -0.8598980458589852,
+    "rot_d_mean": 6.762870062172854,
+    "ref_d_mean": 2.5776435154557458,
+    "effect_ratio": 2.6236638315663794,
+    "rot_stronger": true
+  },
+  "direction_analysis": {
+    "increasing": [],
+    "decreasing": [
+      "h_sym",
+      "v_sym",
+      "rot90_sym",
+      "rot180_sym",
+      "diag_sym"
+    ],
+    "neutral": []
+  },
+  "aggregate_symmetry": {
+    "rho": -0.9152594539096073,
+    "p": 9.136806581556622e-199
+  },
+  "summary": {
+    "n_significant_correlations": 5,
+    "n_significant_kruskal": 5,
+    "max_effect_size": 8.004615473600374,
+    "status": "VALIDATED"
+  }
+}

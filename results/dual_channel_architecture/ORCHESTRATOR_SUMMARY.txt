@@ -1,0 +1,63 @@
+ORCHESTRATOR CYCLE 6 - TRACK 2a: Alternative Architecture Exploration
+================================================================================
+
+EXPERIMENT: RES-240 (Dual-Channel Coordinates)
+DOMAIN: dual_channel_architecture
+STATUS: REFUTED
+COMPLETION: 2025-12-19
+
+HYPOTHESIS:
+Using [x+y, x-y] dual-channel coordinates instead of standard [x, y, r]
+achieves effective dimensionality ≤3.0D with ≥2× sampling speedup.
+
+RESULT:
+Dual-channel coordinate transformation FAILED across all variants. Effective
+dimensionality remained 3.75-4.01D (target ≤3.0), and sampling efficiency
+showed 0.96-1.00× speedup (target ≥2.0×). Success rate plateau at 10-12%.
+
+METRICS:
+- eff_dim_reduction: 0% (achieved 3.75D vs baseline 3.76D)
+- sampling_speedup: 0.97× (best variant, all ≤1.0×)
+- order_quality: 0.437-0.462 (maintained but not improved)
+- success_rate: 2.5%-12.5% (no improvement over baseline 10%)
+
+KEY FINDING:
+Effective dimensionality is PARAMETER-BOUND, not coordinate-bound. CPPN
+parameter space (~3-4D) determines manifold dimension. Coordinate remapping
+(linear transformation) cannot reduce parameter degrees of freedom. Speedup
+requires architectural changes: interactions (RES-241: +2.48×), hierarchies
+(RES-254: validated), or spectral bases (RES-249: in progress).
+
+INTERPRETATION:
+- Passive coordinate transformation provides no leverage
+- CPPN samples ~3-4D manifolds due to parameter constraints
+- Linear preprocessing doesn't add information or nonlinearity
+- Contrast: interaction-enriched inputs (RES-241) show 2.48× validated speedup
+
+RECOMMENDATION:
+CLOSE dual-channel thread. Focus on interaction-enriched architectures
+(proven effective) and hierarchical composition (proven effective). Coordinate
+transformation alone insufficient for speedup; architectural innovation required.
+
+NEXT RESEARCH DIRECTIONS:
+1. Learned coordinate systems (AutoML for CPPN inputs)
+2. Spectral bottleneck analysis (RES-249, in progress)
+3. Interaction transfer across architectures (RES-246, in progress)
+4. Manifold-aware sampling strategies
+5. Information-theoretic optimization bounds
+
+FILES:
+- Detailed analysis: ANALYSIS_SUMMARY.md
+- Full report: ../ORCHESTRATOR_CYCLE6_TRACK2A_REPORT.md
+- Results data: res_230_results.json (RES-240)
+- Code experiment: ../experiments/res_230_*
+
+RESEARCH LOG STATUS:
+- 250 total entries
+- 94 validated, 128 refuted, 25 inconclusive, 2 running, 1 completed
+- All entries have chain metadata (no orphans)
+
+================================================================================
+Executed by: Orchestrator Cycle 6, Track 2a Agent
+Date: 2025-12-20
+Status: Complete & documented

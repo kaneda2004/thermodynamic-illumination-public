@@ -1,0 +1,34 @@
+{
+  "res_id": "RES-155",
+  "hypothesis": "CPPN ensemble diversity saturates - adding more samples yields diminishing coverage of high-order space",
+  "status": "inconclusive",
+  "experiment_results": {
+    "n_total_cppns": 2000,
+    "n_high_order_images": 567,
+    "order_threshold": 0.1,
+    "mean_order_high_order": 0.171,
+    "unique_patterns_at_567": 500,
+    "unique_patterns_ratio": 0.88,
+    "predicted_unique_at_2x_samples": 565.4,
+    "marginal_gain_from_doubling_percent": 13.1,
+    "scaling_exponent": 0.969,
+    "spearman_rho_nn_distance": -1.0,
+    "p_value_nn_distance": 1e-06,
+    "early_marginal_gain": 0.7917,
+    "late_marginal_gain": 1.0,
+    "gain_ratio_early_late": 0.79,
+    "effect_size": -0.23,
+    "bootstrap_ci_low": 0.71,
+    "bootstrap_ci_high": 0.88,
+    "criteria_met": 2,
+    "criteria_total": 4
+  },
+  "criteria": {
+    "scaling_sublinear": false,
+    "marginal_gain_decreases": true,
+    "nn_dist_decreases": true,
+    "effect_size_sufficient": false
+  },
+  "summary": "Weak evidence of saturation: scaling exponent 0.97, marginal gain ratio 0.8x. Effect may require more samples to confirm.",
+  "key_metric": -0.23
+}
