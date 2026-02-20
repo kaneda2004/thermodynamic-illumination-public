@@ -1,0 +1,17 @@
+{
+  "method": "Polar vs Cartesian coordinate systems",
+  "cartesian_eff_dim": 3.0,
+  "polar_eff_dim": 3.0,
+  "hybrid_eff_dim": 4.0,
+  "cartesian_symmetry": 0.5,
+  "polar_symmetry": 0.5972248074153058,
+  "hybrid_symmetry": 0.46487160358499297,
+  "cartesian_samples": 15,
+  "polar_samples": 13,
+  "hybrid_samples": 15,
+  "polar_symmetry_advantage": 1.1944496148306116,
+  "hybrid_symmetry_advantage": 0.9297432071699859,
+  "polar_efficiency": 1.1538461538461537,
+  "hybrid_efficiency": 1.0,
+  "conclusion": "refute"
+}

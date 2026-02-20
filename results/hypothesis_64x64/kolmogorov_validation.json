@@ -1,0 +1,45 @@
+{
+  "experiment": "kolmogorov_validation",
+  "image_size": 64,
+  "n_bits": 4096,
+  "n_samples": 5000,
+  "timestamp": "2025-12-17T22:07:49.324351",
+  "compressions": [],
+  "compression_stats": {
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0
+  },
+  "threshold_0.01": {
+    "theoretical_log2_frac": -40.96,
+    "theoretical_frac": 4.675320390815913e-13,
+    "observed_count": 0,
+    "observed_frac": 0.0
+  },
+  "threshold_0.02": {
+    "theoretical_log2_frac": -81.92,
+    "theoretical_frac": 2.1858620756779067e-25,
+    "observed_count": 0,
+    "observed_frac": 0.0
+  },
+  "threshold_0.05": {
+    "theoretical_log2_frac": -204.8,
+    "theoretical_frac": 2.233864816500142e-62,
+    "observed_count": 0,
+    "observed_frac": 0.0
+  },
+  "threshold_0.1": {
+    "theoretical_log2_frac": -409.6,
+    "theoretical_frac": 4.990152018397213e-124,
+    "observed_count": 0,
+    "observed_frac": 0.0
+  },
+  "threshold_0.2": {
+    "theoretical_log2_frac": -819.2,
+    "theoretical_frac": 2.4901617166713772e-247,
+    "observed_count": 0,
+    "observed_frac": 0.0
+  },
+  "hypothesis_supported": true
+}

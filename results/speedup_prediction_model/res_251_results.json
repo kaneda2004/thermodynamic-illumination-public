@@ -1,0 +1,145 @@
+{
+  "models": {
+    "linear_regression": {
+      "r2_train": 0.9809997613999527,
+      "r2_cv_mean": -10305.404532987664,
+      "r2_cv_std": 20607.569261053974,
+      "rmse": 5.913837908611033,
+      "mae": 5.084530689130133,
+      "coefficients": [
+        7.761329858843276,
+        -28.4795492499855,
+        102.46987624012037,
+        40.50998379059082,
+        -2.1355645748371703,
+        -9.69549388476437,
+        -0.38962546730631625,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "feature_importance": [
+        0.04054153868334639,
+        0.14876377741979313,
+        0.5352544637351231,
+        0.21160511211061214,
+        0.011155185438085321,
+        0.05064470232964753,
+        0.0020352202833922744,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "random_forest": {
+      "r2_train": 0.9944848792776769,
+      "r2_cv_mean": -1.4592673703791088,
+      "r2_cv_std": 4.81762283941943,
+      "rmse": 3.1861586799210824,
+      "mae": 1.638645454545456,
+      "feature_importance": [
+        0.024690708082895595,
+        0.21841552527168606,
+        0.16867697190323905,
+        0.27792583039154917,
+        0.26903647936371083,
+        0.02023632644700114,
+        0.021018158539918196,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "gradient_boosting": {
+      "r2_train": 0.9999135760875593,
+      "r2_cv_mean": 0.0762752017237838,
+      "r2_cv_std": 1.738195312256881,
+      "rmse": 0.398847478699528,
+      "mae": 0.32463061049217784,
+      "feature_importance": [
+        0.011381495637207544,
+        0.06494738409869429,
+        0.21352161235643338,
+        0.39923413277087816,
+        0.29986422890193987,
+        0.00868777072954417,
+        0.0023633755053025373,
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "analysis": {
+    "best_model": "gradient_boosting",
+    "best_r2": 0.9999135760875593,
+    "primary_bottleneck": "posterior_entropy_H",
+    "bottleneck_importance": 0.39923413277087816,
+    "feature_ranking": [
+      [
+        "posterior_entropy_H",
+        0.39923413277087816
+      ],
+      [
+        "manifold_stability_var",
+        0.29986422890193987
+      ],
+      [
+        "phase_coherence_sigma",
+        0.21352161235643338
+      ],
+      [
+        "spectral_decay_beta",
+        0.06494738409869429
+      ],
+      [
+        "eff_dim",
+        0.011381495637207544
+      ],
+      [
+        "pca_basis_rank",
+        0.00868777072954417
+      ],
+      [
+        "exploration_samples_N",
+        0.0023633755053025373
+      ],
+      [
+        "density_gate_contrib",
+        0.0
+      ],
+      [
+        "compress_gate_contrib",
+        0.0
+      ],
+      [
+        "edge_gate_contrib",
+        0.0
+      ]
+    ],
+    "speedup_gain_factor": 1.501055039205744,
+    "speedup_gain_absolute": 16.606786017602744
+  },
+  "dataset": {
+    "n_samples": 11,
+    "n_features": 10,
+    "feature_names": [
+      "eff_dim",
+      "spectral_decay_beta",
+      "phase_coherence_sigma",
+      "posterior_entropy_H",
+      "manifold_stability_var",
+      "pca_basis_rank",
+      "exploration_samples_N",
+      "density_gate_contrib",
+      "compress_gate_contrib",
+      "edge_gate_contrib"
+    ],
+    "speedup_range": [
+      0.6,
+      101.07
+    ],
+    "speedup_mean": 33.14363636363637,
+    "speedup_std": 42.90322011070694
+  }
+}

@@ -1,0 +1,70 @@
+2025-12-20 20:35:28,031 - [INFO] - Starting fresh: processing 100 CPPNs with 8 workers
+2025-12-20 20:35:28,031 - [INFO] - 
+[0/100] Starting batch of 8 CPPNs...
+2025-12-20 20:45:40,067 - [INFO] -   ✓ CPPN 2: uniform=620.8x, decay=726.0x, adaptive=402.3x
+2025-12-20 20:45:54,230 - [INFO] -   ✓ CPPN 1: uniform=608.6x, decay=1309.7x, adaptive=1730.1x
+2025-12-20 20:45:59,176 - [INFO] -   ✓ CPPN 4: uniform=377.4x, decay=632.4x, adaptive=900.6x
+2025-12-20 20:46:13,191 - [INFO] -   ✓ CPPN 6: uniform=568.2x, decay=543.4x, adaptive=943.4x
+2025-12-20 20:46:14,209 - [INFO] -   ✓ CPPN 3: uniform=466.6x, decay=943.4x, adaptive=1278.3x
+2025-12-20 20:47:22,862 - [INFO] -   ✓ CPPN 5: uniform=781.2x, decay=659.3x, adaptive=1910.5x
+2025-12-20 20:47:24,827 - [INFO] -   ✓ CPPN 7: uniform=999.4x, decay=1245.0x, adaptive=1744.6x
+2025-12-20 20:48:05,512 - [INFO] -   ✓ CPPN 8: uniform=754.7x, decay=486.2x, adaptive=657.3x
+2025-12-20 20:48:05,537 - [INFO] -   Batch complete in 12.6m. ETA: 145.2m remaining
+2025-12-20 20:48:05,537 - [INFO] - 
+[8/100] Starting batch of 8 CPPNs...
+2025-12-20 20:57:56,609 - [INFO] -   ✓ CPPN 9: uniform=492.7x, decay=1908.7x, adaptive=1283.2x
+2025-12-20 20:58:02,819 - [INFO] -   ✓ CPPN 15: uniform=908.2x, decay=611.6x, adaptive=1630.9x
+2025-12-20 20:58:21,878 - [INFO] -   ✓ CPPN 14: uniform=415.1x, decay=820.5x, adaptive=1035.5x
+2025-12-20 20:59:12,661 - [INFO] -   ✓ CPPN 13: uniform=575.0x, decay=598.9x, adaptive=1559.5x
+2025-12-20 20:59:14,389 - [INFO] -   ✓ CPPN 10: uniform=584.0x, decay=772.7x, adaptive=1177.2x
+2025-12-20 20:59:21,254 - [INFO] -   ✓ CPPN 11: uniform=379.3x, decay=1141.2x, adaptive=1674.0x
+2025-12-20 20:59:24,051 - [INFO] -   ✓ CPPN 16: uniform=848.0x, decay=786.6x, adaptive=1027.2x
+2025-12-20 20:59:38,723 - [INFO] -   ✓ CPPN 12: uniform=885.0x, decay=814.8x, adaptive=758.5x
+2025-12-20 20:59:38,747 - [INFO] -   Batch complete in 11.6m. ETA: 121.3m remaining
+2025-12-20 20:59:38,747 - [INFO] - 
+[16/100] Starting batch of 8 CPPNs...
+2025-12-20 22:33:17,247 - [INFO] -   ✓ CPPN 17: uniform=4075.4x, decay=2051.9x, adaptive=2319.2x
+2025-12-20 22:50:27,749 - [INFO] -   ✓ CPPN 18: uniform=2433.9x, decay=3040.6x, adaptive=2425.6x
+2025-12-20 22:50:33,521 - [INFO] -   ✓ CPPN 19: uniform=3852.0x, decay=1919.4x, adaptive=6009.4x
+2025-12-20 22:51:35,919 - [INFO] -   ✓ CPPN 24: uniform=2878.8x, decay=1794.0x, adaptive=1851.8x
+2025-12-20 22:51:49,673 - [INFO] -   ✓ CPPN 21: uniform=2122.5x, decay=1958.5x, adaptive=3551.5x
+2025-12-20 22:51:53,910 - [INFO] -   ✓ CPPN 23: uniform=1192.2x, decay=2512.9x, adaptive=4979.8x
+2025-12-20 22:51:59,609 - [INFO] -   ✓ CPPN 22: uniform=2014.5x, decay=1348.8x, adaptive=5419.2x
+2025-12-20 22:52:09,984 - [INFO] -   ✓ CPPN 20: uniform=1195.4x, decay=3185.9x, adaptive=9795.0x
+2025-12-20 22:52:10,007 - [INFO] -   Batch complete in 112.5m. ETA: 1068.9m remaining
+2025-12-20 22:52:10,007 - [INFO] - 
+[24/100] Starting batch of 8 CPPNs...
+2025-12-21 01:21:06,720 - [INFO] -   ✓ CPPN 25: uniform=5473.6x, decay=7671.4x, adaptive=5370.3x
+2025-12-21 01:21:13,236 - [INFO] -   ✓ CPPN 26: uniform=3679.6x, decay=6669.4x, adaptive=10855.3x
+2025-12-21 01:22:18,641 - [INFO] -   ✓ CPPN 27: uniform=4903.4x, decay=5440.4x, adaptive=10089.3x
+2025-12-21 01:22:23,698 - [INFO] -   ✓ CPPN 31: uniform=3629.7x, decay=5980.4x, adaptive=15034.4x
+2025-12-21 01:38:12,020 - [INFO] -   ✓ CPPN 30: uniform=6020.8x, decay=6462.2x, adaptive=17888.5x
+2025-12-21 01:38:12,427 - [INFO] -   ✓ CPPN 32: uniform=4875.4x, decay=8378.3x, adaptive=13955.1x
+2025-12-21 01:55:13,235 - [INFO] -   ✓ CPPN 29: uniform=3916.9x, decay=14507.8x, adaptive=34073.9x
+2025-12-21 01:55:29,943 - [INFO] -   ✓ CPPN 28: uniform=3592.4x, decay=3128.4x, adaptive=22582.3x
+2025-12-21 01:55:29,966 - [INFO] -   Batch complete in 183.3m. ETA: 1558.3m remaining
+2025-12-21 01:55:29,966 - [INFO] - 
+[32/100] Starting batch of 8 CPPNs...
+2025-12-21 03:18:25,560 - [INFO] -   ✓ CPPN 34: uniform=1504.0x, decay=8754.4x, adaptive=8805.7x
+2025-12-21 03:18:37,458 - [INFO] -   ✓ CPPN 37: uniform=1741.8x, decay=8222.4x, adaptive=9931.2x
+2025-12-21 03:18:51,224 - [INFO] -   ✓ CPPN 35: uniform=3257.6x, decay=10721.8x, adaptive=5494.0x
+2025-12-21 03:18:55,679 - [INFO] -   ✓ CPPN 38: uniform=2047.0x, decay=12363.8x, adaptive=8221.5x
+2025-12-21 03:18:57,113 - [INFO] -   ✓ CPPN 36: uniform=2319.1x, decay=4662.9x, adaptive=10724.9x
+2025-12-21 03:18:58,349 - [INFO] -   ✓ CPPN 33: uniform=2149.9x, decay=4942.2x, adaptive=17616.4x
+2025-12-21 03:19:18,207 - [INFO] -   ✓ CPPN 39: uniform=2840.8x, decay=14100.2x, adaptive=12527.9x
+2025-12-21 03:20:01,615 - [INFO] -   ✓ CPPN 40: uniform=1632.3x, decay=4868.9x, adaptive=6082.6x
+2025-12-21 03:20:01,641 - [INFO] - ✓ Checkpoint saved: 40 CPPNs processed
+2025-12-21 03:20:01,641 - [INFO] -   Batch complete in 84.5m. ETA: 634.0m remaining
+2025-12-21 03:20:01,641 - [INFO] - 
+[40/100] Starting batch of 8 CPPNs...
+2025-12-21 06:13:53,280 - [INFO] -   ✓ CPPN 45: uniform=3257.0x, decay=2306.7x, adaptive=4342.4x
+2025-12-21 06:14:08,974 - [INFO] -   ✓ CPPN 43: uniform=1861.2x, decay=2432.1x, adaptive=3951.9x
+2025-12-21 06:14:31,833 - [INFO] -   ✓ CPPN 47: uniform=3.3x, decay=3225.5x, adaptive=5852.3x
+2025-12-21 06:22:29,737 - [INFO] -   ✓ CPPN 41: uniform=1280.9x, decay=2056.3x, adaptive=3941.7x
+2025-12-21 06:22:37,094 - [INFO] -   ✓ CPPN 44: uniform=1765.2x, decay=2490.2x, adaptive=5153.2x
+2025-12-21 06:22:39,724 - [INFO] -   ✓ CPPN 48: uniform=1337.9x, decay=3632.2x, adaptive=5794.1x
+2025-12-21 06:39:40,736 - [INFO] -   ✓ CPPN 42: uniform=1645.6x, decay=5112.5x, adaptive=8584.1x
+2025-12-21 06:57:47,204 - [INFO] -   ✓ CPPN 46: uniform=2465.2x, decay=7180.2x, adaptive=24386.9x
+2025-12-21 06:57:47,228 - [INFO] -   Batch complete in 217.8m. ETA: 1415.4m remaining
+2025-12-21 06:57:47,228 - [INFO] - 
+[48/100] Starting batch of 8 CPPNs...

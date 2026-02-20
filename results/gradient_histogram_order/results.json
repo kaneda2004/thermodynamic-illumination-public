@@ -1,0 +1,82 @@
+{
+  "experiment_id": "RES-182",
+  "hypothesis": "Spatial gradient histogram skewness/kurtosis predicts CPPN order better than mean",
+  "domain": "feature_extraction",
+  "n_samples": 500,
+  "correlations": {
+    "grad_mean": {
+      "pearson_r": 0.22071537756317086,
+      "pearson_p": 6.209144484929976e-07,
+      "spearman_rho": 0.22371372863293754,
+      "spearman_p": 4.3250130833602943e-07
+    },
+    "grad_std": {
+      "pearson_r": -0.022955537954191273,
+      "pearson_p": 0.6085920930673456,
+      "spearman_rho": 0.06927432125700766,
+      "spearman_p": 0.1218625692055769
+    },
+    "grad_skewness": {
+      "pearson_r": 0.09635263566462152,
+      "pearson_p": 0.031229818321224685,
+      "spearman_rho": 0.2062170249025405,
+      "spearman_p": 3.3245042939981465e-06
+    },
+    "grad_kurtosis": {
+      "pearson_r": 0.05233783988083314,
+      "pearson_p": 0.2427336454235736,
+      "spearman_rho": 0.18566971897222828,
+      "spearman_p": 2.9448530930017944e-05
+    },
+    "grad_median": {
+      "pearson_r": 0.666408895303396,
+      "pearson_p": 1.7072580823334892e-65,
+      "spearman_rho": 0.7784245641147047,
+      "spearman_p": 9.01645672226005e-103
+    },
+    "grad_max": {
+      "pearson_r": 0.20150166940114153,
+      "pearson_p": 5.596190552123673e-06,
+      "spearman_rho": 0.20138277134187807,
+      "spearman_p": 5.669271519179287e-06
+    },
+    "grad_p90": {
+      "pearson_r": -0.2292295659512656,
+      "pearson_p": 2.1944919391987448e-07,
+      "spearman_rho": -0.008963651806520846,
+      "spearman_p": 0.841530866657099
+    },
+    "grad_entropy": {
+      "pearson_r": 0.25933794518876335,
+      "pearson_p": 3.969771117660127e-09,
+      "spearman_rho": 0.19221288409139606,
+      "spearman_p": 1.5069373195613937e-05
+    }
+  },
+  "r2_comparison": {
+    "mean_only": 0.00843043454416339,
+    "shape_only": 0.06637214974671501,
+    "all_features": 0.4330024947772998
+  },
+  "shape_vs_mean": {
+    "r2_difference": 0.05107340461007826,
+    "p_value": 0.971,
+    "effect_size": 1.7479236606347066
+  },
+  "high_low_comparison": {
+    "skewness": {
+      "high_mean": 3.048834742958352,
+      "low_mean": 3.381947460086704,
+      "d": -0.5721073530154737,
+      "p": 3.7630802861303695e-05
+    },
+    "kurtosis": {
+      "high_mean": 8.364291575489222,
+      "low_mean": 11.611031202476022,
+      "d": -0.7538967345906128,
+      "p": 7.525802514454993e-08
+    }
+  },
+  "status": "inconclusive",
+  "summary": "Mean gradient |r|=0.221, shape |r|=0.096. R^2 mean=0.008 vs shape=0.066. Effect d=1.75. Shape does NOT predict order better than mean - mean gradient dominates."
+}

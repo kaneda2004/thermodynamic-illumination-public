@@ -1,0 +1,52 @@
+{
+  "parameters": {
+    "n_samples_target": 100,
+    "order_band": [
+      0.05,
+      0.2
+    ],
+    "image_size": 32
+  },
+  "sample_counts": {
+    "CPPN": 100,
+    "Sinusoidal": 29,
+    "Perlin": 100,
+    "Gabor": 100
+  },
+  "pairwise_tests": {
+    "CPPN_vs_Sinusoidal": {
+      "pillai_trace": 0.6985173175529803,
+      "F_statistic": 71.82514321680054,
+      "df1": 4,
+      "df2": 124,
+      "p_value": 1.1102230246251565e-16,
+      "cohens_d": 3.617169569922067
+    },
+    "CPPN_vs_Perlin": {
+      "pillai_trace": 0.8967348647564732,
+      "F_statistic": 423.335761424071,
+      "df1": 4,
+      "df2": 195,
+      "p_value": 1.1102230246251565e-16,
+      "cohens_d": 5.862550166321176
+    },
+    "CPPN_vs_Gabor": {
+      "pillai_trace": 0.8703934326017674,
+      "F_statistic": 327.38834683399523,
+      "df1": 4,
+      "df2": 195,
+      "p_value": 1.1102230246251565e-16,
+      "cohens_d": 5.156930200045489
+    }
+  },
+  "overall_test": {
+    "pillai_trace": 1.441040384491979,
+    "F_statistic": 74.87318464360166,
+    "df1": 12,
+    "df2": 972,
+    "p_value": 1.1102230246251565e-16,
+    "n_groups": 4
+  },
+  "status": "validated",
+  "confidence": "high"
+}

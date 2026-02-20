@@ -1,0 +1,214 @@
+{
+  "experiment": "coordinate_encoding",
+  "hypothesis": "Different coordinate encodings produce distinct order distributions",
+  "parameters": {
+    "n_samples": 300,
+    "image_size": 32,
+    "base_seed": 42,
+    "encodings": {
+      "cartesian": [
+        "x",
+        "y",
+        "bias"
+      ],
+      "standard": [
+        "x",
+        "y",
+        "r",
+        "bias"
+      ],
+      "polar": [
+        "r",
+        "theta",
+        "bias"
+      ],
+      "sinusoidal": [
+        "sin_x",
+        "cos_x",
+        "sin_y",
+        "cos_y",
+        "r",
+        "bias"
+      ],
+      "augmented": [
+        "x",
+        "y",
+        "r",
+        "theta",
+        "bias"
+      ]
+    }
+  },
+  "primary_test": {
+    "test": "kruskal_wallis",
+    "H_statistic": 161.43293689539593,
+    "p_value": 7.204315834073406e-34,
+    "significant": true
+  },
+  "secondary_tests": {
+    "pairwise_comparisons": [
+      {
+        "enc1": "cartesian",
+        "enc2": "standard",
+        "U": 47618.0,
+        "p_value": 0.21450510938661727,
+        "cohens_d": -0.0009076971133301768,
+        "significant": false
+      },
+      {
+        "enc1": "cartesian",
+        "enc2": "polar",
+        "U": 51760.0,
+        "p_value": 0.0013336194314089308,
+        "cohens_d": 0.02170862377111849,
+        "significant": false
+      },
+      {
+        "enc1": "cartesian",
+        "enc2": "sinusoidal",
+        "U": 25522.0,
+        "p_value": 3.8466736708126566e-20,
+        "cohens_d": -0.9537487796834349,
+        "significant": true
+      },
+      {
+        "enc1": "cartesian",
+        "enc2": "augmented",
+        "U": 40135.0,
+        "p_value": 0.0214477732496173,
+        "cohens_d": -0.24271043073477572,
+        "significant": false
+      },
+      {
+        "enc1": "standard",
+        "enc2": "polar",
+        "U": 48201.0,
+        "p_value": 0.12755764266327183,
+        "cohens_d": 0.021377901687592512,
+        "significant": false
+      },
+      {
+        "enc1": "standard",
+        "enc2": "sinusoidal",
+        "U": 24268.5,
+        "p_value": 1.168066817489434e-22,
+        "cohens_d": -0.9309190036700584,
+        "significant": true
+      },
+      {
+        "enc1": "standard",
+        "enc2": "augmented",
+        "U": 38107.5,
+        "p_value": 0.0010952148076139156,
+        "cohens_d": -0.22599979141280446,
+        "significant": false
+      },
+      {
+        "enc1": "polar",
+        "enc2": "sinusoidal",
+        "U": 22576.0,
+        "p_value": 2.855975380385424e-26,
+        "cohens_d": -0.8779484782507554,
+        "significant": true
+      },
+      {
+        "enc1": "polar",
+        "enc2": "augmented",
+        "U": 34493.5,
+        "p_value": 6.307464042013212e-07,
+        "cohens_d": -0.20912553746725338,
+        "significant": false
+      },
+      {
+        "enc1": "sinusoidal",
+        "enc2": "augmented",
+        "U": 60890.5,
+        "p_value": 6.577366161339606e-14,
+        "cohens_d": 0.7846096791841252,
+        "significant": true
+      }
+    ],
+    "n_significant": 4,
+    "n_comparisons": 10,
+    "bonferroni_alpha": 0.001
+  },
+  "sinusoidal_vs_standard": {
+    "U_statistic": 65731.5,
+    "p_value_one_sided": 5.84033408744717e-23,
+    "cohens_d": 0.9309190036700584,
+    "sinusoidal_better": true
+  },
+  "summary_by_encoding": {
+    "cartesian": {
+      "order_mean": 0.05631553877519134,
+      "order_std": 0.05777121093066188,
+      "order_median": 0.03626606271406241,
+      "order_q25": 0.004274991775069136,
+      "order_q75": 0.0915485805462991,
+      "edge_density_mean": 0.011536458333333333,
+      "symmetry_mean": 0.7934830729166666,
+      "spectral_coherence_mean": 0.9690619576319495,
+      "compressibility_mean": 0.9362565104166667,
+      "n_inputs": 3
+    },
+    "standard": {
+      "order_mean": 0.05637275955370362,
+      "order_std": 0.06770489548115494,
+      "order_median": 0.01758913642610325,
+      "order_q25": 0.004274991775069136,
+      "order_q75": 0.09174732602376273,
+      "edge_density_mean": 0.0110791015625,
+      "symmetry_mean": 0.8340364583333333,
+      "spectral_coherence_mean": 0.9731654253758226,
+      "compressibility_mean": 0.9375651041666667,
+      "n_inputs": 4
+    },
+    "polar": {
+      "order_mean": 0.05461294724332044,
+      "order_std": 0.09446576388152918,
+      "order_median": 0.007819408485712562,
+      "order_q25": 0.004274991775069136,
+      "order_q75": 0.06820888091077729,
+      "edge_density_mean": 0.011648763020833333,
+      "symmetry_mean": 0.87126953125,
+      "spectral_coherence_mean": 0.9794076155110698,
+      "compressibility_mean": 0.9430403645833333,
+      "n_inputs": 3
+    },
+    "sinusoidal": {
+      "order_mean": 0.16456617719158265,
+      "order_std": 0.1494696544367365,
+      "order_median": 0.13713823949510545,
+      "order_q25": 0.02830474568225281,
+      "order_q75": 0.27253432454464505,
+      "edge_density_mean": 0.028460286458333334,
+      "symmetry_mean": 0.8173502604166667,
+      "spectral_coherence_mean": 0.9651929547533075,
+      "compressibility_mean": 0.9006575520833333,
+      "n_inputs": 6
+    },
+    "augmented": {
+      "order_mean": 0.07224971541715336,
+      "order_std": 0.07248347945082118,
+      "order_median": 0.05456819380842058,
+      "order_q25": 0.004274991775069136,
+      "order_q75": 0.11787037890663649,
+      "edge_density_mean": 0.015045572916666666,
+      "symmetry_mean": 0.7621549479166667,
+      "spectral_coherence_mean": 0.9661784148268744,
+      "compressibility_mean": 0.93025390625,
+      "n_inputs": 5
+    }
+  },
+  "rankings": {
+    "by_mean_order": [
+      "sinusoidal",
+      "augmented",
+      "standard",
+      "cartesian",
+      "polar"
+    ]
+  },
+  "status": "validated",
+  "confidence": "high"
+}

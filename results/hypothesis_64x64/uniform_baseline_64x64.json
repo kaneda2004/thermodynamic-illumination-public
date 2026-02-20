@@ -1,0 +1,38 @@
+{
+  "experiment": "uniform_baseline",
+  "image_size": 64,
+  "n_bits": 4096,
+  "n_live": 50,
+  "n_iterations": 500,
+  "timestamp": "2025-12-17T22:02:24.001404",
+  "thresholds": {
+    "0.01": {
+      "bits": 14.426950408889633,
+      "reached": false,
+      "samples_needed": 22026.4657948067
+    },
+    "0.05": {
+      "bits": 14.426950408889633,
+      "reached": false,
+      "samples_needed": 22026.4657948067
+    },
+    "0.1": {
+      "bits": 14.426950408889633,
+      "reached": false,
+      "samples_needed": 22026.4657948067
+    },
+    "0.2": {
+      "bits": 14.426950408889633,
+      "reached": false,
+      "samples_needed": 22026.4657948067
+    },
+    "0.3": {
+      "bits": 14.426950408889633,
+      "reached": false,
+      "samples_needed": 22026.4657948067
+    }
+  },
+  "max_bits_probed": 14.426950408889633,
+  "best_order_achieved": 6.370932513334525e-05,
+  "hypothesis_supported": true
+}

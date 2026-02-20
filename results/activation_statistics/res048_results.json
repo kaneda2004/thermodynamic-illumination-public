@@ -1,0 +1,27 @@
+{
+  "experiment_id": "RES-048",
+  "hypothesis": "Activation variance negatively correlates with output order",
+  "n_samples": 500,
+  "image_size": 32,
+  "metrics": {
+    "pearson_r_var_order": 0.5246549707491897,
+    "pearson_p_var_order": 1.0373565791337273e-36,
+    "spearman_rho_var_order": 0.727054534733438,
+    "spearman_p_var_order": 2.306061873673301e-83,
+    "pearson_r_sat_order": -0.4389144736587228,
+    "pearson_p_sat_order": 5.835901901870653e-25,
+    "cohens_d": 1.8857476426739985,
+    "t_statistic": 21.04109073682713,
+    "t_p_value": 8.578467831517144e-71,
+    "pre_activation_corr": 0.14975447095983216,
+    "pre_activation_p": 0.000781707051275647
+  },
+  "group_stats": {
+    "high_order_variance_mean": 0.03545336811198748,
+    "high_order_variance_std": 0.018978312198980524,
+    "low_order_variance_mean": 0.008072144228708002,
+    "low_order_variance_std": 0.007841533258313986
+  },
+  "status": "refuted",
+  "conclusion": "Significant correlation but POSITIVE (r=0.525), opposite to hypothesis"
+}

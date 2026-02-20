@@ -1,0 +1,40 @@
+{
+  "NI_diagonal": {
+    "cppn_mean": 0.7281444657920141,
+    "cppn_std": 0.22526808921934824,
+    "random_mean": 0.20887849234818398,
+    "random_std": 0.019817664727490414,
+    "mann_whitney_U": 90000.0,
+    "p_value": 1.9682195121840654e-101,
+    "cohens_d": 3.24194797697477,
+    "significant": true
+  },
+  "NI_adjacent": {
+    "cppn_mean": 0.7467926803531287,
+    "random_mean": 0.20887849234818398,
+    "p_value": 1.968460250779572e-101,
+    "cohens_d": 3.7133429122914454
+  },
+  "locality_ratio": {
+    "cppn_mean": 1.0437719833442982,
+    "random_mean": 0.9999999999985562,
+    "p_value": 1.0,
+    "cohens_d": -0.6180361258495151
+  },
+  "I_diagonal_raw": {
+    "cppn_mean": 81.41333333333333,
+    "random_mean": 70.05333333333333
+  },
+  "I_adjacent_raw": {
+    "cppn_mean": 84.16666666666667,
+    "random_mean": 70.05333333333333
+  },
+  "summary": {
+    "status": "validated",
+    "p_value": 1.9682195121840654e-101,
+    "cohens_d": 3.24194797697477,
+    "cppn_mean": 0.7281444657920141,
+    "random_mean": 0.20887849234818398,
+    "significant": true
+  }
+}

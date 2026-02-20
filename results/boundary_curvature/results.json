@@ -1,0 +1,21 @@
+{
+  "experiment_id": "RES-169",
+  "hypothesis": "High-order CPPN images have lower mean boundary curvature than low-order images",
+  "domain": "boundary_analysis",
+  "status": "inconclusive",
+  "n_samples": 500,
+  "n_valid": 418,
+  "metrics": {
+    "pearson_r": 0.14449419596237478,
+    "pearson_p": 0.0030674405104746684,
+    "spearman_rho": 0.6580977847982958,
+    "spearman_p": 3.184194383256263e-53,
+    "cohens_d": 0.18038063305701646,
+    "t_pval": 0.06654983460739936,
+    "high_order_mean_curvature": 0.17690476293848817,
+    "low_order_mean_curvature": 0.14960205171475022,
+    "high_order_std": 0.05292692521240324,
+    "low_order_std": 0.20741128702415224
+  },
+  "summary": "Boundary curvature effect too small (d=0.18, r=0.14, p=6.65e-02)"
+}

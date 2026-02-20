@@ -1,0 +1,24 @@
+{
+  "hypothesis": "Multi-slice ESS finds valid proposals faster than single-slice ESS",
+  "verdict": "REFUTED",
+  "metrics": {
+    "single_mean_contractions": 2.4065000000000003,
+    "multi3_mean_contractions": 2.8925,
+    "multi5_mean_contractions": 2.8194999999999997,
+    "single_mean_evals": 3.4065,
+    "multi3_mean_evals": 3.8925000000000005,
+    "multi5_mean_evals": 3.8195,
+    "single_max_order": 0.4384415363034104,
+    "multi3_max_order": 0.5066391663999638,
+    "multi5_max_order": 0.46936687378991654,
+    "t_contractions": -3.7702152817925114,
+    "p_contractions": 0.0012948612014679066,
+    "d_contractions": -0.8649467057224357,
+    "t_evals": -3.7702152817925096,
+    "p_evals": 0.0012948612014679138,
+    "d_evals": -0.8649467057224354
+  },
+  "n_trials": 20,
+  "n_live": 50,
+  "n_iterations": 200
+}

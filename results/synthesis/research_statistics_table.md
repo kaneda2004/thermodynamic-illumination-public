@@ -1,0 +1,8 @@
+| Metric | Count | Percentage |
+|---|---|---|
+| Total Entries | 207 | 100% |
+| Validated | 81 | 39.1% |
+| Refuted | 107 | 51.7% |
+| Inconclusive | 19 | 9.2% |
+| With Metrics | 66 | 31.9% |
+| With Code/Script | 46 | 22.2% |

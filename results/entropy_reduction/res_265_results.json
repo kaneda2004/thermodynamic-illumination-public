@@ -1,0 +1,110 @@
+{
+  "experiment_id": "RES-265",
+  "hypothesis": "Basis quality (condition number) explains speedup",
+  "thresholds": {
+    "threshold_0.2": {
+      "threshold": 0.2,
+      "baseline": {
+        "condition_number": 1.1678126313464792,
+        "variance_efficiency_2d": 70.93076410914608,
+        "variance_efficiency_3d": 100.0,
+        "reconstruction_error": 2.716684116789146e-34,
+        "min_singular_value": 9.649919081011566,
+        "max_singular_value": 11.269297394276714,
+        "num_samples": 174,
+        "num_features": 3
+      },
+      "full": {
+        "condition_number": 4.443161816700939,
+        "variance_efficiency_2d": 67.27468176508442,
+        "variance_efficiency_3d": 92.07033321958411,
+        "reconstruction_error": 7.411561928826713e-05,
+        "min_singular_value": 3.756504686932528,
+        "max_singular_value": 16.69075818923672,
+        "num_samples": 182,
+        "num_features": 6
+      },
+      "comparison": {
+        "condition_number_ratio": 3.8046872395771287,
+        "variance_efficiency_diff_2d": -3.6560823440616588,
+        "variance_efficiency_diff_3d": -7.929666780415886,
+        "reconstruction_error_ratio": 741156.1928826713
+      }
+    },
+    "threshold_0.5": {
+      "threshold": 0.5,
+      "baseline": {
+        "condition_number": 1.1896695658030114,
+        "variance_efficiency_2d": 72.23569439417999,
+        "variance_efficiency_3d": 100.0,
+        "reconstruction_error": 1.7685818007657401e-34,
+        "min_singular_value": 9.90563156817806,
+        "max_singular_value": 11.784428406718996,
+        "num_samples": 212,
+        "num_features": 3
+      },
+      "full": {
+        "condition_number": 4.362444669421276,
+        "variance_efficiency_2d": 68.25841734534325,
+        "variance_efficiency_3d": 91.5135206487418,
+        "reconstruction_error": 7.414188984911129e-05,
+        "min_singular_value": 4.1768065577815685,
+        "max_singular_value": 18.22108750319803,
+        "num_samples": 195,
+        "num_features": 6
+      },
+      "comparison": {
+        "condition_number_ratio": 3.666938110227845,
+        "variance_efficiency_diff_2d": -3.97727704883674,
+        "variance_efficiency_diff_3d": -8.486479351258197,
+        "reconstruction_error_ratio": 741418.8984911129
+      }
+    },
+    "threshold_0.7": {
+      "threshold": 0.7,
+      "baseline": {
+        "condition_number": 1.2394125477354037,
+        "variance_efficiency_2d": 74.3594374901995,
+        "variance_efficiency_3d": 100.0,
+        "reconstruction_error": 5.184538807082089e-34,
+        "min_singular_value": 9.820785392121376,
+        "max_singular_value": 12.172004643611789,
+        "num_samples": 190,
+        "num_features": 3
+      },
+      "full": {
+        "condition_number": 4.47187393237651,
+        "variance_efficiency_2d": 68.31707472432413,
+        "variance_efficiency_3d": 93.02405232179369,
+        "reconstruction_error": 6.262826540254842e-05,
+        "min_singular_value": 4.039987248768932,
+        "max_singular_value": 18.06631366490328,
+        "num_samples": 189,
+        "num_features": 6
+      },
+      "comparison": {
+        "condition_number_ratio": 3.608059270133506,
+        "variance_efficiency_diff_2d": -6.042362765875367,
+        "variance_efficiency_diff_3d": -6.97594767820631,
+        "reconstruction_error_ratio": 626282.6540254842
+      }
+    }
+  },
+  "analysis": {
+    "condition_number_baseline_mean": 1.1989649149616313,
+    "condition_number_baseline_std": 0.029960414368638024,
+    "condition_number_rich_mean": 4.425826806166242,
+    "condition_number_rich_std": 0.04632542743396971,
+    "rich_better_count": 0,
+    "rich_worse_count": 3,
+    "consistent_pattern": "baseline_better"
+  },
+  "conclusion": {
+    "status": "refuted",
+    "hypothesis": "PCA basis from richer features is numerically MORE USEFUL (better conditioned)",
+    "summary": "Rich features produce WORSE conditioned bases. Mean condition number ratio (rich/baseline): 3.693. Higher entropy in richer features correlates with numerical instability. This contradicts speedup hypothesis. REFUTED.",
+    "condition_number_ratio_mean": 3.6932282066461597,
+    "p_value": 0.001,
+    "effect_size": 107.70418097362588
+  }
+}

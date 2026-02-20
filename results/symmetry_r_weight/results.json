@@ -1,0 +1,46 @@
+{
+  "hypothesis": "Larger |weight| on r-input produces more rotational symmetry in CPPN outputs",
+  "domain": "symmetry_mechanisms",
+  "n_samples": 500,
+  "correlations": {
+    "abs_r_vs_rot90": {
+      "r": 0.13255624131728497,
+      "p": 0.002980478615221413
+    },
+    "abs_r_vs_rot180": {
+      "r": 0.12958538782316553,
+      "p": 0.0037006400247266607
+    },
+    "abs_r_vs_rot_avg": {
+      "r": 0.13165273425860696,
+      "p": 0.003184702716087505
+    },
+    "abs_r_vs_reflection": {
+      "r": 0.12877599942407594,
+      "p": 0.003922474027059959
+    },
+    "xy_mag_vs_rot": {
+      "r": -0.4099552575463976,
+      "p": 1.0930780635430797e-21
+    },
+    "r_ratio_vs_rot": {
+      "r": 0.3237807135256279,
+      "p": 1.1474353727553895e-13
+    }
+  },
+  "group_comparison": {
+    "high_r_mean_rot": 0.77621484375,
+    "low_r_mean_rot": 0.721953125,
+    "cohens_d": 0.21308149356873965,
+    "t_test_p": 0.017578143158682055
+  },
+  "dominance_analysis": {
+    "r_dominant_n": 127,
+    "xy_dominant_n": 373,
+    "r_dominant_mean_rot": 0.856560654527559,
+    "xy_dominant_mean_rot": 0.7124900511058981,
+    "cohens_d": 0.580297538081049,
+    "p_value": 2.7268867196157102e-08
+  },
+  "status": "validated"
+}

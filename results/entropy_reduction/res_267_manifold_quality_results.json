@@ -1,0 +1,130 @@
+{
+  "hypothesis": "Manifold alignment (not tightness) explains speedup",
+  "method": "Compare baseline [x,y,r] vs rich [x,y,r,x*y,x\u00b2,y\u00b2] features across thresholds",
+  "thresholds_analyzed": [
+    0.2,
+    0.5,
+    0.7
+  ],
+  "by_threshold": {
+    "threshold_0.2": {
+      "baseline": {
+        "dimensionality": 4,
+        "coverage": 0.9577430557905503,
+        "alignment_distance": 22.753989707720436,
+        "compactness": 0.9577430557905503,
+        "variance_ratio_top5": [
+          555.6234368693957,
+          259.2459264977878,
+          167.2417054544836,
+          68.52862023488146,
+          39.05907664292225
+        ]
+      },
+      "rich": {
+        "dimensionality": 3,
+        "coverage": 0.9682594856528178,
+        "alignment_distance": 16.688497607063148,
+        "compactness": 0.9682594856528178,
+        "variance_ratio_top5": [
+          575.6340548790697,
+          332.63756849329076,
+          132.78097084027826,
+          38.578480716578255,
+          22.033050969099463
+        ]
+      },
+      "improvements": {
+        "alignment_improvement_percent": 26.656828883944094,
+        "compactness_improvement_percent": 1.098042924841355,
+        "dimensionality_difference": -1,
+        "coverage_difference": 0.010516429862267529
+      }
+    },
+    "threshold_0.5": {
+      "baseline": {
+        "dimensionality": 5,
+        "coverage": 0.9413441841671605,
+        "alignment_distance": 23.013776929731208,
+        "compactness": 0.9413441841671605,
+        "variance_ratio_top5": [
+          544.9080407942236,
+          251.78109886483597,
+          168.08542815890758,
+          57.348842070494165,
+          48.91708409728471
+        ]
+      },
+      "rich": {
+        "dimensionality": 4,
+        "coverage": 0.9352475697976843,
+        "alignment_distance": 19.829981709602624,
+        "compactness": 0.9352475697976843,
+        "variance_ratio_top5": [
+          471.3316067619887,
+          340.7716799758007,
+          170.4380392669343,
+          44.2220065841816,
+          37.34056904757111
+        ]
+      },
+      "improvements": {
+        "alignment_improvement_percent": 13.834301209444153,
+        "compactness_improvement_percent": -0.6476498683497001,
+        "dimensionality_difference": -1,
+        "coverage_difference": -0.006096614369476172
+      }
+    },
+    "threshold_0.7": {
+      "baseline": {
+        "dimensionality": 4,
+        "coverage": 0.9431662795237361,
+        "alignment_distance": 22.819403988989247,
+        "compactness": 0.9431662795237361,
+        "variance_ratio_top5": [
+          577.4040776221273,
+          218.2030993809417,
+          175.8840173966372,
+          53.62032135592565,
+          48.002117835818616
+        ]
+      },
+      "rich": {
+        "dimensionality": 5,
+        "coverage": 0.9377687223370887,
+        "alignment_distance": 24.984757257938192,
+        "compactness": 0.9377687223370887,
+        "variance_ratio_top5": [
+          410.16037544024886,
+          270.2737859665333,
+          253.93350364014324,
+          69.66530792736688,
+          50.43585703141182
+        ]
+      },
+      "improvements": {
+        "alignment_improvement_percent": -9.489087751782494,
+        "compactness_improvement_percent": -0.5722805515664668,
+        "dimensionality_difference": 1,
+        "coverage_difference": -0.0053975571866473615
+      }
+    }
+  },
+  "threshold_pattern": {
+    "alignment_by_threshold": {
+      "0.2": 26.656828883944094,
+      "0.5": 13.834301209444153,
+      "0.7": -9.489087751782494
+    },
+    "compactness_by_threshold": {
+      "0.2": 1.098042924841355,
+      "0.5": -0.6476498683497001,
+      "0.7": -0.5722805515664668
+    },
+    "dimensionality_by_threshold": {
+      "0.2": -1,
+      "0.5": -1,
+      "0.7": 1
+    }
+  }
+}

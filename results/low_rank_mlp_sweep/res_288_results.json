@@ -1,0 +1,2282 @@
+{
+  "config": {
+    "n_generators": 30,
+    "n_workers": 6,
+    "image_size": 32,
+    "n_live": 100,
+    "baseline_max_iterations": 1200,
+    "n_live_stage1": 50,
+    "stage1_budget": 150,
+    "max_iterations_stage2": 300,
+    "rank_values": [
+      2,
+      4,
+      8,
+      16
+    ],
+    "pca_components_max": 20,
+    "pca_components_scale": 2,
+    "calibration_samples": 1200,
+    "target_quantile": 0.995
+  },
+  "calibration": {
+    "2": {
+      "target_order": 0.9900422659955889,
+      "order_mean": 0.13532297367733184,
+      "order_std": 0.18624132746849842,
+      "quantile": 0.995,
+      "p_hit_baseline": 0.3942295635092721,
+      "p_hit_stage1": 0.22168744293135811,
+      "pca_components": 4
+    },
+    "4": {
+      "target_order": 1.0,
+      "order_mean": 0.23289476002268567,
+      "order_std": 0.24923894362114712,
+      "quantile": 0.995,
+      "p_hit_baseline": 0.3942295635092721,
+      "p_hit_stage1": 0.22168744293135811,
+      "pca_components": 8
+    },
+    "8": {
+      "target_order": 1.0,
+      "order_mean": 0.3184284027911882,
+      "order_std": 0.2864749761897978,
+      "quantile": 0.995,
+      "p_hit_baseline": 0.3942295635092721,
+      "p_hit_stage1": 0.22168744293135811,
+      "pca_components": 16
+    },
+    "16": {
+      "target_order": 1.0,
+      "order_mean": 0.43207847508043057,
+      "order_std": 0.3314590211362384,
+      "quantile": 0.995,
+      "p_hit_baseline": 0.3942295635092721,
+      "p_hit_stage1": 0.22168744293135811,
+      "pca_components": 20
+    }
+  },
+  "results_by_rank": {
+    "2": {
+      "rows": [
+        {
+          "rank": 2,
+          "gen_id": 0,
+          "baseline": {
+            "total_samples": 250,
+            "samples_to_target": 250,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 450,
+            "samples_to_target": 450,
+            "max_order_achieved": 0.8570633292442758,
+            "success": false
+          },
+          "speedup": 0.5555555555555556
+        },
+        {
+          "rank": 2,
+          "gen_id": 1,
+          "baseline": {
+            "total_samples": 273,
+            "samples_to_target": 273,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 85,
+            "samples_to_target": 85,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 3.211764705882353
+        },
+        {
+          "rank": 2,
+          "gen_id": 2,
+          "baseline": {
+            "total_samples": 273,
+            "samples_to_target": 273,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 115,
+            "samples_to_target": 115,
+            "max_order_achieved": 0.9959201229940834,
+            "success": true
+          },
+          "speedup": 2.373913043478261
+        },
+        {
+          "rank": 2,
+          "gen_id": 3,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 2,
+          "gen_id": 4,
+          "baseline": {
+            "total_samples": 216,
+            "samples_to_target": 216,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 4.32
+        },
+        {
+          "rank": 2,
+          "gen_id": 5,
+          "baseline": {
+            "total_samples": 201,
+            "samples_to_target": 201,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 450,
+            "samples_to_target": 450,
+            "max_order_achieved": 0.9520903258618393,
+            "success": false
+          },
+          "speedup": 0.44666666666666666
+        },
+        {
+          "rank": 2,
+          "gen_id": 6,
+          "baseline": {
+            "total_samples": 272,
+            "samples_to_target": 272,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 138,
+            "samples_to_target": 138,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 1.9710144927536233
+        },
+        {
+          "rank": 2,
+          "gen_id": 7,
+          "baseline": {
+            "total_samples": 269,
+            "samples_to_target": 269,
+            "max_order_achieved": 0.992223055698507,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 61,
+            "samples_to_target": 61,
+            "max_order_achieved": 0.9928950025030624,
+            "success": true
+          },
+          "speedup": 4.409836065573771
+        },
+        {
+          "rank": 2,
+          "gen_id": 8,
+          "baseline": {
+            "total_samples": 234,
+            "samples_to_target": 234,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 127,
+            "samples_to_target": 127,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 1.8425196850393701
+        },
+        {
+          "rank": 2,
+          "gen_id": 9,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 76,
+            "samples_to_target": 76,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 1.3157894736842106
+        },
+        {
+          "rank": 2,
+          "gen_id": 10,
+          "baseline": {
+            "total_samples": 121,
+            "samples_to_target": 121,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 138,
+            "samples_to_target": 138,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 0.8768115942028986
+        },
+        {
+          "rank": 2,
+          "gen_id": 11,
+          "baseline": {
+            "total_samples": 243,
+            "samples_to_target": 243,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 4.86
+        },
+        {
+          "rank": 2,
+          "gen_id": 12,
+          "baseline": {
+            "total_samples": 289,
+            "samples_to_target": 289,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 94,
+            "samples_to_target": 94,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 3.074468085106383
+        },
+        {
+          "rank": 2,
+          "gen_id": 13,
+          "baseline": {
+            "total_samples": 247,
+            "samples_to_target": 247,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 450,
+            "samples_to_target": 450,
+            "max_order_achieved": 0.9010153690055305,
+            "success": false
+          },
+          "speedup": 0.5488888888888889
+        },
+        {
+          "rank": 2,
+          "gen_id": 14,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 2,
+          "gen_id": 15,
+          "baseline": {
+            "total_samples": 408,
+            "samples_to_target": 408,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 450,
+            "samples_to_target": 450,
+            "max_order_achieved": 0.9244767863796081,
+            "success": false
+          },
+          "speedup": 0.9066666666666666
+        },
+        {
+          "rank": 2,
+          "gen_id": 16,
+          "baseline": {
+            "total_samples": 112,
+            "samples_to_target": 112,
+            "max_order_achieved": 0.9993719154580257,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.24
+        },
+        {
+          "rank": 2,
+          "gen_id": 17,
+          "baseline": {
+            "total_samples": 317,
+            "samples_to_target": 317,
+            "max_order_achieved": 0.9977896746684015,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 450,
+            "samples_to_target": 450,
+            "max_order_achieved": 0.8494385521014469,
+            "success": false
+          },
+          "speedup": 0.7044444444444444
+        },
+        {
+          "rank": 2,
+          "gen_id": 18,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 2,
+          "gen_id": 19,
+          "baseline": {
+            "total_samples": 301,
+            "samples_to_target": 301,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 72,
+            "samples_to_target": 72,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 4.180555555555555
+        },
+        {
+          "rank": 2,
+          "gen_id": 20,
+          "baseline": {
+            "total_samples": 194,
+            "samples_to_target": 194,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 450,
+            "samples_to_target": 450,
+            "max_order_achieved": 0.8018848538294746,
+            "success": false
+          },
+          "speedup": 0.4311111111111111
+        },
+        {
+          "rank": 2,
+          "gen_id": 21,
+          "baseline": {
+            "total_samples": 276,
+            "samples_to_target": 276,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 101,
+            "samples_to_target": 101,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.732673267326733
+        },
+        {
+          "rank": 2,
+          "gen_id": 22,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 150,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 0.6666666666666666
+        },
+        {
+          "rank": 2,
+          "gen_id": 23,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 450,
+            "samples_to_target": 450,
+            "max_order_achieved": 0.9492237772693496,
+            "success": false
+          },
+          "speedup": 0.2222222222222222
+        },
+        {
+          "rank": 2,
+          "gen_id": 24,
+          "baseline": {
+            "total_samples": 234,
+            "samples_to_target": 234,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 91,
+            "samples_to_target": 91,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.5714285714285716
+        },
+        {
+          "rank": 2,
+          "gen_id": 25,
+          "baseline": {
+            "total_samples": 130,
+            "samples_to_target": 130,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 75,
+            "samples_to_target": 75,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 1.7333333333333334
+        },
+        {
+          "rank": 2,
+          "gen_id": 26,
+          "baseline": {
+            "total_samples": 222,
+            "samples_to_target": 222,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 201,
+            "samples_to_target": 201,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 1.1044776119402986
+        },
+        {
+          "rank": 2,
+          "gen_id": 27,
+          "baseline": {
+            "total_samples": 276,
+            "samples_to_target": 276,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 149,
+            "samples_to_target": 149,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 1.8523489932885906
+        },
+        {
+          "rank": 2,
+          "gen_id": 28,
+          "baseline": {
+            "total_samples": 191,
+            "samples_to_target": 191,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 77,
+            "samples_to_target": 77,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.4805194805194803
+        },
+        {
+          "rank": 2,
+          "gen_id": 29,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 59,
+            "samples_to_target": 59,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 1.694915254237288
+        }
+      ],
+      "summary": {
+        "n": 30,
+        "speedup_mean": 1.9776197145190981,
+        "speedup_std": 1.2602302847781086,
+        "speedup_min": 0.2222222222222222,
+        "speedup_max": 4.86,
+        "baseline_success": 30,
+        "two_stage_success": 23,
+        "speedups": [
+          0.5555555555555556,
+          3.211764705882353,
+          2.373913043478261,
+          2.0,
+          4.32,
+          0.44666666666666666,
+          1.9710144927536233,
+          4.409836065573771,
+          1.8425196850393701,
+          1.3157894736842106,
+          0.8768115942028986,
+          4.86,
+          3.074468085106383,
+          0.5488888888888889,
+          2.0,
+          0.9066666666666666,
+          2.24,
+          0.7044444444444444,
+          2.0,
+          4.180555555555555,
+          0.4311111111111111,
+          2.732673267326733,
+          0.6666666666666666,
+          0.2222222222222222,
+          2.5714285714285716,
+          1.7333333333333334,
+          1.1044776119402986,
+          1.8523489932885906,
+          2.4805194805194803,
+          1.694915254237288
+        ]
+      }
+    },
+    "4": {
+      "rows": [
+        {
+          "rank": 4,
+          "gen_id": 0,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 72,
+            "samples_to_target": 72,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 1.3888888888888888
+        },
+        {
+          "rank": 4,
+          "gen_id": 1,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 55,
+            "samples_to_target": 55,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 1.8181818181818181
+        },
+        {
+          "rank": 4,
+          "gen_id": 2,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 64,
+            "samples_to_target": 64,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 1.5625
+        },
+        {
+          "rank": 4,
+          "gen_id": 3,
+          "baseline": {
+            "total_samples": 118,
+            "samples_to_target": 118,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 103,
+            "samples_to_target": 103,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 1.145631067961165
+        },
+        {
+          "rank": 4,
+          "gen_id": 4,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 4,
+          "gen_id": 5,
+          "baseline": {
+            "total_samples": 172,
+            "samples_to_target": 172,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 3.44
+        },
+        {
+          "rank": 4,
+          "gen_id": 6,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 93,
+            "samples_to_target": 93,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 1.075268817204301
+        },
+        {
+          "rank": 4,
+          "gen_id": 7,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 101,
+            "samples_to_target": 101,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 0.9900990099009901
+        },
+        {
+          "rank": 4,
+          "gen_id": 8,
+          "baseline": {
+            "total_samples": 210,
+            "samples_to_target": 210,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 83,
+            "samples_to_target": 83,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.5301204819277108
+        },
+        {
+          "rank": 4,
+          "gen_id": 9,
+          "baseline": {
+            "total_samples": 143,
+            "samples_to_target": 143,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 79,
+            "samples_to_target": 79,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 1.8101265822784811
+        },
+        {
+          "rank": 4,
+          "gen_id": 10,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 56,
+            "samples_to_target": 56,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 1.7857142857142858
+        },
+        {
+          "rank": 4,
+          "gen_id": 11,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 59,
+            "samples_to_target": 59,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 1.694915254237288
+        },
+        {
+          "rank": 4,
+          "gen_id": 12,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 4,
+          "gen_id": 13,
+          "baseline": {
+            "total_samples": 116,
+            "samples_to_target": 116,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 391,
+            "samples_to_target": 391,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 0.2966751918158568
+        },
+        {
+          "rank": 4,
+          "gen_id": 14,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 118,
+            "samples_to_target": 118,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 0.847457627118644
+        },
+        {
+          "rank": 4,
+          "gen_id": 15,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 4,
+          "gen_id": 16,
+          "baseline": {
+            "total_samples": 184,
+            "samples_to_target": 184,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 100,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 1.84
+        },
+        {
+          "rank": 4,
+          "gen_id": 17,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 4,
+          "gen_id": 18,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 51,
+            "samples_to_target": 51,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 1.9607843137254901
+        },
+        {
+          "rank": 4,
+          "gen_id": 19,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 4,
+          "gen_id": 20,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 96,
+            "samples_to_target": 96,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 1.0416666666666667
+        },
+        {
+          "rank": 4,
+          "gen_id": 21,
+          "baseline": {
+            "total_samples": 208,
+            "samples_to_target": 208,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 120,
+            "samples_to_target": 120,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 1.7333333333333334
+        },
+        {
+          "rank": 4,
+          "gen_id": 22,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 101,
+            "samples_to_target": 101,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 0.9900990099009901
+        },
+        {
+          "rank": 4,
+          "gen_id": 23,
+          "baseline": {
+            "total_samples": 109,
+            "samples_to_target": 109,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 133,
+            "samples_to_target": 133,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 0.8195488721804511
+        },
+        {
+          "rank": 4,
+          "gen_id": 24,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 370,
+            "samples_to_target": 370,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 0.2702702702702703
+        },
+        {
+          "rank": 4,
+          "gen_id": 25,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 137,
+            "samples_to_target": 137,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 0.7299270072992701
+        },
+        {
+          "rank": 4,
+          "gen_id": 26,
+          "baseline": {
+            "total_samples": 233,
+            "samples_to_target": 233,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 74,
+            "samples_to_target": 74,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 3.1486486486486487
+        },
+        {
+          "rank": 4,
+          "gen_id": 27,
+          "baseline": {
+            "total_samples": 195,
+            "samples_to_target": 195,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 125,
+            "samples_to_target": 125,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 1.56
+        },
+        {
+          "rank": 4,
+          "gen_id": 28,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 4,
+          "gen_id": 29,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        }
+      ],
+      "summary": {
+        "n": 30,
+        "speedup_mean": 1.6159952382418183,
+        "speedup_std": 0.7091429087690216,
+        "speedup_min": 0.2702702702702703,
+        "speedup_max": 3.44,
+        "baseline_success": 30,
+        "two_stage_success": 30,
+        "speedups": [
+          1.3888888888888888,
+          1.8181818181818181,
+          1.5625,
+          1.145631067961165,
+          2.0,
+          3.44,
+          1.075268817204301,
+          0.9900990099009901,
+          2.5301204819277108,
+          1.8101265822784811,
+          1.7857142857142858,
+          1.694915254237288,
+          2.0,
+          0.2966751918158568,
+          0.847457627118644,
+          2.0,
+          1.84,
+          2.0,
+          1.9607843137254901,
+          2.0,
+          1.0416666666666667,
+          1.7333333333333334,
+          0.9900990099009901,
+          0.8195488721804511,
+          0.2702702702702703,
+          0.7299270072992701,
+          3.1486486486486487,
+          1.56,
+          2.0,
+          2.0
+        ]
+      }
+    },
+    "8": {
+      "rows": [
+        {
+          "rank": 8,
+          "gen_id": 0,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 8,
+          "gen_id": 1,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 79,
+            "samples_to_target": 79,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 1.2658227848101267
+        },
+        {
+          "rank": 8,
+          "gen_id": 2,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 8,
+          "gen_id": 3,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 8,
+          "gen_id": 4,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 8,
+          "gen_id": 5,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 8,
+          "gen_id": 6,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 8,
+          "gen_id": 7,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 8,
+          "gen_id": 8,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 8,
+          "gen_id": 9,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 8,
+          "gen_id": 10,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 8,
+          "gen_id": 11,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 8,
+          "gen_id": 12,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 8,
+          "gen_id": 13,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 8,
+          "gen_id": 14,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 8,
+          "gen_id": 15,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 8,
+          "gen_id": 16,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 8,
+          "gen_id": 17,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 55,
+            "samples_to_target": 55,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 1.8181818181818181
+        },
+        {
+          "rank": 8,
+          "gen_id": 18,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 8,
+          "gen_id": 19,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 8,
+          "gen_id": 20,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 8,
+          "gen_id": 21,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 73,
+            "samples_to_target": 73,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 1.36986301369863
+        },
+        {
+          "rank": 8,
+          "gen_id": 22,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 8,
+          "gen_id": 23,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 8,
+          "gen_id": 24,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 97,
+            "samples_to_target": 97,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 1.0309278350515463
+        },
+        {
+          "rank": 8,
+          "gen_id": 25,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 8,
+          "gen_id": 26,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 53,
+            "samples_to_target": 53,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 1.8867924528301887
+        },
+        {
+          "rank": 8,
+          "gen_id": 27,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 8,
+          "gen_id": 28,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 8,
+          "gen_id": 29,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        }
+      ],
+      "summary": {
+        "n": 30,
+        "speedup_mean": 1.9123862634857434,
+        "speedup_std": 0.23740109946972315,
+        "speedup_min": 1.0309278350515463,
+        "speedup_max": 2.0,
+        "baseline_success": 30,
+        "two_stage_success": 30,
+        "speedups": [
+          2.0,
+          1.2658227848101267,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          1.8181818181818181,
+          2.0,
+          2.0,
+          2.0,
+          1.36986301369863,
+          2.0,
+          2.0,
+          1.0309278350515463,
+          2.0,
+          1.8867924528301887,
+          2.0,
+          2.0,
+          2.0
+        ]
+      }
+    },
+    "16": {
+      "rows": [
+        {
+          "rank": 16,
+          "gen_id": 0,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 16,
+          "gen_id": 1,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 16,
+          "gen_id": 2,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 16,
+          "gen_id": 3,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 16,
+          "gen_id": 4,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 16,
+          "gen_id": 5,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 16,
+          "gen_id": 6,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 16,
+          "gen_id": 7,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 16,
+          "gen_id": 8,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 16,
+          "gen_id": 9,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 16,
+          "gen_id": 10,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 16,
+          "gen_id": 11,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 16,
+          "gen_id": 12,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 16,
+          "gen_id": 13,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 16,
+          "gen_id": 14,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 16,
+          "gen_id": 15,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 16,
+          "gen_id": 16,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 16,
+          "gen_id": 17,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 16,
+          "gen_id": 18,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 16,
+          "gen_id": 19,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 16,
+          "gen_id": 20,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 16,
+          "gen_id": 21,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 16,
+          "gen_id": 22,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 16,
+          "gen_id": 23,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 16,
+          "gen_id": 24,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 16,
+          "gen_id": 25,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 16,
+          "gen_id": 26,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 16,
+          "gen_id": 27,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 16,
+          "gen_id": 28,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        },
+        {
+          "rank": 16,
+          "gen_id": 29,
+          "baseline": {
+            "total_samples": 1300,
+            "samples_to_target": 100,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "two_stage": {
+            "total_samples": 150,
+            "samples_to_target": 50,
+            "max_order_achieved": 1.0,
+            "success": true
+          },
+          "speedup": 2.0
+        }
+      ],
+      "summary": {
+        "n": 30,
+        "speedup_mean": 2.0,
+        "speedup_std": 0.0,
+        "speedup_min": 2.0,
+        "speedup_max": 2.0,
+        "baseline_success": 30,
+        "two_stage_success": 30,
+        "speedups": [
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0
+        ]
+      }
+    }
+  }
+}

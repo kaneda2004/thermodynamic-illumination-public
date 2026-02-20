@@ -1,0 +1,78 @@
+{
+  "n_samples": 2000,
+  "order_stats": {
+    "min": 0.004147380080290953,
+    "max": 0.5197603629334541,
+    "mean": 0.06564516928921434,
+    "std": 0.07642285990168461
+  },
+  "ratio_stats": {
+    "min": 0.10237611641929117,
+    "max": 269.022831452307,
+    "mean": 6.842462192645243,
+    "median": 2.632174155182148,
+    "std": 16.67898974727195
+  },
+  "correlations": {
+    "ratio_order": {
+      "rho": 0.2062392027657604,
+      "p": 1.1869181390658829e-20
+    },
+    "conn_order": {
+      "rho": 0.10606245452475975,
+      "p": 1.997220361564812e-06
+    },
+    "bias_order": {
+      "rho": -0.1819890061420063,
+      "p": 2.358438939150651e-16
+    }
+  },
+  "extreme_comparison": {
+    "p20_threshold": 1.271255934086396,
+    "p80_threshold": 6.745341387143871,
+    "n_low": 400,
+    "n_high": 400,
+    "U_statistic": 106102.5,
+    "p_value": 3.445491986837606e-16,
+    "cohens_d": 0.5879719141193973,
+    "d_ci_95": [
+      0.44870017558224284,
+      0.7300151829250678
+    ],
+    "low_mean": 0.036213259731644215,
+    "high_mean": 0.07815025102801482,
+    "pct_increase": 115.80562370563072
+  },
+  "quintiles": {
+    "means": [
+      0.03605404543411205,
+      0.0642151027611579,
+      0.07354903735212999,
+      0.07609819557312479,
+      0.07815025102801482
+    ],
+    "monotonic_increases": 4
+  },
+  "kruskal_wallis": {
+    "H": 100.92933090467722,
+    "p_value": 6.2371101929267855e-21
+  },
+  "very_extreme_comparison": {
+    "p10_threshold": 0.9054111955746993,
+    "p90_threshold": 12.008507314920717,
+    "n_low": 200,
+    "n_high": 200,
+    "p_value": 8.924124925669138e-17,
+    "cohens_d": 1.0173858514479432,
+    "d_ci_95": [
+      0.8275792500299999,
+      1.2140685876169213
+    ],
+    "low_mean": 0.01749836851579638,
+    "high_mean": 0.08009653849520618,
+    "pct_increase": 357.73717945704635
+  },
+  "status": "validated",
+  "confidence": "high",
+  "summary": "High conn/bias ratio predicts higher order. rho=0.206 (p=1.19e-20), d=0.59 [CI: 0.45, 0.73] for 20th vs 80th percentile, d=1.02 for 10th vs 90th percentile. Monotonic across 4/4 quintile transitions. Mechanism: strong connection weights relative to bias let spatial coordinates dominate sigmoid output, creating spatially-varying patterns."
+}

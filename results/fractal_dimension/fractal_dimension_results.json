@@ -1,0 +1,46 @@
+{
+  "n_samples": 500,
+  "image_size": 32,
+  "seed": 42,
+  "density_band": [
+    0.1,
+    0.9
+  ],
+  "order_range": [
+    0.024900360289989182,
+    0.5197603629334541
+  ],
+  "fractal_dim_range": [
+    1.1214597468075045,
+    1.8956585318677224
+  ],
+  "fractal_dim_mean": 1.684795725381552,
+  "fractal_dim_std": 0.14458901326369036,
+  "mean_r_squared": 0.9817363640326332,
+  "spearman_rho": -0.16881096729533243,
+  "spearman_p": 0.00014911903063863637,
+  "pearson_r": -0.0030348435950477044,
+  "pearson_p": 0.9460312370900428,
+  "D_low_mean": 1.6862917543664369,
+  "D_low_std": 0.18370792859334745,
+  "D_high_mean": 1.6832996963966675,
+  "D_high_std": 0.08977129986599046,
+  "mann_whitney_U": 37991.0,
+  "mann_whitney_p": 3.0092594080578123e-05,
+  "cohens_d": -0.020694643897095324,
+  "natural_D": 2.3,
+  "dist_low_from_natural": 0.613708245633563,
+  "dist_high_from_natural": 0.6167003036033323,
+  "high_order_closer_to_natural": false,
+  "kruskal_H": 24.80815984947915,
+  "kruskal_p": 1.6934274094668902e-05,
+  "quartile_Ds": [
+    1.6412965673695454,
+    1.7312869413633278,
+    1.6863726730023516,
+    1.6802267197909828
+  ],
+  "partial_correlation_rho": -0.10467353869415477,
+  "partial_correlation_p": 0.019224558782880475,
+  "status": "inconclusive"
+}

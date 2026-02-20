@@ -1,0 +1,61 @@
+{
+  "hypothesis": "Gated dual-channel with learned weights reduces eff_dim and improves speedup",
+  "method": "Gated [x+y, x-y] with learned scalar/vector gates vs baseline [x, y, r]",
+  "target_order": 0.5,
+  "n_live": 100,
+  "cppn_per_variant": 30,
+  "variants": {
+    "sum_diff_gate": {
+      "n_inputs": 3,
+      "mean_eff_dim": 1.0,
+      "std_eff_dim": 0.0,
+      "min_eff_dim": 1.0,
+      "max_eff_dim": 1.0,
+      "mean_samples": 40000.0,
+      "std_samples": 0.0,
+      "median_samples": 40000.0,
+      "success_rate": 0.0,
+      "mean_order": 0.0,
+      "max_order": 0.0,
+      "speedup_vs_baseline": 0.9453125,
+      "n_trials": 30
+    },
+    "abs_diff_gate": {
+      "n_inputs": 3,
+      "mean_eff_dim": 1.0,
+      "std_eff_dim": 0.0,
+      "min_eff_dim": 1.0,
+      "max_eff_dim": 1.0,
+      "mean_samples": 40000.0,
+      "std_samples": 0.0,
+      "median_samples": 40000.0,
+      "success_rate": 0.0,
+      "mean_order": 0.0,
+      "max_order": 0.0,
+      "speedup_vs_baseline": 0.9453125,
+      "n_trials": 30
+    },
+    "interaction_gate": {
+      "n_inputs": 4,
+      "mean_eff_dim": 1.0,
+      "std_eff_dim": 0.0,
+      "min_eff_dim": 1.0,
+      "max_eff_dim": 1.0,
+      "mean_samples": 40000.0,
+      "std_samples": 0.0,
+      "median_samples": 40000.0,
+      "success_rate": 0.0,
+      "mean_order": 0.0,
+      "max_order": 0.0,
+      "speedup_vs_baseline": 0.9453125,
+      "n_trials": 30
+    }
+  },
+  "baseline_eff_dim": 3.76,
+  "baseline_samples": 37812.5,
+  "best_variant": "sum_diff_gate",
+  "best_speedup": 0.9453125,
+  "conclusion": "refute",
+  "status": "refuted",
+  "interpretation": "Gated dual-channel architecture CANNOT achieve target eff_dim \u22643.0 with \u22652\u00d7 speedup. Best variant (sum_diff_gate) achieves 1.0D with 0.95\u00d7 speedup. Learned gates insufficient; more sophisticated architectural changes needed."
+}

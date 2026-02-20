@@ -1,0 +1,27 @@
+{
+  "experiment_id": "RES-103",
+  "domain": "activation_saturation_pattern",
+  "hypothesis": "Early saturation (input-proximal layers) predicts high output order",
+  "n_samples": 500,
+  "n_hidden_layers": 4,
+  "nodes_per_layer": 3,
+  "metrics": {
+    "pearson_r_depth_order": -0.053828360481259385,
+    "pearson_p_depth_order": 0.22955832140854088,
+    "spearman_rho_depth_order": -0.07130238450819984,
+    "pearson_r_ratio_order": -0.01780414424158551,
+    "pearson_p_ratio_order": 0.6912584581077804,
+    "spearman_rho_ratio_order": 0.07315385160277857,
+    "cohens_d_depth": -0.15499139288185307,
+    "cohens_d_ratio": -0.07329081629708083,
+    "partial_corr_depth": -0.04247438533716899
+  },
+  "group_stats": {
+    "high_order_depth_mean": 0.3706950700730895,
+    "low_order_depth_mean": 0.39305765431658296,
+    "high_order_ratio_mean": 1.6998868008170485,
+    "low_order_ratio_mean": 1.8116450690508368
+  },
+  "status": "refuted",
+  "conclusion": "No significant correlation: depth p=0.230, ratio p=0.691"
+}

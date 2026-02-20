@@ -1,0 +1,15 @@
+{
+  "baseline_entropy": 1.6008,
+  "full_entropy": 1.6041,
+  "entropy_reduction": -0.0034,
+  "entropy_reduction_pct": -0.2,
+  "eff_dim_baseline": 0.13,
+  "eff_dim_full": 0.12,
+  "eff_dim_reduction": 0.0,
+  "n_cpps": 30,
+  "samples_per_cppn": 100,
+  "t_statistic": -3.6472,
+  "p_value": 0.000569,
+  "status": "refuted",
+  "summary": "No significant entropy reduction (p=0.001). Richer features do not appear to compress posterior manifold in weight space."
+}

@@ -1,0 +1,285 @@
+{
+  "n_samples": 500,
+  "best_k": 4,
+  "best_silhouette": 0.309833972460331,
+  "all_results": {
+    "3": {
+      "silhouette": 0.2891652193675859,
+      "cluster_stats": [
+        {
+          "size": 252,
+          "mean_features": {
+            "dominant_freq": 0.0625,
+            "orientation": 0.8040981196688164,
+            "edge_density": 0.024648515004960316,
+            "coherence": 0.9392361376930025,
+            "n_components": 1.0,
+            "aspect_ratio": 1.3806003441985708,
+            "stripe_score": 0.8734645610675639
+          },
+          "std_features": {
+            "dominant_freq": 0.0,
+            "orientation": 2.314190420665426,
+            "edge_density": 0.00196252427230531,
+            "coherence": 0.006159280961003394,
+            "n_components": 0.0,
+            "aspect_ratio": 0.2442679161945197,
+            "stripe_score": 0.20426498100928028
+          }
+        },
+        {
+          "size": 247,
+          "mean_features": {
+            "dominant_freq": 0.0625,
+            "orientation": 0.8776109032295375,
+            "edge_density": 0.029800971027327934,
+            "coherence": 0.9370070774317856,
+            "n_components": 1.0445344129554657,
+            "aspect_ratio": 1.0722986548157913,
+            "stripe_score": 0.013955065666783693
+          },
+          "std_features": {
+            "dominant_freq": 0.0,
+            "orientation": 2.32019775795197,
+            "edge_density": 0.005865116648610833,
+            "coherence": 0.007895478586739346,
+            "n_components": 0.22505169408400447,
+            "aspect_ratio": 0.12401865165211881,
+            "stripe_score": 0.10878589033726643
+          }
+        },
+        {
+          "size": 1,
+          "mean_features": {
+            "dominant_freq": 0.08838834764831845,
+            "orientation": -2.356194490192345,
+            "edge_density": 0.02490234375,
+            "coherence": 0.9368902768724805,
+            "n_components": 1.0,
+            "aspect_ratio": 1.04,
+            "stripe_score": 0.0
+          },
+          "std_features": {
+            "dominant_freq": 0.0,
+            "orientation": 0.0,
+            "edge_density": 0.0,
+            "coherence": 0.0,
+            "n_components": 0.0,
+            "aspect_ratio": 0.0,
+            "stripe_score": 0.0
+          }
+        }
+      ]
+    },
+    "4": {
+      "silhouette": 0.309833972460331,
+      "cluster_stats": [
+        {
+          "size": 239,
+          "mean_features": {
+            "dominant_freq": 0.0625,
+            "orientation": 0.8806975221360511,
+            "edge_density": 0.029497090742677826,
+            "coherence": 0.9370658384748974,
+            "n_components": 1.0,
+            "aspect_ratio": 1.075907570988982,
+            "stripe_score": 0.010873573619698625
+          },
+          "std_features": {
+            "dominant_freq": 0.0,
+            "orientation": 2.3189197580382563,
+            "edge_density": 0.005684629337506199,
+            "coherence": 0.007931515194174827,
+            "n_components": 0.0,
+            "aspect_ratio": 0.1240606232114746,
+            "stripe_score": 0.09645668874294787
+          }
+        },
+        {
+          "size": 250,
+          "mean_features": {
+            "dominant_freq": 0.0625,
+            "orientation": 0.8230972752405261,
+            "edge_density": 0.024630859375,
+            "coherence": 0.9392088097771701,
+            "n_components": 1.0,
+            "aspect_ratio": 1.3793974689335837,
+            "stripe_score": 0.8804522775561043
+          },
+          "std_features": {
+            "dominant_freq": 0.0,
+            "orientation": 2.313620358779117,
+            "edge_density": 0.0019427743309067265,
+            "coherence": 0.00615684061274635,
+            "n_components": 0.0,
+            "aspect_ratio": 0.24481747277874624,
+            "stripe_score": 0.18948779651788555
+          }
+        },
+        {
+          "size": 10,
+          "mean_features": {
+            "dominant_freq": 0.0625,
+            "orientation": 0.3141592653589793,
+            "edge_density": 0.036474609375,
+            "coherence": 0.9367316984494742,
+            "n_components": 2.1,
+            "aspect_ratio": 1.077777777777778,
+            "stripe_score": 0.08481171245876014
+          },
+          "std_features": {
+            "dominant_freq": 0.0,
+            "orientation": 2.308589694291355,
+            "edge_density": 0.00583511416182187,
+            "coherence": 0.0069599357133712505,
+            "n_components": 0.3,
+            "aspect_ratio": 0.23333333333333328,
+            "stripe_score": 0.2544351373762804
+          }
+        },
+        {
+          "size": 1,
+          "mean_features": {
+            "dominant_freq": 0.08838834764831845,
+            "orientation": -2.356194490192345,
+            "edge_density": 0.02490234375,
+            "coherence": 0.9368902768724805,
+            "n_components": 1.0,
+            "aspect_ratio": 1.04,
+            "stripe_score": 0.0
+          },
+          "std_features": {
+            "dominant_freq": 0.0,
+            "orientation": 0.0,
+            "edge_density": 0.0,
+            "coherence": 0.0,
+            "n_components": 0.0,
+            "aspect_ratio": 0.0,
+            "stripe_score": 0.0
+          }
+        }
+      ]
+    },
+    "5": {
+      "silhouette": 0.290360753503404,
+      "cluster_stats": [
+        {
+          "size": 67,
+          "mean_features": {
+            "dominant_freq": 0.0625,
+            "orientation": 0.5392285897952631,
+            "edge_density": 0.035396746735074626,
+            "coherence": 0.9454914530105512,
+            "n_components": 1.0,
+            "aspect_ratio": 1.0719113883323539,
+            "stripe_score": 0.0
+          },
+          "std_features": {
+            "dominant_freq": 0.0,
+            "orientation": 2.3432996002742135,
+            "edge_density": 0.006792789439714209,
+            "coherence": 0.0057871941760994005,
+            "n_components": 0.0,
+            "aspect_ratio": 0.1188135105854717,
+            "stripe_score": 0.0
+          }
+        },
+        {
+          "size": 208,
+          "mean_features": {
+            "dominant_freq": 0.0625,
+            "orientation": 1.072370569254208,
+            "edge_density": 0.027177077073317308,
+            "coherence": 0.9331724243331766,
+            "n_components": 1.0,
+            "aspect_ratio": 1.0853096574375183,
+            "stripe_score": 0.16388106266904787
+          },
+          "std_features": {
+            "dominant_freq": 0.0,
+            "orientation": 2.287367309396138,
+            "edge_density": 0.0026292056827752677,
+            "coherence": 0.005798025883144198,
+            "n_components": 0.0,
+            "aspect_ratio": 0.1229212316181977,
+            "stripe_score": 0.3467190488400342
+          }
+        },
+        {
+          "size": 214,
+          "mean_features": {
+            "dominant_freq": 0.0625,
+            "orientation": 0.734016975137803,
+            "edge_density": 0.02422011901285047,
+            "coherence": 0.9407156365737633,
+            "n_components": 1.0,
+            "aspect_ratio": 1.4225645090396788,
+            "stripe_score": 0.881423329200804
+          },
+          "std_features": {
+            "dominant_freq": 0.0,
+            "orientation": 2.316146338677578,
+            "edge_density": 0.0017386298511382118,
+            "coherence": 0.005144452038154355,
+            "n_components": 0.0,
+            "aspect_ratio": 0.23545749847986283,
+            "stripe_score": 0.19549174286549437
+          }
+        },
+        {
+          "size": 10,
+          "mean_features": {
+            "dominant_freq": 0.0625,
+            "orientation": 0.3141592653589793,
+            "edge_density": 0.036474609375,
+            "coherence": 0.9367316984494742,
+            "n_components": 2.1,
+            "aspect_ratio": 1.077777777777778,
+            "stripe_score": 0.08481171245876014
+          },
+          "std_features": {
+            "dominant_freq": 0.0,
+            "orientation": 2.308589694291355,
+            "edge_density": 0.00583511416182187,
+            "coherence": 0.0069599357133712505,
+            "n_components": 0.3,
+            "aspect_ratio": 0.23333333333333328,
+            "stripe_score": 0.2544351373762804
+          }
+        },
+        {
+          "size": 1,
+          "mean_features": {
+            "dominant_freq": 0.08838834764831845,
+            "orientation": -2.356194490192345,
+            "edge_density": 0.02490234375,
+            "coherence": 0.9368902768724805,
+            "n_components": 1.0,
+            "aspect_ratio": 1.04,
+            "stripe_score": 0.0
+          },
+          "std_features": {
+            "dominant_freq": 0.0,
+            "orientation": 0.0,
+            "edge_density": 0.0,
+            "coherence": 0.0,
+            "n_components": 0.0,
+            "aspect_ratio": 0.0,
+            "stripe_score": 0.0
+          }
+        }
+      ]
+    }
+  },
+  "feature_names": [
+    "dominant_freq",
+    "orientation",
+    "edge_density",
+    "coherence",
+    "n_components",
+    "aspect_ratio",
+    "stripe_score"
+  ],
+  "success": true,
+  "status": "validated"
+}

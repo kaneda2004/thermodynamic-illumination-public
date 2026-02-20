@@ -1,0 +1,116 @@
+{
+  "experiment": "gradient_vs_nested_sampling",
+  "hypothesis": "Gradient descent gets stuck in local minima more frequently than nested sampling",
+  "null_hypothesis": "GD and NS achieve equivalent final orders with similar variance",
+  "status": "validated",
+  "summary": "GD achieves lower final order than NS (d=3.71, p<0.01). GD stuck rate=60%, variance ratio=1.9x. Nested sampling escapes local minima more effectively.",
+  "parameters": {
+    "n_runs": 50,
+    "image_size": 32,
+    "gradient_steps": 200,
+    "gradient_lr": 0.1,
+    "ns_n_live": 20,
+    "ns_max_iter": 300,
+    "ns_fair_iter": 100,
+    "target_orders": [
+      0.05,
+      0.1,
+      0.15,
+      0.2
+    ],
+    "seed": 42
+  },
+  "gradient_descent": {
+    "final_order_mean": 0.10522564212984369,
+    "final_order_std": 0.1052880896597542,
+    "final_order_median": 0.06647775458795062,
+    "final_order_min": 0.004147380080290953,
+    "final_order_max": 0.35482002718855665,
+    "improvement_mean": 0.046663137741194835,
+    "stuck_rate": 0.6,
+    "convergence_rate": 1.0
+  },
+  "nested_sampling_maximize": {
+    "final_order_mean": 0.4470549596486991,
+    "final_order_std": 0.07666081963675671,
+    "final_order_median": 0.4704260477816662,
+    "final_order_min": 0.26722640325822855,
+    "final_order_max": 0.5621212813138962
+  },
+  "fair_comparison": {
+    "mann_whitney_stat": 7.0,
+    "mann_whitney_p": 4.934714322974022e-18,
+    "cohens_d": 3.7117596636869816,
+    "variance_ratio": 1.8863034883999703,
+    "levene_stat": 8.495609081972429,
+    "levene_p": 0.004411455884902136
+  },
+  "comparison_by_target": {
+    "0.05": {
+      "gd_mean": 0.10522564212984369,
+      "gd_std": 0.1052880896597542,
+      "gd_median": 0.06647775458795062,
+      "ns_mean": 0.056775906521012276,
+      "ns_std": 0.00664040436272027,
+      "ns_median": 0.05479036427554055,
+      "ns_success_rate": 1.0,
+      "mann_whitney_stat": 1323.0,
+      "mann_whitney_p": 0.6940210058663385,
+      "levene_stat": 110.73823305263225,
+      "levene_p": 8.885611062968159e-18,
+      "cohens_d": -0.649479029368603,
+      "variance_ratio": 251.40184149727048
+    },
+    "0.1": {
+      "gd_mean": 0.10522564212984369,
+      "gd_std": 0.1052880896597542,
+      "gd_median": 0.06647775458795062,
+      "ns_mean": 0.10570559860345272,
+      "ns_std": 0.005468850350368046,
+      "ns_median": 0.10357836701667121,
+      "ns_success_rate": 1.0,
+      "mann_whitney_stat": 1128.0,
+      "mann_whitney_p": 0.20085650549787326,
+      "levene_stat": 112.72709170145635,
+      "levene_p": 5.560912308061324e-18,
+      "cohens_d": 0.006438023276892306,
+      "variance_ratio": 370.6508161999136
+    },
+    "0.15": {
+      "gd_mean": 0.10522564212984369,
+      "gd_std": 0.1052880896597542,
+      "gd_median": 0.06647775458795062,
+      "ns_mean": 0.15383998259144627,
+      "ns_std": 0.003166640843776682,
+      "ns_median": 0.1527511115855154,
+      "ns_success_rate": 1.0,
+      "mann_whitney_stat": 959.0,
+      "mann_whitney_p": 0.022483343240705576,
+      "levene_stat": 117.10590284563679,
+      "levene_p": 2.0128277827334806e-18,
+      "cohens_d": 0.6526852757414056,
+      "variance_ratio": 1105.4943894586017
+    },
+    "0.2": {
+      "gd_mean": 0.10522564212984369,
+      "gd_std": 0.1052880896597542,
+      "gd_median": 0.06647775458795062,
+      "ns_mean": 0.20174811134182064,
+      "ns_std": 0.002120143867936629,
+      "ns_median": 0.20083648097898704,
+      "ns_success_rate": 1.0,
+      "mann_whitney_stat": 692.0,
+      "mann_whitney_p": 5.960619260420128e-05,
+      "levene_stat": 119.93682894422625,
+      "levene_p": 1.055126982649857e-18,
+      "cohens_d": 1.296212316295486,
+      "variance_ratio": 2466.1424910691253
+    }
+  },
+  "validation_checks": {
+    "order_significant": true,
+    "effect_large": true,
+    "variance_higher": true,
+    "stuck_rate_high": true
+  }
+}

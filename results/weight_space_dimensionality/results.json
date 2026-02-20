@@ -1,0 +1,148 @@
+{
+  "hypothesis": "Higher-order posteriors are more concentrated (constrained to lower-dim subspace)",
+  "test_logic": {
+    "description": "If high-order goal constrains parameter space, posterior should be more concentrated",
+    "metric_1": "first_pc_var should INCREASE with order (more variance in 1st PC)",
+    "metric_2": "effective_dim should DECREASE with order (fewer active dimensions)"
+  },
+  "order_range": "0.0 to 0.5",
+  "posterior_stats": {
+    "0.0": {
+      "n_samples": 150,
+      "mean_order": 0.00490501768579679,
+      "std_order": 0.0022740225111593086,
+      "param_dim": 5
+    },
+    "0.1": {
+      "n_samples": 150,
+      "mean_order": 0.09958324500419909,
+      "std_order": 0.011516798259258004,
+      "param_dim": 5
+    },
+    "0.2": {
+      "n_samples": 150,
+      "mean_order": 0.19246017304341095,
+      "std_order": 0.009135718997897583,
+      "param_dim": 5
+    },
+    "0.30000000000000004": {
+      "n_samples": 29,
+      "mean_order": 0.2955200040125291,
+      "std_order": 0.020316647750504225,
+      "param_dim": 5
+    },
+    "0.4": {
+      "n_samples": 29,
+      "mean_order": 0.3915242546215226,
+      "std_order": 0.04128838214372122,
+      "param_dim": 5
+    },
+    "0.5": {
+      "n_samples": 12,
+      "mean_order": 0.4647161146312859,
+      "std_order": 0.032609697344391814,
+      "param_dim": 5
+    }
+  },
+  "concentration_results": {
+    "0.0": {
+      "first_pc_var": 0.3801090277342983,
+      "eigenvalue_ratio": 2.0853777371098268,
+      "effective_dim": 4.115642090346964,
+      "n_components_90": 5.0,
+      "all_explained_variance": [
+        0.3801090277342983,
+        0.18227346584273993,
+        0.17181128056927888,
+        0.14745255259790627,
+        0.11835367325577667
+      ]
+    },
+    "0.1": {
+      "first_pc_var": 0.3067817328059999,
+      "eigenvalue_ratio": 1.0313039034486817,
+      "effective_dim": 4.0292066234383705,
+      "n_components_90": 4.0,
+      "all_explained_variance": [
+        0.3067817328059999,
+        0.29746976791236934,
+        0.19061450015835585,
+        0.16663983737382657,
+        0.0384941617494484
+      ]
+    },
+    "0.2": {
+      "first_pc_var": 0.3318837922199008,
+      "eigenvalue_ratio": 1.2842822418360225,
+      "effective_dim": 3.8666773977273685,
+      "n_components_90": 4.0,
+      "all_explained_variance": [
+        0.3318837922199008,
+        0.2584196692974875,
+        0.2166896759680435,
+        0.186259084939173,
+        0.006747777575395258
+      ]
+    },
+    "0.30000000000000004": {
+      "first_pc_var": 0.6136777681754665,
+      "eigenvalue_ratio": 2.645024395285925,
+      "effective_dim": 2.2606823258306705,
+      "n_components_90": 3.0,
+      "all_explained_variance": [
+        0.6136777681754665,
+        0.23201213919583843,
+        0.0889497618677114,
+        0.06322720846187634,
+        0.0021331222991074253
+      ]
+    },
+    "0.4": {
+      "first_pc_var": 0.7908913776316282,
+      "eigenvalue_ratio": 5.188886816293661,
+      "effective_dim": 1.5376144432089573,
+      "n_components_90": 2.0,
+      "all_explained_variance": [
+        0.7908913776316282,
+        0.15242024072449306,
+        0.03484361674673925,
+        0.019986581703770403,
+        0.0018581831933691556
+      ]
+    },
+    "0.5": {
+      "first_pc_var": 0.810283244572788,
+      "eigenvalue_ratio": 4.585504329498532,
+      "effective_dim": 1.453697391340982,
+      "n_components_90": 2.0,
+      "all_explained_variance": [
+        0.810283244572788,
+        0.17670537117591167,
+        0.010619113601789772,
+        0.002124717015677669,
+        0.0002675536338330127
+      ]
+    }
+  },
+  "correlations": {
+    "first_pc_var": {
+      "correlation": 0.8285714285714287,
+      "p_value": 0.04156268221574334,
+      "slope": 1.1099982841785425
+    },
+    "eigenvalue_ratio": {
+      "correlation": 0.7714285714285715,
+      "p_value": 0.07239650145772594,
+      "slope": 7.524035386836675
+    },
+    "effective_dimension": {
+      "correlation": -1.0,
+      "p_value": 0.0,
+      "slope": -6.397284316461384
+    }
+  },
+  "effect_sizes": {
+    "first_pc_var_change": 0.3986926125398945,
+    "effective_dim_change": 2.253177317044031
+  }
+}

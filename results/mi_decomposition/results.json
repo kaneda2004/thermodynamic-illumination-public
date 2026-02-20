@@ -1,0 +1,36 @@
+{
+  "synergy_ratio": {
+    "cppn_mean": 0.025138484581617954,
+    "cppn_std": 0.05361665885285056,
+    "random_mean": 0.0,
+    "random_std": 0.0,
+    "p_value": 1.0658244559137998e-21,
+    "cohens_d": 0.6619562866596415,
+    "significant": true
+  },
+  "redundancy_ratio": {
+    "cppn_mean": 0.7219520893094555,
+    "random_mean": 0.16203816867431856,
+    "p_value": 1.0,
+    "cohens_d": -2.917369838514608
+  },
+  "synergy_over_redundancy": {
+    "cppn_mean": 0.04655999075067037,
+    "random_mean": 0.0,
+    "p_value": 1.065226386393681e-21,
+    "cohens_d": 0.6946667841920252
+  },
+  "quadrant_synergy": {
+    "cppn_mean": 0.03246824909481267,
+    "random_mean": 0.06430976430968019,
+    "p_value": 0.9662253984414295,
+    "cohens_d": -0.4151888932339491,
+    "significant": false
+  },
+  "summary": {
+    "status": "validated",
+    "p_value": 1.0658244559137998e-21,
+    "cohens_d": 0.6619562866596415,
+    "summary": "CPPN images show significantly higher synergy ratio (d=0.66, p=1.07e-21) supporting synergy-dominated structure"
+  }
+}

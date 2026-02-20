@@ -1,0 +1,36 @@
+{
+  "method": "Three-stage sampling with progressive manifold constraint",
+  "baseline_samples": 25470.0,
+  "baseline_samples_std": 8720.269491248537,
+  "best_speedup": 101.07142857142857,
+  "best_variant": "stage1_100_stage2_0",
+  "speedup_threshold": 120.0,
+  "conclusion": "refute",
+  "all_variants": {
+    "stage1_50_stage2_50": {
+      "avg_samples": 301.0,
+      "std_samples": 0.0,
+      "speedup": 84.61794019933555
+    },
+    "stage1_75_stage2_25": {
+      "avg_samples": 270.25,
+      "std_samples": 17.256520506753382,
+      "speedup": 94.24606845513414
+    },
+    "stage1_25_stage2_75": {
+      "avg_samples": 312.1,
+      "std_samples": 38.11417059310094,
+      "speedup": 81.60845882729893
+    },
+    "stage1_100_stage2_0": {
+      "avg_samples": 252.0,
+      "std_samples": 0.0,
+      "speedup": 101.07142857142857
+    }
+  },
+  "res_224_baseline": 276.2,
+  "res_224_speedup": 92.22,
+  "status": "invalid",
+  "invalid_reason": "Sample counting bug (baseline multiplies by n_live) inflates sample counts and speedup; requires fix and rerun.",
+  "needs_rerun": true
+}

@@ -1,0 +1,98 @@
+{
+  "parameters": {
+    "n_live_values": [
+      25,
+      50,
+      100,
+      200,
+      400
+    ],
+    "n_seeds": 8,
+    "threshold": 0.1,
+    "image_size": 32
+  },
+  "summary": {
+    "25": {
+      "mean_iters": 28.5,
+      "std_iters": 6.4031242374328485,
+      "mean_contr_per_iter": 0.6448457135431189,
+      "std_contr_per_iter": 0.2118587776741994,
+      "mean_total_contr": 18.875,
+      "std_total_contr": 8.491723912139395,
+      "mean_bits": 1.14,
+      "std_bits": 0.25612496949731395,
+      "n_success": 8
+    },
+    "50": {
+      "mean_iters": 65.875,
+      "std_iters": 9.64931992422264,
+      "mean_contr_per_iter": 0.5601432642632524,
+      "std_contr_per_iter": 0.18981449028782643,
+      "mean_total_contr": 38.125,
+      "std_total_contr": 15.7831991370571,
+      "mean_bits": 1.3175,
+      "std_bits": 0.19298639848445276,
+      "n_success": 8
+    },
+    "100": {
+      "mean_iters": 127.625,
+      "std_iters": 4.121210380458634,
+      "mean_contr_per_iter": 0.6518857687515123,
+      "std_contr_per_iter": 0.11454496482750655,
+      "mean_total_contr": 83.25,
+      "std_total_contr": 14.997916521970643,
+      "mean_bits": 1.27625,
+      "std_bits": 0.04121210380458638,
+      "n_success": 8
+    },
+    "200": {
+      "mean_iters": 251.25,
+      "std_iters": 18.430613120566555,
+      "mean_contr_per_iter": 0.6717012435166161,
+      "std_contr_per_iter": 0.04499347791120952,
+      "mean_total_contr": 168.25,
+      "std_total_contr": 10.021851126413722,
+      "mean_bits": 1.25625,
+      "std_bits": 0.09215306560283276,
+      "n_success": 8
+    },
+    "400": {
+      "mean_iters": 520.125,
+      "std_iters": 28.68988279864524,
+      "mean_contr_per_iter": 0.6499136339006153,
+      "std_contr_per_iter": 0.07396083778022713,
+      "mean_total_contr": 339.125,
+      "std_total_contr": 50.90785180107289,
+      "mean_bits": 1.3003125,
+      "std_bits": 0.07172470699661311,
+      "n_success": 8
+    }
+  },
+  "statistical_tests": {
+    "contractions_vs_nlive": {
+      "spearman_r": 0.06738202810148579,
+      "p_value": 0.6795202449334135,
+      "cohens_d": -0.03193936622030564,
+      "direction": "increases"
+    },
+    "quadratic_fit": {
+      "coefficients": [
+        650.3593039671832,
+        -358.6613356592379,
+        51.01212368625351
+      ],
+      "r_squared": 0.9494063142887414,
+      "optimal_n_live": 33.63112285205322
+    },
+    "bits_vs_nlive": {
+      "spearman_r": 0.13791747035989146,
+      "p_value": 0.3960630383407783,
+      "cohens_d": -0.8523858816091604
+    }
+  },
+  "conclusion": {
+    "h0_1_rejected": false,
+    "empirical_optimal_n_live": 25,
+    "status": "inconclusive"
+  }
+}

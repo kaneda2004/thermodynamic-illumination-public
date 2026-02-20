@@ -1,0 +1,157 @@
+{
+  "experiment_id": "RES-097",
+  "hypothesis": "High-order CPPN networks exhibit heavier-tailed weight magnitude distributions",
+  "status": "INCONCLUSIVE",
+  "finding": "No significant difference found",
+  "effect_size": 0,
+  "p_value": 1.0,
+  "groups": [
+    {
+      "group": 1,
+      "order_range": [
+        0.004147380080290953,
+        0.004274991775069136
+      ],
+      "n_samples": 187,
+      "mean_order": 0.0041473800802909536,
+      "mean_kurtosis": -0.9307288203258322,
+      "std_kurtosis": 0.5334136718011053,
+      "mean_max_mean_ratio": 2.046061735809484,
+      "std_max_mean_ratio": 0.47848801179484474,
+      "mean_gini": 0.34747763624381967,
+      "std_gini": 0.1027916734254153,
+      "mean_p90_p50_ratio": 2.2746798124872107,
+      "std_p90_p50_ratio": 1.2429976844326522
+    },
+    {
+      "group": 2,
+      "order_range": [
+        0.004274991775069136,
+        0.009451809203045844
+      ],
+      "n_samples": 233,
+      "mean_order": 0.004869367021425602,
+      "mean_kurtosis": -0.9265845998091241,
+      "std_kurtosis": 0.5572083866266855,
+      "mean_max_mean_ratio": 2.0548997017734414,
+      "std_max_mean_ratio": 0.5083109229278334,
+      "mean_gini": 0.3447347264287407,
+      "std_gini": 0.11293132818752463,
+      "mean_p90_p50_ratio": 2.46836602533698,
+      "std_p90_p50_ratio": 2.0436862894570194
+    },
+    {
+      "group": 3,
+      "order_range": [
+        0.009451809203045844,
+        0.07386434587515811
+      ],
+      "n_samples": 210,
+      "mean_order": 0.038922569704195435,
+      "mean_kurtosis": -1.0388734537766926,
+      "std_kurtosis": 0.5348023295094557,
+      "mean_max_mean_ratio": 2.020663226381666,
+      "std_max_mean_ratio": 0.44668463230597566,
+      "mean_gini": 0.3465225815431531,
+      "std_gini": 0.1076349592657608,
+      "mean_p90_p50_ratio": 2.2983490427027085,
+      "std_p90_p50_ratio": 1.187038202794162
+    },
+    {
+      "group": 4,
+      "order_range": [
+        0.07386434587515811,
+        0.1529988944528805
+      ],
+      "n_samples": 210,
+      "mean_order": 0.10971948161918901,
+      "mean_kurtosis": -0.9208649945354355,
+      "std_kurtosis": 0.5995516255465533,
+      "mean_max_mean_ratio": 2.009077411704568,
+      "std_max_mean_ratio": 0.49839923304292116,
+      "mean_gini": 0.333106887120221,
+      "std_gini": 0.1091153180231406,
+      "mean_p90_p50_ratio": 2.217035265940861,
+      "std_p90_p50_ratio": 1.5281829223980465
+    },
+    {
+      "group": 5,
+      "order_range": [
+        0.1529988944528805,
+        0.5557886299831538
+      ],
+      "n_samples": 210,
+      "mean_order": 0.2690142819514961,
+      "mean_kurtosis": -1.1476808516885433,
+      "std_kurtosis": 0.47698242944262126,
+      "mean_max_mean_ratio": 2.010262705163231,
+      "std_max_mean_ratio": 0.385025300615424,
+      "mean_gini": 0.36027882740168593,
+      "std_gini": 0.10446074464589503,
+      "mean_p90_p50_ratio": 2.7635352157285227,
+      "std_p90_p50_ratio": 2.6502051512918205
+    }
+  ],
+  "correlations": {
+    "kurtosis": {
+      "pearson_r": -0.1216255165788366,
+      "pearson_p": 7.779299162946957e-05,
+      "spearman_rho": -0.1095985790671642,
+      "spearman_p": 0.00037384234368916934,
+      "n_valid": 1050
+    },
+    "max_mean_ratio": {
+      "pearson_r": 0.08262144866385111,
+      "pearson_p": 0.007392341733266414,
+      "spearman_rho": 0.00430739960788341,
+      "spearman_p": 0.8891260965636111,
+      "n_valid": 1050
+    },
+    "gini": {
+      "pearson_r": 0.16553351469344912,
+      "pearson_p": 6.861194009694733e-08,
+      "spearman_rho": 0.03879474821698248,
+      "spearman_p": 0.20909095096050787,
+      "n_valid": 1050
+    },
+    "p90_p50_ratio": {
+      "pearson_r": 0.21005208293837757,
+      "pearson_p": 6.190272391689229e-12,
+      "spearman_rho": 0.021476685530187105,
+      "spearman_p": 0.486945390734311,
+      "n_valid": 1050
+    },
+    "skewness": {
+      "pearson_r": 0.022498825929711887,
+      "pearson_p": 0.4664488857410415,
+      "spearman_rho": -0.03536142383038182,
+      "spearman_p": 0.252277807367098,
+      "n_valid": 1050
+    }
+  },
+  "tests": {
+    "kurtosis": {
+      "low_mean": -0.9307288203258322,
+      "high_mean": -1.1476808516885433,
+      "u_statistic": 24054.0,
+      "p_value": 0.00010811135976688024,
+      "cohens_d": -0.428771354878726
+    },
+    "max_mean_ratio": {
+      "low_mean": 2.046061735809484,
+      "high_mean": 2.010262705163231,
+      "u_statistic": 19710.0,
+      "p_value": 0.9479516927634721,
+      "cohens_d": -0.08243338843450525
+    },
+    "gini": {
+      "low_mean": 0.34747763624381967,
+      "high_mean": 0.36027882740168593,
+      "u_statistic": 18308.0,
+      "p_value": 0.24510531006814373,
+      "cohens_d": 0.12352836391300642
+    }
+  },
+  "n_prior_samples": 1000,
+  "n_nested_samples": 50
+}

@@ -1,0 +1,72 @@
+{
+  "experiment_id": "RES-174",
+  "hypothesis": "Coherence-compress gate pair correlation exceeds density-edge pair correlation",
+  "domain": "gate_interactions",
+  "status": "inconclusive",
+  "n_samples": 500,
+  "primary_result": {
+    "coherence_compress_corr": -0.9137937065688183,
+    "density_edge_corr": 0.925351327732244,
+    "correlation_diff": -1.8391450343010622,
+    "fisher_z": -50.05167245925936,
+    "p_value": 0.0,
+    "cohens_d": -70.78375401134052
+  },
+  "raw_correlations": {
+    "coherence_compressibility": 0.9137937065688183,
+    "density_edge_density": -0.10974297177061726
+  },
+  "full_correlation_matrix": {
+    "gates": [
+      "density_gate",
+      "edge_gate",
+      "coherence_gate",
+      "compress_gate"
+    ],
+    "matrix": [
+      [
+        1.0,
+        0.925351327732244,
+        -0.940820910909042,
+        0.8659733964573576
+      ],
+      [
+        0.9253513277322442,
+        1.0,
+        -0.9643185792353801,
+        0.9559108948237243
+      ],
+      [
+        -0.940820910909042,
+        -0.9643185792353801,
+        1.0,
+        -0.9137937065688183
+      ],
+      [
+        0.8659733964573576,
+        0.9559108948237243,
+        -0.9137937065688183,
+        1.0
+      ]
+    ]
+  },
+  "gate_order_correlations": {
+    "density_gate": {
+      "r": 0.9541529327136329,
+      "p": 4.8827117592144465e-263
+    },
+    "edge_gate": {
+      "r": 0.9576337992866535,
+      "p": 2.191906005450592e-271
+    },
+    "coherence_gate": {
+      "r": -0.9472026245999581,
+      "p": 3.718874964749432e-248
+    },
+    "compress_gate": {
+      "r": 0.9585473266351804,
+      "p": 1.0803989348305382e-273
+    }
+  },
+  "timestamp": "2025-12-19T17:55:10.177458"
+}

@@ -1,0 +1,69 @@
+{
+  "n_trajectories": 30,
+  "n_live": 50,
+  "n_iterations": 300,
+  "acf_by_lag": {
+    "lag_1": {
+      "mean": 0.9961819248537066,
+      "std": 0.002850770109621222,
+      "t_statistic": 1881.808647116227,
+      "p_value": 1.2823324066342322e-75,
+      "cohens_d": 349.44309311074824
+    },
+    "lag_2": {
+      "mean": 0.9906447303889916,
+      "std": 0.005954543531409667,
+      "t_statistic": 895.9184042107591,
+      "p_value": 2.849268661540591e-66,
+      "cohens_d": 166.36787104896155
+    },
+    "lag_5": {
+      "mean": 0.9654933178689699,
+      "std": 0.016257931627939096,
+      "t_statistic": 319.80332774782295,
+      "p_value": 2.6754985855072603e-53,
+      "cohens_d": 59.385987096278534
+    },
+    "lag_10": {
+      "mean": 0.8975296043538383,
+      "std": 0.03654385973183212,
+      "t_statistic": 132.26147632450224,
+      "p_value": 3.460005267653124e-42,
+      "cohens_d": 24.560339573874586
+    },
+    "lag_20": {
+      "mean": 0.6871603065872107,
+      "std": 0.08163269499949405,
+      "t_statistic": 45.330752585298555,
+      "p_value": 8.911255746376641e-29,
+      "cohens_d": 8.417709431147284
+    }
+  },
+  "tests": {
+    "ljung_box": {
+      "mean_Q": 1292.4773191730483,
+      "mean_p": 0.0,
+      "frac_significant": 1.0,
+      "n_significant": 30
+    }
+  },
+  "jump_distribution": {
+    "mean": 0.0012770128557430887,
+    "std": 0.0016780173068571289,
+    "median": 0.0007041504805187504,
+    "frac_positive": 0.9144927536231884,
+    "abs_percentiles": {
+      "p25": 0.00021589822268212877,
+      "p50": 0.0007041504805187504,
+      "p75": 0.001704597764581085,
+      "p95": 0.00449305032221887
+    }
+  },
+  "jump_order_correlation": {
+    "spearman_rho": 0.12907111082376171,
+    "p_value": 1.2492195629383265e-34
+  },
+  "status": "validated",
+  "confidence": "high",
+  "summary": "Strong positive autocorrelation at lag 1 (ACF=0.996, d=349.44, p<0.01). Sampling trajectory is smooth - the sampler moves continuously through parameter space rather than jumping between disconnected modes. Ljung-Box significant in 100% of trajectories."
+}

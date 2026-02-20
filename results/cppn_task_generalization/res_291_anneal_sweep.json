@@ -1,0 +1,1794 @@
+{
+  "experiment": "RES-291 Anneal + Step Sweep",
+  "grid": {
+    "anneal_quantile": [
+      0.1,
+      0.2,
+      0.3,
+      0.4
+    ],
+    "pca_step_scale_end": [
+      0.1,
+      0.2,
+      0.3
+    ]
+  },
+  "runs": [
+    {
+      "anneal_quantile": 0.1,
+      "pca_step_scale_end": 0.1,
+      "elapsed_seconds": 3.1301209926605225,
+      "config": {
+        "n_cppns": 40,
+        "n_workers": 8,
+        "image_size": 32,
+        "n_live": 100,
+        "baseline_max_iterations": 1200,
+        "n_live_stage1": 50,
+        "stage1_budgets": [
+          50,
+          100
+        ],
+        "max_iterations_stage2": 300,
+        "pca_components": 3,
+        "calibration_samples": 1500,
+        "target_hit_baseline": 0.2,
+        "anneal_quantile": 0.1,
+        "elite_fraction": 0.3,
+        "elite_prob": 0.7,
+        "pca_step_scale_start": 0.6,
+        "pca_step_scale_end": 0.1,
+        "objective_names": [
+          "symmetry",
+          "spectral",
+          "kolmogorov",
+          "ising"
+        ]
+      },
+      "calibration": {
+        "symmetry": {
+          "target_order": 0.9976701477582398,
+          "order_mean": 0.8520386999399516,
+          "order_std": 0.09261784018379637,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        },
+        "spectral": {
+          "target_order": 0.999999342760639,
+          "order_mean": 0.9803498835610733,
+          "order_std": 0.019308694845770254,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        },
+        "kolmogorov": {
+          "target_order": 0.9685013378122959,
+          "order_mean": 0.25766403408471317,
+          "order_std": 0.16836261021343757,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        },
+        "ising": {
+          "target_order": 0.9742897123655693,
+          "order_mean": 0.6788440181710401,
+          "order_std": 0.10914557168219384,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        }
+      },
+      "summary": {
+        "symmetry": {
+          "speedup_mean": 2.792456893824254,
+          "speedup_std": 1.6536155446808283,
+          "speedup_min": 0.45871559633027525,
+          "speedup_max": 7.015625,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 39,
+              "stage2_speedup_mean": 2.1431286183189284,
+              "speedup_mean": 2.1800504028609553
+            },
+            "budget_100": {
+              "stage2_used_count": 32,
+              "stage2_speedup_mean": 1.6343656905563728,
+              "speedup_mean": 2.0400142915755333
+            }
+          }
+        },
+        "spectral": {
+          "speedup_mean": 2.612114980033837,
+          "speedup_std": 1.527364434340864,
+          "speedup_min": 0.4132231404958678,
+          "speedup_max": 7.28,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 38,
+              "stage2_speedup_mean": 1.6425353371300062,
+              "speedup_mean": 1.851408570273506
+            },
+            "budget_100": {
+              "stage2_used_count": 35,
+              "stage2_speedup_mean": 1.8729433531622879,
+              "speedup_mean": 2.146010843806451
+            }
+          }
+        },
+        "kolmogorov": {
+          "speedup_mean": 3.381434735527359,
+          "speedup_std": 1.8059662139396273,
+          "speedup_min": 0.9090909090909091,
+          "speedup_max": 8.49056603773585,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 38,
+              "stage2_speedup_mean": 2.4314022222563403,
+              "speedup_mean": 2.4998321111435233
+            },
+            "budget_100": {
+              "stage2_used_count": 35,
+              "stage2_speedup_mean": 2.2321279791535416,
+              "speedup_mean": 2.600996597143964
+            }
+          }
+        },
+        "ising": {
+          "speedup_mean": 2.6306867727429037,
+          "speedup_std": 1.4097419954175212,
+          "speedup_min": 0.684931506849315,
+          "speedup_max": 6.523809523809524,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 36,
+              "stage2_speedup_mean": 1.9778849279189221,
+              "speedup_mean": 2.0470964351270298
+            },
+            "budget_100": {
+              "stage2_used_count": 24,
+              "stage2_speedup_mean": 1.4384955760628573,
+              "speedup_mean": 2.1127302184838226
+            }
+          }
+        }
+      }
+    },
+    {
+      "anneal_quantile": 0.1,
+      "pca_step_scale_end": 0.2,
+      "elapsed_seconds": 3.0548977851867676,
+      "config": {
+        "n_cppns": 40,
+        "n_workers": 8,
+        "image_size": 32,
+        "n_live": 100,
+        "baseline_max_iterations": 1200,
+        "n_live_stage1": 50,
+        "stage1_budgets": [
+          50,
+          100
+        ],
+        "max_iterations_stage2": 300,
+        "pca_components": 3,
+        "calibration_samples": 1500,
+        "target_hit_baseline": 0.2,
+        "anneal_quantile": 0.1,
+        "elite_fraction": 0.3,
+        "elite_prob": 0.7,
+        "pca_step_scale_start": 0.6,
+        "pca_step_scale_end": 0.2,
+        "objective_names": [
+          "symmetry",
+          "spectral",
+          "kolmogorov",
+          "ising"
+        ]
+      },
+      "calibration": {
+        "symmetry": {
+          "target_order": 0.9976701477582398,
+          "order_mean": 0.8520386999399516,
+          "order_std": 0.09261784018379637,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        },
+        "spectral": {
+          "target_order": 0.999999342760639,
+          "order_mean": 0.9803498835610733,
+          "order_std": 0.019308694845770254,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        },
+        "kolmogorov": {
+          "target_order": 0.9685013378122959,
+          "order_mean": 0.25766403408471317,
+          "order_std": 0.16836261021343757,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        },
+        "ising": {
+          "target_order": 0.9742897123655693,
+          "order_mean": 0.6788440181710401,
+          "order_std": 0.10914557168219384,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        }
+      },
+      "summary": {
+        "symmetry": {
+          "speedup_mean": 2.8574053652529603,
+          "speedup_std": 1.7472105787355807,
+          "speedup_min": 0.6060606060606061,
+          "speedup_max": 7.015625,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 39,
+              "stage2_speedup_mean": 2.2163990304330268,
+              "speedup_mean": 2.2514890546722004
+            },
+            "budget_100": {
+              "stage2_used_count": 33,
+              "stage2_speedup_mean": 1.6458106118960523,
+              "speedup_mean": 2.104744786873971
+            }
+          }
+        },
+        "spectral": {
+          "speedup_mean": 2.719473459353824,
+          "speedup_std": 1.5917750476583383,
+          "speedup_min": 0.6756756756756757,
+          "speedup_max": 7.28,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 38,
+              "stage2_speedup_mean": 1.6744788193534186,
+              "speedup_mean": 1.8817548783857476
+            },
+            "budget_100": {
+              "stage2_used_count": 33,
+              "stage2_speedup_mean": 1.971718075201858,
+              "speedup_mean": 2.2503300945582545
+            }
+          }
+        },
+        "kolmogorov": {
+          "speedup_mean": 3.263977280041312,
+          "speedup_std": 1.59340770135668,
+          "speedup_min": 0.7878787878787878,
+          "speedup_max": 8.02,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 38,
+              "stage2_speedup_mean": 2.3978584175441,
+              "speedup_mean": 2.4679654966668956
+            },
+            "budget_100": {
+              "stage2_used_count": 35,
+              "stage2_speedup_mean": 2.194555784249479,
+              "speedup_mean": 2.5419891847815124
+            }
+          }
+        },
+        "ising": {
+          "speedup_mean": 2.8445819241985344,
+          "speedup_std": 1.7524444228742455,
+          "speedup_min": 0.7352941176470589,
+          "speedup_max": 8.22,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 36,
+              "stage2_speedup_mean": 1.9843449657593288,
+              "speedup_mean": 2.052910469183396
+            },
+            "budget_100": {
+              "stage2_used_count": 21,
+              "stage2_speedup_mean": 1.1803977880824437,
+              "speedup_mean": 2.392259815037667
+            }
+          }
+        }
+      }
+    },
+    {
+      "anneal_quantile": 0.1,
+      "pca_step_scale_end": 0.3,
+      "elapsed_seconds": 3.0889997482299805,
+      "config": {
+        "n_cppns": 40,
+        "n_workers": 8,
+        "image_size": 32,
+        "n_live": 100,
+        "baseline_max_iterations": 1200,
+        "n_live_stage1": 50,
+        "stage1_budgets": [
+          50,
+          100
+        ],
+        "max_iterations_stage2": 300,
+        "pca_components": 3,
+        "calibration_samples": 1500,
+        "target_hit_baseline": 0.2,
+        "anneal_quantile": 0.1,
+        "elite_fraction": 0.3,
+        "elite_prob": 0.7,
+        "pca_step_scale_start": 0.6,
+        "pca_step_scale_end": 0.3,
+        "objective_names": [
+          "symmetry",
+          "spectral",
+          "kolmogorov",
+          "ising"
+        ]
+      },
+      "calibration": {
+        "symmetry": {
+          "target_order": 0.9976701477582398,
+          "order_mean": 0.8520386999399516,
+          "order_std": 0.09261784018379637,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        },
+        "spectral": {
+          "target_order": 0.999999342760639,
+          "order_mean": 0.9803498835610733,
+          "order_std": 0.019308694845770254,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        },
+        "kolmogorov": {
+          "target_order": 0.9685013378122959,
+          "order_mean": 0.25766403408471317,
+          "order_std": 0.16836261021343757,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        },
+        "ising": {
+          "target_order": 0.9742897123655693,
+          "order_mean": 0.6788440181710401,
+          "order_std": 0.10914557168219384,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        }
+      },
+      "summary": {
+        "symmetry": {
+          "speedup_mean": 2.6642204478823306,
+          "speedup_std": 1.562490431446736,
+          "speedup_min": 0.6211180124223602,
+          "speedup_max": 7.015625,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 39,
+              "stage2_speedup_mean": 2.218452259392359,
+              "speedup_mean": 2.25349095290755
+            },
+            "budget_100": {
+              "stage2_used_count": 34,
+              "stage2_speedup_mean": 1.742714702962493,
+              "speedup_mean": 1.9109006652199825
+            }
+          }
+        },
+        "spectral": {
+          "speedup_mean": 2.766798826076708,
+          "speedup_std": 1.6316554577840185,
+          "speedup_min": 0.6896551724137931,
+          "speedup_max": 7.28,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 38,
+              "stage2_speedup_mean": 1.6981156567117086,
+              "speedup_mean": 1.9042098738761233
+            },
+            "budget_100": {
+              "stage2_used_count": 33,
+              "stage2_speedup_mean": 1.834057848049224,
+              "speedup_mean": 2.194048822290372
+            }
+          }
+        },
+        "kolmogorov": {
+          "speedup_mean": 3.345738269996983,
+          "speedup_std": 1.56352924594372,
+          "speedup_min": 0.7878787878787878,
+          "speedup_max": 8.02,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 38,
+              "stage2_speedup_mean": 2.37483687577699,
+              "speedup_mean": 2.446095031988141
+            },
+            "budget_100": {
+              "stage2_used_count": 34,
+              "stage2_speedup_mean": 2.173150373120238,
+              "speedup_mean": 2.552297535462061
+            }
+          }
+        },
+        "ising": {
+          "speedup_mean": 2.685809000411697,
+          "speedup_std": 1.5258910132920043,
+          "speedup_min": 0.8064516129032258,
+          "speedup_max": 8.22,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 36,
+              "stage2_speedup_mean": 1.9933414966646181,
+              "speedup_mean": 2.0610073469981565
+            },
+            "budget_100": {
+              "stage2_used_count": 23,
+              "stage2_speedup_mean": 1.3117845792968654,
+              "speedup_mean": 2.183541468628373
+            }
+          }
+        }
+      }
+    },
+    {
+      "anneal_quantile": 0.2,
+      "pca_step_scale_end": 0.1,
+      "elapsed_seconds": 3.1027328968048096,
+      "config": {
+        "n_cppns": 40,
+        "n_workers": 8,
+        "image_size": 32,
+        "n_live": 100,
+        "baseline_max_iterations": 1200,
+        "n_live_stage1": 50,
+        "stage1_budgets": [
+          50,
+          100
+        ],
+        "max_iterations_stage2": 300,
+        "pca_components": 3,
+        "calibration_samples": 1500,
+        "target_hit_baseline": 0.2,
+        "anneal_quantile": 0.2,
+        "elite_fraction": 0.3,
+        "elite_prob": 0.7,
+        "pca_step_scale_start": 0.6,
+        "pca_step_scale_end": 0.1,
+        "objective_names": [
+          "symmetry",
+          "spectral",
+          "kolmogorov",
+          "ising"
+        ]
+      },
+      "calibration": {
+        "symmetry": {
+          "target_order": 0.9976701477582398,
+          "order_mean": 0.8520386999399516,
+          "order_std": 0.09261784018379637,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        },
+        "spectral": {
+          "target_order": 0.999999342760639,
+          "order_mean": 0.9803498835610733,
+          "order_std": 0.019308694845770254,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        },
+        "kolmogorov": {
+          "target_order": 0.9685013378122959,
+          "order_mean": 0.25766403408471317,
+          "order_std": 0.16836261021343757,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        },
+        "ising": {
+          "target_order": 0.9742897123655693,
+          "order_mean": 0.6788440181710401,
+          "order_std": 0.10914557168219384,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        }
+      },
+      "summary": {
+        "symmetry": {
+          "speedup_mean": 2.8225921003218453,
+          "speedup_std": 1.622735273747087,
+          "speedup_min": 0.7518796992481203,
+          "speedup_max": 7.015625,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 39,
+              "stage2_speedup_mean": 2.1427596234515236,
+              "speedup_mean": 2.179690632865235
+            },
+            "budget_100": {
+              "stage2_used_count": 30,
+              "stage2_speedup_mean": 1.7130499748865489,
+              "speedup_mean": 2.070149498073124
+            }
+          }
+        },
+        "spectral": {
+          "speedup_mean": 2.6132335776102473,
+          "speedup_std": 1.526155109793438,
+          "speedup_min": 0.4132231404958678,
+          "speedup_max": 7.28,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 38,
+              "stage2_speedup_mean": 1.6397281069000513,
+              "speedup_mean": 1.8487417015550487
+            },
+            "budget_100": {
+              "stage2_used_count": 35,
+              "stage2_speedup_mean": 1.874221750392471,
+              "speedup_mean": 2.1471294413828614
+            }
+          }
+        },
+        "kolmogorov": {
+          "speedup_mean": 3.370329853607486,
+          "speedup_std": 1.8138751072177905,
+          "speedup_min": 0.8403361344537815,
+          "speedup_max": 8.49056603773585,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 38,
+              "stage2_speedup_mean": 2.431262081143007,
+              "speedup_mean": 2.499698977085856
+            },
+            "budget_100": {
+              "stage2_used_count": 35,
+              "stage2_speedup_mean": 2.219436685530829,
+              "speedup_mean": 2.589891715224091
+            }
+          }
+        },
+        "ising": {
+          "speedup_mean": 2.6306867727429037,
+          "speedup_std": 1.4097419954175212,
+          "speedup_min": 0.684931506849315,
+          "speedup_max": 6.523809523809524,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 36,
+              "stage2_speedup_mean": 1.9778849279189221,
+              "speedup_mean": 2.0470964351270298
+            },
+            "budget_100": {
+              "stage2_used_count": 24,
+              "stage2_speedup_mean": 1.4384955760628573,
+              "speedup_mean": 2.1127302184838226
+            }
+          }
+        }
+      }
+    },
+    {
+      "anneal_quantile": 0.2,
+      "pca_step_scale_end": 0.2,
+      "elapsed_seconds": 3.060948133468628,
+      "config": {
+        "n_cppns": 40,
+        "n_workers": 8,
+        "image_size": 32,
+        "n_live": 100,
+        "baseline_max_iterations": 1200,
+        "n_live_stage1": 50,
+        "stage1_budgets": [
+          50,
+          100
+        ],
+        "max_iterations_stage2": 300,
+        "pca_components": 3,
+        "calibration_samples": 1500,
+        "target_hit_baseline": 0.2,
+        "anneal_quantile": 0.2,
+        "elite_fraction": 0.3,
+        "elite_prob": 0.7,
+        "pca_step_scale_start": 0.6,
+        "pca_step_scale_end": 0.2,
+        "objective_names": [
+          "symmetry",
+          "spectral",
+          "kolmogorov",
+          "ising"
+        ]
+      },
+      "calibration": {
+        "symmetry": {
+          "target_order": 0.9976701477582398,
+          "order_mean": 0.8520386999399516,
+          "order_std": 0.09261784018379637,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        },
+        "spectral": {
+          "target_order": 0.999999342760639,
+          "order_mean": 0.9803498835610733,
+          "order_std": 0.019308694845770254,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        },
+        "kolmogorov": {
+          "target_order": 0.9685013378122959,
+          "order_mean": 0.25766403408471317,
+          "order_std": 0.16836261021343757,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        },
+        "ising": {
+          "target_order": 0.9742897123655693,
+          "order_mean": 0.6788440181710401,
+          "order_std": 0.10914557168219384,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        }
+      },
+      "summary": {
+        "symmetry": {
+          "speedup_mean": 2.7050645895652705,
+          "speedup_std": 1.7040193700206725,
+          "speedup_min": 0.6060606060606061,
+          "speedup_max": 7.015625,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 39,
+              "stage2_speedup_mean": 2.22043496331811,
+              "speedup_mean": 2.255424089235157
+            },
+            "budget_100": {
+              "stage2_used_count": 35,
+              "stage2_speedup_mean": 1.6423173813981795,
+              "speedup_mean": 1.9494787407831347
+            }
+          }
+        },
+        "spectral": {
+          "speedup_mean": 2.705288625866184,
+          "speedup_std": 1.5572734741380847,
+          "speedup_min": 0.6493506493506493,
+          "speedup_max": 7.28,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 38,
+              "stage2_speedup_mean": 1.6711921016748414,
+              "speedup_mean": 1.8786324965910992
+            },
+            "budget_100": {
+              "stage2_used_count": 33,
+              "stage2_speedup_mean": 1.9545243376410812,
+              "speedup_mean": 2.2361452610706136
+            }
+          }
+        },
+        "kolmogorov": {
+          "speedup_mean": 3.2227101538458514,
+          "speedup_std": 1.6179506421462229,
+          "speedup_min": 0.9090909090909091,
+          "speedup_max": 8.02,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 38,
+              "stage2_speedup_mean": 2.3974433572283447,
+              "speedup_mean": 2.467571189366928
+            },
+            "budget_100": {
+              "stage2_used_count": 35,
+              "stage2_speedup_mean": 2.1520898911083455,
+              "speedup_mean": 2.504831528283021
+            }
+          }
+        },
+        "ising": {
+          "speedup_mean": 2.7385399394657104,
+          "speedup_std": 1.6303394889408591,
+          "speedup_min": 0.7352941176470589,
+          "speedup_max": 8.22,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 36,
+              "stage2_speedup_mean": 1.9833986499665361,
+              "speedup_mean": 2.052058784969882
+            },
+            "budget_100": {
+              "stage2_used_count": 22,
+              "stage2_speedup_mean": 1.2457579163826515,
+              "speedup_mean": 2.2862178303048424
+            }
+          }
+        }
+      }
+    },
+    {
+      "anneal_quantile": 0.2,
+      "pca_step_scale_end": 0.3,
+      "elapsed_seconds": 3.0950469970703125,
+      "config": {
+        "n_cppns": 40,
+        "n_workers": 8,
+        "image_size": 32,
+        "n_live": 100,
+        "baseline_max_iterations": 1200,
+        "n_live_stage1": 50,
+        "stage1_budgets": [
+          50,
+          100
+        ],
+        "max_iterations_stage2": 300,
+        "pca_components": 3,
+        "calibration_samples": 1500,
+        "target_hit_baseline": 0.2,
+        "anneal_quantile": 0.2,
+        "elite_fraction": 0.3,
+        "elite_prob": 0.7,
+        "pca_step_scale_start": 0.6,
+        "pca_step_scale_end": 0.3,
+        "objective_names": [
+          "symmetry",
+          "spectral",
+          "kolmogorov",
+          "ising"
+        ]
+      },
+      "calibration": {
+        "symmetry": {
+          "target_order": 0.9976701477582398,
+          "order_mean": 0.8520386999399516,
+          "order_std": 0.09261784018379637,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        },
+        "spectral": {
+          "target_order": 0.999999342760639,
+          "order_mean": 0.9803498835610733,
+          "order_std": 0.019308694845770254,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        },
+        "kolmogorov": {
+          "target_order": 0.9685013378122959,
+          "order_mean": 0.25766403408471317,
+          "order_std": 0.16836261021343757,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        },
+        "ising": {
+          "target_order": 0.9742897123655693,
+          "order_mean": 0.6788440181710401,
+          "order_std": 0.10914557168219384,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        }
+      },
+      "summary": {
+        "symmetry": {
+          "speedup_mean": 2.615610269042231,
+          "speedup_std": 1.5945021895485636,
+          "speedup_min": 0.6211180124223602,
+          "speedup_max": 7.015625,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 39,
+              "stage2_speedup_mean": 2.2247533421893535,
+              "speedup_mean": 2.2596345086346195
+            },
+            "budget_100": {
+              "stage2_used_count": 35,
+              "stage2_speedup_mean": 1.7063850617915768,
+              "speedup_mean": 1.8622904863798826
+            }
+          }
+        },
+        "spectral": {
+          "speedup_mean": 2.6550261861728837,
+          "speedup_std": 1.5438436619371358,
+          "speedup_min": 0.6896551724137931,
+          "speedup_max": 7.28,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 38,
+              "stage2_speedup_mean": 1.6945660074043136,
+              "speedup_mean": 1.900837707034098
+            },
+            "budget_100": {
+              "stage2_used_count": 34,
+              "stage2_speedup_mean": 1.8123326848374992,
+              "speedup_mean": 2.066100546428303
+            }
+          }
+        },
+        "kolmogorov": {
+          "speedup_mean": 3.3522208169858594,
+          "speedup_std": 1.5556197404403602,
+          "speedup_min": 0.7878787878787878,
+          "speedup_max": 8.02,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 38,
+              "stage2_speedup_mean": 2.3723953806030695,
+              "speedup_mean": 2.4437756115729163
+            },
+            "budget_100": {
+              "stage2_used_count": 34,
+              "stage2_speedup_mean": 2.1807768989895036,
+              "speedup_mean": 2.5587800824509377
+            }
+          }
+        },
+        "ising": {
+          "speedup_mean": 2.738026868908953,
+          "speedup_std": 1.4871477465997296,
+          "speedup_min": 0.9174311926605505,
+          "speedup_max": 8.22,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 36,
+              "stage2_speedup_mean": 1.9925465379343328,
+              "speedup_mean": 2.0602918841408995
+            },
+            "budget_100": {
+              "stage2_used_count": 22,
+              "stage2_speedup_mean": 1.4109495457827717,
+              "speedup_mean": 2.2552875857131998
+            }
+          }
+        }
+      }
+    },
+    {
+      "anneal_quantile": 0.3,
+      "pca_step_scale_end": 0.1,
+      "elapsed_seconds": 3.0861191749572754,
+      "config": {
+        "n_cppns": 40,
+        "n_workers": 8,
+        "image_size": 32,
+        "n_live": 100,
+        "baseline_max_iterations": 1200,
+        "n_live_stage1": 50,
+        "stage1_budgets": [
+          50,
+          100
+        ],
+        "max_iterations_stage2": 300,
+        "pca_components": 3,
+        "calibration_samples": 1500,
+        "target_hit_baseline": 0.2,
+        "anneal_quantile": 0.3,
+        "elite_fraction": 0.3,
+        "elite_prob": 0.7,
+        "pca_step_scale_start": 0.6,
+        "pca_step_scale_end": 0.1,
+        "objective_names": [
+          "symmetry",
+          "spectral",
+          "kolmogorov",
+          "ising"
+        ]
+      },
+      "calibration": {
+        "symmetry": {
+          "target_order": 0.9976701477582398,
+          "order_mean": 0.8520386999399516,
+          "order_std": 0.09261784018379637,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        },
+        "spectral": {
+          "target_order": 0.999999342760639,
+          "order_mean": 0.9803498835610733,
+          "order_std": 0.019308694845770254,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        },
+        "kolmogorov": {
+          "target_order": 0.9685013378122959,
+          "order_mean": 0.25766403408471317,
+          "order_std": 0.16836261021343757,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        },
+        "ising": {
+          "target_order": 0.9742897123655693,
+          "order_mean": 0.6788440181710401,
+          "order_std": 0.10914557168219384,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        }
+      },
+      "summary": {
+        "symmetry": {
+          "speedup_mean": 2.670960222978981,
+          "speedup_std": 1.6546183567672421,
+          "speedup_min": 0.5681818181818182,
+          "speedup_max": 7.015625,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 39,
+              "stage2_speedup_mean": 2.160109629669877,
+              "speedup_mean": 2.1966068889281294
+            },
+            "budget_100": {
+              "stage2_used_count": 34,
+              "stage2_speedup_mean": 1.6375884108123129,
+              "speedup_mean": 1.9179989296782711
+            }
+          }
+        },
+        "spectral": {
+          "speedup_mean": 2.6488858507968027,
+          "speedup_std": 1.49532383287885,
+          "speedup_min": 0.6711409395973155,
+          "speedup_max": 7.28,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 38,
+              "stage2_speedup_mean": 1.6403742633619196,
+              "speedup_mean": 1.8493555501938232
+            },
+            "budget_100": {
+              "stage2_used_count": 34,
+              "stage2_speedup_mean": 1.923881933116465,
+              "speedup_mean": 2.1841517196051106
+            }
+          }
+        },
+        "kolmogorov": {
+          "speedup_mean": 3.430821429854465,
+          "speedup_std": 1.7685854826962466,
+          "speedup_min": 0.8403361344537815,
+          "speedup_max": 8.49056603773585,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 38,
+              "stage2_speedup_mean": 2.4419844625827913,
+              "speedup_mean": 2.5098852394536513
+            },
+            "budget_100": {
+              "stage2_used_count": 34,
+              "stage2_speedup_mean": 2.279542251864826,
+              "speedup_mean": 2.6514955294697176
+            }
+          }
+        },
+        "ising": {
+          "speedup_mean": 2.617475063239437,
+          "speedup_std": 1.4073175654190926,
+          "speedup_min": 0.684931506849315,
+          "speedup_max": 6.523809523809524,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 36,
+              "stage2_speedup_mean": 1.983714804182773,
+              "speedup_mean": 2.0523433237644957
+            },
+            "budget_100": {
+              "stage2_used_count": 24,
+              "stage2_speedup_mean": 1.415931657464445,
+              "speedup_mean": 2.099191867324775
+            }
+          }
+        }
+      }
+    },
+    {
+      "anneal_quantile": 0.3,
+      "pca_step_scale_end": 0.2,
+      "elapsed_seconds": 3.0516769886016846,
+      "config": {
+        "n_cppns": 40,
+        "n_workers": 8,
+        "image_size": 32,
+        "n_live": 100,
+        "baseline_max_iterations": 1200,
+        "n_live_stage1": 50,
+        "stage1_budgets": [
+          50,
+          100
+        ],
+        "max_iterations_stage2": 300,
+        "pca_components": 3,
+        "calibration_samples": 1500,
+        "target_hit_baseline": 0.2,
+        "anneal_quantile": 0.3,
+        "elite_fraction": 0.3,
+        "elite_prob": 0.7,
+        "pca_step_scale_start": 0.6,
+        "pca_step_scale_end": 0.2,
+        "objective_names": [
+          "symmetry",
+          "spectral",
+          "kolmogorov",
+          "ising"
+        ]
+      },
+      "calibration": {
+        "symmetry": {
+          "target_order": 0.9976701477582398,
+          "order_mean": 0.8520386999399516,
+          "order_std": 0.09261784018379637,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        },
+        "spectral": {
+          "target_order": 0.999999342760639,
+          "order_mean": 0.9803498835610733,
+          "order_std": 0.019308694845770254,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        },
+        "kolmogorov": {
+          "target_order": 0.9685013378122959,
+          "order_mean": 0.25766403408471317,
+          "order_std": 0.16836261021343757,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        },
+        "ising": {
+          "target_order": 0.9742897123655693,
+          "order_mean": 0.6788440181710401,
+          "order_std": 0.10914557168219384,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        }
+      },
+      "summary": {
+        "symmetry": {
+          "speedup_mean": 2.7072385026087487,
+          "speedup_std": 1.7024244007684821,
+          "speedup_min": 0.6060606060606061,
+          "speedup_max": 7.015625,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 39,
+              "stage2_speedup_mean": 2.2164611437762685,
+              "speedup_mean": 2.2515496151818613
+            },
+            "budget_100": {
+              "stage2_used_count": 35,
+              "stage2_speedup_mean": 1.665556818017898,
+              "speedup_mean": 1.9698132478253882
+            }
+          }
+        },
+        "spectral": {
+          "speedup_mean": 2.699917471301481,
+          "speedup_std": 1.564617693154162,
+          "speedup_min": 0.4608294930875576,
+          "speedup_max": 7.28,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 38,
+              "stage2_speedup_mean": 1.6724449004272544,
+              "speedup_mean": 1.8798226554058917
+            },
+            "budget_100": {
+              "stage2_used_count": 33,
+              "stage2_speedup_mean": 1.9469993301160735,
+              "speedup_mean": 2.229937129862482
+            }
+          }
+        },
+        "kolmogorov": {
+          "speedup_mean": 3.265445196580894,
+          "speedup_std": 1.5808270382372687,
+          "speedup_min": 0.9090909090909091,
+          "speedup_max": 8.02,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 38,
+              "stage2_speedup_mean": 2.3953075830101906,
+              "speedup_mean": 2.4655422038596813
+            },
+            "budget_100": {
+              "stage2_used_count": 35,
+              "stage2_speedup_mean": 2.206858511376966,
+              "speedup_mean": 2.5527540710180636
+            }
+          }
+        },
+        "ising": {
+          "speedup_mean": 2.7567468360174345,
+          "speedup_std": 1.654375989810376,
+          "speedup_min": 0.7352941176470589,
+          "speedup_max": 8.22,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 36,
+              "stage2_speedup_mean": 1.983284216874928,
+              "speedup_mean": 2.051955795187435
+            },
+            "budget_100": {
+              "stage2_used_count": 22,
+              "stage2_speedup_mean": 1.2389287552056645,
+              "speedup_mean": 2.3006686882092233
+            }
+          }
+        }
+      }
+    },
+    {
+      "anneal_quantile": 0.3,
+      "pca_step_scale_end": 0.3,
+      "elapsed_seconds": 3.080634117126465,
+      "config": {
+        "n_cppns": 40,
+        "n_workers": 8,
+        "image_size": 32,
+        "n_live": 100,
+        "baseline_max_iterations": 1200,
+        "n_live_stage1": 50,
+        "stage1_budgets": [
+          50,
+          100
+        ],
+        "max_iterations_stage2": 300,
+        "pca_components": 3,
+        "calibration_samples": 1500,
+        "target_hit_baseline": 0.2,
+        "anneal_quantile": 0.3,
+        "elite_fraction": 0.3,
+        "elite_prob": 0.7,
+        "pca_step_scale_start": 0.6,
+        "pca_step_scale_end": 0.3,
+        "objective_names": [
+          "symmetry",
+          "spectral",
+          "kolmogorov",
+          "ising"
+        ]
+      },
+      "calibration": {
+        "symmetry": {
+          "target_order": 0.9976701477582398,
+          "order_mean": 0.8520386999399516,
+          "order_std": 0.09261784018379637,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        },
+        "spectral": {
+          "target_order": 0.999999342760639,
+          "order_mean": 0.9803498835610733,
+          "order_std": 0.019308694845770254,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        },
+        "kolmogorov": {
+          "target_order": 0.9685013378122959,
+          "order_mean": 0.25766403408471317,
+          "order_std": 0.16836261021343757,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        },
+        "ising": {
+          "target_order": 0.9742897123655693,
+          "order_mean": 0.6788440181710401,
+          "order_std": 0.10914557168219384,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        }
+      },
+      "summary": {
+        "symmetry": {
+          "speedup_mean": 2.584643686309929,
+          "speedup_std": 1.580441694700252,
+          "speedup_min": 0.7874015748031497,
+          "speedup_max": 7.015625,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 39,
+              "stage2_speedup_mean": 2.225087797068294,
+              "speedup_mean": 2.259960602141586
+            },
+            "budget_100": {
+              "stage2_used_count": 35,
+              "stage2_speedup_mean": 1.7724143798401977,
+              "speedup_mean": 1.8325661396724258
+            }
+          }
+        },
+        "spectral": {
+          "speedup_mean": 2.708351265246996,
+          "speedup_std": 1.6134439714526958,
+          "speedup_min": 0.6211180124223602,
+          "speedup_max": 7.28,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 38,
+              "stage2_speedup_mean": 1.6858955532441542,
+              "speedup_mean": 1.892600775581947
+            },
+            "budget_100": {
+              "stage2_used_count": 33,
+              "stage2_speedup_mean": 1.7645223492231075,
+              "speedup_mean": 2.119425625502415
+            }
+          }
+        },
+        "kolmogorov": {
+          "speedup_mean": 3.27552504859995,
+          "speedup_std": 1.57712935149345,
+          "speedup_min": 0.7878787878787878,
+          "speedup_max": 8.02,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 38,
+              "stage2_speedup_mean": 2.3786986994012893,
+              "speedup_mean": 2.4497637644312253
+            },
+            "budget_100": {
+              "stage2_used_count": 35,
+              "stage2_speedup_mean": 2.1583820732171755,
+              "speedup_mean": 2.482084314065028
+            }
+          }
+        },
+        "ising": {
+          "speedup_mean": 2.738026868908953,
+          "speedup_std": 1.4871477465997296,
+          "speedup_min": 0.9174311926605505,
+          "speedup_max": 8.22,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 36,
+              "stage2_speedup_mean": 1.9925465379343328,
+              "speedup_mean": 2.0602918841408995
+            },
+            "budget_100": {
+              "stage2_used_count": 22,
+              "stage2_speedup_mean": 1.4109495457827717,
+              "speedup_mean": 2.2552875857131998
+            }
+          }
+        }
+      }
+    },
+    {
+      "anneal_quantile": 0.4,
+      "pca_step_scale_end": 0.1,
+      "elapsed_seconds": 3.0838820934295654,
+      "config": {
+        "n_cppns": 40,
+        "n_workers": 8,
+        "image_size": 32,
+        "n_live": 100,
+        "baseline_max_iterations": 1200,
+        "n_live_stage1": 50,
+        "stage1_budgets": [
+          50,
+          100
+        ],
+        "max_iterations_stage2": 300,
+        "pca_components": 3,
+        "calibration_samples": 1500,
+        "target_hit_baseline": 0.2,
+        "anneal_quantile": 0.4,
+        "elite_fraction": 0.3,
+        "elite_prob": 0.7,
+        "pca_step_scale_start": 0.6,
+        "pca_step_scale_end": 0.1,
+        "objective_names": [
+          "symmetry",
+          "spectral",
+          "kolmogorov",
+          "ising"
+        ]
+      },
+      "calibration": {
+        "symmetry": {
+          "target_order": 0.9976701477582398,
+          "order_mean": 0.8520386999399516,
+          "order_std": 0.09261784018379637,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        },
+        "spectral": {
+          "target_order": 0.999999342760639,
+          "order_mean": 0.9803498835610733,
+          "order_std": 0.019308694845770254,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        },
+        "kolmogorov": {
+          "target_order": 0.9685013378122959,
+          "order_mean": 0.25766403408471317,
+          "order_std": 0.16836261021343757,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        },
+        "ising": {
+          "target_order": 0.9742897123655693,
+          "order_mean": 0.6788440181710401,
+          "order_std": 0.10914557168219384,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        }
+      },
+      "summary": {
+        "symmetry": {
+          "speedup_mean": 2.807743222392448,
+          "speedup_std": 1.6338902322164977,
+          "speedup_min": 0.5681818181818182,
+          "speedup_max": 7.015625,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 39,
+              "stage2_speedup_mean": 2.1602506239258776,
+              "speedup_mean": 2.19674435832773
+            },
+            "budget_100": {
+              "stage2_used_count": 32,
+              "stage2_speedup_mean": 1.7144861667553957,
+              "speedup_mean": 2.071777339201418
+            }
+          }
+        },
+        "spectral": {
+          "speedup_mean": 2.639022869707582,
+          "speedup_std": 1.5032707326977952,
+          "speedup_min": 0.6329113924050633,
+          "speedup_max": 7.28,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 38,
+              "stage2_speedup_mean": 1.6418335634808683,
+              "speedup_mean": 1.8507418853068252
+            },
+            "budget_100": {
+              "stage2_used_count": 33,
+              "stage2_speedup_mean": 1.9072681878051814,
+              "speedup_mean": 2.1669405299769506
+            }
+          }
+        },
+        "kolmogorov": {
+          "speedup_mean": 3.415383838148216,
+          "speedup_std": 1.7818229486822588,
+          "speedup_min": 0.8403361344537815,
+          "speedup_max": 8.49056603773585,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 38,
+              "stage2_speedup_mean": 2.4416676880425374,
+              "speedup_mean": 2.5095843036404113
+            },
+            "budget_100": {
+              "stage2_used_count": 34,
+              "stage2_speedup_mean": 2.2613803792692395,
+              "speedup_mean": 2.636057937763469
+            }
+          }
+        },
+        "ising": {
+          "speedup_mean": 2.617475063239437,
+          "speedup_std": 1.4073175654190926,
+          "speedup_min": 0.684931506849315,
+          "speedup_max": 6.523809523809524,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 36,
+              "stage2_speedup_mean": 1.983714804182773,
+              "speedup_mean": 2.0523433237644957
+            },
+            "budget_100": {
+              "stage2_used_count": 24,
+              "stage2_speedup_mean": 1.4172596141343403,
+              "speedup_mean": 2.0999886413267124
+            }
+          }
+        }
+      }
+    },
+    {
+      "anneal_quantile": 0.4,
+      "pca_step_scale_end": 0.2,
+      "elapsed_seconds": 3.060081958770752,
+      "config": {
+        "n_cppns": 40,
+        "n_workers": 8,
+        "image_size": 32,
+        "n_live": 100,
+        "baseline_max_iterations": 1200,
+        "n_live_stage1": 50,
+        "stage1_budgets": [
+          50,
+          100
+        ],
+        "max_iterations_stage2": 300,
+        "pca_components": 3,
+        "calibration_samples": 1500,
+        "target_hit_baseline": 0.2,
+        "anneal_quantile": 0.4,
+        "elite_fraction": 0.3,
+        "elite_prob": 0.7,
+        "pca_step_scale_start": 0.6,
+        "pca_step_scale_end": 0.2,
+        "objective_names": [
+          "symmetry",
+          "spectral",
+          "kolmogorov",
+          "ising"
+        ]
+      },
+      "calibration": {
+        "symmetry": {
+          "target_order": 0.9976701477582398,
+          "order_mean": 0.8520386999399516,
+          "order_std": 0.09261784018379637,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        },
+        "spectral": {
+          "target_order": 0.999999342760639,
+          "order_mean": 0.9803498835610733,
+          "order_std": 0.019308694845770254,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        },
+        "kolmogorov": {
+          "target_order": 0.9685013378122959,
+          "order_mean": 0.25766403408471317,
+          "order_std": 0.16836261021343757,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        },
+        "ising": {
+          "target_order": 0.9742897123655693,
+          "order_mean": 0.6788440181710401,
+          "order_std": 0.10914557168219384,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        }
+      },
+      "summary": {
+        "symmetry": {
+          "speedup_mean": 2.6812156998066152,
+          "speedup_std": 1.7121965977359719,
+          "speedup_min": 0.7874015748031497,
+          "speedup_max": 7.015625,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 39,
+              "stage2_speedup_mean": 2.2269504260868964,
+              "speedup_mean": 2.2617766654347236
+            },
+            "budget_100": {
+              "stage2_used_count": 35,
+              "stage2_speedup_mean": 1.6399049760468205,
+              "speedup_mean": 1.947367886100696
+            }
+          }
+        },
+        "spectral": {
+          "speedup_mean": 2.686360752367716,
+          "speedup_std": 1.5789426212005162,
+          "speedup_min": 0.5208333333333334,
+          "speedup_max": 7.28,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 38,
+              "stage2_speedup_mean": 1.6678846892109584,
+              "speedup_mean": 1.8754904547504103
+            },
+            "budget_100": {
+              "stage2_used_count": 34,
+              "stage2_speedup_mean": 1.9168155509500822,
+              "speedup_mean": 2.220853628097019
+            }
+          }
+        },
+        "kolmogorov": {
+          "speedup_mean": 3.2564138575495547,
+          "speedup_std": 1.5850043525564976,
+          "speedup_min": 0.9090909090909091,
+          "speedup_max": 8.02,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 38,
+              "stage2_speedup_mean": 2.3953778737522122,
+              "speedup_mean": 2.4656089800646024
+            },
+            "budget_100": {
+              "stage2_used_count": 35,
+              "stage2_speedup_mean": 2.1965369810554356,
+              "speedup_mean": 2.543722731986725
+            }
+          }
+        },
+        "ising": {
+          "speedup_mean": 2.7567468360174345,
+          "speedup_std": 1.654375989810376,
+          "speedup_min": 0.7352941176470589,
+          "speedup_max": 8.22,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 36,
+              "stage2_speedup_mean": 1.9828003033007537,
+              "speedup_mean": 2.051520272970678
+            },
+            "budget_100": {
+              "stage2_used_count": 22,
+              "stage2_speedup_mean": 1.2389287552056645,
+              "speedup_mean": 2.3006686882092233
+            }
+          }
+        }
+      }
+    },
+    {
+      "anneal_quantile": 0.4,
+      "pca_step_scale_end": 0.3,
+      "elapsed_seconds": 3.084592819213867,
+      "config": {
+        "n_cppns": 40,
+        "n_workers": 8,
+        "image_size": 32,
+        "n_live": 100,
+        "baseline_max_iterations": 1200,
+        "n_live_stage1": 50,
+        "stage1_budgets": [
+          50,
+          100
+        ],
+        "max_iterations_stage2": 300,
+        "pca_components": 3,
+        "calibration_samples": 1500,
+        "target_hit_baseline": 0.2,
+        "anneal_quantile": 0.4,
+        "elite_fraction": 0.3,
+        "elite_prob": 0.7,
+        "pca_step_scale_start": 0.6,
+        "pca_step_scale_end": 0.3,
+        "objective_names": [
+          "symmetry",
+          "spectral",
+          "kolmogorov",
+          "ising"
+        ]
+      },
+      "calibration": {
+        "symmetry": {
+          "target_order": 0.9976701477582398,
+          "order_mean": 0.8520386999399516,
+          "order_std": 0.09261784018379637,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        },
+        "spectral": {
+          "target_order": 0.999999342760639,
+          "order_mean": 0.9803498835610733,
+          "order_std": 0.019308694845770254,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        },
+        "kolmogorov": {
+          "target_order": 0.9685013378122959,
+          "order_mean": 0.25766403408471317,
+          "order_std": 0.16836261021343757,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        },
+        "ising": {
+          "target_order": 0.9742897123655693,
+          "order_mean": 0.6788440181710401,
+          "order_std": 0.10914557168219384,
+          "quantile": 0.9977710522882823,
+          "p_per_draw": 0.002228947711717666,
+          "target_hit_baseline": 0.2,
+          "p_hit_baseline": 0.2000000000000023,
+          "p_hit_stage1": 0.10557280900008537
+        }
+      },
+      "summary": {
+        "symmetry": {
+          "speedup_mean": 2.6868367459560796,
+          "speedup_std": 1.5748969334975869,
+          "speedup_min": 0.7874015748031497,
+          "speedup_max": 7.015625,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 39,
+              "stage2_speedup_mean": 2.2191844365051487,
+              "speedup_mean": 2.2542048255925202
+            },
+            "budget_100": {
+              "stage2_used_count": 34,
+              "stage2_speedup_mean": 1.7498462430618782,
+              "speedup_mean": 1.9525728639148496
+            }
+          }
+        },
+        "spectral": {
+          "speedup_mean": 2.6574102645001703,
+          "speedup_std": 1.5548749152482442,
+          "speedup_min": 0.6211180124223602,
+          "speedup_max": 7.28,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 38,
+              "stage2_speedup_mean": 1.693297949893953,
+              "speedup_mean": 1.8996330523992555
+            },
+            "budget_100": {
+              "stage2_used_count": 34,
+              "stage2_speedup_mean": 1.815137482869601,
+              "speedup_mean": 2.0684846247555893
+            }
+          }
+        },
+        "kolmogorov": {
+          "speedup_mean": 3.229132891737205,
+          "speedup_std": 1.592939575006877,
+          "speedup_min": 0.7878787878787878,
+          "speedup_max": 8.02,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 38,
+              "stage2_speedup_mean": 2.38010690218249,
+              "speedup_mean": 2.4511015570733656
+            },
+            "budget_100": {
+              "stage2_used_count": 36,
+              "stage2_speedup_mean": 2.1479912857803147,
+              "speedup_mean": 2.4356921572022836
+            }
+          }
+        },
+        "ising": {
+          "speedup_mean": 2.738026868908953,
+          "speedup_std": 1.4871477465997296,
+          "speedup_min": 0.9174311926605505,
+          "speedup_max": 8.22,
+          "variants": {
+            "budget_50": {
+              "stage2_used_count": 36,
+              "stage2_speedup_mean": 1.9921083779558653,
+              "speedup_mean": 2.059897540160279
+            },
+            "budget_100": {
+              "stage2_used_count": 22,
+              "stage2_speedup_mean": 1.4109495457827717,
+              "speedup_mean": 2.2552875857131998
+            }
+          }
+        }
+      }
+    }
+  ]
+}
