@@ -1,0 +1,18 @@
+{
+  "method": "PCA-constrained nested sampling",
+  "reference_cppns": 12,
+  "pca_variance_explained": 0.6838765959886383,
+  "test_cppns": 10,
+  "samples_unconstrained": 150.0,
+  "samples_unconstrained_std": 0.0,
+  "samples_constrained": 100.0,
+  "samples_constrained_std": 0.0,
+  "speedup": 1.5,
+  "success_unconstrained": 10,
+  "success_constrained": 10,
+  "speedup_threshold": 1.2,
+  "conclusion": "validate",
+  "status": "invalid",
+  "invalid_reason": "Sample counting bug (baseline multiplies by n_live) inflates sample counts and speedup; requires fix and rerun.",
+  "needs_rerun": true
+}

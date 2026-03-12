@@ -1,0 +1,32 @@
+{
+  "hypothesis": "Adding single interaction term x*y maintains efficiency without dimensionality penalty",
+  "target_order": 0.5,
+  "test_cppns_per_variant": 30,
+  "variants_tested": [
+    "baseline",
+    "plus_product",
+    "plus_quotient",
+    "plus_squared"
+  ],
+  "baseline_order": 0.4724538947166488,
+  "baseline_eff_dim": 1.0070445324890887,
+  "baseline_success_rate": 0.5,
+  "plus_product_order": 0.48412480299837984,
+  "plus_product_eff_dim": 1.7575498262913185,
+  "plus_product_d": 0.18794458372321995,
+  "plus_quotient_order": 0.47983190050544006,
+  "plus_quotient_eff_dim": 0.27849860748018496,
+  "plus_quotient_d": -0.09728865468187094,
+  "plus_squared_order": 0.4789147601235642,
+  "plus_squared_eff_dim": 0.7410872155965981,
+  "plus_squared_d": 0.22081672832445184,
+  "best_variant": "plus_product",
+  "best_variant_order": 0.48412480299837984,
+  "best_variant_eff_dim": 1.7575498262913185,
+  "best_variant_d": 0.18794458372321995,
+  "order_improvement": 1.0247027454154667,
+  "eff_dim_increase_pct": 74.52553184984018,
+  "conclusion": "refuted",
+  "order_valid": false,
+  "eff_dim_valid": false
+}

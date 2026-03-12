@@ -1,0 +1,16 @@
+{
+  "architecture": "ConvNet",
+  "scheme": "gaussian_0p3",
+  "n_samples": 5000,
+  "tau": 0.1,
+  "mean_order": 0.238477363132654,
+  "std_order": 0.2244324607052391,
+  "median_order": 0.1863929646328808,
+  "max_order": 1.0,
+  "pass_count": 3150,
+  "pass_rate": 0.63,
+  "tail_bits_estimate": 0.6665762662748083,
+  "elapsed_seconds": 4.955259323120117,
+  "completed": true,
+  "block_seed": 42
+}

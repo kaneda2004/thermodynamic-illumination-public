@@ -1,0 +1,49 @@
+{
+  "hypothesis": "Low-frequency band alone predicts order as well as all bands combined",
+  "domain": "image_decomposition",
+  "n_samples": 500,
+  "n_valid": 500,
+  "correlations": {
+    "low": {
+      "rho": -0.9445128391226891,
+      "p": 6.24627200879335e-243
+    },
+    "mid": {
+      "rho": 0.9295028675225833,
+      "p": 7.166765955937643e-218
+    },
+    "high": {
+      "rho": 0.9565118294381636,
+      "p": 1.2761060860184617e-268
+    }
+  },
+  "partial_correlations": {
+    "mid": {
+      "rho": -0.06141594205883586,
+      "p": 0.170325203144991
+    },
+    "high": {
+      "rho": 0.011802172274304074,
+      "p": 0.7923553961783163
+    }
+  },
+  "r2_comparison": {
+    "low_only": {
+      "mean": 0.6803396879169673,
+      "std": 0.06677859931808487
+    },
+    "all_bands": {
+      "mean": 0.721973454767465,
+      "std": 0.023756151177192666
+    },
+    "improvement": {
+      "mean": 0.04163376685049773,
+      "std": 0.05286715691974561,
+      "t_stat": 1.575033320354238,
+      "p_value": 0.19036906759400468,
+      "cohens_d": 0.7875166586875049
+    }
+  },
+  "status": "validated",
+  "conclusion": "Low-frequency band alone predicts order as well as all bands (no significant improvement from mid/high)"
+}

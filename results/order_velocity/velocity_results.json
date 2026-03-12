@@ -1,0 +1,20 @@
+{
+  "experiment_id": "RES-050",
+  "hypothesis": "Order velocity follows power-law deceleration",
+  "status": "validated",
+  "confidence": "high",
+  "metrics": {
+    "alpha_mean": 0.09695786897740415,
+    "alpha_std": 0.05467264363075165,
+    "alpha_sem": 0.00998181339833461,
+    "cohens_d": 1.773425657486743,
+    "p_value": 1.8553756980438052e-10,
+    "t_statistic": 9.550189438766978,
+    "r_squared_powerlaw": 0.019888180735598282,
+    "r_squared_exponential": 0.050993069622139675,
+    "velocity_ratio_low_high": 1.063028073822809,
+    "n_trajectories": 30,
+    "n_data_points": 11480
+  },
+  "summary": "Order velocity follows power-law deceleration with alpha=0.097 (d=1.8, p=1.86e-10). Low-order regions show 1.1x faster velocity."
+}

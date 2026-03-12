@@ -1,0 +1,27 @@
+{
+  "dimension": {
+    "original_claim": 17,
+    "pca_90": "8",
+    "pca_95": "22",
+    "pca_99": "127",
+    "verdict": "INVALID - wrong methodology"
+  },
+  "exponents": {
+    "beta": 0.5225113251896174,
+    "beta_r2": 0.9535258417906419,
+    "gamma_r2": 0.44330282676578076,
+    "verdict": "WEAK - \u03b3 fit is poor, log_X is not physical temperature"
+  },
+  "semantic": {
+    "claimed_threshold": 0.089,
+    "n_transitions": 13,
+    "verdict": "ARTIFACT - depends on arbitrary classifier thresholds"
+  },
+  "minima": {
+    "observed_minima": 8,
+    "null_mean": 12.23,
+    "null_std": 2.0191830030980356,
+    "p_value": 1.0,
+    "verdict": "NOT SIGNIFICANT - expected from sampling noise"
+  }
+}

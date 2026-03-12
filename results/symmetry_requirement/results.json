@@ -1,0 +1,25 @@
+{
+  "mean_symmetry_low_order": 0.07807688066535466,
+  "mean_symmetry_high_order": 0.2666798012100735,
+  "std_symmetry_low_order": 0.23675610853909448,
+  "std_symmetry_high_order": 0.31895421310686684,
+  "p_value_mann_whitney": 0.0012652466419808127,
+  "cliffs_delta": -0.3664,
+  "cohens_d": 0.6714755709455633,
+  "prevalence_low_order": 0.08,
+  "prevalence_high_order": 0.16,
+  "chi_squared": 0.8522727272727273,
+  "chi_squared_p_value": 0.3559101883710093,
+  "spearman_r": 0.3093044660440145,
+  "spearman_p_value": 0.0017402276664392339,
+  "status": "VALIDATED",
+  "num_low_order": 50,
+  "num_high_order": 50,
+  "phase_transition_support": {
+    "mean_diff": 0.18860292054471883,
+    "prevalence_ratio": 1.999975000312496,
+    "statistical_significance": true,
+    "strong_effect": false,
+    "prevalence_shift": false
+  }
+}

@@ -1,0 +1,490 @@
+{
+  "raw_results": [
+    {
+      "order": 0.004274991775069136,
+      "trace_sq": 0.0,
+      "max_eigenvalue": 0.0,
+      "min_eigenvalue": 1e-10,
+      "condition_number": 0.0,
+      "frobenius": 0.0,
+      "mean_curvature": 0.0
+    },
+    {
+      "order": 0.1898045178615927,
+      "trace_sq": 4817.391956602427,
+      "max_eigenvalue": 64.60379170938036,
+      "min_eigenvalue": 1.0000001923923946e-10,
+      "condition_number": 646037792801.0457,
+      "frobenius": 69.40743444763268,
+      "mean_curvature": 19.838897039782104
+    },
+    {
+      "order": 0.004147380080290953,
+      "trace_sq": 0.0,
+      "max_eigenvalue": 0.0,
+      "min_eigenvalue": 1e-10,
+      "condition_number": 0.0,
+      "frobenius": 0.0,
+      "mean_curvature": 0.0
+    },
+    {
+      "order": 0.004147380080290953,
+      "trace_sq": 0.0,
+      "max_eigenvalue": 0.0,
+      "min_eigenvalue": 1e-10,
+      "condition_number": 0.0,
+      "frobenius": 0.0,
+      "mean_curvature": 0.0
+    },
+    {
+      "order": 0.2528160882221938,
+      "trace_sq": 137301.31970806388,
+      "max_eigenvalue": 325.7484192598767,
+      "min_eigenvalue": 1.0000071878225155e-10,
+      "condition_number": 3257460778548.8394,
+      "frobenius": 370.5419270582802,
+      "mean_curvature": 114.7165486743941
+    },
+    {
+      "order": 0.09330035234824037,
+      "trace_sq": 7278.464032101846,
+      "max_eigenvalue": 67.58680054962853,
+      "min_eigenvalue": 1.0000007529656708e-10,
+      "condition_number": 675867496591.2625,
+      "frobenius": 85.31391464527839,
+      "mean_curvature": 25.320905131011138
+    },
+    {
+      "order": 0.19926690009102688,
+      "trace_sq": 7911.481892060214,
+      "max_eigenvalue": 78.57530425762391,
+      "min_eigenvalue": 1.0000072294461738e-10,
+      "condition_number": 785747362057.979,
+      "frobenius": 88.94651141028643,
+      "mean_curvature": 28.326652463894362
+    },
+    {
+      "order": 0.004147380080290953,
+      "trace_sq": 0.0,
+      "max_eigenvalue": 0.0,
+      "min_eigenvalue": 1e-10,
+      "condition_number": 0.0,
+      "frobenius": 0.0,
+      "mean_curvature": 0.0
+    },
+    {
+      "order": 0.004147380080290953,
+      "trace_sq": 0.0,
+      "max_eigenvalue": 0.0,
+      "min_eigenvalue": 1e-10,
+      "condition_number": 0.0,
+      "frobenius": 0.0,
+      "mean_curvature": 0.0
+    },
+    {
+      "order": 0.004147380080290953,
+      "trace_sq": 0.0,
+      "max_eigenvalue": 0.0,
+      "min_eigenvalue": 1e-10,
+      "condition_number": 0.0,
+      "frobenius": 0.0,
+      "mean_curvature": 0.0
+    },
+    {
+      "order": 0.004274991775069136,
+      "trace_sq": 0.0,
+      "max_eigenvalue": 0.0,
+      "min_eigenvalue": 1e-10,
+      "condition_number": 0.0,
+      "frobenius": 0.0,
+      "mean_curvature": 0.0
+    },
+    {
+      "order": 0.004274991775069136,
+      "trace_sq": 0.0,
+      "max_eigenvalue": 0.0,
+      "min_eigenvalue": 1e-10,
+      "condition_number": 0.0,
+      "frobenius": 0.0,
+      "mean_curvature": 0.0
+    },
+    {
+      "order": 0.14511017040492957,
+      "trace_sq": 5291.5451333245555,
+      "max_eigenvalue": 68.07887569974785,
+      "min_eigenvalue": 1.0000004970332019e-10,
+      "condition_number": 680788418623.031,
+      "frobenius": 72.74300745311919,
+      "mean_curvature": 21.20495258603154
+    },
+    {
+      "order": 0.004274991775069136,
+      "trace_sq": 0.0,
+      "max_eigenvalue": 0.0,
+      "min_eigenvalue": 1e-10,
+      "condition_number": 0.0,
+      "frobenius": 0.0,
+      "mean_curvature": 0.0
+    },
+    {
+      "order": 0.07316559749095877,
+      "trace_sq": 5172.665569514934,
+      "max_eigenvalue": 70.40834066137501,
+      "min_eigenvalue": 1.0000000450326129e-10,
+      "condition_number": 704083374907.036,
+      "frobenius": 71.9212456059747,
+      "mean_curvature": 18.403759392970734
+    },
+    {
+      "order": 0.004147380080290953,
+      "trace_sq": 0.0,
+      "max_eigenvalue": 0.0,
+      "min_eigenvalue": 1e-10,
+      "condition_number": 0.0,
+      "frobenius": 0.0,
+      "mean_curvature": 0.0
+    },
+    {
+      "order": 0.008482112601310893,
+      "trace_sq": 120.5222457041327,
+      "max_eigenvalue": 10.168611652598429,
+      "min_eigenvalue": 1.0000009363648229e-10,
+      "condition_number": 101686021310.77095,
+      "frobenius": 10.97826241734696,
+      "mean_curvature": 3.3933558025150647
+    },
+    {
+      "order": 0.13766171994370902,
+      "trace_sq": 12776.318736631647,
+      "max_eigenvalue": 106.43980324283348,
+      "min_eigenvalue": 1.0000001517625325e-10,
+      "condition_number": 1064397870892.6183,
+      "frobenius": 113.03237915142566,
+      "mean_curvature": 32.16151168358654
+    },
+    {
+      "order": 0.11000194997936182,
+      "trace_sq": 2908.904378167541,
+      "max_eigenvalue": 45.487363807413516,
+      "min_eigenvalue": 1.0000160993219633e-10,
+      "condition_number": 454866315034.87915,
+      "frobenius": 53.934259781399994,
+      "mean_curvature": 17.693918239613787
+    },
+    {
+      "order": 0.004147380080290953,
+      "trace_sq": 0.0,
+      "max_eigenvalue": 0.0,
+      "min_eigenvalue": 1e-10,
+      "condition_number": 0.0,
+      "frobenius": 0.0,
+      "mean_curvature": 0.0
+    },
+    {
+      "order": 0.004147380080290953,
+      "trace_sq": 0.0,
+      "max_eigenvalue": 0.0,
+      "min_eigenvalue": 1e-10,
+      "condition_number": 0.0,
+      "frobenius": 0.0,
+      "mean_curvature": 0.0
+    },
+    {
+      "order": 0.07185281560215867,
+      "trace_sq": 16378.998696764223,
+      "max_eigenvalue": 122.98361849538585,
+      "min_eigenvalue": 1.0000001341431041e-10,
+      "condition_number": 1229836019979.8374,
+      "frobenius": 127.98046216811464,
+      "mean_curvature": 32.536188660654865
+    },
+    {
+      "order": 0.5197603629334541,
+      "trace_sq": 156237.20978446404,
+      "max_eigenvalue": 349.60990831688287,
+      "min_eigenvalue": 1.0000090930283734e-10,
+      "condition_number": 3496067293329.735,
+      "frobenius": 395.26852870480855,
+      "mean_curvature": 131.00277946487543
+    },
+    {
+      "order": 0.004274991775069136,
+      "trace_sq": 0.0,
+      "max_eigenvalue": 0.0,
+      "min_eigenvalue": 1e-10,
+      "condition_number": 0.0,
+      "frobenius": 0.0,
+      "mean_curvature": 0.0
+    },
+    {
+      "order": 0.18129824325163954,
+      "trace_sq": 16326.023594165317,
+      "max_eigenvalue": 107.51449991971896,
+      "min_eigenvalue": 1.0000283838498343e-10,
+      "condition_number": 1075114483309.1406,
+      "frobenius": 127.77332896252376,
+      "mean_curvature": 41.02387719743316
+    },
+    {
+      "order": 0.004274991775069136,
+      "trace_sq": 0.0,
+      "max_eigenvalue": 0.0,
+      "min_eigenvalue": 1e-10,
+      "condition_number": 0.0,
+      "frobenius": 0.0,
+      "mean_curvature": 0.0
+    },
+    {
+      "order": 0.004147380080290953,
+      "trace_sq": 0.0,
+      "max_eigenvalue": 0.0,
+      "min_eigenvalue": 1e-10,
+      "condition_number": 0.0,
+      "frobenius": 0.0,
+      "mean_curvature": 0.0
+    },
+    {
+      "order": 0.004274991775069136,
+      "trace_sq": 0.0,
+      "max_eigenvalue": 0.0,
+      "min_eigenvalue": 1e-10,
+      "condition_number": 0.0,
+      "frobenius": 0.0,
+      "mean_curvature": 0.0
+    },
+    {
+      "order": 0.15687110564682705,
+      "trace_sq": 3351.0373660583145,
+      "max_eigenvalue": 49.84492361222777,
+      "min_eigenvalue": 1.000002446978557e-10,
+      "condition_number": 498448016430.6697,
+      "frobenius": 57.88814529813781,
+      "mean_curvature": 18.333666358909035
+    },
+    {
+      "order": 0.028551832648741254,
+      "trace_sq": 1576.8696266591414,
+      "max_eigenvalue": 38.31239841019634,
+      "min_eigenvalue": 1.0000002355028235e-10,
+      "condition_number": 383123893875.2046,
+      "frobenius": 39.70981776159571,
+      "mean_curvature": 10.060193271094153
+    },
+    {
+      "order": 0.013944506111162299,
+      "trace_sq": 23.87130610106903,
+      "max_eigenvalue": 4.611118323827936,
+      "min_eigenvalue": 1.0000001294424489e-10,
+      "condition_number": 46111177269.53565,
+      "frobenius": 4.885827064179516,
+      "mean_curvature": 1.4632338408943295
+    },
+    {
+      "order": 0.13512015036251065,
+      "trace_sq": 7102.821083578421,
+      "max_eigenvalue": 82.17143228781629,
+      "min_eigenvalue": 1.0000017856997117e-10,
+      "condition_number": 821712855545.7537,
+      "frobenius": 84.27823612047432,
+      "mean_curvature": 22.121010121459896
+    },
+    {
+      "order": 0.07377657306490741,
+      "trace_sq": 5266.33115718739,
+      "max_eigenvalue": 63.33552938717723,
+      "min_eigenvalue": 1.0000004765548988e-10,
+      "condition_number": 633354992043.3481,
+      "frobenius": 72.56949191766049,
+      "mean_curvature": 22.632802239719773
+    },
+    {
+      "order": 0.1558569047169517,
+      "trace_sq": 1255.1759256184782,
+      "max_eigenvalue": 26.055187063230957,
+      "min_eigenvalue": 1.0000010022449159e-10,
+      "condition_number": 260551609495.7836,
+      "frobenius": 35.4284620837326,
+      "mean_curvature": 12.3156729115757
+    },
+    {
+      "order": 0.07433766631770942,
+      "trace_sq": 14124.053015137248,
+      "max_eigenvalue": 115.57785656569303,
+      "min_eigenvalue": 1.0000550339239172e-10,
+      "condition_number": 1155714962127.6345,
+      "frobenius": 118.84465917800954,
+      "mean_curvature": 31.71695479798335
+    },
+    {
+      "order": 0.004274991775069136,
+      "trace_sq": 0.0,
+      "max_eigenvalue": 0.0,
+      "min_eigenvalue": 1e-10,
+      "condition_number": 0.0,
+      "frobenius": 0.0,
+      "mean_curvature": 0.0
+    },
+    {
+      "order": 0.07128172902319804,
+      "trace_sq": 4266.8931609733345,
+      "max_eigenvalue": 63.8465169160621,
+      "min_eigenvalue": 1.0000019073805787e-10,
+      "condition_number": 638463951366.88,
+      "frobenius": 65.32146018708809,
+      "mean_curvature": 16.41705652453033
+    },
+    {
+      "order": 0.004147380080290953,
+      "trace_sq": 0.0,
+      "max_eigenvalue": 0.0,
+      "min_eigenvalue": 1e-10,
+      "condition_number": 0.0,
+      "frobenius": 0.0,
+      "mean_curvature": 0.0
+    },
+    {
+      "order": 0.004147380080290953,
+      "trace_sq": 0.0,
+      "max_eigenvalue": 0.0,
+      "min_eigenvalue": 1e-10,
+      "condition_number": 0.0,
+      "frobenius": 0.0,
+      "mean_curvature": 0.0
+    },
+    {
+      "order": 0.03646465200940824,
+      "trace_sq": 3763.0563130160426,
+      "max_eigenvalue": 59.31700398935547,
+      "min_eigenvalue": 1.0000001992544415e-10,
+      "condition_number": 593169921701.8132,
+      "frobenius": 61.34375528948356,
+      "mean_curvature": 15.391682517781291
+    },
+    {
+      "order": 0.17641095909626997,
+      "trace_sq": 6661.141090784997,
+      "max_eigenvalue": 77.93288445140094,
+      "min_eigenvalue": 1.000000181106328e-10,
+      "condition_number": 779328703372.6497,
+      "frobenius": 81.61581397489702,
+      "mean_curvature": 21.548895967428706
+    },
+    {
+      "order": 0.004274991775069136,
+      "trace_sq": 0.0,
+      "max_eigenvalue": 0.0,
+      "min_eigenvalue": 1e-10,
+      "condition_number": 0.0,
+      "frobenius": 0.0,
+      "mean_curvature": 0.0
+    },
+    {
+      "order": 0.08046646607192096,
+      "trace_sq": 5051.968070790208,
+      "max_eigenvalue": 56.948862799821015,
+      "min_eigenvalue": 1.0000001892224968e-10,
+      "condition_number": 569488520238.1704,
+      "frobenius": 71.07719796664897,
+      "mean_curvature": 23.16842006060785
+    },
+    {
+      "order": 0.08081104096408516,
+      "trace_sq": 2007.0073659724858,
+      "max_eigenvalue": 44.31609981546382,
+      "min_eigenvalue": 1.0000000595859922e-10,
+      "condition_number": 443160971748.452,
+      "frobenius": 44.79963577946238,
+      "mean_curvature": 10.785205508546712
+    },
+    {
+      "order": 0.15370783865391577,
+      "trace_sq": 24183.48600333876,
+      "max_eigenvalue": 151.75670730695884,
+      "min_eigenvalue": 1.0000031674404966e-10,
+      "condition_number": 1517562266281.4102,
+      "frobenius": 155.51040480732715,
+      "mean_curvature": 40.83108165055466
+    },
+    {
+      "order": 0.022126845820481026,
+      "trace_sq": 433.2181129191158,
+      "max_eigenvalue": 20.775532470588875,
+      "min_eigenvalue": 1.000000028343853e-10,
+      "condition_number": 207755318817.30255,
+      "frobenius": 20.813892305840245,
+      "mean_curvature": 4.555032258265297
+    },
+    {
+      "order": 0.004274991775069136,
+      "trace_sq": 0.0,
+      "max_eigenvalue": 0.0,
+      "min_eigenvalue": 1e-10,
+      "condition_number": 0.0,
+      "frobenius": 0.0,
+      "mean_curvature": 0.0
+    },
+    {
+      "order": 0.0708836311551711,
+      "trace_sq": 35.18255771076783,
+      "max_eigenvalue": 4.202083855496578,
+      "min_eigenvalue": 1.0000000438297613e-10,
+      "condition_number": 42020836713.20254,
+      "frobenius": 5.931488658909147,
+      "mean_curvature": 2.0692173596217387
+    },
+    {
+      "order": 0.004147380080290953,
+      "trace_sq": 0.0,
+      "max_eigenvalue": 0.0,
+      "min_eigenvalue": 1e-10,
+      "condition_number": 0.0,
+      "frobenius": 0.0,
+      "mean_curvature": 0.0
+    },
+    {
+      "order": 0.004274991775069136,
+      "trace_sq": 0.0,
+      "max_eigenvalue": 0.0,
+      "min_eigenvalue": 1e-10,
+      "condition_number": 0.0,
+      "frobenius": 0.0,
+      "mean_curvature": 0.0
+    }
+  ],
+  "analysis": {
+    "n_samples": 50,
+    "order_range": [
+      0.004147380080290953,
+      0.5197603629334541
+    ],
+    "frobenius_correlation": {
+      "spearman_rho": 0.8990922810783369,
+      "p_value": 7.629710582814714e-19
+    },
+    "max_eigenvalue_correlation": {
+      "spearman_rho": 0.8975573827438266,
+      "p_value": 1.0768052598462522e-18
+    },
+    "condition_number_correlation": {
+      "spearman_rho": 0.8975573827438266,
+      "p_value": 1.0768052598462522e-18
+    },
+    "mean_curvature_correlation": {
+      "spearman_rho": 0.9062551399727183,
+      "p_value": 1.4158600229195638e-19
+    },
+    "group_comparison": {
+      "low_order_mean_frobenius": 0.634563579261059,
+      "high_order_mean_frobenius": 99.67981842872443,
+      "mann_whitney_u": 624.0,
+      "mann_whitney_p": 1.0710401611349267e-10,
+      "cohens_d": 1.5536200496054973
+    },
+    "summary_stats": {
+      "mean_order": 0.06819852405766177,
+      "mean_frobenius": 50.15719100399276,
+      "mean_max_eigenvalue": 45.52418949655564,
+      "mean_condition_number": 455238424488.27966
+    }
+  }
+}

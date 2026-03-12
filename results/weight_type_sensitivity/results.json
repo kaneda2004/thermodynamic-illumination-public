@@ -1,0 +1,14 @@
+{
+  "input_mean": 0.0028380743348582617,
+  "output_mean": 0.00426803074847486,
+  "hidden_mean": 0.0014755171109204453,
+  "input_std": 0.0043364013727958724,
+  "output_std": 0.006550947494830937,
+  "u_statistic": 18454.0,
+  "p_value": 0.17118752405078064,
+  "cohens_d": -0.257411134958873,
+  "n_cppns": 200,
+  "epsilon": 0.05,
+  "status": "refuted",
+  "summary": "No significant difference between weight types (p=0.171, d=-0.26)"
+}

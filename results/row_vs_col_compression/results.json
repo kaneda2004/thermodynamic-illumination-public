@@ -1,0 +1,21 @@
+{
+  "experiment_id": "RES-168",
+  "hypothesis": "Row-wise compression ratio predicts order better than column-wise in CPPN images",
+  "domain": "compression_mechanics",
+  "status": "refuted",
+  "metrics": {
+    "r_row_order": -0.8804200267462113,
+    "r_col_order": -0.8810750424109522,
+    "r_hilbert_order": -0.8717878117648958,
+    "r_diagonal_order": -0.7872605446181398,
+    "r_tiled_order": -0.8804200267462113,
+    "z_stat_row_vs_col": 0.04603816894238865,
+    "p_value_row_vs_col": 0.9632798277316117,
+    "effect_size_row_col": 0.00065501566474091,
+    "r_row_col": 0.9970377357929081,
+    "n_samples": 500,
+    "best_scan_order": "col",
+    "worst_scan_order": "diagonal"
+  },
+  "summary": "Row and column scans correlate equally with order (r=-0.880 vs r=-0.881, p=9.63e-01). CPPN compression is axis-symmetric - no preferred scan direction. Best: col (r=-0.881)."
+}

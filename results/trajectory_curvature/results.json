@@ -1,0 +1,35 @@
+{
+  "experiment_id": "RES-161",
+  "hypothesis": "NS trajectory curvature (turning rate) increases as sampling progresses to higher order",
+  "status": "refuted",
+  "n_runs": 15,
+  "n_iterations": 150,
+  "n_live": 15,
+  "total_points_analyzed": 1815,
+  "metrics": {
+    "order_vs_curvature_spearman_r": 0.015,
+    "order_vs_curvature_p_value": 0.533,
+    "iteration_vs_curvature_spearman_r": 0.027,
+    "iteration_vs_curvature_p_value": 0.257,
+    "cohens_d_late_vs_early": 0.017,
+    "t_test_p_value": 0.721,
+    "high_vs_low_order_cohens_d": -0.035,
+    "high_vs_low_order_t_test_p": 0.549
+  },
+  "phase_analysis": {
+    "early_phase_mean_curvature": 2.082,
+    "early_phase_n": 900,
+    "late_phase_mean_curvature": 2.094,
+    "late_phase_n": 915
+  },
+  "order_tercile_analysis": {
+    "low_order_mean": 2.084,
+    "low_order_std": 0.519,
+    "mid_order_mean": 2.119,
+    "mid_order_std": 0.661,
+    "high_order_mean": 2.061,
+    "high_order_std": 0.803
+  },
+  "conclusion": "REFUTED: No significant change in trajectory curvature with sampling progression or order. Curvature is uniformly high (~2.1 rad, close to pi/2) throughout sampling regardless of order level. NS maintains constant turning rate even as order increases.",
+  "key_finding": 0.017
+}

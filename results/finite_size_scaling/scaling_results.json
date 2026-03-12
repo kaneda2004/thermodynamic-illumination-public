@@ -1,0 +1,91 @@
+{
+  "experiment": "finite_size_scaling",
+  "hypothesis": "Critical point location shifts with image size following finite-size scaling",
+  "null_hypothesis": "No systematic relationship between size and critical point",
+  "status": "refuted",
+  "parameters": {
+    "sizes": [
+      16,
+      24,
+      32,
+      48
+    ],
+    "n_seeds": 5,
+    "n_live": 100,
+    "n_iterations": 1000
+  },
+  "by_size": {
+    "16": {
+      "critical_log_X_mean": -0.908,
+      "critical_log_X_se": 0.04828250200642051,
+      "critical_log_X_values": [
+        -0.88,
+        -1.09,
+        -0.96,
+        -0.79,
+        -0.82
+      ],
+      "peak_variance_mean": 0.0012801731829763172,
+      "n_valid": 5
+    },
+    "24": {
+      "critical_log_X_mean": -1.016,
+      "critical_log_X_se": 0.05235265036270848,
+      "critical_log_X_values": [
+        -0.8,
+        -1.03,
+        -1.12,
+        -1.01,
+        -1.12
+      ],
+      "peak_variance_mean": 0.0003975403226261537,
+      "n_valid": 5
+    },
+    "32": {
+      "critical_log_X_mean": -1.1960000000000002,
+      "critical_log_X_se": 0.11101711579752013,
+      "critical_log_X_values": [
+        -1.11,
+        -1.1,
+        -0.92,
+        -1.19,
+        -1.66
+      ],
+      "peak_variance_mean": 0.000115461438153903,
+      "n_valid": 5
+    },
+    "48": {
+      "critical_log_X_mean": -1.06,
+      "critical_log_X_se": 0.072773621594641,
+      "critical_log_X_values": [
+        -0.85,
+        -0.95,
+        -1.02,
+        -1.17,
+        -1.31
+      ],
+      "peak_variance_mean": 4.28428459315401e-05,
+      "n_valid": 5
+    }
+  },
+  "scaling_analysis": {
+    "slope": -0.16962871640842223,
+    "slope_se": 0.13664422967232132,
+    "r_squared": 0.43519545174706803,
+    "p_value": 0.3403065471394551,
+    "bootstrap_ci_95": [
+      -0.6679894384011086,
+      0.35714720191441257
+    ],
+    "cohens_d": 0.71975442433055,
+    "nu_estimate": 17.954050890693257,
+    "nu_inv_estimate": 0.0556977367440996,
+    "nu_fit_r2": 0.422958630216163
+  },
+  "success_criteria": {
+    "p_lt_001": false,
+    "cohens_d_gt_05": true,
+    "ci_excludes_zero": false,
+    "r2_gt_08": false
+  }
+}

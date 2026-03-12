@@ -1,0 +1,71 @@
+{
+  "experiment": "RES-236",
+  "hypothesis": "Hybrid multi-manifold sampling achieves >=110x speedup",
+  "stage1_metadata": {
+    "n_samples": 50,
+    "d_weights": 5,
+    "mean": -0.0024229041215306567,
+    "std": 0.9641196524603245
+  },
+  "basis_dimensions": [
+    2,
+    3,
+    5
+  ],
+  "results_by_strategy": {
+    "uniform": {
+      "weighting_strategy": "uniform",
+      "n_cppns": 20,
+      "n_samples_total": 10000,
+      "speedup": 0.6,
+      "acceptance_rates": {
+        "2": 0.0,
+        "3": 0.0,
+        "5": 0.0
+      },
+      "manifold_usage": {
+        "2": 0.507,
+        "3": 0.2885,
+        "5": 0.2045
+      },
+      "avg_order_achieved": 0.042586552376883385
+    },
+    "decay": {
+      "weighting_strategy": "decay",
+      "n_cppns": 20,
+      "n_samples_total": 10000,
+      "speedup": 0.6,
+      "acceptance_rates": {
+        "2": 0.0,
+        "3": 0.0,
+        "5": 0.0
+      },
+      "manifold_usage": {
+        "2": 0.523,
+        "3": 0.258,
+        "5": 0.219
+      },
+      "avg_order_achieved": 0.07269419247384397
+    },
+    "adaptive": {
+      "weighting_strategy": "adaptive",
+      "n_cppns": 20,
+      "n_samples_total": 10000,
+      "speedup": 0.6,
+      "acceptance_rates": {
+        "2": 0.0,
+        "3": 0.0,
+        "5": 0.0
+      },
+      "manifold_usage": {
+        "2": 0.335,
+        "3": 0.334,
+        "5": 0.331
+      },
+      "avg_order_achieved": 0.051378430664554886
+    }
+  },
+  "best_strategy": "uniform",
+  "best_speedup": 0.6,
+  "status": "refuted"
+}

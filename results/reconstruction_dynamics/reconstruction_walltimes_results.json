@@ -1,0 +1,876 @@
+{
+  "experiment": "reconstruction_time_vs_order",
+  "timestamp": 1766206951.2088,
+  "n_samples": 50,
+  "samples": [
+    {
+      "sample_id": 0,
+      "seed": 100,
+      "order": 0.02376311882988865,
+      "compressibility": 0.9375,
+      "time_total": 0.00773549999576062,
+      "error_initial": 0.3559663065151607,
+      "error_final": 0.41066320904674103,
+      "error_reduction": -0.1536575274544559,
+      "time_to_threshold": {
+        "error_0.5": 1.8834020011126995e-05,
+        "error_0.1": 0.00773549999576062,
+        "error_0.05": 0.00773549999576062,
+        "error_0.01": 0.00773549999576062
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 1,
+      "seed": 101,
+      "order": 0.004274991775069136,
+      "compressibility": 0.97265625,
+      "time_total": 0.0076504170428961515,
+      "error_initial": 1.2592750859560309,
+      "error_final": 1.3399183556083742,
+      "error_reduction": -0.06403943867809926,
+      "time_to_threshold": {
+        "error_0.5": 0.0076504170428961515,
+        "error_0.1": 0.0076504170428961515,
+        "error_0.05": 0.0076504170428961515,
+        "error_0.01": 0.0076504170428961515
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 2,
+      "seed": 102,
+      "order": 0.00911138383650946,
+      "compressibility": 0.94921875,
+      "time_total": 0.007327625062316656,
+      "error_initial": 1.2315457632726348,
+      "error_final": 1.3130804120807658,
+      "error_reduction": -0.06620513117177657,
+      "time_to_threshold": {
+        "error_0.5": 0.007327625062316656,
+        "error_0.1": 0.007327625062316656,
+        "error_0.05": 0.007327625062316656,
+        "error_0.01": 0.007327625062316656
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 3,
+      "seed": 103,
+      "order": 0.004147380080290953,
+      "compressibility": 0.97265625,
+      "time_total": 0.0076956660486757755,
+      "error_initial": 0.24732049982624013,
+      "error_final": 0.30054557172485924,
+      "error_reduction": -0.21520687494361662,
+      "time_to_threshold": {
+        "error_0.5": 1.48330582305789e-05,
+        "error_0.1": 0.0076956660486757755,
+        "error_0.05": 0.0076956660486757755,
+        "error_0.01": 0.0076956660486757755
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 4,
+      "seed": 104,
+      "order": 0.004274991775069136,
+      "compressibility": 0.97265625,
+      "time_total": 0.007577999960631132,
+      "error_initial": 1.2396157425124925,
+      "error_final": 1.262971409942769,
+      "error_reduction": -0.01884105422947782,
+      "time_to_threshold": {
+        "error_0.5": 0.007577999960631132,
+        "error_0.1": 0.007577999960631132,
+        "error_0.05": 0.007577999960631132,
+        "error_0.01": 0.007577999960631132
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 5,
+      "seed": 105,
+      "order": 0.03366635572069561,
+      "compressibility": 0.91015625,
+      "time_total": 0.007521624909713864,
+      "error_initial": 1.1644368797199376,
+      "error_final": 1.1969580902893193,
+      "error_reduction": -0.02792870196142417,
+      "time_to_threshold": {
+        "error_0.5": 0.007521624909713864,
+        "error_0.1": 0.007521624909713864,
+        "error_0.05": 0.007521624909713864,
+        "error_0.01": 0.007521624909713864
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 6,
+      "seed": 106,
+      "order": 0.004274991775069136,
+      "compressibility": 0.97265625,
+      "time_total": 0.007615125039592385,
+      "error_initial": 1.2232000299618728,
+      "error_final": 1.2520259515478833,
+      "error_reduction": -0.02356599156112872,
+      "time_to_threshold": {
+        "error_0.5": 0.007615125039592385,
+        "error_0.1": 0.007615125039592385,
+        "error_0.05": 0.007615125039592385,
+        "error_0.01": 0.007615125039592385
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 7,
+      "seed": 107,
+      "order": 0.16852158932205213,
+      "compressibility": 0.89453125,
+      "time_total": 0.007546332897618413,
+      "error_initial": 0.6913022860554239,
+      "error_final": 0.7397132724065094,
+      "error_reduction": -0.07002867966821885,
+      "time_to_threshold": {
+        "error_0.5": 0.007546332897618413,
+        "error_0.1": 0.007546332897618413,
+        "error_0.05": 0.007546332897618413,
+        "error_0.01": 0.007546332897618413
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 8,
+      "seed": 108,
+      "order": 0.07978016177446723,
+      "compressibility": 0.912109375,
+      "time_total": 0.0073662500362843275,
+      "error_initial": 0.47477591505124705,
+      "error_final": 0.5233185383528665,
+      "error_reduction": -0.10224323044305104,
+      "time_to_threshold": {
+        "error_0.5": 1.283304300159216e-05,
+        "error_0.1": 0.0073662500362843275,
+        "error_0.05": 0.0073662500362843275,
+        "error_0.01": 0.0073662500362843275
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 9,
+      "seed": 109,
+      "order": 0.13614689544707334,
+      "compressibility": 0.892578125,
+      "time_total": 0.007703125011175871,
+      "error_initial": 0.9101123548479613,
+      "error_final": 0.9566752298217176,
+      "error_reduction": -0.051161677699033896,
+      "time_to_threshold": {
+        "error_0.5": 0.007703125011175871,
+        "error_0.1": 0.007703125011175871,
+        "error_0.05": 0.007703125011175871,
+        "error_0.01": 0.007703125011175871
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 10,
+      "seed": 110,
+      "order": 0.17936570071213168,
+      "compressibility": 0.892578125,
+      "time_total": 0.007514792028814554,
+      "error_initial": 0.8760956243617997,
+      "error_final": 0.9055580041210957,
+      "error_reduction": -0.033629182633340096,
+      "time_to_threshold": {
+        "error_0.5": 0.007514792028814554,
+        "error_0.1": 0.007514792028814554,
+        "error_0.05": 0.007514792028814554,
+        "error_0.01": 0.007514792028814554
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 11,
+      "seed": 111,
+      "order": 0.004147380080290953,
+      "compressibility": 0.97265625,
+      "time_total": 0.007723000016994774,
+      "error_initial": 0.24976780822400724,
+      "error_final": 0.2950788215043976,
+      "error_reduction": -0.18141254305123025,
+      "time_to_threshold": {
+        "error_0.5": 1.3874960131943226e-05,
+        "error_0.1": 0.007723000016994774,
+        "error_0.05": 0.007723000016994774,
+        "error_0.01": 0.007723000016994774
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 12,
+      "seed": 112,
+      "order": 0.004274991775069136,
+      "compressibility": 0.97265625,
+      "time_total": 0.007631917018443346,
+      "error_initial": 1.2597356569687315,
+      "error_final": 1.3374441077130257,
+      "error_reduction": -0.06168631514734875,
+      "time_to_threshold": {
+        "error_0.5": 0.007631917018443346,
+        "error_0.1": 0.007631917018443346,
+        "error_0.05": 0.007631917018443346,
+        "error_0.01": 0.007631917018443346
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 13,
+      "seed": 113,
+      "order": 0.004147380080290953,
+      "compressibility": 0.97265625,
+      "time_total": 0.007349333027377725,
+      "error_initial": 0.2536504476483282,
+      "error_final": 0.308986243549457,
+      "error_reduction": -0.2181576906027498,
+      "time_to_threshold": {
+        "error_0.5": 1.570803578943014e-05,
+        "error_0.1": 0.007349333027377725,
+        "error_0.05": 0.007349333027377725,
+        "error_0.01": 0.007349333027377725
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 14,
+      "seed": 114,
+      "order": 0.004274991775069136,
+      "compressibility": 0.97265625,
+      "time_total": 0.0077329170890152454,
+      "error_initial": 1.25666621187955,
+      "error_final": 1.3334017466042827,
+      "error_reduction": -0.06106278182163893,
+      "time_to_threshold": {
+        "error_0.5": 0.0077329170890152454,
+        "error_0.1": 0.0077329170890152454,
+        "error_0.05": 0.0077329170890152454,
+        "error_0.01": 0.0077329170890152454
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 15,
+      "seed": 115,
+      "order": 0.004147380080290953,
+      "compressibility": 0.97265625,
+      "time_total": 0.007256417069584131,
+      "error_initial": 0.2518966401019582,
+      "error_final": 0.290811872179948,
+      "error_reduction": -0.1544888889617166,
+      "time_to_threshold": {
+        "error_0.5": 1.2417091056704521e-05,
+        "error_0.1": 0.007256417069584131,
+        "error_0.05": 0.007256417069584131,
+        "error_0.01": 0.007256417069584131
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 16,
+      "seed": 116,
+      "order": 0.004147380080290953,
+      "compressibility": 0.97265625,
+      "time_total": 0.007552041090093553,
+      "error_initial": 0.26106571821803926,
+      "error_final": 0.31333286214662237,
+      "error_reduction": -0.2002068454844365,
+      "time_to_threshold": {
+        "error_0.5": 1.2625008821487427e-05,
+        "error_0.1": 0.007552041090093553,
+        "error_0.05": 0.007552041090093553,
+        "error_0.01": 0.007552041090093553
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 17,
+      "seed": 117,
+      "order": 0.004147380080290953,
+      "compressibility": 0.97265625,
+      "time_total": 0.007685457938350737,
+      "error_initial": 0.2682122758728965,
+      "error_final": 0.32727441009450664,
+      "error_reduction": -0.2202066777419932,
+      "time_to_threshold": {
+        "error_0.5": 1.3749930076301098e-05,
+        "error_0.1": 0.007685457938350737,
+        "error_0.05": 0.007685457938350737,
+        "error_0.01": 0.007685457938350737
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 18,
+      "seed": 118,
+      "order": 0.08540775509479759,
+      "compressibility": 0.890625,
+      "time_total": 0.007500582956708968,
+      "error_initial": 1.0578294005704665,
+      "error_final": 1.0890971914035217,
+      "error_reduction": -0.0295584437464465,
+      "time_to_threshold": {
+        "error_0.5": 0.007500582956708968,
+        "error_0.1": 0.007500582956708968,
+        "error_0.05": 0.007500582956708968,
+        "error_0.01": 0.007500582956708968
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 19,
+      "seed": 119,
+      "order": 0.015105684711708764,
+      "compressibility": 0.9453125,
+      "time_total": 0.007599124917760491,
+      "error_initial": 0.2920015926984756,
+      "error_final": 0.342760210794813,
+      "error_reduction": -0.1738299356858933,
+      "time_to_threshold": {
+        "error_0.5": 1.237494871020317e-05,
+        "error_0.1": 0.007599124917760491,
+        "error_0.05": 0.007599124917760491,
+        "error_0.01": 0.007599124917760491
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 20,
+      "seed": 120,
+      "order": 0.004274991775069136,
+      "compressibility": 0.97265625,
+      "time_total": 0.007705416996032,
+      "error_initial": 1.1826593581576297,
+      "error_final": 1.224605887721203,
+      "error_reduction": -0.03546797247296263,
+      "time_to_threshold": {
+        "error_0.5": 0.007705416996032,
+        "error_0.1": 0.007705416996032,
+        "error_0.05": 0.007705416996032,
+        "error_0.01": 0.007705416996032
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 21,
+      "seed": 121,
+      "order": 0.004147380080290953,
+      "compressibility": 0.97265625,
+      "time_total": 0.007461958914063871,
+      "error_initial": 0.23270656158060823,
+      "error_final": 0.282997115341905,
+      "error_reduction": -0.2161114555519969,
+      "time_to_threshold": {
+        "error_0.5": 1.2874952517449856e-05,
+        "error_0.1": 0.007461958914063871,
+        "error_0.05": 0.007461958914063871,
+        "error_0.01": 0.007461958914063871
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 22,
+      "seed": 122,
+      "order": 0.06903035985515733,
+      "compressibility": 0.89453125,
+      "time_total": 0.007684584008529782,
+      "error_initial": 1.1695765842074581,
+      "error_final": 1.2168083136506083,
+      "error_reduction": -0.040383614101779805,
+      "time_to_threshold": {
+        "error_0.5": 0.007684584008529782,
+        "error_0.1": 0.007684584008529782,
+        "error_0.05": 0.007684584008529782,
+        "error_0.01": 0.007684584008529782
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 23,
+      "seed": 123,
+      "order": 0.004147380080290953,
+      "compressibility": 0.97265625,
+      "time_total": 0.0074870840180665255,
+      "error_initial": 0.2487083489564162,
+      "error_final": 0.2960650995841806,
+      "error_reduction": -0.1904107795634241,
+      "time_to_threshold": {
+        "error_0.5": 1.3416982255876064e-05,
+        "error_0.1": 0.0074870840180665255,
+        "error_0.05": 0.0074870840180665255,
+        "error_0.01": 0.0074870840180665255
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 24,
+      "seed": 124,
+      "order": 0.21275156806431833,
+      "compressibility": 0.8828125,
+      "time_total": 0.007539125042967498,
+      "error_initial": 0.913695502893247,
+      "error_final": 0.9744538787052978,
+      "error_reduction": -0.06649740051582573,
+      "time_to_threshold": {
+        "error_0.5": 0.007539125042967498,
+        "error_0.1": 0.007539125042967498,
+        "error_0.05": 0.007539125042967498,
+        "error_0.01": 0.007539125042967498
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 25,
+      "seed": 125,
+      "order": 0.11095653475004609,
+      "compressibility": 0.92578125,
+      "time_total": 0.007630791049450636,
+      "error_initial": 0.6050563563482712,
+      "error_final": 0.6642418646586687,
+      "error_reduction": -0.09781817458760574,
+      "time_to_threshold": {
+        "error_0.5": 0.007630791049450636,
+        "error_0.1": 0.007630791049450636,
+        "error_0.05": 0.007630791049450636,
+        "error_0.01": 0.007630791049450636
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 26,
+      "seed": 126,
+      "order": 0.13342721570317836,
+      "compressibility": 0.8984375,
+      "time_total": 0.007249083020724356,
+      "error_initial": 0.5870563181781058,
+      "error_final": 0.6364371653057083,
+      "error_reduction": -0.08411603042181949,
+      "time_to_threshold": {
+        "error_0.5": 0.007249083020724356,
+        "error_0.1": 0.007249083020724356,
+        "error_0.05": 0.007249083020724356,
+        "error_0.01": 0.007249083020724356
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 27,
+      "seed": 127,
+      "order": 0.004147380080290953,
+      "compressibility": 0.97265625,
+      "time_total": 0.007627291022799909,
+      "error_initial": 0.25491665411153697,
+      "error_final": 0.3205941220908592,
+      "error_reduction": -0.25764290757096325,
+      "time_to_threshold": {
+        "error_0.5": 1.2708012945950031e-05,
+        "error_0.1": 0.007627291022799909,
+        "error_0.05": 0.007627291022799909,
+        "error_0.01": 0.007627291022799909
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 28,
+      "seed": 128,
+      "order": 0.008157341868861035,
+      "compressibility": 0.955078125,
+      "time_total": 0.007453166996128857,
+      "error_initial": 0.24246441143817155,
+      "error_final": 0.2853733188501615,
+      "error_reduction": -0.1769699195844035,
+      "time_to_threshold": {
+        "error_0.5": 1.3791956007480621e-05,
+        "error_0.1": 0.007453166996128857,
+        "error_0.05": 0.007453166996128857,
+        "error_0.01": 0.007453166996128857
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 29,
+      "seed": 129,
+      "order": 0.004147380080290953,
+      "compressibility": 0.97265625,
+      "time_total": 0.007454000064171851,
+      "error_initial": 0.23925780156423343,
+      "error_final": 0.2985011291872617,
+      "error_reduction": -0.24761293972837048,
+      "time_to_threshold": {
+        "error_0.5": 1.9249971956014633e-05,
+        "error_0.1": 0.007454000064171851,
+        "error_0.05": 0.007454000064171851,
+        "error_0.01": 0.007454000064171851
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 30,
+      "seed": 130,
+      "order": 0.12751778147380982,
+      "compressibility": 0.88671875,
+      "time_total": 0.007635249989107251,
+      "error_initial": 0.9785035859881708,
+      "error_final": 1.041022222445732,
+      "error_reduction": -0.06389208720991622,
+      "time_to_threshold": {
+        "error_0.5": 0.007635249989107251,
+        "error_0.1": 0.007635249989107251,
+        "error_0.05": 0.007635249989107251,
+        "error_0.01": 0.007635249989107251
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 31,
+      "seed": 131,
+      "order": 0.008459624261533539,
+      "compressibility": 0.95703125,
+      "time_total": 0.007336082984693348,
+      "error_initial": 0.26873301170114955,
+      "error_final": 0.31394288155906724,
+      "error_reduction": -0.16823340591803057,
+      "time_to_threshold": {
+        "error_0.5": 1.2165983207523823e-05,
+        "error_0.1": 0.007336082984693348,
+        "error_0.05": 0.007336082984693348,
+        "error_0.01": 0.007336082984693348
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 32,
+      "seed": 132,
+      "order": 0.09730749804768007,
+      "compressibility": 0.908203125,
+      "time_total": 0.007631500018760562,
+      "error_initial": 0.4978769891014027,
+      "error_final": 0.5277756726680457,
+      "error_reduction": -0.06005235071136876,
+      "time_to_threshold": {
+        "error_0.5": 1.3584038242697716e-05,
+        "error_0.1": 0.007631500018760562,
+        "error_0.05": 0.007631500018760562,
+        "error_0.01": 0.007631500018760562
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 33,
+      "seed": 133,
+      "order": 0.004147380080290953,
+      "compressibility": 0.97265625,
+      "time_total": 0.007527124951593578,
+      "error_initial": 0.24076389412184057,
+      "error_final": 0.2763529743296219,
+      "error_reduction": -0.14781734745903993,
+      "time_to_threshold": {
+        "error_0.5": 1.4415942132472992e-05,
+        "error_0.1": 0.007527124951593578,
+        "error_0.05": 0.007527124951593578,
+        "error_0.01": 0.007527124951593578
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 34,
+      "seed": 134,
+      "order": 0.10451123901961852,
+      "compressibility": 0.884765625,
+      "time_total": 0.007426709053106606,
+      "error_initial": 0.9842007427404451,
+      "error_final": 1.0423829201260368,
+      "error_reduction": -0.05911616894097793,
+      "time_to_threshold": {
+        "error_0.5": 0.007426709053106606,
+        "error_0.1": 0.007426709053106606,
+        "error_0.05": 0.007426709053106606,
+        "error_0.01": 0.007426709053106606
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 35,
+      "seed": 135,
+      "order": 0.004147380080290953,
+      "compressibility": 0.97265625,
+      "time_total": 0.007688374957069755,
+      "error_initial": 0.2350267595647925,
+      "error_final": 0.29624143449511325,
+      "error_reduction": -0.26045831979995954,
+      "time_to_threshold": {
+        "error_0.5": 1.462490763515234e-05,
+        "error_0.1": 0.007688374957069755,
+        "error_0.05": 0.007688374957069755,
+        "error_0.01": 0.007688374957069755
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 36,
+      "seed": 136,
+      "order": 0.004147380080290953,
+      "compressibility": 0.97265625,
+      "time_total": 0.0072814169107005,
+      "error_initial": 0.2422908927083568,
+      "error_final": 0.2741611094778746,
+      "error_reduction": -0.1315369983581098,
+      "time_to_threshold": {
+        "error_0.5": 1.1833966709673405e-05,
+        "error_0.1": 0.0072814169107005,
+        "error_0.05": 0.0072814169107005,
+        "error_0.01": 0.0072814169107005
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 37,
+      "seed": 137,
+      "order": 0.12529050594529934,
+      "compressibility": 0.919921875,
+      "time_total": 0.007552041905000806,
+      "error_initial": 0.7705885849082776,
+      "error_final": 0.8119916085857116,
+      "error_reduction": -0.05372909031216603,
+      "time_to_threshold": {
+        "error_0.5": 0.007552041905000806,
+        "error_0.1": 0.007552041905000806,
+        "error_0.05": 0.007552041905000806,
+        "error_0.01": 0.007552041905000806
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 38,
+      "seed": 138,
+      "order": 0.09507984411184744,
+      "compressibility": 0.9140625,
+      "time_total": 0.007553249946795404,
+      "error_initial": 0.5081413584973501,
+      "error_final": 0.5627766886525231,
+      "error_reduction": -0.10751994347790506,
+      "time_to_threshold": {
+        "error_0.5": 0.007553249946795404,
+        "error_0.1": 0.007553249946795404,
+        "error_0.05": 0.007553249946795404,
+        "error_0.01": 0.007553249946795404
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 39,
+      "seed": 139,
+      "order": 0.014863162861360328,
+      "compressibility": 0.9375,
+      "time_total": 0.0076452079229056835,
+      "error_initial": 1.24700588074103,
+      "error_final": 1.2705725807402122,
+      "error_reduction": -0.018898627794191183,
+      "time_to_threshold": {
+        "error_0.5": 0.0076452079229056835,
+        "error_0.1": 0.0076452079229056835,
+        "error_0.05": 0.0076452079229056835,
+        "error_0.01": 0.0076452079229056835
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 40,
+      "seed": 140,
+      "order": 0.004147380080290953,
+      "compressibility": 0.97265625,
+      "time_total": 0.0076726669212803245,
+      "error_initial": 0.23916561786304377,
+      "error_final": 0.29069602887126167,
+      "error_reduction": -0.21545910924445857,
+      "time_to_threshold": {
+        "error_0.5": 1.237494871020317e-05,
+        "error_0.1": 0.0076726669212803245,
+        "error_0.05": 0.0076726669212803245,
+        "error_0.01": 0.0076726669212803245
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 41,
+      "seed": 141,
+      "order": 0.004147380080290953,
+      "compressibility": 0.97265625,
+      "time_total": 0.007444582995958626,
+      "error_initial": 0.2584839017860096,
+      "error_final": 0.30994578137770157,
+      "error_reduction": -0.199091236306029,
+      "time_to_threshold": {
+        "error_0.5": 1.3582990504801273e-05,
+        "error_0.1": 0.007444582995958626,
+        "error_0.05": 0.007444582995958626,
+        "error_0.01": 0.007444582995958626
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 42,
+      "seed": 142,
+      "order": 0.20285162487609731,
+      "compressibility": 0.8828125,
+      "time_total": 0.007490082993172109,
+      "error_initial": 0.8074159867648159,
+      "error_final": 0.8939291181961866,
+      "error_reduction": -0.10714815267319629,
+      "time_to_threshold": {
+        "error_0.5": 0.007490082993172109,
+        "error_0.1": 0.007490082993172109,
+        "error_0.05": 0.007490082993172109,
+        "error_0.01": 0.007490082993172109
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 43,
+      "seed": 143,
+      "order": 0.1778291717487119,
+      "compressibility": 0.888671875,
+      "time_total": 0.007612916990183294,
+      "error_initial": 0.6359877344775036,
+      "error_final": 0.6560921157701795,
+      "error_reduction": -0.03161127204132567,
+      "time_to_threshold": {
+        "error_0.5": 0.007612916990183294,
+        "error_0.1": 0.007612916990183294,
+        "error_0.05": 0.007612916990183294,
+        "error_0.01": 0.007612916990183294
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 44,
+      "seed": 144,
+      "order": 0.004274991775069136,
+      "compressibility": 0.97265625,
+      "time_total": 0.007458667038008571,
+      "error_initial": 1.2730571576176009,
+      "error_final": 1.333288771190835,
+      "error_reduction": -0.04731257603642897,
+      "time_to_threshold": {
+        "error_0.5": 0.007458667038008571,
+        "error_0.1": 0.007458667038008571,
+        "error_0.05": 0.007458667038008571,
+        "error_0.01": 0.007458667038008571
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 45,
+      "seed": 145,
+      "order": 0.004147380080290953,
+      "compressibility": 0.97265625,
+      "time_total": 0.00749416695907712,
+      "error_initial": 0.22738888916168162,
+      "error_final": 0.27620601019829916,
+      "error_reduction": -0.2146856040113651,
+      "time_to_threshold": {
+        "error_0.5": 1.2583914212882519e-05,
+        "error_0.1": 0.00749416695907712,
+        "error_0.05": 0.00749416695907712,
+        "error_0.01": 0.00749416695907712
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 46,
+      "seed": 146,
+      "order": 0.004274991775069136,
+      "compressibility": 0.97265625,
+      "time_total": 0.007423833012580872,
+      "error_initial": 1.2039480770404731,
+      "error_final": 1.2265817878646512,
+      "error_reduction": -0.01879957388024239,
+      "time_to_threshold": {
+        "error_0.5": 0.007423833012580872,
+        "error_0.1": 0.007423833012580872,
+        "error_0.05": 0.007423833012580872,
+        "error_0.01": 0.007423833012580872
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 47,
+      "seed": 147,
+      "order": 0.004274991775069136,
+      "compressibility": 0.97265625,
+      "time_total": 0.007281166967004538,
+      "error_initial": 1.279278236107605,
+      "error_final": 1.327865866036456,
+      "error_reduction": -0.03798050225015012,
+      "time_to_threshold": {
+        "error_0.5": 0.007281166967004538,
+        "error_0.1": 0.007281166967004538,
+        "error_0.05": 0.007281166967004538,
+        "error_0.01": 0.007281166967004538
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 48,
+      "seed": 148,
+      "order": 0.201300254549685,
+      "compressibility": 0.8828125,
+      "time_total": 0.007542708073742688,
+      "error_initial": 0.766753778045543,
+      "error_final": 0.8104047393816196,
+      "error_reduction": -0.05692956797898021,
+      "time_to_threshold": {
+        "error_0.5": 0.007542708073742688,
+        "error_0.1": 0.007542708073742688,
+        "error_0.05": 0.007542708073742688,
+        "error_0.01": 0.007542708073742688
+      },
+      "convergence_iterations": 500
+    },
+    {
+      "sample_id": 49,
+      "seed": 149,
+      "order": 0.08263169876305126,
+      "compressibility": 0.8984375,
+      "time_total": 0.007197333034127951,
+      "error_initial": 0.42509023120671374,
+      "error_final": 0.475585517881137,
+      "error_reduction": -0.11878721964323286,
+      "time_to_threshold": {
+        "error_0.5": 1.195794902741909e-05,
+        "error_0.1": 0.007197333034127951,
+        "error_0.05": 0.007197333034127951,
+        "error_0.01": 0.007197333034127951
+      },
+      "convergence_iterations": 500
+    }
+  ],
+  "correlation": {
+    "order_vs_time": {
+      "spearman_rho": -0.006268031960125694,
+      "p_value": 0.9655412677127414
+    },
+    "order_vs_error_reduction": {
+      "spearman_rho": 0.5803805843078883,
+      "p_value": 9.963982032816766e-06
+    },
+    "order_vs_convergence_iters": {
+      "spearman_rho": NaN,
+      "p_value": NaN
+    }
+  },
+  "effect_size": {
+    "cohens_d": -0.13787998788025618,
+    "high_order_mean_time": 0.007519791633822024,
+    "low_order_mean_time": 0.007539121722802519
+  }
+}

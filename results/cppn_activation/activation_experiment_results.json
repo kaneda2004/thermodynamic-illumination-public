@@ -1,0 +1,167 @@
+{
+  "experiment": "cppn_activation_functions",
+  "parameters": {
+    "n_samples": 100,
+    "image_size": 32,
+    "base_seed": 42,
+    "periodic_activations": [
+      "sin",
+      "cos",
+      "sin2",
+      "ring"
+    ],
+    "nonperiodic_activations": [
+      "sigmoid",
+      "tanh",
+      "relu",
+      "gauss",
+      "abs",
+      "identity"
+    ]
+  },
+  "primary_test": {
+    "comparison": "periodic_vs_nonperiodic_spectral_coherence",
+    "periodic_mean": 0.8362681262647862,
+    "periodic_std": 0.12715173655038964,
+    "nonperiodic_mean": 0.967604188628017,
+    "nonperiodic_std": 0.02820598104662155,
+    "mann_whitney_U": 10281.5,
+    "p_value": 4.068619473631574e-134,
+    "cohens_d": -1.5744641320676453,
+    "validated": "True"
+  },
+  "secondary_tests": {
+    "edge_density": {
+      "H": 705.5459489978267,
+      "p": 4.441718876141118e-146
+    },
+    "symmetry": {
+      "H": 287.4552963523558,
+      "p": 1.1919357474797275e-56
+    },
+    "spectral_coherence": {
+      "H": 683.0356161050503,
+      "p": 3.0652332454052915e-141
+    },
+    "compressibility": {
+      "H": 640.3800299837595,
+      "p": 4.480068717363842e-132
+    }
+  },
+  "summary_by_activation": {
+    "sin": {
+      "edge_density_mean": 0.055595703125,
+      "edge_density_std": 0.026697602407982572,
+      "symmetry_mean": 0.62455078125,
+      "symmetry_std": 0.13023019656942372,
+      "spectral_coherence_mean": 0.9081484363166774,
+      "spectral_coherence_std": 0.03500006648809472,
+      "compressibility_mean": 0.84310546875,
+      "compressibility_std": 0.04602671154513626
+    },
+    "cos": {
+      "edge_density_mean": 0.061064453125,
+      "edge_density_std": 0.026114221640112054,
+      "symmetry_mean": 0.6196875,
+      "symmetry_std": 0.1181267955179346,
+      "spectral_coherence_mean": 0.9049002791939585,
+      "spectral_coherence_std": 0.032563698956764066,
+      "compressibility_mean": 0.8351171875,
+      "compressibility_std": 0.04301327593590474
+    },
+    "gauss": {
+      "edge_density_mean": 0.0233349609375,
+      "edge_density_std": 0.017067129855402156,
+      "symmetry_mean": 0.739375,
+      "symmetry_std": 0.1844487074598078,
+      "spectral_coherence_mean": 0.9566629411882782,
+      "spectral_coherence_std": 0.028999807583079795,
+      "compressibility_mean": 0.90576171875,
+      "compressibility_std": 0.04923298947664683
+    },
+    "sigmoid": {
+      "edge_density_mean": 0.011083984375,
+      "edge_density_std": 0.01098546003514818,
+      "symmetry_mean": 0.82318359375,
+      "symmetry_std": 0.1911003724242793,
+      "spectral_coherence_mean": 0.9728465728368666,
+      "spectral_coherence_std": 0.026583574034758965,
+      "compressibility_mean": 0.9364453125,
+      "compressibility_std": 0.03593688433575898
+    },
+    "tanh": {
+      "edge_density_mean": 0.010625,
+      "edge_density_std": 0.011925687527780272,
+      "symmetry_mean": 0.83345703125,
+      "symmetry_std": 0.1949652880559843,
+      "spectral_coherence_mean": 0.9751443154069979,
+      "spectral_coherence_std": 0.026899049678666635,
+      "compressibility_mean": 0.938671875,
+      "compressibility_std": 0.037721109210601504
+    },
+    "abs": {
+      "edge_density_mean": 0.025244140625,
+      "edge_density_std": 0.01664050751407323,
+      "symmetry_mean": 0.75291015625,
+      "symmetry_std": 0.17796334302825398,
+      "spectral_coherence_mean": 0.9542905984631898,
+      "spectral_coherence_std": 0.026063081631436318,
+      "compressibility_mean": 0.90326171875,
+      "compressibility_std": 0.04671886023058693
+    },
+    "relu": {
+      "edge_density_mean": 0.01150390625,
+      "edge_density_std": 0.011425222008215495,
+      "symmetry_mean": 0.84345703125,
+      "symmetry_std": 0.18364306497750207,
+      "spectral_coherence_mean": 0.9730145329315905,
+      "spectral_coherence_std": 0.02586750686854347,
+      "compressibility_mean": 0.93421875,
+      "compressibility_std": 0.03877027411914233
+    },
+    "identity": {
+      "edge_density_mean": 0.0114208984375,
+      "edge_density_std": 0.011831508097223924,
+      "symmetry_mean": 0.84072265625,
+      "symmetry_std": 0.18595932263450146,
+      "spectral_coherence_mean": 0.9736661709411788,
+      "spectral_coherence_std": 0.026580064060522438,
+      "compressibility_mean": 0.93443359375,
+      "compressibility_std": 0.03945240465771849
+    },
+    "sin2": {
+      "edge_density_mean": 0.1193896484375,
+      "edge_density_std": 0.05522482502133791,
+      "symmetry_mean": 0.59267578125,
+      "symmetry_std": 0.093384858168921,
+      "spectral_coherence_mean": 0.8253794222873134,
+      "spectral_coherence_std": 0.09268737506706692,
+      "compressibility_mean": 0.78638671875,
+      "compressibility_std": 0.05388689572732809
+    },
+    "ring": {
+      "edge_density_mean": 0.1832568359375,
+      "edge_density_std": 0.0838613258449061,
+      "symmetry_mean": 0.5630078125,
+      "symmetry_std": 0.06313738710842338,
+      "spectral_coherence_mean": 0.7066443672611961,
+      "spectral_coherence_std": 0.16430421062467818,
+      "compressibility_mean": 0.74451171875,
+      "compressibility_std": 0.0551720269740455
+    }
+  },
+  "rankings": {
+    "spectral_coherence": [
+      "tanh",
+      "identity",
+      "relu",
+      "sigmoid",
+      "gauss",
+      "abs",
+      "sin",
+      "cos",
+      "sin2",
+      "ring"
+    ]
+  }
+}

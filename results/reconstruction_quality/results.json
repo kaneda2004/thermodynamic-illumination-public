@@ -1,0 +1,50 @@
+{
+  "hypothesis": "Initial image features predict reconstruction difficulty beyond order alone",
+  "null_hypothesis": "Initial features do not predict bits-to-threshold beyond initial order",
+  "n_seeds": 100,
+  "n_reached_threshold": 100,
+  "threshold": 0.15,
+  "joint_test": {
+    "R2_reduced": 0.01575223844553364,
+    "R2_full": 0.026296048233743652,
+    "R2_increase": 0.010543809788210012,
+    "F_stat": 0.25447111472996803,
+    "df": [
+      4,
+      94
+    ],
+    "p_value": 0.9062707017435809,
+    "f2_effect_size": 0.010828558073615706
+  },
+  "partial_correlations": {
+    "spectral_coherence": {
+      "r": 0.05463081553924423,
+      "p": 0.5893052290741915
+    },
+    "edge_density": {
+      "r": -0.017081109955050723,
+      "p": 0.866051599342286
+    },
+    "entropy": {
+      "r": -0.023529979514368908,
+      "p": 0.8162478087322946
+    },
+    "compressibility": {
+      "r": 0.05717468505325471,
+      "p": 0.5720594240477207
+    }
+  },
+  "features": {
+    "bits_statistics": {
+      "mean": 2.67446806679996,
+      "std": 0.3564290729728268,
+      "min": 1.9043574539734318,
+      "max": 3.837568808764643
+    },
+    "order_statistics": {
+      "mean": 0.06434698694340546,
+      "std": 0.08753550278162979
+    }
+  },
+  "status": "refuted"
+}

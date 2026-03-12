@@ -1,0 +1,16 @@
+{
+  "architecture": "MLP",
+  "scheme": "xavier",
+  "n_samples": 5000,
+  "tau": 0.1,
+  "mean_order": 0.12444106424145221,
+  "std_order": 0.14660675483110225,
+  "median_order": 0.06953531108365948,
+  "max_order": 1.0,
+  "pass_count": 2143,
+  "pass_rate": 0.4286,
+  "tail_bits_estimate": 1.2222962448729018,
+  "elapsed_seconds": 5.62598180770874,
+  "completed": true,
+  "block_seed": 1059
+}

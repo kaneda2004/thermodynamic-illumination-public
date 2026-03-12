@@ -1,0 +1,30 @@
+{
+  "normalized_deficiency": {
+    "cppn_mean": 0.7750520833333333,
+    "cppn_std": 0.13220078694386198,
+    "random_mean": -0.0859375,
+    "random_std": 0.0,
+    "mann_whitney_U": 90000.0,
+    "p_value": 3.8634539766154597e-115,
+    "cohens_d": 9.19504420537791,
+    "significant": true
+  },
+  "raw_deficiency": {
+    "cppn_mean": 793.6533333333333,
+    "random_mean": -88.0,
+    "p_value": 3.8634539766154597e-115,
+    "cohens_d": 9.19504420537791
+  },
+  "compressed_bits": {
+    "cppn_mean": 230.34666666666666,
+    "random_mean": 1112.0
+  },
+  "summary": {
+    "status": "validated",
+    "p_value": 3.8634539766154597e-115,
+    "cohens_d": 9.19504420537791,
+    "cppn_mean": 0.7750520833333333,
+    "random_mean": -0.0859375,
+    "significant": true
+  }
+}

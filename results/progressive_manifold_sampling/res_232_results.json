@@ -1,0 +1,42 @@
+{
+  "method": "Three-stage progressive manifold sampling",
+  "baseline_samples": 25470.0,
+  "reference_best_samples": 276.0,
+  "test_cppns": 20,
+  "order_target": 0.5,
+  "variants": {
+    "50_50": {
+      "stage1_budget": 50,
+      "stage2_budget": 50,
+      "avg_samples": 317.25,
+      "std_samples": 85.80260776922809,
+      "speedup": 80.28368794326241
+    },
+    "75_25": {
+      "stage1_budget": 75,
+      "stage2_budget": 25,
+      "avg_samples": 352.0,
+      "std_samples": 0.0,
+      "speedup": 72.35795454545455
+    },
+    "25_75": {
+      "stage1_budget": 25,
+      "stage2_budget": 75,
+      "avg_samples": 352.0,
+      "std_samples": 0.0,
+      "speedup": 72.35795454545455
+    },
+    "100_0": {
+      "stage1_budget": 100,
+      "stage2_budget": 0,
+      "avg_samples": 337.6,
+      "std_samples": 43.293648494900495,
+      "speedup": 75.44431279620852
+    }
+  },
+  "best_speedup": 80.28368794326241,
+  "best_variant": "50_50",
+  "best_variant_samples": 317.25,
+  "speedup_threshold": 120.0,
+  "conclusion": "refute"
+}

@@ -1,0 +1,37 @@
+{
+  "experiment": "RES-175",
+  "hypothesis": "Spatial activation entropy increases through layers for high-order but not low-order CPPNs",
+  "n_samples": 500,
+  "depth": 4,
+  "n_hidden": 5,
+  "correlation": {
+    "rho": 0.023478715604941917,
+    "p": 0.6004467072151493
+  },
+  "high_order": {
+    "mean_slope": -0.022300625675364963,
+    "std_slope": 0.13111390139762902,
+    "frac_increasing": 0.45454545454545453,
+    "mean_profile": [
+      4.340848496732755,
+      4.299310348965366,
+      4.265042566982205,
+      4.277935671809263
+    ]
+  },
+  "low_order": {
+    "mean_slope": -0.0311948893456773,
+    "std_slope": 0.12562998881194345,
+    "frac_increasing": 0.4,
+    "mean_profile": [
+      4.346123864260138,
+      4.2577776426281115,
+      4.239596245414589,
+      4.248201365512386
+    ]
+  },
+  "t_stat": 0.6272602381691564,
+  "p_value": 0.5309250544500372,
+  "cohens_d": 0.06926930534709165,
+  "status": "inconclusive"
+}

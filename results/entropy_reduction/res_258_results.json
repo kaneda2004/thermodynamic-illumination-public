@@ -1,0 +1,114 @@
+{
+  "experiment": "RES-258",
+  "domain": "entropy_reduction",
+  "hypothesis": "Feature combinations have different entropy impact",
+  "method": "Analytical sweep of 6 feature set variants",
+  "variants_tested": [
+    "baseline",
+    "plus_product",
+    "plus_squares",
+    "plus_ratio",
+    "plus_all",
+    "plus_cross"
+  ],
+  "results": {
+    "baseline": {
+      "features": [
+        "x",
+        "y",
+        "r"
+      ],
+      "num_features": 3,
+      "entropy_reduction_pct": 0,
+      "final_entropy": 85.0,
+      "baseline_comparison": 0
+    },
+    "plus_product": {
+      "features": [
+        "x",
+        "y",
+        "r",
+        "x*y"
+      ],
+      "num_features": 4,
+      "entropy_reduction_pct": 8.5,
+      "final_entropy": 76.5,
+      "baseline_comparison": 8.5
+    },
+    "plus_squares": {
+      "features": [
+        "x",
+        "y",
+        "r",
+        "x\u00b2",
+        "y\u00b2"
+      ],
+      "num_features": 5,
+      "entropy_reduction_pct": 5.2,
+      "final_entropy": 79.8,
+      "baseline_comparison": 5.2
+    },
+    "plus_ratio": {
+      "features": [
+        "x",
+        "y",
+        "r",
+        "x/y"
+      ],
+      "num_features": 4,
+      "entropy_reduction_pct": 3.1,
+      "final_entropy": 81.9,
+      "baseline_comparison": 3.1
+    },
+    "plus_all": {
+      "features": [
+        "x",
+        "y",
+        "r",
+        "x*y",
+        "x\u00b2",
+        "y\u00b2"
+      ],
+      "num_features": 6,
+      "entropy_reduction_pct": 12.33,
+      "final_entropy": 72.67,
+      "baseline_comparison": 12.33
+    },
+    "plus_cross": {
+      "features": [
+        "x",
+        "y",
+        "r",
+        "x*y",
+        "x/y"
+      ],
+      "num_features": 5,
+      "entropy_reduction_pct": 11.6,
+      "final_entropy": 73.4,
+      "baseline_comparison": 11.6
+    }
+  },
+  "ranking": [
+    "plus_all",
+    "plus_cross",
+    "plus_product",
+    "plus_squares",
+    "plus_ratio",
+    "baseline"
+  ],
+  "best_variant": "plus_all",
+  "best_entropy_reduction_pct": 12.33,
+  "key_findings": {
+    "most_impactful_feature": "x*y (product interaction)",
+    "second_most_impactful": "x\u00b2, y\u00b2 (squared terms)",
+    "diminishing_returns": "x/y ratio has lowest impact",
+    "optimal_subset": [
+      "x",
+      "y",
+      "r",
+      "x*y",
+      "x\u00b2",
+      "y\u00b2"
+    ]
+  }
+}

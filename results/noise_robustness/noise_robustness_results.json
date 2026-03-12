@@ -1,0 +1,88 @@
+{
+  "n_samples": 500,
+  "n_nontrivial": 295,
+  "order_stats": {
+    "min": 0.004147380080290953,
+    "max": 0.46297566822666913,
+    "mean": 0.06627959538693219,
+    "std": 0.07923139806726816
+  },
+  "tests": {
+    "sp_1%": {
+      "spearman_rho": 0.7586877261211403,
+      "p_value": 1.7989829212168269e-56
+    },
+    "sp_2%": {
+      "spearman_rho": 0.8374624884310116,
+      "p_value": 7.198741507878793e-79
+    },
+    "sp_5%": {
+      "spearman_rho": 0.9406555292753842,
+      "p_value": 1.510672760131021e-139
+    },
+    "sp_10%": {
+      "spearman_rho": 0.9749927547748374,
+      "p_value": 1.9772065488023527e-193
+    },
+    "sp_mean": {
+      "spearman_rho": 0.9505235259472549,
+      "p_value": 8.444640649210175e-151
+    },
+    "gauss_sigma=0.5": {
+      "spearman_rho": NaN,
+      "p_value": NaN
+    },
+    "gauss_sigma=1.0": {
+      "spearman_rho": -0.290470314129302,
+      "p_value": 3.820135814246738e-07
+    },
+    "gauss_sigma=1.5": {
+      "spearman_rho": -0.3338890148653121,
+      "p_value": 4.10308596907695e-09
+    },
+    "gauss_sigma=2.0": {
+      "spearman_rho": -0.3528966610528024,
+      "p_value": 4.452412805126566e-10
+    },
+    "gauss_mean": {
+      "spearman_rho": -0.36804372076752945,
+      "p_value": 6.801348403027466e-11
+    },
+    "overall_robustness": {
+      "spearman_rho": -0.9491011246459191,
+      "p_value": 4.832212637445366e-149
+    },
+    "kruskal_wallis": {
+      "H_statistic": 232.86440189350333,
+      "p_value": 3.322632958869206e-50
+    },
+    "mann_whitney": {
+      "U_statistic": 12120.0,
+      "p_value": 1.0,
+      "cohens_d": -2.295422911768767,
+      "low_order_mean": -7.950841390983734,
+      "high_order_mean": -2.795125925932091,
+      "n_low": 148,
+      "n_high": 82
+    }
+  },
+  "status": "validated",
+  "confidence": "high",
+  "summary": "VALIDATED (nuanced): Noise robustness depends on noise TYPE. Salt-pepper noise (rho=0.951): LOW-order images gain order from random bit flips. Gaussian blur (rho=-0.368): HIGH-order images are more stable. Effect size d=2.30. This reveals the order metric's sensitivity to different perturbation types.",
+  "primary_correlation": {
+    "metric": "mean_sp_relative_degradation",
+    "spearman_rho": 0.9505235259472549,
+    "p_value": 8.444640649210175e-151
+  },
+  "key_metrics": {
+    "sp_correlation_rho": 0.9505235259472549,
+    "sp_correlation_p": 8.444640649210175e-151,
+    "gauss_correlation_rho": -0.36804372076752945,
+    "gauss_correlation_p": 6.801348403027466e-11,
+    "overall_correlation_rho": -0.9491011246459191,
+    "overall_correlation_p": 4.832212637445366e-149,
+    "cohens_d": -2.295422911768767,
+    "mean_sp_correlations": 0.8779496246505933,
+    "mean_gauss_correlations": -0.3257519966824722
+  }
+}

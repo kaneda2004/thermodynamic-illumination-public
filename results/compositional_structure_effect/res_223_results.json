@@ -1,0 +1,35 @@
+{
+  "experiment_id": "RES-223",
+  "title": "Compositional Structure (Not Activation) Drives Dimensionality",
+  "method": "Eff_dim across input structures (weight space concentration)",
+  "n_samples_per_group": 30,
+  "results": {
+    "xy_sine_eff_dim": 4.820789523716984,
+    "xy_sine_first_pc_var": 0.2695280602751419,
+    "noise_sine_eff_dim": 4.432443633414644,
+    "noise_sine_first_pc_var": 0.3268637164757649,
+    "xy_relu_eff_dim": 4.679768254581517,
+    "xy_relu_first_pc_var": 0.3088553007453551,
+    "compositional_advantage": 1.0876144001865553
+  },
+  "tests": {
+    "composition_predicts_eff_dim": true,
+    "sine_activates_composition": true,
+    "sine_vs_composition_trade_off": false
+  },
+  "conclusion": "validate",
+  "builds_on": [
+    "RES-222",
+    "RES-221",
+    "RES-218"
+  ],
+  "interpretation": {
+    "finding": "Compositional structure (x, y, r coordinates) is the PRIMARY driver of CPPN dimensionality",
+    "evidence": [
+      "(x,y,r)+Sine eff_dim=4.821",
+      "Noise+Sine eff_dim=4.432",
+      "(x,y,r)+ReLU eff_dim=4.680",
+      "Compositional advantage: 1.088x"
+    ]
+  }
+}

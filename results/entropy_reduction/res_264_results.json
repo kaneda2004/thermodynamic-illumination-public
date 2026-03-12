@@ -1,0 +1,122 @@
+{
+  "hypothesis": "Richer features trigger convergence criteria faster",
+  "thresholds": [
+    0.2,
+    0.5,
+    0.7
+  ],
+  "n_cpns": 10,
+  "results_by_threshold": {
+    "0.2": {
+      "baseline_convergence_iteration": 16.0,
+      "baseline_convergence_std": 0.0,
+      "full_convergence_iteration": 8.0,
+      "full_convergence_std": 0.0,
+      "iteration_savings": 50.0,
+      "baseline_all": [
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16
+      ],
+      "full_all": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ]
+    },
+    "0.5": {
+      "baseline_convergence_iteration": 7.0,
+      "baseline_convergence_std": 0.0,
+      "full_convergence_iteration": 4.0,
+      "full_convergence_std": 0.0,
+      "iteration_savings": 42.857142857142854,
+      "baseline_all": [
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7
+      ],
+      "full_all": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "0.7": {
+      "baseline_convergence_iteration": 4.0,
+      "baseline_convergence_std": 0.0,
+      "full_convergence_iteration": 2.0,
+      "full_convergence_std": 0.0,
+      "iteration_savings": 50.0,
+      "baseline_all": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "full_all": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ]
+    }
+  },
+  "threshold_dependence": {
+    "baseline_by_threshold": [
+      16.0,
+      7.0,
+      4.0
+    ],
+    "full_by_threshold": [
+      8.0,
+      4.0,
+      2.0
+    ],
+    "full_faster_fraction": 1.0
+  },
+  "overall": {
+    "mean_iteration_savings": 47.61904761904762,
+    "hypothesis_supported": true,
+    "interpretation": "VALIDATED"
+  }
+}

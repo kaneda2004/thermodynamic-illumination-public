@@ -1,0 +1,67 @@
+{
+  "hypothesis": "CPPN distinctness scales with weight precision",
+  "n_samples": 500,
+  "order_threshold": 0.1,
+  "results_by_bits": {
+    "2": {
+      "unique_count": 26,
+      "high_order_count": 6
+    },
+    "3": {
+      "unique_count": 143,
+      "high_order_count": 88
+    },
+    "4": {
+      "unique_count": 281,
+      "high_order_count": 150
+    },
+    "5": {
+      "unique_count": 319,
+      "high_order_count": 153
+    },
+    "6": {
+      "unique_count": 318,
+      "high_order_count": 152
+    },
+    "7": {
+      "unique_count": 321,
+      "high_order_count": 148
+    },
+    "8": {
+      "unique_count": 319,
+      "high_order_count": 152
+    },
+    "10": {
+      "unique_count": 320,
+      "high_order_count": 147
+    },
+    "12": {
+      "unique_count": 318,
+      "high_order_count": 148
+    },
+    "16": {
+      "unique_count": 318,
+      "high_order_count": 149
+    },
+    "continuous": {
+      "unique_count": 318,
+      "high_order_count": 149
+    }
+  },
+  "statistics": {
+    "rho_unique": 0.5662208585049305,
+    "p_unique": 0.08793963810348074,
+    "rho_high_order": 0.20732092732849544,
+    "p_high_order": 0.5654808554237636,
+    "unique_ratio_16_4": 1.1316725978647686,
+    "high_order_ratio_16_4": 0.9933333333333333,
+    "scaling_exponent": 0.14524348310377524,
+    "scaling_r": 0.5468760043527777,
+    "effect_size_d": 0.38455783680534983,
+    "saturation_bits": 5,
+    "saturation_effect_d": 1.7564939032460571,
+    "saturation_ratio": 2.1266666666666665
+  },
+  "status": "refuted",
+  "summary": "CPPN capacity saturates at ~5 bits, not scaling continuously. 2-bit: 26 unique (5%), 5-bit: 319 unique (64%), 16-bit: 318 unique (64%). Saturation ratio 2.1x, d=1.76."
+}

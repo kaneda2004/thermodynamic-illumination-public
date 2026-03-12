@@ -1,0 +1,108 @@
+{
+  "architectures": {
+    "ResNet": {
+      "structure_mean": 0.9910593402569211,
+      "structure_std": 6.395243807821062e-05,
+      "best_psnr": 23.91566038131714,
+      "best_iter": 312,
+      "noisy_psnr": 19.46484088897705,
+      "denoising_gap": 4.450819492340088
+    },
+    "MLP": {
+      "structure_mean": 0.20419793383922794,
+      "structure_std": 0.01691403024499993,
+      "best_psnr": 25.373730659484863,
+      "best_iter": 3,
+      "noisy_psnr": 19.553486108779907,
+      "denoising_gap": 5.820244550704956
+    },
+    "ViT": {
+      "structure_mean": 0.005421466980105886,
+      "structure_std": 8.673617379884035e-19,
+      "best_psnr": 12.191483974456787,
+      "best_iter": 343,
+      "noisy_psnr": 19.343541860580444,
+      "denoising_gap": -7.152057886123657
+    },
+    "Conv1x1": {
+      "structure_mean": 0.37814669611817253,
+      "structure_std": 0.015178795101505747,
+      "best_psnr": 23.74204158782959,
+      "best_iter": 59,
+      "noisy_psnr": 19.4016432762146,
+      "denoising_gap": 4.34039831161499
+    },
+    "Conv5x5": {
+      "structure_mean": 0.9164068513908677,
+      "structure_std": 0.00709546917546242,
+      "best_psnr": 24.77879524230957,
+      "best_iter": 422,
+      "noisy_psnr": 19.337482452392578,
+      "denoising_gap": 5.441312789916992
+    },
+    "Conv7x7": {
+      "structure_mean": 0.935205130105957,
+      "structure_std": 0.009234403988300501,
+      "best_psnr": 25.90242862701416,
+      "best_iter": 486,
+      "noisy_psnr": 19.422894716262817,
+      "denoising_gap": 6.479533910751343
+    },
+    "DepthwiseSep": {
+      "structure_mean": 0.9832095027448153,
+      "structure_std": 0.00020024596580908445,
+      "best_psnr": 23.42787742614746,
+      "best_iter": 204,
+      "noisy_psnr": 19.616780281066895,
+      "denoising_gap": 3.8110971450805664
+    },
+    "LocalAttn": {
+      "structure_mean": 0.6859993698400175,
+      "structure_std": 0.03216231567970658,
+      "best_psnr": 17.328518629074097,
+      "best_iter": 4,
+      "noisy_psnr": 19.30976152420044,
+      "denoising_gap": -1.9812428951263428
+    },
+    "HybridConvMLP": {
+      "structure_mean": 0.8725795455813765,
+      "structure_std": 0.0071081133081888435,
+      "best_psnr": 14.059839248657227,
+      "best_iter": 50,
+      "noisy_psnr": 19.522255659103394,
+      "denoising_gap": -5.462416410446167
+    },
+    "CPPN": {
+      "structure_mean": 0.937422374505867,
+      "structure_std": 0.0054329704848283,
+      "best_psnr": 18.611735105514526,
+      "best_iter": 499,
+      "noisy_psnr": 19.526504278182983,
+      "denoising_gap": -0.914769172668457
+    },
+    "UNetDecoder": {
+      "structure_mean": 0.909150097754897,
+      "structure_std": 0.007898279087987448,
+      "best_psnr": 11.865153312683105,
+      "best_iter": 4,
+      "noisy_psnr": 19.432917833328247,
+      "denoising_gap": -7.567764520645142
+    },
+    "ShallowResNet": {
+      "structure_mean": 0.5039236913680031,
+      "structure_std": 0.016267587092175313,
+      "best_psnr": 23.861582279205322,
+      "best_iter": 129,
+      "noisy_psnr": 19.538363218307495,
+      "denoising_gap": 4.323219060897827
+    }
+  },
+  "correlation_psnr": {
+    "r": 0.11793833537179133,
+    "p": 0.7150769400507141
+  },
+  "correlation_gap": {
+    "r": 0.11486565518116759,
+    "p": 0.7222370220399592
+  }
+}

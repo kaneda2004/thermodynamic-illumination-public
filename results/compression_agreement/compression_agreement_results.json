@@ -1,0 +1,102 @@
+{
+  "n_samples": 500,
+  "image_size": 32,
+  "algorithms": [
+    "gzip",
+    "bz2",
+    "lzma"
+  ],
+  "pairwise_correlations": {
+    "gzip-bz2": {
+      "spearman_rho": 0.8719678834331951,
+      "p_value": 1.3710264496088073e-156,
+      "ci_95": [
+        0.836025637119071,
+        0.9035240878209445
+      ],
+      "passes_threshold": true
+    },
+    "gzip-lzma": {
+      "spearman_rho": 0.9389281566960893,
+      "p_value": 7.205134690024561e-233,
+      "ci_95": [
+        0.9207766372081859,
+        0.9535177068837749
+      ],
+      "passes_threshold": true
+    },
+    "bz2-lzma": {
+      "spearman_rho": 0.9231836309083182,
+      "p_value": 6.121059742457356e-209,
+      "ci_95": [
+        0.8996761429498599,
+        0.9417469711359008
+      ],
+      "passes_threshold": true
+    }
+  },
+  "all_pass_threshold": true,
+  "threshold": 0.8,
+  "mean_correlation": 0.9113598903458676,
+  "min_correlation": 0.8719678834331951,
+  "algorithm_stats": {
+    "gzip": {
+      "mean": 0.77585546875,
+      "std": 0.16026817444860617,
+      "min": 0.61328125,
+      "max": 0.97265625
+    },
+    "bz2": {
+      "mean": 0.620359375,
+      "std": 0.25863722420625607,
+      "min": 0.34375,
+      "max": 0.923828125
+    },
+    "lzma": {
+      "mean": 0.68890625,
+      "std": 0.13659851856238228,
+      "min": 0.546875,
+      "max": 0.859375
+    }
+  },
+  "order_correlations": {
+    "gzip": {
+      "spearman_rho": 0.6556119180940986,
+      "p_value": 9.571358775253526e-63
+    },
+    "bz2": {
+      "spearman_rho": 0.6554678670410088,
+      "p_value": 1.039637586259951e-62
+    },
+    "lzma": {
+      "spearman_rho": 0.6809130154950293,
+      "p_value": 2.254990682821576e-69
+    }
+  },
+  "cppn_vs_random": {
+    "gzip": {
+      "cppn_mean": 0.9338671875,
+      "random_mean": 0.61784375,
+      "cohens_d": 11.792375104383277
+    },
+    "bz2": {
+      "cppn_mean": 0.8770546875,
+      "random_mean": 0.3636640625,
+      "cohens_d": 16.22891225445066
+    },
+    "lzma": {
+      "cppn_mean": 0.82334375,
+      "random_mean": 0.55446875,
+      "cohens_d": 11.10983656640171
+    }
+  },
+  "status": "validated",
+  "summary": {
+    "status": "validated",
+    "mean_rho": 0.9113598903458676,
+    "min_rho": 0.8719678834331951,
+    "all_pass": true,
+    "n_algorithms": 3,
+    "n_pairs": 3
+  }
+}

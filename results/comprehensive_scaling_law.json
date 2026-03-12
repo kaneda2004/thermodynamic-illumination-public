@@ -1,0 +1,99 @@
+{
+  "correlation": {
+    "pearson_r": 0.8530893160122737,
+    "p_value": 0.00020931683430716196
+  },
+  "architectures": {
+    "ResNet-4": {
+      "structure_mean": 0.8921201046948424,
+      "structure_std": 0.04945074617081685,
+      "psnr_mean": 25.36704936658872,
+      "psnr_std": 0.27840505924864445,
+      "params": 247427
+    },
+    "ResNet-2": {
+      "structure_mean": 0.8232606577144272,
+      "structure_std": 0.0554699069116486,
+      "psnr_mean": 23.358687214510653,
+      "psnr_std": 0.015233801465342367,
+      "params": 40003
+    },
+    "ResNet-6": {
+      "structure_mean": 0.9215365195531651,
+      "structure_std": 0.02214578422279856,
+      "psnr_mean": 25.9060995865702,
+      "psnr_std": 0.045721666258463856,
+      "params": 1131523
+    },
+    "U-Net": {
+      "structure_mean": 0.7898350333204437,
+      "structure_std": 0.07014478567832005,
+      "psnr_mean": 22.73299728912062,
+      "psnr_std": 0.1465348178463799,
+      "params": 155699
+    },
+    "Depthwise": {
+      "structure_mean": 0.9404892822226265,
+      "structure_std": 0.0007480831142541722,
+      "psnr_mean": 23.98067795211478,
+      "psnr_std": 0.16756616282204106,
+      "params": 33859
+    },
+    "LocalAttn": {
+      "structure_mean": 9.639854749727563e-05,
+      "structure_std": 7.467042006880262e-07,
+      "psnr_mean": 10.01195466531082,
+      "psnr_std": 0.00023815842776819807,
+      "params": 562880
+    },
+    "CPPN": {
+      "structure_mean": 0.7303426337490398,
+      "structure_std": 0.09981037781024305,
+      "psnr_mean": 26.695440884588017,
+      "psnr_std": 0.23171055943592478,
+      "params": 133379
+    },
+    "Fourier": {
+      "structure_mean": 0.5380655301412199,
+      "structure_std": 0.09174692070962787,
+      "psnr_mean": 24.6860922392533,
+      "psnr_std": 0.05693377425417623,
+      "params": 75523
+    },
+    "HybridViT": {
+      "structure_mean": 0.0006405019602330742,
+      "structure_std": 0.0002611466281314884,
+      "psnr_mean": 10.000892996509242,
+      "psnr_std": 0.009290111961716363,
+      "params": 762883
+    },
+    "ViT": {
+      "structure_mean": 9.639854749727563e-05,
+      "structure_std": 7.467042006880262e-07,
+      "psnr_mean": 10.01195466531082,
+      "psnr_std": 0.00023815842776819807,
+      "params": 562880
+    },
+    "MLP": {
+      "structure_mean": 3.6926345601229145e-05,
+      "structure_std": 6.89589832819261e-07,
+      "psnr_mean": 19.021434463883967,
+      "psnr_std": 0.4038198144266403,
+      "params": 13252352
+    },
+    "ResNet-9x9": {
+      "structure_mean": 0.8111634210869944,
+      "structure_std": 0.07193960287054746,
+      "psnr_mean": 24.069804274641278,
+      "psnr_std": 0.037213461248441604,
+      "params": 2204675
+    },
+    "WindowedViT": {
+      "structure_mean": 6.604082296415763e-05,
+      "structure_std": 1.0227306578743846e-06,
+      "psnr_mean": 18.97092590860184,
+      "psnr_std": 0.11030196195125441,
+      "params": 562880
+    }
+  }
+}

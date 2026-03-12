@@ -1,0 +1,16 @@
+{
+  "status": "refuted",
+  "n_successful": 5000,
+  "n_total": 5000,
+  "pearson_r": 0.0019195625802779642,
+  "pearson_p": 0.8920586378909974,
+  "spearman_rho": 0.0019207258369898592,
+  "spearman_p": 0.891993626094568,
+  "sin_r": -0.010405301528644953,
+  "cos_r": -0.018891760449727568,
+  "max_r": 0.21939629323032844,
+  "best_p": 1.4781340248111881e-55,
+  "effect_d": 0.4497503826855363,
+  "mean_contractions": 1.5076,
+  "summary": "ESS initial angle shows weak U-shape pattern (cos(2phi) r=-0.219, p<0.0001) but effect size d=0.45 below 0.5 threshold. Angles near 0,pi need fewer contractions (~1.0) than 0.5pi,1.5pi (~1.9) but practical impact is small."
+}

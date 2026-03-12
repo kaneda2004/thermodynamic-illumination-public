@@ -1,0 +1,29 @@
+{
+  "experiment_id": "RES-093",
+  "hypothesis": "Higher-order CPPN images have simpler 0.5 threshold decision boundaries",
+  "status": "REFUTED",
+  "summary": "Higher-order CPPNs have MORE complex boundaries (r=0.081)",
+  "analysis": {
+    "n_samples": 1232,
+    "correlation_iso_pearson": 0.14701872793373855,
+    "p_value_iso_pearson": 2.1800878023144585e-07,
+    "correlation_iso_spearman": 0.08115692143789645,
+    "p_value_iso_spearman": 0.004366322149447621,
+    "correlation_components": -0.008697551171212755,
+    "p_value_components": 0.7603823844005341,
+    "correlation_norm_perimeter": 0.13845462805443798,
+    "p_value_norm_perimeter": 1.0699470850501695e-06,
+    "cohens_d": -0.015714489870914623,
+    "p_value_mannwhitney": 0.9173376597538085,
+    "high_order_iso_mean": 1.599198165215305,
+    "low_order_iso_mean": 1.5869633871969002,
+    "order_range": [
+      0.0021537181044509594,
+      0.1600621406392784
+    ],
+    "iso_range": [
+      0.07957747154594767,
+      7.303007525825311
+    ]
+  }
+}

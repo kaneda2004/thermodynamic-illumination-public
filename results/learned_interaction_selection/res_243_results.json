@@ -1,0 +1,44 @@
+{
+  "hypothesis": "Network learns sparse interaction selection; gated combinations outperform fixed full set",
+  "strategies": {
+    "uniform": {
+      "mean_order": 0.950369712554207,
+      "std_order": 0.038504833968878986,
+      "mean_iterations": 1.0
+    },
+    "learned": {
+      "mean_order": 0.9253526937707461,
+      "std_order": 0.04617011797153581,
+      "mean_iterations": 1.0
+    },
+    "adaptive": {
+      "mean_order": 0.9396163604214889,
+      "std_order": 0.04264062990854427,
+      "mean_iterations": 1.0
+    }
+  },
+  "comparison": {
+    "baseline_order": 0.950369712554207,
+    "uniform_gating_order": 0.950369712554207,
+    "learned_gating_order": 0.9253526937707461,
+    "adaptive_gating_order": 0.9396163604214889,
+    "learned_vs_uniform_ratio": 0.973676530102174,
+    "adaptive_vs_uniform_ratio": 0.9886850750002667,
+    "learned_active_gates_mean": 0.75,
+    "learned_active_gates_std": 0.698212002188447,
+    "top_learned_terms": [
+      "sqrt|x|",
+      "x\u00b2",
+      "y\u00b2"
+    ],
+    "top_learned_values": [
+      0.13093006373804056,
+      0.12818208373018714,
+      0.12777211147508227
+    ],
+    "status": "inconclusive",
+    "summary": "Learning shows minimal effect: 0.97\u00d7. Uniform gating remains competitive. All terms similarly important (std=0.0040).",
+    "gate_std": 0.0039747598936196666,
+    "best_strategy": "uniform"
+  }
+}

@@ -1,0 +1,310 @@
+{
+  "experiment": "RES-382",
+  "description": "Fan-in-scaled coord-trio rerun with exact MC under Gaussian/Xavier/He priors",
+  "timestamp": "2026-03-11 09:57:12",
+  "config": {
+    "seed": 42,
+    "image_size": 32,
+    "mc_samples": 5000,
+    "tau": 0.1,
+    "gaussian_std": 0.3,
+    "logit_samples": 128,
+    "status_every": 250,
+    "schemes": [
+      "gaussian_0p3",
+      "xavier",
+      "he"
+    ],
+    "architectures": [
+      "ConvNet",
+      "MLP",
+      "ViT"
+    ]
+  },
+  "results": {
+    "gaussian_0p3": {
+      "ConvNet": {
+        "architecture": "ConvNet",
+        "scheme": "gaussian_0p3",
+        "n_samples": 5000,
+        "tau": 0.1,
+        "mean_order": 0.238477363132654,
+        "std_order": 0.2244324607052391,
+        "median_order": 0.1863929646328808,
+        "max_order": 1.0,
+        "pass_count": 3150,
+        "pass_rate": 0.63,
+        "tail_bits_estimate": 0.6665762662748083,
+        "elapsed_seconds": 4.955259323120117,
+        "completed": true,
+        "block_seed": 42
+      },
+      "MLP": {
+        "architecture": "MLP",
+        "scheme": "gaussian_0p3",
+        "n_samples": 5000,
+        "tau": 0.1,
+        "mean_order": 0.0677963350673838,
+        "std_order": 0.09575288370126128,
+        "median_order": 0.01436751831919179,
+        "max_order": 0.7124040934996829,
+        "pass_count": 1340,
+        "pass_rate": 0.268,
+        "tail_bits_estimate": 1.8996950942043145,
+        "elapsed_seconds": 5.112437725067139,
+        "completed": true,
+        "block_seed": 59
+      },
+      "ViT": {
+        "architecture": "ViT",
+        "scheme": "gaussian_0p3",
+        "n_samples": 5000,
+        "tau": 0.1,
+        "mean_order": 0.02024201717363829,
+        "std_order": 0.10202332348305777,
+        "median_order": 0.004274991775069136,
+        "max_order": 1.0,
+        "pass_count": 144,
+        "pass_rate": 0.0288,
+        "tail_bits_estimate": 5.1177873781071375,
+        "elapsed_seconds": 24.513311862945557,
+        "attention_diagnostics": {
+          "logit_abs_max": {
+            "mean": 12.255091339349747,
+            "std": 1.8097752294897609,
+            "max": 19.27496337890625,
+            "min": 8.696889877319336
+          },
+          "logit_std": {
+            "mean": 1.9526410643011332,
+            "std": 0.26864536033921277,
+            "max": 3.087580442428589,
+            "min": 1.4593544006347656
+          },
+          "attn_max": {
+            "mean": 0.2470921723288484,
+            "std": 0.084761738116075,
+            "max": 0.5610145330429077,
+            "min": 0.11122222244739532
+          },
+          "attn_min_nonzero": {
+            "mean": 3.111959159805592e-09,
+            "std": 5.848268116915392e-09,
+            "max": 4.384339291618744e-08,
+            "min": 4.60799772295027e-15
+          },
+          "zero_frac": {
+            "mean": 0.0,
+            "std": 0.0,
+            "max": 0.0,
+            "min": 0.0
+          }
+        },
+        "completed": true,
+        "block_seed": 76
+      }
+    },
+    "xavier": {
+      "ConvNet": {
+        "architecture": "ConvNet",
+        "scheme": "xavier",
+        "n_samples": 5000,
+        "tau": 0.1,
+        "mean_order": 0.2612047868235823,
+        "std_order": 0.2351199021456999,
+        "median_order": 0.2126019206381643,
+        "max_order": 1.0,
+        "pass_count": 3342,
+        "pass_rate": 0.6684,
+        "tail_bits_estimate": 0.5812163614882615,
+        "elapsed_seconds": 5.886554002761841,
+        "completed": true,
+        "block_seed": 1042
+      },
+      "MLP": {
+        "architecture": "MLP",
+        "scheme": "xavier",
+        "n_samples": 5000,
+        "tau": 0.1,
+        "mean_order": 0.12444106424145221,
+        "std_order": 0.14660675483110225,
+        "median_order": 0.06953531108365948,
+        "max_order": 1.0,
+        "pass_count": 2143,
+        "pass_rate": 0.4286,
+        "tail_bits_estimate": 1.2222962448729018,
+        "elapsed_seconds": 5.62598180770874,
+        "completed": true,
+        "block_seed": 1059
+      },
+      "ViT": {
+        "architecture": "ViT",
+        "scheme": "xavier",
+        "n_samples": 5000,
+        "tau": 0.1,
+        "mean_order": 0.5273652805563356,
+        "std_order": 0.3183394026054079,
+        "median_order": 0.5536673834529091,
+        "max_order": 1.0,
+        "pass_count": 4255,
+        "pass_rate": 0.851,
+        "tail_bits_estimate": 0.23276896297612443,
+        "elapsed_seconds": 24.694602966308594,
+        "attention_diagnostics": {
+          "logit_abs_max": {
+            "mean": 1.7207447746768594,
+            "std": 0.20562717304987774,
+            "max": 2.3386380672454834,
+            "min": 1.3345465660095215
+          },
+          "logit_std": {
+            "mean": 0.26522858638782054,
+            "std": 0.01968329255818173,
+            "max": 0.31500008702278137,
+            "min": 0.22600655257701874
+          },
+          "attn_max": {
+            "mean": 0.0038145358630572446,
+            "std": 0.0006669673171589013,
+            "max": 0.0061050052754580975,
+            "min": 0.0027268091216683388
+          },
+          "attn_min_nonzero": {
+            "mean": 0.00020407062476124338,
+            "std": 4.245056703796875e-05,
+            "max": 0.00029401981737464666,
+            "min": 8.174775575753301e-05
+          },
+          "zero_frac": {
+            "mean": 0.0,
+            "std": 0.0,
+            "max": 0.0,
+            "min": 0.0
+          }
+        },
+        "completed": true,
+        "block_seed": 1076
+      }
+    },
+    "he": {
+      "ConvNet": {
+        "architecture": "ConvNet",
+        "scheme": "he",
+        "n_samples": 5000,
+        "tau": 0.1,
+        "mean_order": 0.26198320148369003,
+        "std_order": 0.23242651437536752,
+        "median_order": 0.21849264804536106,
+        "max_order": 1.0,
+        "pass_count": 3360,
+        "pass_rate": 0.672,
+        "tail_bits_estimate": 0.5734668618833266,
+        "elapsed_seconds": 6.15423583984375,
+        "completed": true,
+        "block_seed": 2042
+      },
+      "MLP": {
+        "architecture": "MLP",
+        "scheme": "he",
+        "n_samples": 5000,
+        "tau": 0.1,
+        "mean_order": 0.1197507774593966,
+        "std_order": 0.14049153784596968,
+        "median_order": 0.06886123854775374,
+        "max_order": 0.8936123064486018,
+        "pass_count": 2108,
+        "pass_rate": 0.4216,
+        "tail_bits_estimate": 1.246053227912235,
+        "elapsed_seconds": 6.175731182098389,
+        "completed": true,
+        "block_seed": 2059
+      },
+      "ViT": {
+        "architecture": "ViT",
+        "scheme": "he",
+        "n_samples": 5000,
+        "tau": 0.1,
+        "mean_order": 0.3987883825889444,
+        "std_order": 0.3879331988912065,
+        "median_order": 0.27364333735021373,
+        "max_order": 1.0,
+        "pass_count": 2994,
+        "pass_rate": 0.5988,
+        "tail_bits_estimate": 0.7398538734910327,
+        "elapsed_seconds": 25.326306104660034,
+        "attention_diagnostics": {
+          "logit_abs_max": {
+            "mean": 17.96025113761425,
+            "std": 4.183302030810241,
+            "max": 36.771018981933594,
+            "min": 10.17585563659668
+          },
+          "logit_std": {
+            "mean": 2.378121802583337,
+            "std": 0.37010784696633214,
+            "max": 3.4941134452819824,
+            "min": 1.638137698173523
+          },
+          "attn_max": {
+            "mean": 0.3973241545027122,
+            "std": 0.1416338617577894,
+            "max": 0.8642792701721191,
+            "min": 0.15527723729610443
+          },
+          "attn_min_nonzero": {
+            "mean": 5.6862754600598044e-11,
+            "std": 4.5196242222086366e-10,
+            "max": 4.989654023290768e-09,
+            "min": 1.7302770911335478e-30
+          },
+          "zero_frac": {
+            "mean": 0.0,
+            "std": 0.0,
+            "max": 0.0,
+            "min": 0.0
+          }
+        },
+        "completed": true,
+        "block_seed": 2076
+      }
+    }
+  },
+  "rankings": {
+    "gaussian_0p3": {
+      "by_pass_rate": [
+        "ConvNet",
+        "MLP",
+        "ViT"
+      ],
+      "by_mean_order": [
+        "ConvNet",
+        "MLP",
+        "ViT"
+      ]
+    },
+    "xavier": {
+      "by_pass_rate": [
+        "ViT",
+        "ConvNet",
+        "MLP"
+      ],
+      "by_mean_order": [
+        "ViT",
+        "ConvNet",
+        "MLP"
+      ]
+    },
+    "he": {
+      "by_pass_rate": [
+        "ConvNet",
+        "ViT",
+        "MLP"
+      ],
+      "by_mean_order": [
+        "ViT",
+        "ConvNet",
+        "MLP"
+      ]
+    }
+  }
+}

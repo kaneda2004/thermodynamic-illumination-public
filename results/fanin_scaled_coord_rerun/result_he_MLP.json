@@ -1,0 +1,16 @@
+{
+  "architecture": "MLP",
+  "scheme": "he",
+  "n_samples": 5000,
+  "tau": 0.1,
+  "mean_order": 0.1197507774593966,
+  "std_order": 0.14049153784596968,
+  "median_order": 0.06886123854775374,
+  "max_order": 0.8936123064486018,
+  "pass_count": 2108,
+  "pass_rate": 0.4216,
+  "tail_bits_estimate": 1.246053227912235,
+  "elapsed_seconds": 6.175731182098389,
+  "completed": true,
+  "block_seed": 2059
+}

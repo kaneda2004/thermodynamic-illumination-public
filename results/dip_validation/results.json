@@ -1,0 +1,640 @@
+{
+  "config": {
+    "size": 64,
+    "noise_level": 0.15,
+    "steps": 2000,
+    "lr": 0.01,
+    "targets": [
+      "geometric",
+      "checkerboard",
+      "gradient",
+      "ring",
+      "random_smooth"
+    ],
+    "noise_seeds": [
+      42,
+      123,
+      456,
+      789,
+      1024
+    ],
+    "architectures": [
+      "ResNet",
+      "ViT",
+      "MLP"
+    ]
+  },
+  "runs": [
+    {
+      "target": "geometric",
+      "noise_seed": 42,
+      "architecture": "ResNet",
+      "best_psnr": 24.848580750653447,
+      "best_iter": 191
+    },
+    {
+      "target": "geometric",
+      "noise_seed": 42,
+      "architecture": "ViT",
+      "best_psnr": 10.011023215286379,
+      "best_iter": 182
+    },
+    {
+      "target": "geometric",
+      "noise_seed": 42,
+      "architecture": "MLP",
+      "best_psnr": 18.39731070861964,
+      "best_iter": 56
+    },
+    {
+      "target": "geometric",
+      "noise_seed": 123,
+      "architecture": "ResNet",
+      "best_psnr": 25.005811413784883,
+      "best_iter": 214
+    },
+    {
+      "target": "geometric",
+      "noise_seed": 123,
+      "architecture": "ViT",
+      "best_psnr": 10.011316480022188,
+      "best_iter": 359
+    },
+    {
+      "target": "geometric",
+      "noise_seed": 123,
+      "architecture": "MLP",
+      "best_psnr": 18.99815774380719,
+      "best_iter": 45
+    },
+    {
+      "target": "geometric",
+      "noise_seed": 456,
+      "architecture": "ResNet",
+      "best_psnr": 25.211837250867436,
+      "best_iter": 184
+    },
+    {
+      "target": "geometric",
+      "noise_seed": 456,
+      "architecture": "ViT",
+      "best_psnr": 10.033717528307125,
+      "best_iter": 89
+    },
+    {
+      "target": "geometric",
+      "noise_seed": 456,
+      "architecture": "MLP",
+      "best_psnr": 18.682408787434028,
+      "best_iter": 24
+    },
+    {
+      "target": "geometric",
+      "noise_seed": 789,
+      "architecture": "ResNet",
+      "best_psnr": 25.010214314216746,
+      "best_iter": 221
+    },
+    {
+      "target": "geometric",
+      "noise_seed": 789,
+      "architecture": "ViT",
+      "best_psnr": 10.013352360982351,
+      "best_iter": 129
+    },
+    {
+      "target": "geometric",
+      "noise_seed": 789,
+      "architecture": "MLP",
+      "best_psnr": 18.803901732663725,
+      "best_iter": 21
+    },
+    {
+      "target": "geometric",
+      "noise_seed": 1024,
+      "architecture": "ResNet",
+      "best_psnr": 25.04449480351465,
+      "best_iter": 185
+    },
+    {
+      "target": "geometric",
+      "noise_seed": 1024,
+      "architecture": "ViT",
+      "best_psnr": 10.020312517330678,
+      "best_iter": 713
+    },
+    {
+      "target": "geometric",
+      "noise_seed": 1024,
+      "architecture": "MLP",
+      "best_psnr": 19.03111272250995,
+      "best_iter": 20
+    },
+    {
+      "target": "checkerboard",
+      "noise_seed": 42,
+      "architecture": "ResNet",
+      "best_psnr": 25.522922192985757,
+      "best_iter": 117
+    },
+    {
+      "target": "checkerboard",
+      "noise_seed": 42,
+      "architecture": "ViT",
+      "best_psnr": 13.523928901209846,
+      "best_iter": 13
+    },
+    {
+      "target": "checkerboard",
+      "noise_seed": 42,
+      "architecture": "MLP",
+      "best_psnr": 19.46900997531026,
+      "best_iter": 1
+    },
+    {
+      "target": "checkerboard",
+      "noise_seed": 123,
+      "architecture": "ResNet",
+      "best_psnr": 25.558378107764305,
+      "best_iter": 123
+    },
+    {
+      "target": "checkerboard",
+      "noise_seed": 123,
+      "architecture": "ViT",
+      "best_psnr": 29.20170088574205,
+      "best_iter": 50
+    },
+    {
+      "target": "checkerboard",
+      "noise_seed": 123,
+      "architecture": "MLP",
+      "best_psnr": 19.895947236618028,
+      "best_iter": 50
+    },
+    {
+      "target": "checkerboard",
+      "noise_seed": 456,
+      "architecture": "ResNet",
+      "best_psnr": 25.501582680020668,
+      "best_iter": 185
+    },
+    {
+      "target": "checkerboard",
+      "noise_seed": 456,
+      "architecture": "ViT",
+      "best_psnr": 15.749737903138033,
+      "best_iter": 11
+    },
+    {
+      "target": "checkerboard",
+      "noise_seed": 456,
+      "architecture": "MLP",
+      "best_psnr": 19.615283708803886,
+      "best_iter": 51
+    },
+    {
+      "target": "checkerboard",
+      "noise_seed": 789,
+      "architecture": "ResNet",
+      "best_psnr": 25.251644299298924,
+      "best_iter": 129
+    },
+    {
+      "target": "checkerboard",
+      "noise_seed": 789,
+      "architecture": "ViT",
+      "best_psnr": 10.42682061800702,
+      "best_iter": 11
+    },
+    {
+      "target": "checkerboard",
+      "noise_seed": 789,
+      "architecture": "MLP",
+      "best_psnr": 20.725396129512667,
+      "best_iter": 38
+    },
+    {
+      "target": "checkerboard",
+      "noise_seed": 1024,
+      "architecture": "ResNet",
+      "best_psnr": 25.308869481930195,
+      "best_iter": 121
+    },
+    {
+      "target": "checkerboard",
+      "noise_seed": 1024,
+      "architecture": "ViT",
+      "best_psnr": 9.841191406363238,
+      "best_iter": 358
+    },
+    {
+      "target": "checkerboard",
+      "noise_seed": 1024,
+      "architecture": "MLP",
+      "best_psnr": 19.7467987686803,
+      "best_iter": 54
+    },
+    {
+      "target": "gradient",
+      "noise_seed": 42,
+      "architecture": "ResNet",
+      "best_psnr": 29.332636292044434,
+      "best_iter": 165
+    },
+    {
+      "target": "gradient",
+      "noise_seed": 42,
+      "architecture": "ViT",
+      "best_psnr": 12.153310200747978,
+      "best_iter": 19
+    },
+    {
+      "target": "gradient",
+      "noise_seed": 42,
+      "architecture": "MLP",
+      "best_psnr": 17.661286416543078,
+      "best_iter": 12
+    },
+    {
+      "target": "gradient",
+      "noise_seed": 123,
+      "architecture": "ResNet",
+      "best_psnr": 28.994042704352395,
+      "best_iter": 184
+    },
+    {
+      "target": "gradient",
+      "noise_seed": 123,
+      "architecture": "ViT",
+      "best_psnr": 12.22988697413384,
+      "best_iter": 5
+    },
+    {
+      "target": "gradient",
+      "noise_seed": 123,
+      "architecture": "MLP",
+      "best_psnr": 17.55093034274491,
+      "best_iter": 23
+    },
+    {
+      "target": "gradient",
+      "noise_seed": 456,
+      "architecture": "ResNet",
+      "best_psnr": 29.72140327961168,
+      "best_iter": 151
+    },
+    {
+      "target": "gradient",
+      "noise_seed": 456,
+      "architecture": "ViT",
+      "best_psnr": 12.098980229401224,
+      "best_iter": 10
+    },
+    {
+      "target": "gradient",
+      "noise_seed": 456,
+      "architecture": "MLP",
+      "best_psnr": 17.569393922782275,
+      "best_iter": 13
+    },
+    {
+      "target": "gradient",
+      "noise_seed": 789,
+      "architecture": "ResNet",
+      "best_psnr": 29.228476602917034,
+      "best_iter": 163
+    },
+    {
+      "target": "gradient",
+      "noise_seed": 789,
+      "architecture": "ViT",
+      "best_psnr": 11.980611719317151,
+      "best_iter": 11
+    },
+    {
+      "target": "gradient",
+      "noise_seed": 789,
+      "architecture": "MLP",
+      "best_psnr": 17.562947890908532,
+      "best_iter": 1519
+    },
+    {
+      "target": "gradient",
+      "noise_seed": 1024,
+      "architecture": "ResNet",
+      "best_psnr": 29.377359922719656,
+      "best_iter": 143
+    },
+    {
+      "target": "gradient",
+      "noise_seed": 1024,
+      "architecture": "ViT",
+      "best_psnr": 11.774328081050351,
+      "best_iter": 8
+    },
+    {
+      "target": "gradient",
+      "noise_seed": 1024,
+      "architecture": "MLP",
+      "best_psnr": 17.619025010031383,
+      "best_iter": 17
+    },
+    {
+      "target": "ring",
+      "noise_seed": 42,
+      "architecture": "ResNet",
+      "best_psnr": 22.675511048866746,
+      "best_iter": 150
+    },
+    {
+      "target": "ring",
+      "noise_seed": 42,
+      "architecture": "ViT",
+      "best_psnr": 11.952465796118547,
+      "best_iter": 11
+    },
+    {
+      "target": "ring",
+      "noise_seed": 42,
+      "architecture": "MLP",
+      "best_psnr": 19.280723903737766,
+      "best_iter": 14
+    },
+    {
+      "target": "ring",
+      "noise_seed": 123,
+      "architecture": "ResNet",
+      "best_psnr": 22.758988628022266,
+      "best_iter": 194
+    },
+    {
+      "target": "ring",
+      "noise_seed": 123,
+      "architecture": "ViT",
+      "best_psnr": 11.323874570009034,
+      "best_iter": 10
+    },
+    {
+      "target": "ring",
+      "noise_seed": 123,
+      "architecture": "MLP",
+      "best_psnr": 17.969730308077434,
+      "best_iter": 32
+    },
+    {
+      "target": "ring",
+      "noise_seed": 456,
+      "architecture": "ResNet",
+      "best_psnr": 22.805025313456852,
+      "best_iter": 213
+    },
+    {
+      "target": "ring",
+      "noise_seed": 456,
+      "architecture": "ViT",
+      "best_psnr": 11.23683641496858,
+      "best_iter": 8
+    },
+    {
+      "target": "ring",
+      "noise_seed": 456,
+      "architecture": "MLP",
+      "best_psnr": 18.278123729908607,
+      "best_iter": 11
+    },
+    {
+      "target": "ring",
+      "noise_seed": 789,
+      "architecture": "ResNet",
+      "best_psnr": 22.95409437635452,
+      "best_iter": 189
+    },
+    {
+      "target": "ring",
+      "noise_seed": 789,
+      "architecture": "ViT",
+      "best_psnr": 10.127550911175177,
+      "best_iter": 12
+    },
+    {
+      "target": "ring",
+      "noise_seed": 789,
+      "architecture": "MLP",
+      "best_psnr": 18.380936481406135,
+      "best_iter": 1817
+    },
+    {
+      "target": "ring",
+      "noise_seed": 1024,
+      "architecture": "ResNet",
+      "best_psnr": 22.874208361405085,
+      "best_iter": 180
+    },
+    {
+      "target": "ring",
+      "noise_seed": 1024,
+      "architecture": "ViT",
+      "best_psnr": 9.717133119889546,
+      "best_iter": 514
+    },
+    {
+      "target": "ring",
+      "noise_seed": 1024,
+      "architecture": "MLP",
+      "best_psnr": 19.08646496443564,
+      "best_iter": 31
+    },
+    {
+      "target": "random_smooth",
+      "noise_seed": 42,
+      "architecture": "ResNet",
+      "best_psnr": 27.68882846543979,
+      "best_iter": 81
+    },
+    {
+      "target": "random_smooth",
+      "noise_seed": 42,
+      "architecture": "ViT",
+      "best_psnr": 14.659408090007238,
+      "best_iter": 17
+    },
+    {
+      "target": "random_smooth",
+      "noise_seed": 42,
+      "architecture": "MLP",
+      "best_psnr": 17.551734499257517,
+      "best_iter": 17
+    },
+    {
+      "target": "random_smooth",
+      "noise_seed": 123,
+      "architecture": "ResNet",
+      "best_psnr": 27.09142620682355,
+      "best_iter": 80
+    },
+    {
+      "target": "random_smooth",
+      "noise_seed": 123,
+      "architecture": "ViT",
+      "best_psnr": 14.5100030930191,
+      "best_iter": 18
+    },
+    {
+      "target": "random_smooth",
+      "noise_seed": 123,
+      "architecture": "MLP",
+      "best_psnr": 17.568586952169298,
+      "best_iter": 4
+    },
+    {
+      "target": "random_smooth",
+      "noise_seed": 456,
+      "architecture": "ResNet",
+      "best_psnr": 27.388120094567967,
+      "best_iter": 74
+    },
+    {
+      "target": "random_smooth",
+      "noise_seed": 456,
+      "architecture": "ViT",
+      "best_psnr": 14.353756513317164,
+      "best_iter": 23
+    },
+    {
+      "target": "random_smooth",
+      "noise_seed": 456,
+      "architecture": "MLP",
+      "best_psnr": 17.69643093190896,
+      "best_iter": 4
+    },
+    {
+      "target": "random_smooth",
+      "noise_seed": 789,
+      "architecture": "ResNet",
+      "best_psnr": 27.61038083373196,
+      "best_iter": 73
+    },
+    {
+      "target": "random_smooth",
+      "noise_seed": 789,
+      "architecture": "ViT",
+      "best_psnr": 13.807409844886443,
+      "best_iter": 114
+    },
+    {
+      "target": "random_smooth",
+      "noise_seed": 789,
+      "architecture": "MLP",
+      "best_psnr": 17.596056334341654,
+      "best_iter": 17
+    },
+    {
+      "target": "random_smooth",
+      "noise_seed": 1024,
+      "architecture": "ResNet",
+      "best_psnr": 27.565754094370636,
+      "best_iter": 78
+    },
+    {
+      "target": "random_smooth",
+      "noise_seed": 1024,
+      "architecture": "ViT",
+      "best_psnr": 15.154277754794759,
+      "best_iter": 10
+    },
+    {
+      "target": "random_smooth",
+      "noise_seed": 1024,
+      "architecture": "MLP",
+      "best_psnr": 17.524699618123115,
+      "best_iter": 17
+    }
+  ],
+  "summary": {
+    "per_architecture": {
+      "ResNet": {
+        "mean": 26.013223660788864,
+        "std": 2.2280856735411962,
+        "min": 22.675511048866746,
+        "max": 29.72140327961168
+      },
+      "ViT": {
+        "mean": 12.636517405169002,
+        "std": 3.8520474669028024,
+        "min": 9.717133119889546,
+        "max": 29.20170088574205
+      },
+      "MLP": {
+        "mean": 18.49049595281344,
+        "std": 0.9144570608612148,
+        "min": 17.524699618123115,
+        "max": 20.725396129512667
+      }
+    },
+    "ranking_consistency": {
+      "resnet_beats_vit": {
+        "count": 24,
+        "total": 25,
+        "percentage": 96.0
+      },
+      "resnet_beats_mlp": {
+        "count": 25,
+        "total": 25,
+        "percentage": 100.0
+      },
+      "vit_beats_mlp": {
+        "count": 1,
+        "total": 25,
+        "percentage": 4.0
+      }
+    },
+    "statistical_tests": {
+      "resnet_vs_vit": {
+        "statistic": 324.0,
+        "p_value": 5.960464477539063e-08
+      },
+      "resnet_vs_mlp": {
+        "statistic": 325.0,
+        "p_value": 2.9802322387695312e-08
+      },
+      "vit_vs_mlp": {
+        "statistic": 22.0,
+        "p_value": 0.9999866783618927
+      }
+    },
+    "effect_sizes": {
+      "resnet_vs_vit": 4.251113417020335,
+      "resnet_vs_mlp": 4.417270300174244,
+      "vit_vs_mlp": -2.0910733007106397
+    },
+    "per_target": {
+      "geometric": {
+        "ResNet": 25.02418770660743,
+        "ViT": 10.017944420385744,
+        "MLP": 18.782578339006907
+      },
+      "checkerboard": {
+        "ResNet": 25.428679352399975,
+        "ViT": 15.748675942892039,
+        "MLP": 19.890487163785025
+      },
+      "gradient": {
+        "ResNet": 29.330783760329034,
+        "ViT": 12.047423440930109,
+        "MLP": 17.592716716602034
+      },
+      "ring": {
+        "ResNet": 22.813565545621096,
+        "ViT": 10.871572162432177,
+        "MLP": 18.599195877513115
+      },
+      "random_smooth": {
+        "ResNet": 27.468901938986782,
+        "ViT": 14.496971059204942,
+        "MLP": 17.587501667160108
+      }
+    }
+  },
+  "timestamp": "2025-12-19T19:11:02.035414"
+}

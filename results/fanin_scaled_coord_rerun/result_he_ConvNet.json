@@ -1,0 +1,16 @@
+{
+  "architecture": "ConvNet",
+  "scheme": "he",
+  "n_samples": 5000,
+  "tau": 0.1,
+  "mean_order": 0.26198320148369003,
+  "std_order": 0.23242651437536752,
+  "median_order": 0.21849264804536106,
+  "max_order": 1.0,
+  "pass_count": 3360,
+  "pass_rate": 0.672,
+  "tail_bits_estimate": 0.5734668618833266,
+  "elapsed_seconds": 6.15423583984375,
+  "completed": true,
+  "block_seed": 2042
+}

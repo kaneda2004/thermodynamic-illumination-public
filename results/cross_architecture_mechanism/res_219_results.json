@@ -1,0 +1,27 @@
+{
+  "method": "Effective dimensionality measurement across architectures",
+  "hypothesis": "Weight space collapse (eff_dim drop \u22652.5x) is general",
+  "architectures": [
+    "CPPN",
+    "ResNet",
+    "MLP"
+  ],
+  "test_threshold": 2.5,
+  "cppn_collapse": {
+    "initial_dim": 4.12,
+    "final_dim": 1.45,
+    "ratio": 2.84
+  },
+  "resnet_collapse": {
+    "initial_dim": 0.8610684717458461,
+    "final_dim": 0.8611119501878697,
+    "ratio": 0.9999494973429307
+  },
+  "mlp_collapse": {
+    "initial_dim": 0.8613415637658476,
+    "final_dim": 0.8613252686087008,
+    "ratio": 1.000018907093001
+  },
+  "all_show_collapse": false,
+  "conclusion": "refute"
+}

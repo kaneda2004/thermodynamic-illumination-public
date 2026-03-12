@@ -1,0 +1,51 @@
+{
+  "res_id": "RES-159",
+  "hypothesis": "Input-layer weight variance predicts output-layer weight variance in high-order CPPNs",
+  "status": "REFUTED",
+  "metrics": {
+    "input_output_correlation_all": {
+      "rho": 0.028,
+      "p_value": 0.5323
+    },
+    "input_output_correlation_high_order": {
+      "rho": 0.027,
+      "p_value": 0.6748
+    },
+    "input_output_correlation_low_order": {
+      "rho": -0.016,
+      "p_value": 0.8066
+    },
+    "correlation_difference_test": {
+      "z": 0.469,
+      "p_value": 0.6388,
+      "cohens_q": 0.042
+    },
+    "input_variance_vs_order": {
+      "rho": 0.030,
+      "p_value": 0.5053
+    },
+    "output_variance_vs_order": {
+      "rho": 0.203,
+      "p_value": 0.0000,
+      "effect_size_cohens_d": 0.308
+    },
+    "mean_weight_variances": {
+      "input_high_order": 0.9926,
+      "input_low_order": 0.9488,
+      "output_high_order": 0.8183,
+      "output_low_order": 0.6372
+    },
+    "cohens_d_variance_differences": {
+      "input_variance": 0.120,
+      "output_variance": 0.308
+    },
+    "hidden_output_correlation": {
+      "high_order": 0.008,
+      "low_order": 0.028
+    }
+  },
+  "summary": "Input-output weight variance shows NO correlation (r=0.028, p=0.53). No difference between high-order (r=0.027) and low-order (r=-0.016) CPPNs (q=0.042, p=0.64). However, output-layer variance alone correlates with order (r=0.203, p<0.0001, d=0.31) - high-order CPPNs have higher output weight variance. Weight groups are independent; the output layer effect aligns with RES-124 finding that gradient magnitude matters.",
+  "key_finding": 0.203,
+  "samples": 500,
+  "median_order": 0.2474
+}

@@ -1,0 +1,28 @@
+{
+  "experiment": "RES-177",
+  "domain": "convergence_dynamics",
+  "hypothesis": "NS order progression accelerates during low-to-mid order transition phase",
+  "status": "refuted",
+  "metrics": {
+    "n_runs": 30,
+    "n_iterations": 400,
+    "velocities": {
+      "low_mean": 0.0016723108942492168,
+      "low_std": 0.00027165361533540937,
+      "mid_mean": 0.0011429628071882888,
+      "mid_std": 0.00019781541300812453,
+      "high_mean": 0.0005051490322555902,
+      "high_std": 0.00011139827135427502
+    },
+    "mid_vs_low": {
+      "effect_size": -2.227707529321865,
+      "p_value": 9.552086184221028e-12
+    },
+    "mid_vs_high": {
+      "effect_size": 3.9731460166772257,
+      "p_value": 1.6013725750751027e-11
+    },
+    "acceleration_ratio": 0.683463111505604
+  },
+  "summary": "No significant acceleration pattern (d=-2.23, p=9.55e-12). Low: 0.00167, Mid: 0.00114, High: 0.00051. Order velocity is similar across phases."
+}

@@ -1,0 +1,16 @@
+{
+  "method": "Two-stage sampling with 4 exploration budgets",
+  "baseline_samples": 25470.0,
+  "baseline_samples_std": 8720.269491248537,
+  "stage1_50_total": 287.05,
+  "stage1_100_total": 280.0,
+  "stage1_150_total": 276.2,
+  "stage1_200_total": 299.8,
+  "best_speedup": 92.21578566256336,
+  "optimal_N": 150,
+  "speedup_threshold": 3.0,
+  "conclusion": "validate",
+  "status": "invalid",
+  "invalid_reason": "Sample counting bug (baseline multiplies by n_live) inflates sample counts and speedup; requires fix and rerun.",
+  "needs_rerun": true
+}

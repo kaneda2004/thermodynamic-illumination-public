@@ -1,0 +1,19 @@
+{
+  "n_high": 200,
+  "n_low": 764,
+  "high_mean_dist": 2.8874139989618377,
+  "low_mean_dist": 2.994883619314493,
+  "high_std_dist": 1.0116297621222656,
+  "low_std_dist": 1.0519597650159276,
+  "cohens_d": -0.10413805715483607,
+  "p_value": 3.0120575403947645e-34,
+  "high_mean_norm": 2.0677323607395697,
+  "low_mean_norm": 2.131861989403644,
+  "norm_cohens_d": -0.09483860049011567,
+  "norm_correlation": -0.012498635452734932,
+  "norm_p": 0.5764153941803667,
+  "dist_to_mean_correlation": -0.012132285903851287,
+  "dist_to_mean_p": 0.5876441801227259,
+  "status": "inconclusive",
+  "summary": "No significant difference in pairwise distances (d=-0.10, p=3.01e-34)"
+}

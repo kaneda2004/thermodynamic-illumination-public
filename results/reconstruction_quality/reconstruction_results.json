@@ -1,0 +1,74 @@
+{
+  "Global Pooling": {
+    "spearman_r": 0.3142857142857143,
+    "p_value": 0.5440932944606414,
+    "results": [
+      {
+        "name": "DeepCPPNFeatures",
+        "bits": 0.053334304358487995,
+        "mse": 0.06404896930325776
+      },
+      {
+        "name": "RandomCPPNFeatures",
+        "bits": 0.06737884944741497,
+        "mse": 0.06289043452125043
+      },
+      {
+        "name": "RandomConvFeatures",
+        "bits": 0.3626324981460242,
+        "mse": 0.061727795167826116
+      },
+      {
+        "name": "DeepConvFeatures",
+        "bits": 0.441425842318786,
+        "mse": 0.06675033248029649
+      },
+      {
+        "name": "RandomMLPFeatures",
+        "bits": 4.808476166325388,
+        "mse": 0.06174283742439002
+      },
+      {
+        "name": "RandomFourierFeatures",
+        "bits": 5.592964466745595,
+        "mse": 0.06803713249973953
+      }
+    ]
+  },
+  "Per-Pixel": {
+    "spearman_r": 0.942857142857143,
+    "p_value": 0.004804664723032055,
+    "results": [
+      {
+        "name": "DeepCPPNFeatures",
+        "bits": 0.053334304358487995,
+        "mse": 0.0012432548974175006
+      },
+      {
+        "name": "RandomCPPNFeatures",
+        "bits": 0.06737884944741497,
+        "mse": 0.001132534565840615
+      },
+      {
+        "name": "RandomConvFeatures",
+        "bits": 0.3626324981460242,
+        "mse": 0.002703414451389108
+      },
+      {
+        "name": "DeepConvFeatures",
+        "bits": 0.441425842318786,
+        "mse": 0.04467729211319238
+      },
+      {
+        "name": "RandomMLPFeatures",
+        "bits": 4.808476166325388,
+        "mse": 0.09351881104521453
+      },
+      {
+        "name": "RandomFourierFeatures",
+        "bits": 5.592964466745595,
+        "mse": 0.09571804758161306
+      }
+    ]
+  }
+}
